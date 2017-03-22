@@ -1,0 +1,1156 @@
+WEBVTT
+
+1
+00:00:00.550 --> 00:00:02.830
+So I'm gonna start with
+a little example dataset here.
+
+2
+00:00:02.830 --> 00:00:05.380
+This dataset comes with
+the ggplot2 package,
+
+3
+00:00:05.380 --> 00:00:09.597
+so you can always just load it up
+after you install the package.
+
+4
+00:00:09.597 --> 00:00:11.210
+And so this is the mpg dataset.
+
+5
+00:00:11.210 --> 00:00:16.230
+It looks at miles per gallon for
+a variety of different types of cars, and
+
+6
+00:00:16.230 --> 00:00:21.210
+you can see in this data set from the stir
+that I did, that there's 234 observations,
+
+7
+00:00:21.210 --> 00:00:23.650
+so there's 234 different types of cars.
+
+8
+00:00:23.650 --> 00:00:26.560
+And there are 11 variables
+that are measured.
+
+9
+00:00:26.560 --> 00:00:30.250
+In particular, I'm gonna be looking
+at the displacement variable,
+
+10
+00:00:30.250 --> 00:00:33.630
+which is an indicator of
+how large the engine is.
+
+11
+00:00:33.630 --> 00:00:35.452
+So this is the displ variable.
+
+12
+00:00:35.452 --> 00:00:41.280
+We're gonna be looking at
+the number of cylinders and
+
+13
+00:00:41.280 --> 00:00:44.890
+we're gonna look at the highway mileage,
+so the hwy variable, and
+
+14
+00:00:44.890 --> 00:00:48.470
+then we're gonna look at the drv variable
+which is what kind of drive it is,
+
+15
+00:00:48.470 --> 00:00:53.510
+is it a four-wheel drive,
+a front-wheel drive or a rear-wheel drive?
+
+16
+00:00:53.510 --> 00:00:56.080
+So notice how the factors here
+are labeled appropriately.
+
+17
+00:00:56.080 --> 00:00:59.920
+So, for example, the manufacturer variable
+
+18
+00:00:59.920 --> 00:01:03.440
+is labeled by the manufacturer of the car,
+Audi, Chevrolet, etc.
+
+19
+00:01:03.440 --> 00:01:07.140
+And then the drv variable, which indicates
+the type of the drive, is indicated with
+
+20
+00:01:07.140 --> 00:01:10.469
+a four for four-wheel drive, f for
+front-wheel, and r for rear-wheel.
+
+21
+00:01:12.050 --> 00:01:16.800
+So a very simple plot you can make,
+I call this the hello world for ggplot,
+
+22
+00:01:16.800 --> 00:01:19.058
+is to call the qplot function.
+
+23
+00:01:19.058 --> 00:01:22.260
+On the x-axis I have this displacement
+variable, which is the kind of engine size
+
+24
+00:01:22.260 --> 00:01:25.840
+variable, and then on the y-axis
+I got the highway mileage.
+
+25
+00:01:25.840 --> 00:01:29.310
+And you can see that I specify the data
+frame with the data argument, so
+
+26
+00:01:29.310 --> 00:01:33.380
+I say data equals mpg, so did the data
+comes from this mpg data frame?
+
+27
+00:01:33.380 --> 00:01:34.630
+And so that's very simple.
+
+28
+00:01:34.630 --> 00:01:38.770
+You can see that the plot that it makes
+looks very different from the traditional
+
+29
+00:01:38.770 --> 00:01:39.830
+base plot.
+
+30
+00:01:39.830 --> 00:01:44.570
+You see there's kind of a gray background,
+and there's white grid lines behind it.
+
+31
+00:01:44.570 --> 00:01:48.590
+The points are closed, solid circles,
+
+32
+00:01:48.590 --> 00:01:52.460
+rather than the typical open circles
+from the base plotting system.
+
+33
+00:01:52.460 --> 00:01:55.010
+And then there are labels on the x and
+the y axis.
+
+34
+00:01:57.550 --> 00:02:00.216
+One of the things we can do is
+modify some of the aesthetics.
+
+35
+00:02:00.216 --> 00:02:03.500
+So we can highlight different
+subgroups of the data.
+
+36
+00:02:03.500 --> 00:02:05.740
+So one of the subgroups
+can be determined by, so
+
+37
+00:02:05.740 --> 00:02:07.260
+there's lots of different cars here.
+
+38
+00:02:07.260 --> 00:02:10.170
+Some of them are front-wheel drive,
+some of them are rear-wheel drive, and
+
+39
+00:02:10.170 --> 00:02:11.120
+some of them are four-wheel drive.
+
+40
+00:02:11.120 --> 00:02:16.550
+So we can separate those observations out
+by looking at the drv, the drive variable.
+
+41
+00:02:16.550 --> 00:02:20.610
+And so I've specified the x and
+y coordinates just like before.
+
+42
+00:02:20.610 --> 00:02:22.910
+I specified the data
+frame just like before.
+
+43
+00:02:22.910 --> 00:02:25.070
+And then another argument I
+have is the color variable.
+
+44
+00:02:25.070 --> 00:02:29.800
+And I'm gonna say that the color is
+mapped to this drive variable, drv.
+
+45
+00:02:29.800 --> 00:02:34.200
+And all that says is that the different
+levels of the drive variable
+
+46
+00:02:34.200 --> 00:02:35.970
+will be each assigned a different color.
+
+47
+00:02:35.970 --> 00:02:37.860
+And notice I don't specify
+what those colors are,
+
+48
+00:02:37.860 --> 00:02:39.630
+they're specified automatically.
+
+49
+00:02:39.630 --> 00:02:44.951
+So you can see on this new plot here that
+the front-wheel drive cars are in green,
+
+50
+00:02:44.951 --> 00:02:50.440
+the rear-wheel drive cars are in blue,
+and the four-wheel drive cars are in red.
+
+51
+00:02:50.440 --> 00:02:53.870
+And so you can see that most of
+the front-wheel drives tend to have
+
+52
+00:02:53.870 --> 00:02:58.480
+the highest mileage, the four-wheel drive
+tends to have the lowest mileage, and
+
+53
+00:02:58.480 --> 00:03:00.970
+the rear-wheel drive is
+something in the middle.
+
+54
+00:03:00.970 --> 00:03:04.950
+And I noticed that the legend was
+placed on the plot automatically and
+
+55
+00:03:04.950 --> 00:03:08.040
+the color coding the different
+levels of the factor variable.
+
+56
+00:03:08.040 --> 00:03:09.800
+I didn't have to do anything special.
+
+57
+00:03:09.800 --> 00:03:12.430
+And so it's very nicely organized and
+thought out, and
+
+58
+00:03:12.430 --> 00:03:13.600
+you don't have to do anything.
+
+59
+00:03:13.600 --> 00:03:14.740
+Everything is done automatically.
+
+60
+00:03:17.000 --> 00:03:20.100
+Another thing that you sometimes
+want to add is a statistic.
+
+61
+00:03:20.100 --> 00:03:23.168
+So a statistic is just
+some summary of the data.
+
+62
+00:03:23.168 --> 00:03:26.930
+And so the summary that we've chosen
+to add here is is a kind of smoother or
+
+63
+00:03:26.930 --> 00:03:30.723
+the more technical name is called low S,
+and it smooths the data.
+
+64
+00:03:30.723 --> 00:03:34.230
+So you can see the overall
+trend in the data set,
+
+65
+00:03:34.230 --> 00:03:37.410
+and you can see that I do this
+by adding the geom argument,
+
+66
+00:03:37.410 --> 00:03:40.710
+and the geoms that I wanna put on
+this plot are these two types.
+
+67
+00:03:40.710 --> 00:03:43.760
+One is I wanna add the points themselves,
+so I can see the data,
+
+68
+00:03:43.760 --> 00:03:46.180
+and then I wanna add a smooth geom.
+
+69
+00:03:46.180 --> 00:03:49.920
+And the smooth is this blue
+line that goes across, and
+
+70
+00:03:49.920 --> 00:03:55.330
+the 95% confidence intervals for
+that line are indicated by the gray zone.
+
+71
+00:03:58.770 --> 00:04:00.920
+You can make a Histogram
+with the qplot function,
+
+72
+00:04:00.920 --> 00:04:02.480
+by only specifying a single variable.
+
+73
+00:04:02.480 --> 00:04:05.170
+So here I only specify
+the highway variable.
+
+74
+00:04:05.170 --> 00:04:09.000
+And it shows me the highway mileage for
+all the cars in the data set.
+
+75
+00:04:09.000 --> 00:04:13.760
+But then again,
+I like to kind of separate out
+
+76
+00:04:13.760 --> 00:04:17.170
+which cars are four-wheel drive,
+which cars are front-wheel drive, etc.
+
+77
+00:04:17.170 --> 00:04:18.440
+So again, I specify it.
+
+78
+00:04:18.440 --> 00:04:21.110
+Instead of the color argument,
+I specify the fill argument.
+
+79
+00:04:21.110 --> 00:04:26.080
+Which says the different elements of
+the Histograms are gonna be filled
+
+80
+00:04:26.080 --> 00:04:29.510
+with different colors,
+based on what drive they are.
+
+81
+00:04:29.510 --> 00:04:32.440
+So, here you can see a similar
+picture that you saw before,
+
+82
+00:04:32.440 --> 00:04:35.600
+which is that the four-wheel drive
+vehicles tend to have the lowest mileage.
+
+83
+00:04:35.600 --> 00:04:38.343
+And the four-wheel drive tend
+to have the highest mileage.
+
+84
+00:04:41.036 --> 00:04:44.296
+Another feature of ggplot
+is called facets, and
+
+85
+00:04:44.296 --> 00:04:46.690
+facets are like panels in lattice.
+
+86
+00:04:46.690 --> 00:04:50.290
+The idea is that you can
+create separate plots,
+
+87
+00:04:50.290 --> 00:04:54.600
+which indicate, again, subsets of your
+data indicated by a factor variable.
+
+88
+00:04:54.600 --> 00:04:57.840
+And you can make a panel of plots to
+look at separate subsets together.
+
+89
+00:04:57.840 --> 00:05:02.470
+So, one option to be to color code
+the subsets according to different colors,
+
+90
+00:05:02.470 --> 00:05:03.590
+like we did before.
+
+91
+00:05:03.590 --> 00:05:06.814
+But if you have a lot of data points,
+that can be tricky to look at, and then
+
+92
+00:05:06.814 --> 00:05:10.311
+all of the colors might overlap and it
+may difficult to see the separate groups.
+
+93
+00:05:10.311 --> 00:05:12.095
+So an easier way to do that is to say,
+
+94
+00:05:12.095 --> 00:05:16.089
+split out the three groups into separate
+panels and make three separate plots.
+
+95
+00:05:16.089 --> 00:05:17.120
+So that is what we've done here.
+
+96
+00:05:17.120 --> 00:05:21.250
+On the left side here,
+I've got three different scatter plots of
+
+97
+00:05:21.250 --> 00:05:24.480
+the displacement versus
+the highway mileage, and then
+
+98
+00:05:24.480 --> 00:05:28.820
+I've split it out by the different drives,
+so four-wheel drive, front, and rear.
+
+99
+00:05:28.820 --> 00:05:31.910
+And so you can see the relationship for
+these three sub groups, and it's just
+
+100
+00:05:31.910 --> 00:05:35.610
+a different way to look at the data rather
+than, say, color coding the three groups.
+
+101
+00:05:35.610 --> 00:05:37.650
+And I specify this with
+the facets variable.
+
+102
+00:05:40.790 --> 00:05:44.460
+The fastest variable takes
+a format that's basically
+
+103
+00:05:44.460 --> 00:05:47.680
+a variable on the left-hand side and
+a variable on the right-hand side.
+
+104
+00:05:47.680 --> 00:05:49.760
+And they're separated by a tilde.
+
+105
+00:05:49.760 --> 00:05:52.120
+And so
+the variable on the right-hand side,
+
+106
+00:05:52.120 --> 00:05:54.820
+determines the columns of the panels.
+
+107
+00:05:54.820 --> 00:05:58.030
+And the variable on the left-hand side
+indicates the rows of this kind of
+
+108
+00:05:58.030 --> 00:05:59.170
+matrix here.
+
+109
+00:05:59.170 --> 00:06:02.530
+Now notice that in the left plot,
+which is outlined by the red box,
+
+110
+00:06:02.530 --> 00:06:03.800
+there's only one row.
+
+111
+00:06:03.800 --> 00:06:04.470
+And so,
+
+112
+00:06:04.470 --> 00:06:08.240
+there's no variable that indicates how
+many rows there should be in this plot.
+
+113
+00:06:08.240 --> 00:06:12.460
+And so that's why in the facets argument,
+I have a dot on the left-hand side.
+
+114
+00:06:12.460 --> 00:06:15.619
+On the right-hand side,
+I've got the drv variable,
+
+115
+00:06:15.619 --> 00:06:17.686
+which indicates how many columns.
+
+116
+00:06:17.686 --> 00:06:20.851
+And now, because there are three
+levels to this drv variable,
+
+117
+00:06:20.851 --> 00:06:22.593
+there are gonna be three columns.
+
+118
+00:06:22.593 --> 00:06:24.137
+And so, since there's only one row,
+
+119
+00:06:24.137 --> 00:06:26.270
+there's gonna be three plots
+all in a row like that.
+
+120
+00:06:27.608 --> 00:06:30.400
+On the right-hand side in this plot
+that's outlined with the blue box,
+
+121
+00:06:30.400 --> 00:06:31.960
+I've got three histograms.
+
+122
+00:06:31.960 --> 00:06:34.940
+And notice that I've put the drv
+variable on the left-hand
+
+123
+00:06:34.940 --> 00:06:38.850
+side of the facets argument now, so
+that indicates I want three separate rows.
+
+124
+00:06:38.850 --> 00:06:42.640
+Because there's nothing on the right-hand
+side of the tilde, I have no columns, so
+
+125
+00:06:42.640 --> 00:06:43.710
+I just have the one column.
+
+126
+00:06:43.710 --> 00:06:46.920
+No extra columns, I just have
+the one column for the three plots.
+
+127
+00:06:46.920 --> 00:06:48.560
+And now I've got the three histograms.
+
+128
+00:06:48.560 --> 00:06:52.186
+You can look at the highway mileage
+divided up by the three groups.
+
+129
+00:06:55.619 --> 00:06:59.084
+So, that's a quick example
+using the Q plot function,
+
+130
+00:06:59.084 --> 00:07:01.910
+using some of the data
+in the ggplot package.
+
+131
+00:07:01.910 --> 00:07:05.920
+I want to go through a slightly
+more involved example,
+
+132
+00:07:05.920 --> 00:07:08.510
+using the data set that comes from here,
+from Johns Hopkins.
+
+133
+00:07:08.510 --> 00:07:12.900
+So this comes from the Mouse Allergen and
+Asthma Cohort Study, which is a study
+
+134
+00:07:12.900 --> 00:07:16.220
+conducted here at Johns Hopkins of
+Baltimore children, aged five to 17.
+
+135
+00:07:16.220 --> 00:07:22.460
+These children all had persistent asthma,
+with an exacerbation in the past year.
+
+136
+00:07:22.460 --> 00:07:27.090
+And the overall goal of the study was to
+study the indoor environment, so the home
+
+137
+00:07:27.090 --> 00:07:31.050
+environment of these children, and
+its relationship with asthma morbidity.
+
+138
+00:07:31.050 --> 00:07:34.059
+So if you're interested in seeing
+what a little bit of this was about,
+
+139
+00:07:34.059 --> 00:07:36.357
+we have a recent publication and
+I give the link here.
+
+140
+00:07:38.186 --> 00:07:40.260
+So here's a little bit of the MAACS data.
+
+141
+00:07:40.260 --> 00:07:43.850
+You can see that obviously
+there are 750 observations and
+
+142
+00:07:43.850 --> 00:07:47.430
+I just put five variables here for
+the sake of demonstration.
+
+143
+00:07:47.430 --> 00:07:49.390
+One is the id variable.
+
+144
+00:07:49.390 --> 00:07:51.870
+The second one is the eNO.
+
+145
+00:07:51.870 --> 00:07:56.340
+So, exhaled nitric oxide is
+a measurement that we take.
+
+146
+00:07:56.340 --> 00:07:59.410
+Roughly it corresponds to a level
+of pulmonary inflammation, so
+
+147
+00:07:59.410 --> 00:08:03.580
+a large value of eNO indicates
+some pulmonary inflammation.
+
+148
+00:08:03.580 --> 00:08:06.370
+The secondary variable here that I want
+to highlight is fine particulate matter.
+
+149
+00:08:06.370 --> 00:08:11.570
+So this is dust that is less
+than 2.5 microns in diameter.
+
+150
+00:08:11.570 --> 00:08:13.530
+So it's very fine dust.
+
+151
+00:08:13.530 --> 00:08:18.680
+And the last variable I want to point out
+here is these mouse positive variables.
+
+152
+00:08:18.680 --> 00:08:21.757
+So this is a skin test
+that the children do,
+
+153
+00:08:21.757 --> 00:08:26.632
+which tells us whether they're
+allergic to mouse allergen or not.
+
+154
+00:08:28.695 --> 00:08:33.010
+So, here's a basic histogram
+of exhaled nitric oxide.
+
+155
+00:08:33.010 --> 00:08:35.080
+So this is the log of
+exhaled nitric oxide.
+
+156
+00:08:35.080 --> 00:08:38.195
+And you can see it has kind
+of an interesting shape.
+
+157
+00:08:38.195 --> 00:08:40.710
+It looks like there's two peaks or
+maybe even three peaks there,
+
+158
+00:08:40.710 --> 00:08:43.220
+as you go across the histogram.
+
+159
+00:08:43.220 --> 00:08:45.960
+At the bottom of the plot here, I've
+got the code that makes this histogram,
+
+160
+00:08:45.960 --> 00:08:47.670
+in case you're wondering how you make it.
+
+161
+00:08:47.670 --> 00:08:51.670
+And so I use the key plot
+function to make the histogram.
+
+162
+00:08:51.670 --> 00:08:55.960
+So now I've made another histogram, but
+I've color coded the different groups, and
+
+163
+00:08:55.960 --> 00:08:58.590
+the groups are determined by
+this mouse positive variable.
+
+164
+00:08:58.590 --> 00:09:03.640
+So I've separated out the people who are
+kind of sensitized to mouse allergen and
+
+165
+00:09:03.640 --> 00:09:05.900
+the people who are not sensitized.
+
+166
+00:09:05.900 --> 00:09:11.440
+So you can think of the children that
+are sensitized to mouse allergen are more
+
+167
+00:09:11.440 --> 00:09:16.662
+allergic and they may be more sensitive
+to a variety of environmental triggers.
+
+168
+00:09:16.662 --> 00:09:18.980
+And so
+you can see that roughly from the data,
+
+169
+00:09:18.980 --> 00:09:24.460
+the blue bars are slightly higher and
+the red bars tend to be slightly lower.
+
+170
+00:09:24.460 --> 00:09:28.798
+So that suggests that the children
+there are mouse positive have
+
+171
+00:09:28.798 --> 00:09:32.500
+slightly higher pulmonary
+inflammation on average.
+
+172
+00:09:34.290 --> 00:09:37.260
+Another way to visualize this
+data is to do a density smooth.
+
+173
+00:09:37.260 --> 00:09:39.520
+So you can see that on the left-hand side,
+
+174
+00:09:39.520 --> 00:09:44.360
+I add the geom density to
+this log(eno) variable.
+
+175
+00:09:44.360 --> 00:09:48.140
+You can see there are at least two
+peaks from the density smooth, and
+
+176
+00:09:48.140 --> 00:09:51.640
+if you separate those peaks out,
+on the right-hand side,
+
+177
+00:09:51.640 --> 00:09:54.660
+notice I say color equals mopos.
+
+178
+00:09:54.660 --> 00:09:58.790
+So I split out the colors by whether
+they're positive to mouse allergen or not.
+
+179
+00:09:58.790 --> 00:10:02.910
+And you can see that the two peaks roughly
+correspond to whether they're allergic to
+
+180
+00:10:02.910 --> 00:10:03.970
+mouse allergen or not.
+
+181
+00:10:03.970 --> 00:10:08.034
+And so, this is a nice way to visualize
+this kind of one-dimensional data.
+
+182
+00:10:10.340 --> 00:10:12.993
+Now, if we want to look
+at some scatter plots,
+
+183
+00:10:12.993 --> 00:10:17.077
+I want to see whether exhaled nitric
+oxide is related to the level of fine
+
+184
+00:10:17.077 --> 00:10:21.285
+particulate matter in the home, and
+so I'm gonna look at PM2.5 eNO.
+
+185
+00:10:21.285 --> 00:10:26.188
+On the very left most side here, I just
+make a simple scatter plot of log(eno) and
+
+186
+00:10:26.188 --> 00:10:30.620
+then log(pm25), and
+it's a little difficult to see exactly
+
+187
+00:10:30.620 --> 00:10:34.580
+what the relationship might be,
+but we'll go piece by piece here.
+
+188
+00:10:34.580 --> 00:10:37.820
+In the middle plot here,
+I've made the same scatter plot, but
+
+189
+00:10:37.820 --> 00:10:42.100
+I've separated the two groups, or
+the mouse positive and the mouse, so
+
+190
+00:10:42.100 --> 00:10:47.200
+the non-allergic and the allergic children
+are separated by different shapes.
+
+191
+00:10:47.200 --> 00:10:50.100
+So here I specified the shape argument,
+and
+
+192
+00:10:50.100 --> 00:10:53.300
+I assigned the shape to be
+this mouse positive variable.
+
+193
+00:10:53.300 --> 00:10:56.030
+Now, it's not really easy to see,
+the two groups here.
+
+194
+00:10:56.030 --> 00:10:59.690
+So there's one ground that's triangles and
+another group that's circles, and
+
+195
+00:10:59.690 --> 00:11:02.710
+because of the overlapping of the points,
+it's a little hard to see.
+
+196
+00:11:02.710 --> 00:11:06.505
+So in the right-hand side here, instead
+of separating the two groups by shapes,
+
+197
+00:11:06.505 --> 00:11:07.935
+I separated them by color, and
+
+198
+00:11:07.935 --> 00:11:11.353
+it's a little bit easier to see the two
+different groups in this plot now.
+
+199
+00:11:13.857 --> 00:11:19.015
+One of the things you can do is to smooth
+the relationship between a log PM2.5 and
+
+200
+00:11:19.015 --> 00:11:19.836
+log eNO, and
+
+201
+00:11:19.836 --> 00:11:24.330
+I wanna look at how this relationship
+is different in the two groups.
+
+202
+00:11:24.330 --> 00:11:28.650
+So I set the geom to be a point and
+a smooth, and
+
+203
+00:11:28.650 --> 00:11:32.920
+rather than use low S, I'm just gonna
+use a standard linear regression model.
+
+204
+00:11:32.920 --> 00:11:34.820
+So I say method equals LM.
+
+205
+00:11:34.820 --> 00:11:40.346
+And that way I can look at the linear
+relationship between PM2.5 and
+
+206
+00:11:40.346 --> 00:11:43.010
+eNO by whether they
+are allergic to mouse or not.
+
+207
+00:11:43.010 --> 00:11:47.840
+And you can see that, roughly speaking,
+in the non-allergic children, so
+
+208
+00:11:47.840 --> 00:11:50.160
+amongst the red dots here.
+
+209
+00:11:50.160 --> 00:11:52.000
+There's a little bit of
+a negative relationship but
+
+210
+00:11:52.000 --> 00:11:56.740
+it's not particularly strong, if you
+factor in the confidence intervals there.
+
+211
+00:11:56.740 --> 00:11:59.052
+And then within the allergic children,
+
+212
+00:11:59.052 --> 00:12:03.209
+there appears to be an increasing
+relationship between PM2.5 and eNO
+
+213
+00:12:09.290 --> 00:12:15.700
+So, another way to look at the same
+data is to split it out with facets.
+
+214
+00:12:15.700 --> 00:12:19.940
+So rather than overlapping the two groups
+and then color-coding them separately,
+
+215
+00:12:19.940 --> 00:12:25.360
+I can just split them out into two
+plots using the facets argument.
+
+216
+00:12:25.360 --> 00:12:27.600
+So here I specify the facets argument and
+
+217
+00:12:27.600 --> 00:12:31.610
+I say I want two columns,
+designated by the mouse positive variable.
+
+218
+00:12:31.610 --> 00:12:34.150
+So no and yes, and so
+it'll be two columns.
+
+219
+00:12:34.150 --> 00:12:37.006
+And then I smooth the relationship
+within each panel,
+
+220
+00:12:37.006 --> 00:12:42.000
+and you can see that again it's the same
+story amongst the mouse negative children,
+
+221
+00:12:42.000 --> 00:12:44.240
+there's a small decreasing relationship.
+
+222
+00:12:44.240 --> 00:12:48.830
+And amongst the mouse positive children,
+there's a slight increasing relationship.
+
+223
+00:12:51.905 --> 00:12:56.955
+So the qplot function is a simple function
+that you can use to make very quick plots.
+
+224
+00:12:56.955 --> 00:12:59.745
+And it's analogous to the plot function,
+so you specify x, y,
+
+225
+00:12:59.745 --> 00:13:03.422
+you specify your data, and then there's
+a variety of options that you can choose.
+
+226
+00:13:03.422 --> 00:13:04.932
+There are a lot of nice built-in features,
+
+227
+00:13:04.932 --> 00:13:07.872
+so if you wanna color code subsets
+of the data, it's very easy to do.
+
+228
+00:13:07.872 --> 00:13:09.842
+If you wanna split out different panels,
+
+229
+00:13:09.842 --> 00:13:12.552
+that's also very easy
+to do with the facets.
+
+230
+00:13:12.552 --> 00:13:15.410
+You can choose different plotting
+symbols with the shape argument.
+
+231
+00:13:15.410 --> 00:13:18.590
+And so, it has a lot of nice things
+that you can do very quickly,
+
+232
+00:13:18.590 --> 00:13:20.700
+but they are still very powerful.
+
+233
+00:13:20.700 --> 00:13:23.850
+The syntax of of the function is somewhere
+in between kind of the base plotting and
+
+234
+00:13:23.850 --> 00:13:25.710
+the lattice package.
+
+235
+00:13:25.710 --> 00:13:28.778
+I think the graphics that
+are produced are very nice,
+
+236
+00:13:28.778 --> 00:13:30.625
+if you like that type of design.
+
+237
+00:13:30.625 --> 00:13:33.430
+But if you don't,
+if there are features you don't like, or
+
+238
+00:13:33.430 --> 00:13:36.090
+you don't like the design of
+this particular function.
+
+239
+00:13:36.090 --> 00:13:39.730
+It's a little bit tricky to kind of modify
+the qplot function to suit your needs.
+
+240
+00:13:39.730 --> 00:13:44.690
+If you wanna do a lower level
+customization of different aspects
+
+241
+00:13:44.690 --> 00:13:49.220
+of the plot, you really have to go into
+the guts of the ggplot function, and
+
+242
+00:13:49.220 --> 00:13:51.170
+that's something that I'll talk
+about in the next lecture.

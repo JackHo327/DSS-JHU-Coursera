@@ -1,0 +1,116 @@
+This lecture's going to be about literate
+statistical programming. In the lecture about reproducible
+research, I talked about the basic ideas of what it means for an analysis to
+be reproducible. But now I'm going to talk about one of the
+tools that you can use to actually make your analysis reproducible by others, or
+at least help other peoples to kind of reproduce
+your analysis. And one of the ways that we talked about making reproducible documents was to put
+this literate statistical programming, literate statistical
+programming concept, or just literate programming. And so the basic idea is that, you know,
+authors have to undertake a lot of effort to put data and
+results on the web. And even when they put that stuff on the
+web, they, they're all kind of separate. The data's over here, the code is over
+here, and you kind of have to figure out well, which code goes
+with whi, which data and how do you, wha, how do you escape
+this code and do you load this first, do you do this
+first, and so, there can be a lot of confusion even when
+everything is just available. And, and so. One of the ways you can simply that
+process is to put the data, and the code together in the
+same document so to speak so that people can execute the
+code in the right order, and the data are read at
+the right times. So you can have a single document that
+integrates the data analysis with all the textural representations so the words
+that you use to describe was going on. And so you don't have that everything kind of separate pieces but everything's kind
+of linked together. So, the, the, the original idea of how
+literate program comes from Don Knuth. He was a computer scientist at Stanford
+and his original system was for writing just
+regular computer programs and, and documenting the
+computer code at the same time as writing the code. So the basic idea translates over to a
+literate statistical program where you want to document your
+analysis and similarly have the code for your analysis in the
+same document. And so the ideas and article's a string of
+text and code and analysis code is divided into
+text and code chunks. And so the presentation code formats the
+tables, formats figures, things like that. There's article text that talks about
+what's going on. And then these literate programs, there's
+two concepts, you can weave them into readable, human readable
+documents, and you can tangle them to produce machine readable documents or just
+code files. So, literate programming, as I said
+before, is a general concept. You need a documentation language and a
+programming language. So the original Sweave system that I
+talked about before, written by Fritz Leisch, used LaTeX as the documentation language and R as the programming
+language. So on this lecture I'm going to talk about knitr, which supports a variety of
+documentation and programming languages. And so the first thing you want to start
+with, so the basic question is, how do I make my
+work reproducible? And the basic answer to that is that you
+have to decide to do it, okay. And you can decide to do this at any point
+in your, in your analysis, but it's usually easiest to
+do it at the very beginning. If you decide at the very end that you
+want to make your analysis reproducible, then it often is
+much harder to do and maybe even impossible. And, and so we want to keep track of
+things as you go along. You can use a version control system like
+Get of SVN. I won't talk about that here but if you've heard about that that is a good thing to
+learn. It's important to use software,
+statistical software, whose operation can be coded. So the idea is that you can write down the instructions that were used to manipulate
+or analyze the data. So this generally rules out graphical user interfaces unless those
+programs will code or keep track of all the clicks that you make on the
+graphical user interface. Systems like R and other types of packages, because you have to program them
+explicitly. The code, as long as you save the code,
+will be, will kind of, will have everything that you, will store
+everything that you did to the data. Another key lesson is to not save any
+output. And by output, I mean mostly kind of temporary data
+transformation types of [UNKNOWN]. So if you pre-process the data, and have a
+kind of clean data set. Rather than store the clean data set, it
+might be better just to have the kind of raw data set with the
+preprocessing code. because then you, you not only do you
+have, can you make the final product, but you can see
+how you got there. If you just keep the clean data set, and,
+and then you accidentally lose the preprocessing code, then you
+don't really have a good record of how you got from A to B. And so try to keep, rather than keeping
+the temporary products or even final products, try to keep the original
+products and the code that got you there. And that will make it easier to understand
+what you did and how you got to the data that you ended
+up analyzing. So not saving up is I think a key element
+of reproducibility. And try not to save data in
+non-proprietary formats. These are data formats that are not where
+the, where the lay out of the data set is not publicly known. There are not too many proprietary formats
+out there any more that I think are commonly used like
+they were before. But a lot of them, for example, products
+will store data and because it's just much more
+efficient. In a proprietary format, but then that
+makes it difficult to transfer to another person if that person doesn't
+have the same exact program. Then they won't be able to read the data. And so using non-proprietary, even textual formats may be compressed can
+be much better at, at making, much much, can make your re, research a
+little bit, or analysis more reproducible. than, proprietary formats. So there are a couple of pros and cons
+when it comes to the literate programming
+style, this is not the only talk you can use to make your
+work reproducible, but literate programming is
+just one of the tools. And so, some of the pros of that; it
+forces you to put all the text and the code of
+your analysis in one place, so it occurs in a
+logical order. All the data and the results are
+automatically updated to reflect external changes, so if you, kind
+of, so you have this live document, and you make some
+changes, when you reprocess the document, it will automatically update
+itself to reflect any changes. So you don't have, you don't have a
+situation where numbers will be out of date or things will
+be mismatch, mismatched. Because the code will kind of
+automatically recalculate everything. Because the code is live in the document,
+a necessity you have to run the code in order to produce
+the final document. That's the weeding process. You get this kind of regression test so to
+speak, not like linear regression, but regression test to see so if there are any mistakes that you introduced into the
+analysis. If the code doesn't run then you know
+you've made, you've made an error, you've introduced a problem
+so the, so the running of the live code will kind of keep you from introducing new errors into the
+analysis. Some of the cons when it comes to literate
+programming are that of course the text and the code
+are all in one place so in particular if you
+have a lot of code or a very complex lengthy
+analysis. Then you're like a human readable text is
+going to be mixed in with all this code and it can make it difficult to edit the document because you have to
+somehow search through all the, this whole document to
+figure out where the text is amongst all the
+code. So that can be a problem for the author. Also, if your analysis is very complicated
+and you have to re-process this document every time you see a human
+readable version of it. It can, it can a bit substantially slow down the process by which you build the
+document.

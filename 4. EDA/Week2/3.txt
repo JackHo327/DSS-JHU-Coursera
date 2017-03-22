@@ -1,0 +1,109 @@
+This lecture's going to be about R
+markdown. It's going to be a very short and just
+description of what this is, because I talk about it in a little bit more detail
+when I talk about reproducible research. So the basic idea behind R markdown is
+that you want to have R code integrated with a simple language that can
+be used to kind of create documents. And so the coupling is going to be the R
+language with the markdown language. So, first of all, what is markdown? So markdown is a very simple kind of
+markup language, kind of play, a play on the word markup
+language. And the idea is that the, the mark,
+markdown is designed to help you focus on actually
+writing things, right. So when you think about it, if you're
+experienced with languages like HTML or La Tec, or, or some of these other, or XML,
+or some of these other things. you know, one of the things that you
+notice that you spend a lot of time thinking
+about the formatting, and, and thinking about
+everything else except the actual content that you're
+trying to produce. And so the basic philosophy behind
+markdown is say, is to create a language that allows writers to,
+to do writing basically. Right? And so if you look at markdown it looks
+very different from other types of, of kind of markup languages like
+XML or HTML or LATEC. And so there are just very simple, very minimal, kind of intuitive formatting
+elements things like boldface and, and and sections and
+lists. And so be kinds of things that you would
+typically need in a basic document but not the very fancy
+things that you might have. But one of advantages of markdown is that it, you can insert kind of arbitrary HTML
+elements. So if you are familiar with HTML and you
+want something that's specific or particular, and there isn't a basic
+markdown formatting element for it, you can just put some HTML in, in the worst-case
+scenario. So one of the nice things about markdown
+is, it's easily converted into HTML. There are tool chains out there that'll
+take markdown, and in fact convert it into many different formats,
+HTML just being one of them. So you can let a lot of information at the website of, of John Gruber, where he has a
+lot of documentation for markdown, and a
+little bit of background on kind of how, how this, how this project
+evolved. So, that was markdown.
+What is R markdown? So R markdown is basically the coupling of
+R code in a markdown document. So, the idea is that if you want to embed
+R code, in a document that's written in
+markdown, you use R markdown. And the, the basic idea is that this, it's
+going to look a lot like a standard R mark, I'm sorry, a
+standard markdown document. But there's going to be R code sprinkled in, in, in
+what are called code chunks. And the code chunks'll be denoted by a
+special formatting tags, which I'll show you in a little, in
+a minute. So when you integrate R code with markdown
+that's an R markdown document, typically has the r m
+d extension. And so the nice thing about using R
+markdown is it allows you to insert essentially live R
+code into a markdown document. So when you process the markdown document to create your HTML or your PDF ultimate
+you know, format, um,you can evaluate the r code in as part of the
+processing for markdown. And so, so you know that the code in the
+document if you're trying to demonstrate a tool, or you're trying, you know maybe
+show some data or whatever it would be. You know, that the code works in the
+document because in order for a document to be produced in the
+first place the code had to be executed and evaluated and
+run. And so everything in the document, any
+code that you see in a document, you know will work. Because it had to, it had to work to
+create the document. So that's one nice thing about being able
+to embed live R code in a document is that you can ensure a, a, some, a
+certain level of validity of the R code. So the basic idea is the, you know, you
+evaluate R code it, the, the results of the R code is, is
+inserted into the markdown document. And mark, R markdown is a core tool in what's known as literate
+statistical programming. And we'll talk about that a little, much more when we talk about reproducible
+research. But for now, it's important just to think
+of R markdown as a way to put R code in a
+document. So you can evaluate R markdown documents
+using the knitr package in R. So the knitr has a, knitr essentially
+reads an R markdown file, evaluates all the R code in it, it kind of
+sticks in the results of the R code, and then writes
+out a Markdown file. Now, that Markdown file can be converted
+into HTML using the markdown package in R. And so there's a bit, so there's a kind of
+extra step of the pipeline here. If you were just going to write markdown
+you could just convert that to HTML right away, but if
+you're going to write R markdown, then you need to use
+something like knitr, to kind of evaluate the R code,
+create the markdown document, and then, bring it to an HTML file. So the knitr package and the mark down
+package are, are important for this. Any basic text editor can be used to create a markdown document, or R markdown
+document. That's one of the nice features of this
+type of markup language is that you don't need any fancy
+editors to visualize what you're trying write, you can just use any
+old text editor and it will be fine; you don't need any
+special editing tools. So the, the basic workflow that you're
+going to use if you write in R markdown is, R, you write in
+an, you kind, your basic, your core document is an R
+markdown file, so it has markdown formatting elements and it
+has R code in it. Then you convert that into a markdown file
+using the knitr package, and then you take that markdown file,
+which is essentially an intermediate file that you're, you're not going to edit this
+file, and you would take that markdown file, and you convert it to
+HTML using the markdown package. And then HTML is kind of what you would
+view in your browser or other viewer. So the, the, now, the key elements of all
+this is that you don't, you never edit the intermediate or final products, so you
+never edit the markdown file and you never edit the HTML
+file. The only file that you're ever going to
+edit is the R markdown file which has the kind of original R code
+and original markdown in it. The whole workflow is very easily managed,
+if you're using something like R Studio. R Studio has knitr and markdown integrated
+into it and furthermore even has a little web browser built in so
+you can actually view the final product, if you're using R
+Studio, and I'll show a little demonstration of how to do
+that in R Studio. and, and just as one very quick example,
+the slides that you're looking at right now they were
+written in R markdown. Of course, there's no R code in here, so
+it's, it's more or less just plain markdown, but I built these slides using the slidify package which calls
+knitr and the markdown packages, to convert them
+into HTML. So you can, there's a lot of flexibility
+when you're using a format formatting language
+like R markdown or just markdown and you can, because you
+can convert them to a lot of different other
+presentation styles.
