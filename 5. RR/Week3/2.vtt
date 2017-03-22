@@ -1,0 +1,310 @@
+WEBVTT
+
+1
+00:00:00.025 --> 00:00:04.337
+[BLANK_AUDIO]
+
+2
+00:00:04.337 --> 00:00:07.821
+One of the nice things about using R
+Markdown knitr and R Studio
+
+3
+00:00:07.821 --> 00:00:12.229
+together is is a little service that R
+Studio provides called R Pubs.
+
+4
+00:00:12.229 --> 00:00:15.000
+So I thought I'd bring that up, just to
+show you kind of how it works, here.
+
+5
+00:00:15.000 --> 00:00:16.765
+So we go to rpubs.com.
+
+6
+00:00:18.250 --> 00:00:20.610
+You can see that this website is brought
+to you by R
+
+7
+00:00:20.610 --> 00:00:23.750
+studio, and you need to you need to create
+an account on here.
+
+8
+00:00:23.750 --> 00:00:26.070
+So the basic idea is that once you've
+created
+
+9
+00:00:26.070 --> 00:00:30.020
+an account you can publish, mark down, or
+knitr documents
+
+10
+00:00:30.020 --> 00:00:32.060
+to the website that can be used to share
+with
+
+11
+00:00:32.060 --> 00:00:35.040
+people, share with other people and share
+with the public.
+
+12
+00:00:35.040 --> 00:00:37.090
+So the first thing you need to do is
+register for an account, so
+
+13
+00:00:37.090 --> 00:00:40.600
+you can just enter your name, and your
+email, and your username and a password.
+
+14
+00:00:40.600 --> 00:00:45.040
+Once you've got your account, then you can
+start publishing things to RPubs.
+
+15
+00:00:45.040 --> 00:00:47.070
+So, I'm going to sign in here.
+
+16
+00:00:47.070 --> 00:00:52.060
+I've already got an account, and so, and
+then you can go to my, I can
+
+17
+00:00:52.060 --> 00:00:53.740
+go to my account page, look at my
+
+18
+00:00:53.740 --> 00:00:56.330
+profile and see, I haven't really
+published anything.
+
+19
+00:00:56.330 --> 00:00:59.670
+And so why don't we, try to publish
+something here.
+
+20
+00:00:59.670 --> 00:01:01.660
+So let me put this away.
+
+21
+00:01:01.660 --> 00:01:03.959
+I'll start up R studio.
+
+22
+00:01:03.959 --> 00:01:07.270
+And as R studio starts up here you can see
+I've
+
+23
+00:01:07.270 --> 00:01:10.270
+already got a markdown document here on
+the left, as part of
+
+24
+00:01:10.270 --> 00:01:13.000
+a demo and so maybe the first thing I'll
+do is I'll
+
+25
+00:01:13.000 --> 00:01:17.640
+just I'll knit it and I'll see what the
+HTML looks like.
+
+26
+00:01:17.640 --> 00:01:21.680
+And you can see here it says, basically
+I'm loading the air quality data set here.
+
+27
+00:01:21.680 --> 00:01:24.610
+I'm making a paris plot of the variables
+in the air quality data set.
+
+28
+00:01:25.850 --> 00:01:28.280
+And then if you go down a little bit, I'm
+fitting
+
+29
+00:01:28.280 --> 00:01:32.720
+a linear model of ozone and on wind, solar
+radiation, and temperature.
+
+30
+00:01:32.720 --> 00:01:36.220
+And then I have the results of the linear
+model here.
+
+31
+00:01:36.220 --> 00:01:38.760
+So nothing too special but I want to be
+able to share this with the world.
+
+32
+00:01:38.760 --> 00:01:40.110
+So you'll notice at the top of the preview
+
+33
+00:01:40.110 --> 00:01:43.050
+window here I I can, there's a publish
+button.
+
+34
+00:01:43.050 --> 00:01:44.280
+So I can hit, I mean just click on
+
+35
+00:01:44.280 --> 00:01:46.850
+the publish button you'll, you'll get a
+little notice
+
+36
+00:01:46.850 --> 00:01:51.070
+about R pubs and you can just can click on
+publish.
+
+37
+00:01:51.070 --> 00:01:53.410
+And if your already signed into your
+account at our
+
+38
+00:01:53.410 --> 00:01:57.030
+Pubs it will put it, it'll bring it right
+there.
+
+39
+00:01:57.030 --> 00:02:00.940
+If you're not here I'll bring you up
+Safari so, and so, you can give it a
+
+40
+00:02:00.940 --> 00:02:07.446
+little title give it a little description
+here So, some analysis
+
+41
+00:02:07.446 --> 00:02:13.210
+of the air quality data set in R.
+
+42
+00:02:13.210 --> 00:02:16.030
+And you can give it a little identifier
+here if you want to or you
+
+43
+00:02:16.030 --> 00:02:20.000
+can just let it, you can just not do
+anything, just hit, just click continue.
+
+44
+00:02:20.000 --> 00:02:23.220
+You can see up here at the top that it
+gave it a little
+
+45
+00:02:23.220 --> 00:02:28.370
+identifier here 11879, so this is the kind
+of permit URL for this analysis.
+
+46
+00:02:28.370 --> 00:02:33.470
+And you can see it looks just like the
+HTML output that was shown in R studio in
+
+47
+00:02:33.470 --> 00:02:39.130
+the preview window, but now it's on a
+website And you can share
+
+48
+00:02:39.130 --> 00:02:40.660
+this with people.
+People can comment on it.
+
+49
+00:02:40.660 --> 00:02:42.070
+There's a comment button here.
+
+50
+00:02:42.070 --> 00:02:43.350
+You can click on the share button, here.
+
+51
+00:02:43.350 --> 00:02:47.762
+You can send it to, various social
+networks or email it to someone.
+
+52
+00:02:47.762 --> 00:02:50.150
+So it's a really useful service.
+It's totally free.
+
+53
+00:02:50.150 --> 00:02:52.230
+The one thing that is important to
+
+54
+00:02:52.230 --> 00:02:53.830
+remember is that everything that you put
+on
+
+55
+00:02:53.830 --> 00:02:57.100
+here is public, immediately, so there's no
+
+56
+00:02:57.100 --> 00:02:59.600
+there's no time period in which it's
+private.
+
+57
+00:02:59.600 --> 00:03:01.120
+And so you need to be careful just to make
+sure
+
+58
+00:03:01.120 --> 00:03:03.410
+that you don't publish anything that you
+didn't mean to publish.
+
+59
+00:03:03.410 --> 00:03:04.350
+Of course, if you,
+
+60
+00:03:04.350 --> 00:03:06.200
+if you did publish something by accident,
+you
+
+61
+00:03:06.200 --> 00:03:08.670
+could always delete it down here at the
+bottom.
+
+62
+00:03:08.670 --> 00:03:09.610
+so, that's RPubs.
+
+63
+00:03:09.610 --> 00:03:13.990
+It's a really useful service for
+publishing and sharing kind of
+
+64
+00:03:13.990 --> 00:03:18.210
+statistical analyses that are written in R
+Markdown and using Knitr.
+
+65
+00:03:18.210 --> 00:03:19.350
+And I think it's worth a try.

@@ -1,0 +1,276 @@
+In this lecture, we're going to continue
+the data analysis example that we started in
+part one. If you recall, we, we laid down, kind of a
+list of te, of steps that generally one might take
+when doing a data analysis. And previously we talked about the first
+roughly half of these steps. And in this lecture, we're going to talk
+about the remaining half. So this includes exploratory data
+analysis, statistical prediction and modeling, interpretation,
+challenging your results, synthesizing and writing up the results, and creating
+reproducible code. So if you recall, the basic question was,
+can I automatically detect emails that are
+SPAM or not? And a more slightly, more concrete version
+of this question that can be used to translate
+into a Cisco problem was, you know, can I use
+quantitative characteristics of the emails to classify them as SPAM or
+HAM? So, our data set, again, was, from this, UCI machine, Learning Repository,
+which had already been cleaned up, and it was available in
+the, current lab package as a data set. So this data set had 4,600, observations,
+or emails, that had been kind of characterized along
+58 different variables. so, the first thing that we need to do
+with this data set if we want to build a model to kind of,
+classify emails into spam or not. Is that we need to split the data set into
+test set and a training set. So the idea is that we're going to use
+part of the test of the data set to build our model, and
+then we're going to use another part of the data set which is
+independent of the first part to actually determine how good our
+model is kind of making a prediction. So here I'm a taking a random half of the data set, so I'm using, I'm flipping a coin with the
+rbinom function, to generate a random kind of coin flip with
+probability of half so that'll separate the the data set
+into two pieces. So you can see that roughly 2000, so 2314
+are going to be one half and 2287 will be in the
+other half. And so the training set will be, will be,
+one set and the test set will be another set of data. So the first thing we're going to want to do is a little bit of exploratory data
+analysis. We have not looked at this data set yet. And so it would be useful to look at kind of what are the, what data, what did the
+data look like, what's the distribution of the
+data, you know what what are the relationships between
+the variables, things like that. So we want to look at basic summaries one dimensional, two dimensional summaries of
+the data we want to check for is there are any missing data,
+you know why is there missing data, if there
+is create some exploratory plots and do a little
+kind of exploratory analyses. So so if we look at the training data
+sets, so that's what we're going to focus on
+right now as we do our exploratory analysis, as we
+build our model, all that's going to be done in the
+training data set. And if you look at the, the column names
+of the dataset, you can see that they're all just words essentially and and if you
+look at the first five rows, we can see that basically that these are the frequencies
+at which they occur in a given email. So you can see, you can see the work make
+does not appear in that first email and, and the word mail
+does not appear, so things like that. So these are all basically frequency
+counts, or frequencies of, of words within each of
+the emails. So if we look at the training data set,
+and look at the outcome we see that 906 of, of the emails are
+spam, are classified as spam. And the other 1381 are classified as
+non-spam. So these, this is what we're going to use
+to kind of build our model for predicting the
+spam emails. We can make some plots and we can compare,
+you know, so what are the frequen, the frequencies of certain
+characteristics between the spam and the non spam emails. So, here we're looking at a variable
+called capital ave. So the average number of capital letters. And, you can see that its difficult to
+look at this picture, because the data are
+highly skewed. And so, in these kinds of situations it's
+often useful to just kind of look at the log
+transformation of the variable. So, here I'm going to to take the base ten
+log of the data set, or, I'm sorry, the variable, and
+compare them to spam and nonspam. And since there are a lot of zeros in this particular variable, taking the log
+of zero doesn't really make sense. So we'll just add 1 to that variable, just
+so we can take the log and kind of get a rough sense of what
+the data look like. Typically, you don't, you wouldn't want to
+just add 1 to a variable just because. But since we're just exploring the data,
+a, like, making, kind of, exploratory plots, it's okay to do
+that in this case. So here you can see, rather obviously,
+that, the spam emails have a much higher rate of
+these, capital letters, than the non spam emails,
+and of course, if you've ever seen spam emails, you're
+probably familiar with that phenomenon. And so that's one useful, relationship to
+see there. We can look at pairwise relationships between the different variables in the
+plots. And here I, I've got a pairs plot of a few
+of the variables, and as this is the log
+transformation of each of the variables. And you can see that some of them are
+correlated, some of them are not particularly
+correlated, and so that's useful to know. So we can explore the predictors space a little bit more by doing a hierarchical
+cluster analysis and so this is a first cut at trying to do
+that with the hclust function in R. And you can see I plotted the Dendrogram
+just to, to see kind of how what, what predictors or what words or characteristics tend to cluster
+together. And it's not particularly helpful at this
+point although it does separate out this one variable
+capital total. But if you recall that the clustering
+algorithms can be sensitive to any skewness in the
+distribution of the individual variables. So it may be useful to redo the clustering analysis after a transformation
+of the predictor space. So here I've taken a log, a base 10 log transformation of the fifth, of the
+predictors in the training data set, and again, I've added one to
+each one, just so, to make, to avoid taking the log
+of zero. And now you can see it's a little bit more
+interesting, the dendrogram that is, it's separated out
+a few clusters wi-, this capital average is one kind of
+cluster all by itself. There's another cluster that cludes, that
+includes you will or your. And then there are a bunch of other words that kind of lump more ambiguously
+together. And so this may be something worth
+exploring a little bit further if you see some particular kind of
+characteristics that are interesting. So once we've done exploratory data
+analysis, we've looked at some univariate and bivariate plots, we
+did a little cluster analysis, we we can move on
+to doing a more sophisticated statistical
+model and some prediction modeling. And so any statistical modeling that you
+engage in should be informed by you know, kind of question that you're interested
+in, of course, and the results of any exploratory
+analysis. The exact methods that you employ will
+depend on, you know, the question of interest. And when you do a statistical model, you
+should account for the fact that the data have been processed or
+transformed if they have, in fact, been so. And when you, as you do statistical modeling, you should always think about,
+what are the measures of uncertainty, what are the sources of uncertainty in your data
+set. So here we're going to just do a very
+basic statistical model. What we're going to do is we're going to go through each of the variables in the
+data set and try to fit a generalizing model,
+in this case a logistic regression, to see if we can
+predict an email is spam or not by using just a
+single variable. So here using the reformulate function to
+create a formula that includes the response, which is just the
+type, type of email. And one of the variables of the data set,
+and we're just going to cycle through all the variables in this data set using this for-loop to build a logistic
+regression model. and, and then subsequently calculate the
+cross validated error rate of predicting spam emails from a
+single, variable. And so, if you run this loop in R, it may
+take a little bit to run, it won't, but if it has to loop through all the variables,
+[INAUDIBLE] all the models. So, once we've done this, we're going to
+try to figure out, well, which of the
+individual variables, has the minimum cross validated error
+rate. And so we can just go, and you can take
+this vector of results this CV error, and just figure out
+which one is the minimum. And it turns out that the, the predictor
+that has the minimum cross validated error rate is this
+variable called char dollar. This is an indicator of the number of
+dollar signs in the email. So, just keep in mind this is a very
+simple model. Each of these models that we fit only have
+a single predictor in it. So of course we could maybe think of
+something more complicated, but this maybe an
+interesting place to start. So, if we take this best model from this
+set of 55 predictors, this, this char dollar variable and I'll
+just re-fit the model again right here. And so this is a logistic regression
+model. We can actually make predictions now from
+the model on the test data recall that we split the data set into two parts and built the training model on the training
+data set. And so now we're going to predict the
+outcome on the test data set to see how well we do. And so, in a logistic regression we don't
+get we don't get specific predictions out of
+you know 0 1 classifications of each of the messages
+we get a probability that a message is going to be
+spam or not. And so then we have to take this continuous probability, which ranges
+between 0 and 1, and, and determine at what point, at what cutoff, do we think that the email is
+spam. And so we're, we're just going to draw the
+cut off here at 0.5, so if the probability is above 50%, we're
+just going to call it a spam email. So once we've created our classification,
+we can take a look at the predicted values for, from our
+model, and then compare them with the actual values from
+the test data set, because we know what, which was spam, and
+which was not. And here's the classification table that
+we get from the predicted and the the real
+values. And we can, so we can just calculate the
+error rate. And so the, the mistakes that we made are
+on the off diagonal elements of this table, so 61 and 458.
+So, 61 were classified as spam, that were not actually spam, and 458 were classify
+as non spam but actually were spam. So we calculate this error rate as about
+22%. So, now that we've done the analysis,
+we've calculated some results. We've calculated our kind of our best
+model. We've looked at the error rate that's
+produced by that model. So now we need to interpret our findings
+and it's important when you interpret your findings
+to use appropriate language. And to not be to not use language that goes beyond the analysis that you
+actually did. And so you want to give kind of, if you're
+in this type of application where we're just looking at some data, we're building a predictive
+model. You want to use works like, you know,
+prediction or it correlates with or, or, or certain variables may be
+associated with the outcome or the analysis is descriptive, and so and so
+just to think about carefully what kind of language you
+use to interpret your results. it's, it's good to give an explanation, so
+if you can think of, you know, why certain
+models predict better than others, it would be useful to
+kind of give an explanation of what you think
+that is. If there are coefficients in the model
+that you need to interpret it's useful, you can do
+that here. And in particular it's useful to bring in measures of uncertainty, to kind of calibrate your interpretation of the
+final results. So, in this example, we might think, you
+know, that you might think of, of stating that,
+you know, the fraction of characters that are
+dollar signs, can be used to predict if an email spam. Maybe we decide that anything more, with
+more than 6.6% dollar signs is classified as
+spam. More dollar signs always means more spam under our prediction
+model. And, and in our for our model in the test
+data set, the error rate was 22.4%. So, once you've done your analysis and
+you've developed your interpretation, it's important that you, yourself,
+challenge all the results that you've found. Because if you don't do it, someone else
+is going to do it once they see your analysis, and so you might as well get one step ahead of everyone by doing it
+yourself first. And so it's good to challenge everything,
+every, the whole process by which you gone through
+this problem. The question itself is that, is the
+question even a valid question to ask where the data came
+from, how you got the data, how you processed the
+data, how you did the analysis and any conclusions
+that you drew. If you have measures of uncertainty, are those the appropriate measure of
+uncertainty. And if you built models, you know why is your model the best model? Why is it an appropriate model for this
+problem? How do you choose the things to include in
+your model? So all these things are questions that you
+should ask yourself and should have a reasonable answer to so that when someone
+else asks you, you can respond in kind. And also it's useful to think potential
+alternative analyses that, you know, might be useful it doesn't
+mean that you have to do those alternative
+analyses, in the sense that you might stick to your
+original just because other reasons. But it may be useful to try alternative
+analyses just in case they may be useful in different ways or
+may produce better predictions. Once you've interpreted your results,
+you've done the analysis, you've interpreted your results,
+you've drawn some conclusions, you've challenged all your
+findings you're going to need to synthesize the results and write
+them up. So synthesis is very important because
+typically in any data analysis, there are going to be many, many, many
+things that you did. And when you present them to a, another
+person or to a group you're going to want to have to winnow it down to the kind
+of most important aspects and to, to, to tell a coherent story. And so typically you want to lead with the
+question that you were trying to address. If people understand the question then
+they can make, they can draw up a context in their mind, and understand, kind of have a better understanding of the framework in
+which you're operating. And so that will lead to what kinds of
+data are necessary, are are, are appropriate for this question what kinds of analyses would be
+appropriate. So you can summarize the analyses as you're telling the story. It's important that you don't include
+every analysis that you ever did but only if its needed for kind of telling
+a coherent story. It's useful to sometimes keep these
+analyses in your back pocket though, even if you don't talk about it, because
+someone may challenge what you've done and it's useful to say well you know we
+did do that analysis but, it was problematic you know because
+of whatever the reason may be. It's important to order the analysis that you did according to the story that
+you're telling and often that order is not the same as the order in which you
+actually did the analysis. So, it's usually not that useful to talk
+about the analysis that you did kind of chronologically, or the
+order in which you did them, because the order in which you did
+them is often very scattered and and and not, and kind of
+doesn't make sense in retrospect. So talk about the analyses in your, of
+your data set in the order that, that's appropriate for the story you're
+trying to tell. And when your telling the story or you're
+presenting to someone or to your group it's, it's useful
+to include kind of very well done figures so that people
+can kind of understand what you're trying to say in
+one picture or two. So, in our example, the basic question was
+you know, can we use quantitative characteristics of the
+emails to classify them as spam or ham. Our approach was you know rather than try
+to get the ideal data set from all Google
+servers as we collected some data from the UCI
+machine learning repository and created training and test sets from
+this data set. We explored some relationships between the
+various predictors. We decided to use a logistic regression model on the training set and chose our
+kind of single variable predictor by using cross validation when we applied this
+model to the test set it was 78% ac-, accurate. So it, the interpretation of our results was that basically, more dollar signs
+seemed to indicate an email was more likely to be
+a spam, and this seems reasonable. We've all seen emails with you know, lots of dollar signs in them trying to
+sell you something. And so this is kind of both reasonable and
+understandable. Of course, the results were not
+particularly great as 78% test set accuracy is not that good for most
+prediction types of algorithms. That we probably could do much better if
+we included more variables or if we did or we
+included a more sophisticated model, maybe a
+non-linear model and for example is not, why did we use
+logistic regression? We could have used a much more
+sophisticated type of modeling approach. But anyway these are the kinds of things
+that you want to outline to people as you go through data analysis,
+and you present it to other people. So finally, the, the thing that you want
+to make sure of is that you, is that you document your
+analysis as you go. You can use things like tools like R
+Markdown and Knitter and R Studio to kind of document your analyses
+as you do them. And so you can preserve the R code as well as any kind of a written summary of your analysis in a single document
+using Knitter. And so then, and so to make sure that all of what you do is reproducible by
+either yourself or by other people because ultimately
+that's the standard by which most kind of, big data analysis will
+be judged. If someone can not reproduce it then the
+conclusions that you draw will be, will be you know not as
+worth, as worthy as one analysis where the
+results are reproducible. So try to stay organized. Try to kind of, use the tools reproducible research to keep things
+organized and reproducible. And and so ,and that will make your evidence for your conclusions much
+more powerful.

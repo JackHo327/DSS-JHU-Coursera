@@ -1,0 +1,94 @@
+Hi everybody,
+welcome to reproducible research. The purpose of this lecture is
+to introduce you to the idea of reproducibility and to explain why
+I think it's really important. Even if you dont think of yourself as
+a researcher or as conducting research, if you analyze data at all, it's
+critically important that you understand the ideas of reproducibility and
+the problems that it introduces. So I want to get that across to
+everybody right off the bat so you can understand it and
+see why it's so important. Now, in case you're not
+familiar with the idea already, I thought I'd introduce some of the issues
+that are raised by reproducibility by drawing an analogy from another area,
+and that's music. So before we go on any further, just take a quick listen to this
+excerpt that I'll play for you. [MUSIC] Okay, so
+that was a song called Code Monkey. It was written and performed by Jonathon
+Colton, and I just played you the first minute or so of the song that got you
+through the first verse and the chorus. So you might want to just rewind and just maybe listen to that excerpt one more
+time just to kind of get it in your head, it may get stuck in your head,
+so I apologize in advance. But, think about that song and
+what you already know about it, all right? So, you know what it sounds like. You have a sense of who wrote it,
+who performed it. You know that it starts with
+a guitar in the beginning. If you have a pretty good ear,
+you know that it's in F major. And then later on another guitar
+joins as a drum kit that plays along. And of course, he's singing along. He's singing the words. And if you can listen carefully and you understand a language,
+you could even tell what words he saying. And so, and
+that's pretty much the whole song. And of course, I didn't play the whole
+thing for you, but if I had, you could have decoded a lot of this
+information just from the recording, okay? So most popular songs like
+this are not very complicated. They don't have a lot of instruments or
+a lot of voices, and they typically range
+from two to four minutes. And if you're a good musician and
+you can listen very carefully, it's not that hard to
+kind of play the song, maybe on your own guitar or whatever,
+after you've heard it, okay? Now, okay. Now, let's take a listen
+to this piece now. [MUSIC] Okay, so in case you didn't recognize it, that was the very beginning of the
+Symphony Number Eight, by Gustav Mahler. It was performed by
+the Chicago Symphony Orchestra, under the baton of Sir Georg Solti. And so this might be the polar opposite
+of the Code Monkey song that I just played for you. This symphony is sometimes called
+the Symphony of 1000, because just of the sheer number of people that have
+to be on stage to perform this piece. You need an entire symphony orchestra. You need an entire full chorus to sing. And so there's a lot of complex moving
+parts needed to perform this piece, and yet it gets performed all the time,
+and everyone recognizes the piece when they hear it,
+because it's more or less the same thing. Now how does that happen, right? So how is it that orchestras and choruses all over the world can play
+this enormously complex piece and it always seems to come off more or
+less just the same thing, okay? And similarly, how is it that you can
+listen to Johnathan Colton's song and you can hear the music, and then somehow,
+if you are trained musician, you can pick it up and
+maybe play it for yourself, okay? This is really about reproducibility,
+right? So in music, one of the nice things
+about music in general is that when you hear the performance, regardless
+of whether it's a simple popular song or an enormous symphony,
+you get all the information that you need. And now depending on the complexity
+of the music, you may get more or less information, because the brain
+is only able to process so much information at a time. But for something that's very complicated,
+like a symphony, we actually have a way to
+write down the instructions to give to the performers to tell
+them how to play each thing. And so it actually, Mahler is a great example of this
+because he himself was a conductor. And he knew that as a conductor it's
+often difficult to look at a composer's music and understand what is it
+exactly that the composer wanted here? And so when he wrote his music, he put
+instructions on every single inch of that piece of music, because that way
+the conductor who is interpreting and the performers who are interpreting
+the music can understand, oh, that's what the composer wanted here. So for Mahler's Symphony Number Eight
+what we have is the score. So the score is basically a book
+that lists every single part of every instrument, and what they need
+to play, and what instructions they have. And so the conductor can look
+at the score, and say, okay, I know what the violin's playing at this
+time and I know what the flute is playing, and I know what the chorus
+is singing at this time. And that way the music can be coordinated
+and all performed, and synchronized. You can have a score for a popular song
+too, so Code Monkey could have a score, there'd be guitar lines,
+there'd be drum lines. It's typically not written in the same
+way that you would write a symphony, but there is a notation that is
+used sometimes to communicate how a piece of music should be performed. And so what we're talking about in
+this course, Reproducible Research, is basically, how do you develop
+the score for data analysis so that you can communicate to
+someone what was done, and if they want to reproduce the work,
+how to do it, okay? Now the fundamental problem in data
+analysis is that we don't really have an agreed upon notation system for
+communicating data analysis. And so, everyone does it a different way,
+and in aggregate, it's kind of a mess. So some people will just describe in
+words what was done, and in some cases, this is suficient. This is sufficient but
+in many cases, it's not. Some people will provide
+the computer code and the data and everything that you need,
+and sometimes that's good. But sometimes it's enormously complex and
+it's difficult to sort through. And so there are a variety of ways that
+you can communicate data analysis, but we just haven't agreed upon
+what is a way that we can all look, that is sufficient for everybody, or
+more or less sufficient for everybody. So, what we're gonna focus
+on in this course, is how to communicate data analysis, using code by
+writing documents that are very dynamic, and by sharing data so that other people
+can reproduce the work that you're doing. So this is important for
+all data analysis. It's not just about doing research per se. And because if you wanna communicate
+what you've done to other people, you need to be able to give them
+the material so that they can perform, so to speak, the analysis themselves.

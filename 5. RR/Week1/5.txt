@@ -1,0 +1,79 @@
+[BLANK_AUDIO] In this course, we're going to talk a lot
+about different tools and techniques to help you make your
+work reproducible. And now, before we get into all that,
+though, I just want to kind of boil down the basic principle that we want
+to deal with throughout this whole course. I mean, if there's one rule that I think
+we would, you would want to adhere to, to make your work as
+reproducible as possible is that you should script
+everything. Scripting is really important and it's the
+basic idea of writing everything down. Back in the old days you might have
+written down, you know, things down on paper or in lab
+notebooks. But now that we have more sophisticated
+computers and we can program them, we write things down as pr,
+as scripts or programs. So I mean, if you, as, just by way of
+analogy. You think about you think about a great
+symphony or a great piece of music. You think of if you, if you imagine just hearing the
+melody of a piece of music, okay? That's very interesting, it's also can be
+very beautiful. But often, if you look at a symphony,
+there's a whole orchestra. There's a whole set of musicians that are
+kind of backing up the melody. And doing a lot of work and all that work
+is really important and contributes to the texture, contributes to the, the kind
+of feel of the whole piece of music, right? So if you been out and if you were just
+hear a symphony it probably would be difficult
+for you to reproduce that sound even if you could hire your own orchestra because you wouldn't know
+where all the notes were, what all the, all the different instruments were playing at any
+given time. That even if you heard it a few times, you saw, probably still wouldn't be able
+to do it. And you, in particular you would
+definitely not be able to reproduce that sound if you were to only
+hear the melody, right? So, if you think about the presentation of
+of an analysis or of your research [COUGH] the
+presentation is really kind of like, like hearing the melody
+alone, right? The melody is really nice, it's really
+important. But it's, there's all this supporting
+material that, that's going on behind the scenes. All the, the analyses that you did, all
+the exploratory work, all of the, kind of, dead ends that you
+went down, all the decisions that you made in your analysis,
+which are not presented in your, kind of, final presentation, whether
+it's a paper or a oral presentation. But they're all very important. So those are the supporting players, all right? So just like in music in research we need
+a way to kind of write down everything that we did,
+everything that's going on right? So in music this is typically called the
+score, right? So the score is, is, is a way to kind of
+write down in musical notation all the different
+things that are being played. All the different things that are going
+on. All the notes, all the rhythms. All the timings, all the instruments,
+everything. And so someone can look at the score and say okay, well I need to put together all
+these things and I, every- ever- people have to play at
+different times and different locations. And so it's a way to, for you to reproduce a piece of music as accurately
+as possible. And, and musicians have kind of, have
+come, have agreed upon a standard way to write down
+music. And a standard notation for doing that. And so this course is essentially about,
+you know, defining and developing the notation
+of specifying a re, a research project or a data
+analysis. Right, so what is the, how do we write
+down what the what are the things that we did, how did we talk about
+exactly what was analyzed, what was done. And so the way that we do that essentially
+is through scripting, right? We write down computer programs. We talk, we we give instructions to the
+computer and tell it what to do at any, at any given time with what
+type of data. And so the main rule for anything you in data analysis is to
+write a script. And the more you can do that and the less
+you can kind of do things by, on your own, by hand without writing it down,
+the better and the more reproducible your work
+will be. So this, so these computer programs, these
+scripts that we write. These are like the score for your data
+analysis. They tell someone else who's trying to
+reproduce your work exactly what happened and what
+to do. So, if you want to get a sense of what it
+means to script something. You can just load up Rstudio.
+And when you load it up, you'll see that
+there's, that you, the first thing you can do is you can open an
+R script. So, here we do that and this is just a
+blank text file. And then you can start writing R code in
+here. And then you'll be writ-, you'll be
+programming, you'll be telling the you know, R what to do in terms of a
+coding language, right? So this is your, this, this is the, the
+easiest way to get started scripting. Is to u, is to load up something like
+Rstudio and, and, and use the text editor that's built in. So, in this course we'll talk about a
+bunch of other tools things like Nader, things like Markdown that'll
+help you kind of, organize your analyses. But the bottom line is, to write it down,
+write a script, write a program, and make your
+work reproducible.

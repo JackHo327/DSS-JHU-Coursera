@@ -1,0 +1,482 @@
+WEBVTT
+
+1
+00:00:01.960 --> 00:00:04.640
+So the other question is, who reproduces
+research?
+
+2
+00:00:04.640 --> 00:00:08.300
+And I think, this is, I don't know, I'm
+not in, this area of,
+
+3
+00:00:08.300 --> 00:00:10.360
+kind of, genomics and computational
+[UNKNOWN], I
+
+4
+00:00:10.360 --> 00:00:11.850
+don't know how much this is an issue.
+
+5
+00:00:11.850 --> 00:00:15.875
+But, it's a big issue for me, the, so, in
+order for
+
+6
+00:00:15.875 --> 00:00:19.040
+reproducibility to be effective in any
+way, someone has to do something, right?
+
+7
+00:00:19.040 --> 00:00:22.150
+So if I just say I published this paper,
+and it's reproducible.
+
+8
+00:00:22.150 --> 00:00:25.035
+That doesn't necessarily mean anything,
+until you get your
+
+9
+00:00:25.035 --> 00:00:27.000
+hands on, or someone gets their hands on
+the data
+
+10
+00:00:27.000 --> 00:00:28.560
+coding, and looks at it, and does
+
+11
+00:00:28.560 --> 00:00:30.310
+something, and maybe even reproduces it,
+right?
+
+12
+00:00:30.310 --> 00:00:31.510
+So someone has to do something.
+
+13
+00:00:31.510 --> 00:00:33.420
+You have to rerun the analysis.
+
+14
+00:00:33.420 --> 00:00:35.310
+Check the code, whatever, try some
+alternative approaches.
+
+15
+00:00:36.550 --> 00:00:38.850
+So I think, and this is kind of, in my
+sense, it's
+
+16
+00:00:38.850 --> 00:00:42.368
+kind of the analog of replication, it's
+kind of inherited from that tradition.
+
+17
+00:00:42.368 --> 00:00:44.470
+But the question of who is something and
+what is their goal?
+
+18
+00:00:44.470 --> 00:00:48.840
+Who is this someone and what are their
+goals, is very important, and the way
+
+19
+00:00:48.840 --> 00:00:50.684
+that I kind of characterize it is that
+
+20
+00:00:50.684 --> 00:00:52.142
+there's kind of three different types of
+people
+
+21
+00:00:52.142 --> 00:00:53.850
+who may want to reproduce your research.
+
+22
+00:00:53.850 --> 00:00:57.406
+So if you are the original investigator up
+here, you say that the truth is A.
+
+23
+00:00:57.406 --> 00:01:02.208
+There's one group, the general public who
+doesn't care.
+
+24
+00:01:02.208 --> 00:01:08.340
+So that's so that's a large, that's the
+largest group of people.
+
+25
+00:01:08.340 --> 00:01:12.110
+Then there's one called scientists who
+either agree
+
+26
+00:01:12.110 --> 00:01:13.510
+with you maybe that they, that they agree
+
+27
+00:01:13.510 --> 00:01:17.880
+with, they think the truth is A they may
+also, but they also may think the
+
+28
+00:01:17.880 --> 00:01:19.600
+truth is B.
+Okay, so that's fine.
+
+29
+00:01:19.600 --> 00:01:22.589
+Everyone's got a hypothesis about how the
+world works.
+
+30
+00:01:23.800 --> 00:01:26.590
+And then there's this group of people over
+here which believes that
+
+31
+00:01:26.590 --> 00:01:31.085
+the truth is just whatever the opposite,
+it's not whatever you're saying.
+
+32
+00:01:31.085 --> 00:01:32.395
+>> [LAUGH]
+
+33
+00:01:32.395 --> 00:01:36.100
+>> And the size of the boxes is
+proportional to kind of the
+
+34
+00:01:36.100 --> 00:01:37.940
+likelihood that these people, that the
+people
+
+35
+00:01:37.940 --> 00:01:39.528
+in that box will reproduce your work.
+
+36
+00:01:39.528 --> 00:01:40.450
+>> [LAUGH]
+
+37
+00:01:40.450 --> 00:01:42.890
+>> Scientists like you are likely to
+reproduce it, but they're kind
+
+38
+00:01:42.890 --> 00:01:44.020
+of busy doing their own thing.
+
+39
+00:01:44.020 --> 00:01:47.459
+So, so there's an issue here that this, in
+my opinion, is not really science.
+
+40
+00:01:48.860 --> 00:01:51.050
+They don't have a specific idea of how the
+world works.
+
+41
+00:01:51.050 --> 00:01:53.070
+They just want to know that it's different
+from whatever you're saying.
+
+42
+00:01:54.460 --> 00:01:56.650
+And so they're very interested in
+reproducing my work.
+
+43
+00:01:56.650 --> 00:02:01.000
+I had it, and thankfully, my work's mostly
+been, almost all has been reproducible.
+
+44
+00:02:01.000 --> 00:02:04.050
+So, so I'm fine with that but it
+
+45
+00:02:04.050 --> 00:02:06.000
+has the potential to make your personal
+life miserable.
+
+46
+00:02:07.020 --> 00:02:07.520
+So,
+
+47
+00:02:09.660 --> 00:02:12.420
+so, so far my thinking is that you know,
+so reproducing brings
+
+48
+00:02:12.420 --> 00:02:14.285
+transparency which is critical I think,
+
+49
+00:02:14.285 --> 00:02:17.390
+and,um, also increases the transfer of
+knowledge.
+
+50
+00:02:17.390 --> 00:02:18.940
+There's a lot of discussion about how to
+
+51
+00:02:18.940 --> 00:02:21.390
+get people to share data, which is
+important.
+
+52
+00:02:21.390 --> 00:02:23.640
+Data sharing is key, obviously for
+reproducibility.
+
+53
+00:02:23.640 --> 00:02:25.610
+But I think the key question of can we
+trust this
+
+54
+00:02:25.610 --> 00:02:27.930
+analysis that we see up there
+
+55
+00:02:27.930 --> 00:02:30.010
+is not fundamentally addressed by
+reproducibility.
+
+56
+00:02:31.900 --> 00:02:34.750
+And so further more, reproducibility is
+this very down stream
+
+57
+00:02:34.750 --> 00:02:35.860
+type of element.
+
+58
+00:02:35.860 --> 00:02:39.262
+And a lot of these secondary types of
+analysis are coloured by the
+
+59
+00:02:39.262 --> 00:02:43.691
+interests and motivations of others, and I
+spelled coloured with a u for Candice.
+
+60
+00:02:43.691 --> 00:02:47.982
+So so this, so that brings us to what I
+call evidence-based data analysis.
+
+61
+00:02:47.982 --> 00:02:51.566
+And so, I think no one will, everyone
+here's familiar with the idea that,
+
+62
+00:02:51.566 --> 00:02:55.870
+you know, a true data analysis involves
+stringing together a whole lot of things.
+
+63
+00:02:55.870 --> 00:03:00.060
+Lots of tools, lots of methods, as this
+long pipeline of stuff that you
+
+64
+00:03:00.060 --> 00:03:02.898
+have to do to do any real data analysis.
+
+65
+00:03:02.898 --> 00:03:05.970
+And so, a lot of times the methods are
+standard, you know,
+
+66
+00:03:05.970 --> 00:03:09.680
+everyone does the same thing for a given
+piece of the pipeline.
+
+67
+00:03:09.680 --> 00:03:11.460
+Or, if there's no standard, then you just
+kind
+
+68
+00:03:11.460 --> 00:03:12.299
+of make up whatever you want to do, right?
+
+69
+00:03:13.540 --> 00:03:16.270
+So and the basic idea is, I think, if,
+
+70
+00:03:16.270 --> 00:03:17.920
+and, to kind of what I, that I want to
+kind of
+
+71
+00:03:17.920 --> 00:03:21.430
+translate to kind of a lot of climatical
+science is
+
+72
+00:03:21.430 --> 00:03:26.167
+that we should just use thoroughly
+applied, thoroughly studied methods
+
+73
+00:03:26.167 --> 00:03:30.370
+that are that we kind of agree upon in our
+subgroups in the
+
+74
+00:03:30.370 --> 00:03:33.778
+scientific, the scientific community, that
+these are the appropriate methods to use.
+
+75
+00:03:33.778 --> 00:03:35.250
+You don't have to be perfect, but we have
+
+76
+00:03:35.250 --> 00:03:37.769
+to kind of, these, hopefully they're like
+the 85% solution.
+
+77
+00:03:39.740 --> 00:03:42.140
+And there should be evidence to justify
+the application of certain
+
+78
+00:03:42.140 --> 00:03:44.970
+methods, and you know, as statisticians,
+we do this all the time.
+
+79
+00:03:44.970 --> 00:03:46.994
+We, prepare different methods, you know,
+either
+
+80
+00:03:46.994 --> 00:03:48.730
+by simulation or [COUGH] theory or what
+not.
+
+81
+00:03:48.730 --> 00:03:51.310
+I mean you kind of say, which method is
+
+82
+00:03:51.310 --> 00:03:53.740
+more appropriate in certain, in a given
+circumstance?
+
+83
+00:03:53.740 --> 00:03:55.730
+So, just a very quick example.
+
+84
+00:03:55.730 --> 00:04:01.700
+This is a histogram that generated R I
+just took hist x and, you know, of course,
+
+85
+00:04:01.700 --> 00:04:03.720
+the histogram is just a smoother, and the
+most
+
+86
+00:04:03.720 --> 00:04:05.720
+important thing in a smoother is the bin,
+right?
+
+87
+00:04:05.720 --> 00:04:10.680
+So I didn't do anything I just made this
+histogram, so how did the bin get chosen?
+
+88
+00:04:10.680 --> 00:04:13.290
+So it turns out there was a paper written
+by Sturgis
+
+89
+00:04:13.290 --> 00:04:16.761
+in 1926, published in [UNKNOWN], paper is
+actual a very generous term
+
+90
+00:04:16.761 --> 00:04:20.830
+this thing was like this long, but Booth
+suggested that the band,
+
+91
+00:04:20.830 --> 00:04:24.700
+the bandwidth should be done according to
+this, you know, formula basically.
+
+92
+00:04:24.700 --> 00:04:26.610
+Later on, when the kind of kernel
+smoothing became
+
+93
+00:04:26.610 --> 00:04:28.770
+popular, David Scott wrote a paper in
+Biometrico of
+
+94
+00:04:28.770 --> 00:04:30.890
+which talked about, you know, choosing the
+bandwidth based
+
+95
+00:04:30.890 --> 00:04:33.082
+on kind of the integrated means for
+multivariate measures.
+
+96
+00:04:33.082 --> 00:04:37.380
+So anyways, the default bandwidth is just
+programmed in and there it is, alright?
+
+97
+00:04:37.380 --> 00:04:39.480
+No one argues for the most part with, with
+him,
+
+98
+00:04:39.480 --> 00:04:41.980
+sometimes when they get smaller and bigger
+that's fine but use
+
+99
+00:04:41.980 --> 00:04:43.090
+the default.
+
+100
+00:04:43.090 --> 00:04:45.130
+It's pretty good, and there's actually
+some
+
+101
+00:04:45.130 --> 00:04:47.257
+research behind what that bandwidth should
+be.

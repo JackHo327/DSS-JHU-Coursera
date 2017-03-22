@@ -1,0 +1,884 @@
+WEBVTT
+
+1
+00:00:00.490 --> 00:00:04.740
+So the processing of the knitr document is
+here, is, happens in a certain way.
+
+2
+00:00:04.740 --> 00:00:07.910
+First the RMarkdown document is processed
+and creates
+
+3
+00:00:07.910 --> 00:00:11.180
+a markdown document, then the markdown
+document is converted
+
+4
+00:00:11.180 --> 00:00:13.580
+to HTML, and then the HTML file is what
+
+5
+00:00:13.580 --> 00:00:16.340
+you view in the, in the Fisa final
+product.
+
+6
+00:00:16.340 --> 00:00:18.428
+Generally speaking, you do not want to
+edit
+
+7
+00:00:18.428 --> 00:00:20.780
+or mess with any of those secondary
+documents.
+
+8
+00:00:20.780 --> 00:00:22.886
+You don't want to edit the markdown
+document or
+
+9
+00:00:22.886 --> 00:00:25.820
+the HTML document because those are
+automatically generated.
+
+10
+00:00:25.820 --> 00:00:29.780
+If you edit them, and then you reprocess
+the doc, the original document, all
+
+11
+00:00:29.780 --> 00:00:33.590
+of your changes will be overridden in the
+HTML file or in the Markdown file.
+
+12
+00:00:33.590 --> 00:00:36.125
+So only edit the RMarkdown file that's
+been,
+
+13
+00:00:36.125 --> 00:00:39.280
+that contains the original text and the
+original Rcode.
+
+14
+00:00:41.280 --> 00:00:44.855
+So here's another example, I've got my
+first knitr document and I have
+
+15
+00:00:44.855 --> 00:00:48.705
+my name there as the author, and I've
+started a section called the introduction,
+
+16
+00:00:48.705 --> 00:00:51.565
+and say here's some text, here's a code
+chunk, and I, and I
+
+17
+00:00:51.565 --> 00:00:53.655
+named the code chunk simulation, and
+notice
+
+18
+00:00:53.655 --> 00:00:56.060
+I added this option echo equals false.
+
+19
+00:00:56.060 --> 00:01:00.416
+And so that means, that indicates the
+knitr that I don't want the code for this
+
+20
+00:01:00.416 --> 00:01:05.320
+code chunk to be echoed in the output
+document, I just want the result to show.
+
+21
+00:01:05.320 --> 00:01:07.560
+So here I got my level 1 heading indicated
+by the
+
+22
+00:01:07.560 --> 00:01:11.360
+single hash, the level 2 heading in,
+indicated by the two hashes.
+
+23
+00:01:11.360 --> 00:01:13.310
+I say don't echo the code.
+
+24
+00:01:13.310 --> 00:01:15.220
+So now this is the output document, again,
+you could see that
+
+25
+00:01:15.220 --> 00:01:18.260
+it looks like the original document that I
+had in the previous example.
+
+26
+00:01:18.260 --> 00:01:21.820
+But I don't see the code, I'd only see the
+output, which is the mean.
+
+27
+00:01:23.940 --> 00:01:26.630
+You could also hide the results, too, if
+you wanted too.
+
+28
+00:01:26.630 --> 00:01:29.178
+In this case it doesn't make too much
+sense, but you could
+
+29
+00:01:29.178 --> 00:01:32.710
+do it by adding the results, excuse me,
+the results equals hide option.
+
+30
+00:01:32.710 --> 00:01:35.490
+And then when you see the output document,
+you see that all
+
+31
+00:01:35.490 --> 00:01:39.029
+the text is there but there's no code, and
+there's no results.
+
+32
+00:01:41.376 --> 00:01:43.320
+One of the nice things about knitr
+document
+
+33
+00:01:43.320 --> 00:01:45.744
+is that you can write sentences and text.
+
+34
+00:01:45.744 --> 00:01:48.733
+And if you need to fill in a number or a
+statistic or some sort
+
+35
+00:01:48.733 --> 00:01:50.990
+of computation in the middle of sentence
+you
+
+36
+00:01:50.990 --> 00:01:54.144
+can just add that directly into a
+sentence.
+
+37
+00:01:54.144 --> 00:01:57.510
+So for example here I have a code chunk
+which computes the time
+
+38
+00:01:57.510 --> 00:02:03.040
+and using the Sys.time() function and then
+I also generate a random number, okay?
+
+39
+00:02:03.040 --> 00:02:04.990
+And so, now I can write a sentence.
+
+40
+00:02:04.990 --> 00:02:06.690
+So that code check, I don't echo the
+codes, I
+
+41
+00:02:06.690 --> 00:02:08.560
+don't want people to see that code, what I
+want people
+
+42
+00:02:08.560 --> 00:02:11.180
+to see is the sentence immediately
+afterwards, says the current
+
+43
+00:02:11.180 --> 00:02:13.820
+time is, and then I'll just plug in the
+current time.
+
+44
+00:02:13.820 --> 00:02:15.844
+And then the next sentence is my favorite
+random number
+
+45
+00:02:15.844 --> 00:02:18.490
+is, and then I'll just plug in a random
+number.
+
+46
+00:02:18.490 --> 00:02:20.827
+So here, you see the output is, the
+current time
+
+47
+00:02:20.827 --> 00:02:24.280
+is Wednesday September 4th and there's the
+time and 2013.
+
+48
+00:02:24.280 --> 00:02:27.940
+And you can see my favorite random number
+is 1.1829.
+
+49
+00:02:27.940 --> 00:02:33.490
+So that's how you can plug in computed
+variables,
+
+50
+00:02:33.490 --> 00:02:35.949
+or computed results in the middle, inline
+with text.
+
+51
+00:02:38.476 --> 00:02:41.350
+Another important aspect of any report
+probably is going to be some graphics.
+
+52
+00:02:41.350 --> 00:02:43.300
+So you want to make plots of data or
+
+53
+00:02:43.300 --> 00:02:46.890
+of, or maybe, or, or any sort of
+visualization.
+
+54
+00:02:46.890 --> 00:02:48.910
+So you can easily add this into an inner
+document.
+
+55
+00:02:48.910 --> 00:02:51.350
+So here I've simulated some data.
+
+56
+00:02:51.350 --> 00:02:54.250
+And then in, in the first arc, code chunk
+I simulated some data.
+
+57
+00:02:54.250 --> 00:02:56.260
+And in the second code chunk, I make a
+plot.
+
+58
+00:02:56.260 --> 00:03:00.540
+So I use the par function to set the,
+kind of, the canvas with the margins.
+
+59
+00:03:00.540 --> 00:03:07.200
+And the las option, then I call plot to
+make the, make the to generate the plot.
+
+60
+00:03:07.200 --> 00:03:10.516
+And you notice I added an option here
+which adjusts the figurehead.
+
+61
+00:03:10.516 --> 00:03:13.376
+And so actually fig.height equals four
+which makes
+
+62
+00:03:13.376 --> 00:03:15.960
+a little bit of squished more than usual.
+
+63
+00:03:15.960 --> 00:03:18.400
+So it would a be a rectangular type of
+plot rather than a square plot.
+
+64
+00:03:19.400 --> 00:03:22.000
+And so what knitr produces is a little bit
+interesting.
+
+65
+00:03:22.000 --> 00:03:24.934
+It creates an HTML file through the
+processing.
+
+66
+00:03:24.934 --> 00:03:26.360
+So you can see that if you, if you're
+
+67
+00:03:26.360 --> 00:03:28.140
+familiar HTML you can see this is basic
+HTML.
+
+68
+00:03:28.140 --> 00:03:31.460
+I've cut off a lot of stuff from the top,
+so I've just put the body in.
+
+69
+00:03:31.460 --> 00:03:33.290
+And this is basic HTML.
+
+70
+00:03:33.290 --> 00:03:36.380
+I, you can see that down here at the
+bottom, you'll see there's an image tag.
+
+71
+00:03:36.380 --> 00:03:39.565
+But rather than point to an actual file
+that's the image,
+
+72
+00:03:39.565 --> 00:03:43.446
+it actually embeds the entire image into
+these HTML files itself.
+
+73
+00:03:43.446 --> 00:03:45.552
+So you can see this is a Base64 encoded,
+
+74
+00:03:45.552 --> 00:03:47.982
+image and so actually this HTML file
+stands alone, it
+
+75
+00:03:47.982 --> 00:03:50.898
+doesn't, it doesn't depend on an external
+image files,
+
+76
+00:03:50.898 --> 00:03:53.652
+which is not necessarily the most
+efficient format but it's
+
+77
+00:03:53.652 --> 00:03:55.758
+actually quit useful because you can take
+this HTML
+
+78
+00:03:55.758 --> 00:03:58.134
+file, give it to someone else, and they
+don't have
+
+79
+00:03:58.134 --> 00:04:01.158
+to worry about whether they have,
+everything's, about whether
+
+80
+00:04:01.158 --> 00:04:05.200
+they have these other files or not because
+everything's embedded.
+
+81
+00:04:05.200 --> 00:04:07.852
+So here's the result as you can see I
+
+82
+00:04:07.852 --> 00:04:11.140
+echoed the Rcode I had the result of the
+plot.
+
+83
+00:04:11.140 --> 00:04:14.040
+And you see it's kind of this rectangular
+shape, and that's my scatter plot.
+
+84
+00:04:15.300 --> 00:04:18.010
+So another handy thing you can do in a
+knitr document is make a table.
+
+85
+00:04:18.010 --> 00:04:20.490
+And often you want to make a table that
+summarizes
+
+86
+00:04:20.490 --> 00:04:24.150
+the result of some calculation, like a
+regression model.
+
+87
+00:04:24.150 --> 00:04:27.690
+So, here I, I have a code chunk with load,
+with load some data.
+
+88
+00:04:27.690 --> 00:04:30.410
+And I fiddled in your regression model to
+it.
+
+89
+00:04:30.410 --> 00:04:32.950
+Here I'm modelling ozone concentrations,
+as a
+
+90
+00:04:32.950 --> 00:04:35.130
+function of wind, temperature, and solar
+radiation.
+
+91
+00:04:35.130 --> 00:04:37.335
+And I want to summarize the output from
+this
+
+92
+00:04:37.335 --> 00:04:40.470
+Linear Regression model in a, kind of,
+pretty format.
+
+93
+00:04:40.470 --> 00:04:43.040
+So, not just your standard, kind of, auto
+model format.
+
+94
+00:04:43.040 --> 00:04:45.840
+So I'm going to use the xtable package,
+which is available on Crane.
+
+95
+00:04:45.840 --> 00:04:48.020
+You have to install it separately, it
+doesn't come with R.
+
+96
+00:04:49.026 --> 00:04:51.570
+And I'm going to use the xtable function
+to summarize the fit.
+
+97
+00:04:51.570 --> 00:04:53.540
+And I'm going to use, and I'll print it to
+HTML.
+
+98
+00:04:53.540 --> 00:04:58.004
+And you can see that in the resulting
+knitr, sorry, HTML output, after I
+
+99
+00:04:58.004 --> 00:05:03.070
+process it with knitr, I get the code that
+I ran for the regression model.
+
+100
+00:05:03.070 --> 00:05:06.790
+And I get the, it echoes the code, but at
+the very bottom here I can see that
+
+101
+00:05:06.790 --> 00:05:09.850
+I got a table of regression coefficient,
+standard errors,
+
+102
+00:05:09.850 --> 00:05:12.790
+T values and P values, which is formatted
+in HTML.
+
+103
+00:05:12.790 --> 00:05:14.791
+And, so it, it'll be, kind of in
+
+104
+00:05:14.791 --> 00:05:18.200
+a prettier format, rather than standard
+text mode.
+
+105
+00:05:18.200 --> 00:05:21.920
+So sometimes, you want to set options for
+the entire document.
+
+106
+00:05:21.920 --> 00:05:23.150
+So, these are called Global options.
+
+107
+00:05:23.150 --> 00:05:26.840
+And, you want these options to apply to
+every single code chunk.
+
+108
+00:05:26.840 --> 00:05:29.013
+So, maybe if you never want to echo the
+code, for
+
+109
+00:05:29.013 --> 00:05:31.860
+example, you want every code chuck to say,
+eco equals fall.
+
+110
+00:05:31.860 --> 00:05:33.740
+So it can be a bit of a pain to have to
+specify every
+
+111
+00:05:33.740 --> 00:05:35.244
+single code chunk, so you might want to
+
+112
+00:05:35.244 --> 00:05:37.030
+set a global option for something like
+that.
+
+113
+00:05:38.180 --> 00:05:41.520
+And so, the way you can do that is you can
+create
+
+114
+00:05:41.520 --> 00:05:44.220
+a separate code chunk in the, in the very
+beginning of the document.
+
+115
+00:05:45.260 --> 00:05:46.700
+Here I've called it set options.
+
+116
+00:05:46.700 --> 00:05:49.248
+And you can modify, there's a special
+object called opts
+
+117
+00:05:49.248 --> 00:05:52.290
+underscore chunk, which has a function
+built into it called set.
+
+118
+00:05:52.290 --> 00:05:56.030
+And if you call that set function, you can
+set the global option.
+
+119
+00:05:56.030 --> 00:05:59.820
+So here I set echo equals to false and
+I've set the results equal to hide.
+
+120
+00:05:59.820 --> 00:06:03.252
+So by default, every code chunk in this
+document will not echo
+
+121
+00:06:03.252 --> 00:06:07.180
+the result the, sorry, not echo the code
+and will hide the results.
+
+122
+00:06:07.180 --> 00:06:10.200
+So here I've got some code chunks here, I
+simulate some data, I make a plot.
+
+123
+00:06:11.802 --> 00:06:16.209
+But when I'm, when you see, when I make
+the,
+
+124
+00:06:16.209 --> 00:06:21.190
+when I see the HTML output I, I I'm sorry.
+
+125
+00:06:21.190 --> 00:06:21.720
+Let me go back.
+
+126
+00:06:21.720 --> 00:06:24.220
+I see in the first of all in the first
+code chunk I override
+
+127
+00:06:24.220 --> 00:06:27.800
+the default for the, for the echo so I
+want to echo equals true.
+
+128
+00:06:29.100 --> 00:06:33.370
+And then for the second, code chunk, I
+don't want to echo the plotting code.
+
+129
+00:06:33.370 --> 00:06:35.250
+And so I, I let the default occur.
+
+130
+00:06:35.250 --> 00:06:37.830
+So here I, the, the code that generates
+the data is
+
+131
+00:06:37.830 --> 00:06:40.720
+echoed but the code that creates the plot
+is not echoed.
+
+132
+00:06:44.650 --> 00:06:46.912
+So, some of the common options that are,
+that
+
+133
+00:06:46.912 --> 00:06:49.290
+are good to remember, of course you can
+always go
+
+134
+00:06:49.290 --> 00:06:52.016
+back to the documentation on the knitr
+website, so
+
+135
+00:06:52.016 --> 00:06:55.130
+the results can be specified as either
+hide or asis.
+
+136
+00:06:55.130 --> 00:06:58.316
+Asis means don't, don't postprocess the
+results, just show the,
+
+137
+00:06:58.316 --> 00:07:00.999
+kind of the, the raw results from whatever
+the output is.
+
+138
+00:07:02.270 --> 00:07:03.380
+Echo can be true or false.
+
+139
+00:07:03.380 --> 00:07:05.040
+So if you want to echo the code or not.
+
+140
+00:07:05.040 --> 00:07:09.360
+For figures usually you might want to
+modify the height and the width to be
+
+141
+00:07:09.360 --> 00:07:14.650
+a specific type of size of fig.height and
+fig.width are common options to set there.
+
+142
+00:07:16.840 --> 00:07:18.930
+So one special case is when you have a
+code
+
+143
+00:07:18.930 --> 00:07:21.330
+chunk and the computation takes a really
+long time to run.
+
+144
+00:07:21.330 --> 00:07:23.750
+Now every time you process the knitr
+document to look
+
+145
+00:07:23.750 --> 00:07:27.480
+at the HTML output, you're going to have
+to run this computation.
+
+146
+00:07:27.480 --> 00:07:31.360
+So one strategy to avoid having to sit
+around and wait a long time, is to
+
+147
+00:07:31.360 --> 00:07:33.750
+cache the computation and so caching
+computations can
+
+148
+00:07:33.750 --> 00:07:38.800
+be very useful for kind of complex code
+chunks.
+
+149
+00:07:38.800 --> 00:07:39.990
+And so the idea is that for each
+
+150
+00:07:39.990 --> 00:07:41.970
+code chunk, there's a special option
+called cache.
+
+151
+00:07:41.970 --> 00:07:45.920
+You can set cache equal to TRUE and what
+will happen is that for that
+
+152
+00:07:45.920 --> 00:07:49.830
+code chunk, the first time you process the
+document, it will have to run the code.
+
+153
+00:07:50.850 --> 00:07:53.060
+But in order to figure out what the output
+is.
+
+154
+00:07:53.060 --> 00:07:55.876
+But then what it will do is it will store
+that output on
+
+155
+00:07:55.876 --> 00:07:59.204
+the disk and so that the next time you
+process the document, as
+
+156
+00:07:59.204 --> 00:08:02.916
+long as nothing has changed, it will load
+the results from the disk,
+
+157
+00:08:02.916 --> 00:08:07.440
+which is typically a lot faster than
+having to redo all the computation scans.
+
+158
+00:08:07.440 --> 00:08:11.300
+So this, this will save you a lot of time
+if you're doing this over and over again.
+
+159
+00:08:14.390 --> 00:08:16.790
+So if the data or the code or something
+changes,
+
+160
+00:08:16.790 --> 00:08:18.800
+then you will, you will have to rerun the
+code again.
+
+161
+00:08:18.800 --> 00:08:20.920
+There's really no getting around that.
+
+162
+00:08:20.920 --> 00:08:25.322
+And so the caching will, will kind of
+update to represent the new results.
+
+163
+00:08:25.322 --> 00:08:28.724
+If you're, if one code chunk depends on
+another code chunk that
+
+164
+00:08:28.724 --> 00:08:33.037
+was previous to it, this dependency is not
+explicitly tracked by default.
+
+165
+00:08:33.037 --> 00:08:35.215
+And so you'll have to make sure that if a
+
+166
+00:08:35.215 --> 00:08:38.185
+previous code chunk has a dramatic change
+to it and the
+
+167
+00:08:38.185 --> 00:08:41.617
+further and the downstream code chunk
+depends on it, then you
+
+168
+00:08:41.617 --> 00:08:45.180
+rerun everything so that the cache doesn't
+get mixed into it.
+
+169
+00:08:46.580 --> 00:08:49.000
+Chunks with significant side effects may
+not be cacheable.
+
+170
+00:08:49.000 --> 00:08:51.460
+So if a, if the code in a chunk has some
+effect that
+
+171
+00:08:51.460 --> 00:08:55.330
+kind of outside the document then it may
+not be possible to cache that.
+
+172
+00:08:56.870 --> 00:08:59.430
+So just to summarize, I talk about knitr
+in this
+
+173
+00:08:59.430 --> 00:09:04.450
+lecture, which is a useful tool for doing
+literate statistical programming.
+
+174
+00:09:04.450 --> 00:09:06.030
+It can be used, that will allow you to put
+
+175
+00:09:06.030 --> 00:09:08.709
+text, code, and data and output all into
+one document.
+
+176
+00:09:09.810 --> 00:09:12.610
+It uses a mark down formatting language,
+which
+
+177
+00:09:12.610 --> 00:09:14.790
+is kind of very simple and easy to learn.
+
+178
+00:09:14.790 --> 00:09:18.390
+And, and it, and it creates HTML documents
+that you can view in any web browser.
+
+179
+00:09:18.390 --> 00:09:21.150
+So I think it's a powerful tool for
+integrating text code.
+
+180
+00:09:21.150 --> 00:09:23.380
+I mentioned, as I mentioned before,
+there's pros and cons.
+
+181
+00:09:23.380 --> 00:09:25.050
+It's not a perfect tool.
+
+182
+00:09:25.050 --> 00:09:28.910
+But it may be useful to learn and it's for
+generating [UNKNOWN] reports.

@@ -1,0 +1,189 @@
+WEBVTT
+
+1
+00:00:01.280 --> 00:00:02.670
+Hi, everyone.
+I just wanted to point out two
+
+2
+00:00:02.670 --> 00:00:05.930
+commentaries that Jeff Leak and
+I recently published on the proceedings of
+
+3
+00:00:05.930 --> 00:00:09.310
+a National Academy of Sciences
+in the journal, Science.
+
+4
+00:00:09.310 --> 00:00:13.150
+So first one is basically
+about the idea of treating
+
+5
+00:00:13.150 --> 00:00:17.160
+poor data analysis as a problem
+that should be prevented.
+
+6
+00:00:17.160 --> 00:00:20.550
+So it's kinda taking like
+a disease type of analogy here and
+
+7
+00:00:20.550 --> 00:00:22.720
+how do we prevent
+the disease from occurring.
+
+8
+00:00:22.720 --> 00:00:26.520
+So this is very related to the evidence
+based data analysis lectures that you've
+
+9
+00:00:26.520 --> 00:00:28.760
+already seen in this course.
+
+10
+00:00:28.760 --> 00:00:32.490
+And we've taken the time to write up a
+summary of kinda what we believe should be
+
+11
+00:00:32.490 --> 00:00:36.106
+done and how best we can address the
+problem of preventing poor analysis from
+
+12
+00:00:36.106 --> 00:00:39.550
+happening and
+from being published in the literature.
+
+13
+00:00:39.550 --> 00:00:44.130
+The second commentary which was
+published in Science recently is about
+
+14
+00:00:44.130 --> 00:00:49.120
+framing the question in a data analysis,
+and how if you inappropriately
+
+15
+00:00:49.120 --> 00:00:53.930
+identify the question, then it will lead
+to kind of problems with reproducibility.
+
+16
+00:00:53.930 --> 00:00:57.620
+Because there are many different kinds
+of data analyses that you can do.
+
+17
+00:00:57.620 --> 00:01:02.080
+And not all of them you would expect
+the results to be reproduced, for
+
+18
+00:01:02.080 --> 00:01:06.500
+example if you had a highly
+exploratory analysis
+
+19
+00:01:06.500 --> 00:01:10.600
+where you were just looking for different
+interesting predictors that you might
+
+20
+00:01:10.600 --> 00:01:13.150
+wanna follow up within
+a more careful study.
+
+21
+00:01:13.150 --> 00:01:16.500
+Well, the highly exploratory or
+even descriptive type of analysis
+
+22
+00:01:16.500 --> 00:01:20.590
+is one type of analysis that we might
+use to kind of generate hypotheses or
+
+23
+00:01:20.590 --> 00:01:25.010
+to generate ideas, but we don't expect it
+to be the be all and the end all analysis.
+
+24
+00:01:25.010 --> 00:01:29.240
+On the other hand, you might have
+a more confirmative type of analysis
+
+25
+00:01:29.240 --> 00:01:33.450
+where you have a very carefully
+designed either trial, or a study.
+
+26
+00:01:33.450 --> 00:01:36.740
+Where your trying to confirm
+that two things are associated.
+
+27
+00:01:36.740 --> 00:01:40.330
+Maybe a drug improved people
+with a certain disease,
+
+28
+00:01:40.330 --> 00:01:42.000
+improves the health of people
+with a certain disease.
+
+29
+00:01:42.000 --> 00:01:44.710
+Or maybe it eliminates
+certain types of problems.
+
+30
+00:01:44.710 --> 00:01:47.810
+So when you have more confirmatory type
+of analysis that you're trying to do,
+
+31
+00:01:47.810 --> 00:01:50.090
+then things have to be done
+much more carefully, and
+
+32
+00:01:50.090 --> 00:01:53.340
+there often have to be pre-specified
+protocols and things like that.
+
+33
+00:01:53.340 --> 00:01:56.750
+So, in many ways one can kind of
+
+34
+00:01:56.750 --> 00:02:01.780
+sort the evidence produced by various
+publications by first identifying,
+
+35
+00:02:01.780 --> 00:02:06.930
+what is the question that's being asked
+and what type of analysis is being done?
+
+36
+00:02:06.930 --> 00:02:11.320
+Cuz then we can set our expectations about
+what we expect to see in the analysis.
+
+37
+00:02:11.320 --> 00:02:14.640
+And what we would expect to kind of
+be reproduced further down the line.
+
+38
+00:02:14.640 --> 00:02:18.027
+So I encourage you to take a look at these
+commentaries and to see what you think.

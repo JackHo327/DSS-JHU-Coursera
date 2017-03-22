@@ -1,0 +1,184 @@
+In this lecture, I'm just going to give a
+couple of basic notes on how to organize a data
+analysis. Of course, there's no universal way to do
+this that would apply to every single data analysis performed by anybody in the
+world but I think there's some useful tips that can be used to help you kind of put
+things together to put things in logical places and to, ultimately you
+want to ensure that your data analysis is
+reproducible either by yourself or by someone else. So if we were to kind of boil down what
+are the kind of key data analysis files that you, you will probably retain and
+over the course of a major project of course
+there's going to be some data there's going to be
+raw data and there's going to be processed data uh,and you're probably
+going to want to save a lot of this in various places. You'll probably generate some figures or
+or tables for example and they're going to be kind of exploratory
+figures that you just kind of put together to look at the data to kind of produce this rough cut
+of what the data analysis might look like. These exploratory figures are not going to
+be very polished they're just going to,
+they'll kind of be, just good enough to kind of get you a
+sense of what the data look like. Then there might be some final figures
+these final figures are going to be useful for you to put in
+reports, they're going to, you're going to show
+them to other people, they're going to be well annotated and nicely
+organized and put together. Of course, there's going to be some code. this, there might be some R code in the
+form of both raw and unused scripts. so, these are kind of things that you just
+kind of code up to see what's going on, maybe in the
+process of making exploratory figures. There;s going to be R code that you
+eventually don't use in the end. so, you'll have some scripts lying around. There will be some final scripts that you
+use in the final analysis. And these will be a little bit, hopefully easier to read, maybe some commented and
+formatted better. And then you might be running some R
+markdown files that kind of annotate a data analysis using a kind
+of literate statistical analysis style. And finally there's going to be some text
+that you write either in the form of readme files that explain
+what's going on in your project, there might be a more formal
+report that you have to write or even a paper that you
+plan on publishing. So all this text is going to kind of
+integrate everything that you've done in this data
+analysis. With the data, the figures, the tables,
+and the R code. So the raw data will come in any number of
+different forms. They might come for example, as just
+records. Or as, or kind of formatted text, like you
+have here. And, and you're going to do something to
+this raw data to make it usable for an analysis
+type of program. So for example in this particular type of
+data you might do some text processing you
+might try to parse the data and if it's formatted in a special format and so that you can
+generate something that can be later used for
+modeling or other types of analysis. So you want to store this raw data in
+your, in your analysis folder if you're working
+on a project. And if the data were accessed from the web
+you want to include things like the URL, where you got the data what the
+data set is, and kind of brief description of what it's for the
+date that you accessed the, the URL on, on the website and you might want to
+this in, in like a readme file just so, so when you look at
+it later or if someone else looks at it they know kind of where this
+data came from and what it's for. Another thing that I like to do if you're using GIT or, or equivalent version
+control system to track things that are going on in your
+project you can add your data set, your raw data. If it's possible, if it's too big then
+it's not really feasible. But you can add your raw data to the
+repository. And in the log file, sorry, in the log message and
+when you add it you can talk about, you know, where the, what the
+website was when you got it. And what the URL, URL was et cetera. And so that's sometimes a convenient place
+to put this kind of information. Processed data usually is a little bit, is
+cleaner than the raw data. It can come in a variety of forms. One possibility is, is as a table. So here you can see there this is a kind
+of classic data table. With rows and columns. You should process data should be named so
+that you can, easy to see, you, you can name the file so
+it's easy to see kind of what's script generated
+what data and so the processing script is very important because it shows
+you how the raw data were mapped to the process data. And so, in any readme file or any sort of documentation it's, it's important
+to, to document you know, what files, what code files were
+used to transform the raw data into the
+processed data. And finally the processed data should be
+tidy so that you can use them in subsequent modeling or
+analysis types of functions. Exploratory figures are usually very
+simple figures, these are figures that you kind of make in the course of your analysis as you're
+kind of getting a look at the data. Typically your data will be high
+dimensional and because you'll be collecting lots of variables on lots of
+subjects or, or observations. And so you're going, going to be able to
+look at pieces of the data at a time. And so exploratory figures serve the role
+of kind of giving you a, a quick look at various kind of aspects of
+your data, of various cuts. And so they're not all necessarily
+going to be part of your final report or final paper. And so you kind of, you kind of, and you,
+and you'll tend, so you'll tend to make a bunch of these
+all in the way. They don't need to be pretty, but they
+need to be usable enough so that you understand kind of
+what's going on in the figure. And, and, and how to reproduce it. Final figures will generally be much more
+polished they'll be, they'll be better organized
+and better, kind of much more readable so here you see
+is a figure that's a four panel plot. It's not a single panel so cramming in a lot more data into this type of four panel
+plot. and, and the final figures usually make a
+very small subset of the set of exploratory figures
+that you might generate. So for example, the typical paper in a, in
+a journal or something like that might have four or maybe five figures in
+it because these figures take up a lot of
+space. You typically don't want to inundate
+people with a lot of figures because then this kind of
+ultimate message of what you're trying to communicate will
+will tend to get lost in, in this kind of pile of
+figures. And so it's important to have these
+figures that are kind of labeled well and annotated so people
+understand what's going on with the data. As you're doing a data analysis you'll
+probably burn through a lot of different R scripts. Code files for various purposes. They'll be a lot of dead ends, kind of
+that you'll go down and maybe they won't be
+that useful. So there'll be a lot of R scripts that
+kind of don't play into the final analysis and so
+these R scripts are going to be kind of less
+commented and maybe just kind of code that kind of puts some
+stuff together. You may have multiple versions of these
+code files. and, and typically, will include, include
+analyses that are later discarded. Final scripts will be much more clearly
+commented. You'll have maybe bigger comment blocks
+for whole sections of code. So there'd be lots of small comments kind
+of explaining what's going on. Any processing details that any code
+that's used to process the raw data would be important to
+include. and, and basically these final scripts you
+want to clean up so they, they for any analysis that would appear in
+a final write up of paper. And so it's important, well, when people see a final a product like a
+paper or a report that they understand, you know,
+what scripts went into this report. and, and, and what processing and kind of analysis scripts that might have gone into
+this. So they know that they can see the kind of
+chain of events that occurred. It's important, of course, to keep a lot
+of the other stuff that was not used in the final
+report just in case someone may want to look at
+some of the, some of the dead ends that he went
+down. But that can be placed in a separate part
+of the project directory. R markdown files are also, are also very
+useful. They may not be exactly required. But they can be very useful to kind of
+summarize parts of analysis. Or an entire analysis itself. R markdown files you can use to generate
+reproducible reports. Because you can embed code and text into
+the same document and then you process the document into something
+readable like a webpage or a PDF file. These are very easy to create in Rstudio
+and they can be useful as a kind of intermediate step either perhap, you
+know, be kind of something in between just kind of code scripts code files and data
+and, and a polished final report. Readme files are really useful because
+they kind of explain what is going on inside your
+project directory. If you use R markdown you may not need
+them because, the markdown file will typically document
+what's going on in a given file. That's the idea behind literate
+programming or literate statistical analysis is that you don't separate the
+document and the code and the data in separate little
+pieces rather you try to integrate them all into a
+single file. However if you don't use R mark down files
+you may want to have readme files that explain
+what's going on so you can see kind of, so that, that you or another person can get a
+sense of the organization of the project. But they could contain you know step by
+step instructions for how the analysis is conducted, what code files
+are called first, what are used to process the data, what are used to
+fit models, and what are used to kind of generate figures
+and things like that. so, readme files are really useful for
+explaining kind of what's going on. Finally in the end you'll probably produce
+some document or report, maybe a paper or summary of all of the
+analysis that you did and kind of the, and the point of
+this is to tell the final story of what you
+generated here. And, and typically you'll have a title, an
+introduction that kind of motivates your problem the methods that
+you used the refine, the results and any measures of uncertainty, and then
+any conclusions that you might draw from the data analysis that you did,
+including any pitfalls or potential problems. The important thing is that you need to
+tell a coherent story, and so you need to do, all, take
+all the analysis that you did and kind of winnow
+it down into a final product that has a, a coherent
+story to it. You definitely should not include every
+analysis that you performed through the whole process, so
+there many, may be many analysis that you did but you want to kind of narrow it down to the important
+parts. That does not mean you need to delete
+everything that you've ever did but the summary
+report should not include everything. And you should always include some
+references for the statistical methods that you use, so
+that way people that know kind of what you used, maybe what software you used, what
+implementation was used. And so this is very important for again
+for reproducibility by others. So, that's a quick overview of how to,
+kind of organize your data analysis, [COUGH] just
+some basic tips because every data analysis will have its specific
+details, just a couple pointers here to things that you
+may be interested in. First is a, kind of a case, a set of
+links, on a kind of case, study of a non-reproducable study, involving cancer,
+cancer data and analysis. And so we have a link to that. There's an editorial in the journal Biostatistics about the reproducible
+research policy. So you can take a look at that. And a couple of links to managing
+statistical analyses and some, some kind of projects guidelines and best
+practices from other people. And then, of course, there's a, there's a
+software package called Project Template, which is
+a, actually an R package, that can be used to automate a
+lot of the kind of mundane aspects of a data
+analysis project. So I encourage you to take a look at that
+too.

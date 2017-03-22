@@ -1,0 +1,722 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:03.940
+This lecture is not so much about
+reproducible research, per se.
+
+2
+00:00:03.940 --> 00:00:08.460
+But it's more about how you can
+communicate your results, in a way
+
+3
+00:00:08.460 --> 00:00:13.480
+that people can understand them, and can
+check your results, if they need to.
+
+4
+00:00:13.480 --> 00:00:15.190
+So particularly, when you're doing a large
+data
+
+5
+00:00:15.190 --> 00:00:18.860
+analysis, or, you know, a complex kind of
+project.
+
+6
+00:00:18.860 --> 00:00:21.560
+And you do your work in a reproducible
+manner.
+
+7
+00:00:21.560 --> 00:00:25.950
+You're going to generate a lot of content
+and a lot of files and a lot of
+
+8
+00:00:25.950 --> 00:00:31.200
+output and a lot of data.
+And those all cannot be presented at once.
+
+9
+00:00:31.200 --> 00:00:36.810
+And so when you present your, your kind of
+findings to another person you're going to
+
+10
+00:00:36.810 --> 00:00:38.805
+have, there's going to, there's a kind of
+
+11
+00:00:38.805 --> 00:00:42.280
+hierarchy of information that you're
+going to want to present.
+
+12
+00:00:42.280 --> 00:00:45.330
+Ranging from kind of least specific to
+most specific.
+
+13
+00:00:45.330 --> 00:00:50.110
+So the bottom line is that, you know, most
+people are, these days are very busy.
+
+14
+00:00:50.110 --> 00:00:51.510
+People like managers and
+
+15
+00:00:51.510 --> 00:00:53.250
+organization leaders are going to be very
+busy.
+
+16
+00:00:53.250 --> 00:00:57.150
+And so they are going to have to kind of
+accept content that you present.
+
+17
+00:00:57.150 --> 00:01:01.850
+At a, at a kind of a, at a, at a, at a, in
+a kind of hierarchical matter.
+
+18
+00:01:01.850 --> 00:01:04.810
+So the idea is that, you know, many times,
+when you, when you present a
+
+19
+00:01:04.810 --> 00:01:09.540
+data analysis, it will be in an oral form
+like a presentation or in a meeting.
+
+20
+00:01:09.540 --> 00:01:11.510
+But often the kind of early results or
+intermediate
+
+21
+00:01:11.510 --> 00:01:14.270
+results are, are presented via, via a
+medium like email.
+
+22
+00:01:15.750 --> 00:01:16.800
+And it's useful to break
+
+23
+00:01:16.800 --> 00:01:18.720
+down the results of an analysis into
+
+24
+00:01:18.720 --> 00:01:21.730
+kind of different levels of specificity or
+granularity.
+
+25
+00:01:21.730 --> 00:01:24.570
+And so here's a link to just some general
+advice
+
+26
+00:01:24.570 --> 00:01:27.660
+on kind of how to get email responses from
+busy people.
+
+27
+00:01:27.660 --> 00:01:29.330
+But the basic idea is that you don't want
+
+28
+00:01:29.330 --> 00:01:34.140
+to kind of blast a ton of information to
+someone
+
+29
+00:01:34.140 --> 00:01:36.370
+in one go, because it'll be overwhelming,
+and people will
+
+30
+00:01:36.370 --> 00:01:38.060
+be less likely to read what you have to
+say.
+
+31
+00:01:39.250 --> 00:01:41.990
+So if you think about you know, what a
+typical research
+
+32
+00:01:41.990 --> 00:01:45.350
+paper might look like, you know, there's
+a, it's
+
+33
+00:01:45.350 --> 00:01:48.500
+a hierarchy of information built into a
+research paper.
+
+34
+00:01:48.500 --> 00:01:51.200
+So typically the first level is going to
+be the title.
+
+35
+00:01:51.200 --> 00:01:52.880
+Which is descriptive of what the paper's
+
+36
+00:01:52.880 --> 00:01:54.440
+about, hopefully it's interesting, it
+tells you
+
+37
+00:01:54.440 --> 00:01:57.520
+a little bit about what's going on, but
+there's really no detail in a title.
+
+38
+00:01:57.520 --> 00:01:59.120
+Just the kind of the topic that's covered.
+
+39
+00:02:00.900 --> 00:02:02.780
+The next will be the abstract, which would
+be, usually
+
+40
+00:02:02.780 --> 00:02:05.780
+be a couple hundred words, about what the
+paper's about.
+
+41
+00:02:05.780 --> 00:02:07.720
+You know, what motivated the problem
+
+42
+00:02:07.720 --> 00:02:09.320
+what they did to solve the problem.
+
+43
+00:02:09.320 --> 00:02:12.130
+What the, kind of the bottom line results
+were.
+
+44
+00:02:12.130 --> 00:02:14.120
+So that's only going to be in the
+abstract.
+
+45
+00:02:14.120 --> 00:02:15.760
+Then of course you have the paper itself.
+
+46
+00:02:15.760 --> 00:02:18.790
+You know, the body of the paper will show
+you, will have the, you know, the methods.
+
+47
+00:02:18.790 --> 00:02:21.400
+And more details about what you really
+did.
+
+48
+00:02:21.400 --> 00:02:25.470
+There will be the more detailed results
+any sensitivity analyses you
+
+49
+00:02:25.470 --> 00:02:28.070
+know, things can, things like that will be
+in the paper.
+
+50
+00:02:28.070 --> 00:02:30.860
+And a much longer discussion of the
+implications of the results.
+
+51
+00:02:32.070 --> 00:02:32.550
+But of course,
+
+52
+00:02:32.550 --> 00:02:34.780
+even the written paper these days, for
+
+53
+00:02:34.780 --> 00:02:38.010
+a complex data analysis, doesn't specify,
+really, all
+
+54
+00:02:38.010 --> 00:02:42.370
+the details that need to be used to need,
+that are needed to reproduce the findings.
+
+55
+00:02:42.370 --> 00:02:45.540
+So then you typically might have some
+supplementary de, materials which
+
+56
+00:02:45.540 --> 00:02:48.030
+have a lot more of the details about what
+was done.
+
+57
+00:02:48.030 --> 00:02:49.580
+And, and then if you really, really
+want to
+
+58
+00:02:49.580 --> 00:02:51.810
+kind of do what was done to a level of
+
+59
+00:02:51.810 --> 00:02:55.070
+precision that is kind of useful, you
+probably need
+
+60
+00:02:55.070 --> 00:02:57.625
+to get the code, the data and all the
+
+61
+00:02:57.625 --> 00:02:59.070
+gory details of kind of what happened.
+
+62
+00:02:59.070 --> 00:03:01.290
+So that's kind of like the, the range of
+things that you
+
+63
+00:03:01.290 --> 00:03:04.850
+might be able to present from least
+specific to most specific, so
+
+64
+00:03:04.850 --> 00:03:07.200
+not everyone, of course, is going to be
+writing a research paper,
+
+65
+00:03:07.200 --> 00:03:10.750
+but there is an analog to kind of most
+presentations of data analysis.
+
+66
+00:03:10.750 --> 00:03:15.750
+And so, if you're going to be you know,
+mailing results to a person.
+
+67
+00:03:15.750 --> 00:03:18.840
+Either a colleague, or a manager.
+
+68
+00:03:18.840 --> 00:03:21.040
+then, you know, the, the first line of
+information is the
+
+69
+00:03:21.040 --> 00:03:22.745
+subject of the email, all right, so the
+subject of the
+
+70
+00:03:22.745 --> 00:03:24.590
+e-mail is kind of like the title.
+
+71
+00:03:24.590 --> 00:03:26.700
+And you want to have it, kind of concise,
+you want to
+
+72
+00:03:26.700 --> 00:03:29.960
+be descriptive, and at a minimum, you want
+to have one, all right?
+
+73
+00:03:29.960 --> 00:03:32.100
+So don't leave it, don't, don't send an
+e-mail without a
+
+74
+00:03:32.100 --> 00:03:36.145
+subject, so it's not specific as to what
+the e-mail is about.
+
+75
+00:03:36.145 --> 00:03:38.120
+If you can summarize kind of what you've
+done in one
+
+76
+00:03:38.120 --> 00:03:41.700
+sentence, the, then it may be useful put
+that in the subject.
+
+77
+00:03:41.700 --> 00:03:44.600
+That way people reading the subject can
+kind of get a sense
+
+78
+00:03:44.600 --> 00:03:48.260
+of what's happening and maybe even make a
+decision based on that alone.
+
+79
+00:03:48.260 --> 00:03:51.200
+The next level of information of course is
+the email body.
+
+80
+00:03:51.200 --> 00:03:53.600
+And you, you don't want to go, even though
+there's no technical limit
+
+81
+00:03:53.600 --> 00:03:55.760
+on the size of the email body, you don't
+want to go too crazy
+
+82
+00:03:55.760 --> 00:03:58.770
+with this, But you want to have, you know
+provide a brief description of
+
+83
+00:03:58.770 --> 00:04:02.220
+the problem maybe if someone doesn't, you
+know, if the person may not remember.
+
+84
+00:04:02.220 --> 00:04:03.420
+If they're working on many different
+things at
+
+85
+00:04:03.420 --> 00:04:05.090
+once, they may not remember what the
+problem
+
+86
+00:04:05.090 --> 00:04:07.340
+is, precisely what you're working on, so
+give
+
+87
+00:04:07.340 --> 00:04:10.020
+them a little context, give them a little
+description.
+
+88
+00:04:10.020 --> 00:04:12.000
+Recall, you know, if there was a meeting
+previously.
+
+89
+00:04:12.000 --> 00:04:13.325
+You know, talk about what was
+
+90
+00:04:13.325 --> 00:04:16.160
+proposed and, you know, and what you
+actually did.
+
+91
+00:04:16.160 --> 00:04:19.650
+Summarize some of your findings and your
+results and maybe, you know, for
+
+92
+00:04:19.650 --> 00:04:24.380
+a total for one to two paragraphs in this
+whole, the email body.
+
+93
+00:04:24.380 --> 00:04:26.430
+If you need this, the person that you're
+presenting the
+
+94
+00:04:26.430 --> 00:04:29.820
+information to to take some sort of action
+based on these,
+
+95
+00:04:29.820 --> 00:04:32.770
+the results of this presentation, then you
+should try to
+
+96
+00:04:32.770 --> 00:04:36.830
+suggest some options that and make them as
+concrete as possible.
+
+97
+00:04:36.830 --> 00:04:38.380
+Alright.
+So and
+
+98
+00:04:38.380 --> 00:04:39.960
+if there are questions that need to be
+addressed,
+
+99
+00:04:39.960 --> 00:04:41.530
+if you want them to kind of comeback with
+
+100
+00:04:41.530 --> 00:04:43.360
+an answer, it's usually best to try to
+make
+
+101
+00:04:43.360 --> 00:04:46.070
+them yes no questions or as simple as
+possible.
+
+102
+00:04:49.720 --> 00:04:51.400
+After the email body, of course, you might
+be able
+
+103
+00:04:51.400 --> 00:04:54.310
+to attach something that's quite a bit
+longer, a PDF file
+
+104
+00:04:54.310 --> 00:04:57.200
+or another type of document, and so this
+can be like
+
+105
+00:04:57.200 --> 00:04:59.890
+a report containing more detailed
+
+106
+00:04:59.890 --> 00:05:03.320
+analyses, figures, tables, things like
+that.
+
+107
+00:05:03.320 --> 00:05:05.720
+You can, this can be derived from an R
+markdown file.
+
+108
+00:05:05.720 --> 00:05:09.100
+You can use it, you know, something that
+you create with knitr.
+
+109
+00:05:09.100 --> 00:05:11.170
+But of course, even in the report like
+this where you may
+
+110
+00:05:11.170 --> 00:05:14.630
+be allowed, you know, a couple of pages
+to, to present things,
+
+111
+00:05:14.630 --> 00:05:17.000
+you still want to stay concise, you don't
+want to spit
+
+112
+00:05:17.000 --> 00:05:19.670
+out pages and pages of code and tables and
+results.
+
+113
+00:05:21.330 --> 00:05:23.030
+We know that your code is available
+because if you
+
+114
+00:05:23.030 --> 00:05:25.530
+use something like knitr then obviously,
+you have to kind
+
+115
+00:05:25.530 --> 00:05:28.230
+of put the code in with the results, but
+you
+
+116
+00:05:28.230 --> 00:05:31.335
+don't necessarily have to present it all
+in the report.
+
+117
+00:05:31.335 --> 00:05:33.160
+Your opportunity to do something like that
+of course
+
+118
+00:05:33.160 --> 00:05:35.150
+will be, if, if you, if you have someone
+who
+
+119
+00:05:35.150 --> 00:05:36.640
+really wants to look at what you put, what
+you
+
+120
+00:05:36.640 --> 00:05:39.740
+did precisely, you can give em a link to
+some
+
+121
+00:05:39.740 --> 00:05:42.530
+sort of repository, like GitHub, or a
+project
+
+122
+00:05:42.530 --> 00:05:44.920
+website that would have all of the
+details.
+
+123
+00:05:44.920 --> 00:05:46.000
+Or all your code files.
+
+124
+00:05:46.000 --> 00:05:46.900
+All your data sets.
+
+125
+00:05:46.900 --> 00:05:48.990
+All your, all that kind of, all the nitty
+gritty like that.
+
+126
+00:05:48.990 --> 00:05:51.650
+All your, your software environment,
+things like that.
+
+127
+00:05:51.650 --> 00:05:52.576
+And so.
+
+128
+00:05:52.576 --> 00:05:54.860
+So that's kind of the level of, different
+levels
+
+129
+00:05:54.860 --> 00:05:56.790
+of detail that you might want to present
+to someone.
+
+130
+00:05:56.790 --> 00:05:58.902
+And so people who are truly interested in
+everything
+
+131
+00:05:58.902 --> 00:06:00.774
+that you did, you know, or really want to
+know
+
+132
+00:06:00.774 --> 00:06:02.454
+kind of the details, they might go to your
+
+133
+00:06:02.454 --> 00:06:05.046
+GitHub repository and start pulling your
+code and start looking
+
+134
+00:06:05.046 --> 00:06:07.880
+at it and start looking at the detailed
+results.
+
+135
+00:06:07.880 --> 00:06:09.895
+But someone who wants kind of top line
+
+136
+00:06:09.895 --> 00:06:12.760
+or I should say, you know, top line
+summaries.
+
+137
+00:06:12.760 --> 00:06:14.260
+You know, they'll, they'll read the email,
+they'll
+
+138
+00:06:14.260 --> 00:06:16.770
+look at the subject, they'll read the
+brief description.
+
+139
+00:06:16.770 --> 00:06:18.718
+And might flip through the report.
+
+140
+00:06:18.718 --> 00:06:21.290
+And so different, the point is that
+different people are going to
+
+141
+00:06:21.290 --> 00:06:25.900
+be interested in different levels of
+details of, about what you've done.
+
+142
+00:06:25.900 --> 00:06:27.350
+So you want to be, and so you want to
+
+143
+00:06:27.350 --> 00:06:30.050
+present people with those different
+levels, so that they might
+
+144
+00:06:30.050 --> 00:06:33.030
+be able to choose the level that they are
+most interested in.
+
+145
+00:06:33.030 --> 00:06:37.160
+And so this is just kind of a generic
+template for kind of how you
+
+146
+00:06:37.160 --> 00:06:42.670
+might present a an analysis or a data, or
+a project that you've worked on.
+
+147
+00:06:42.670 --> 00:06:45.580
+Not every presentation will kind of need
+all
+
+148
+00:06:45.580 --> 00:06:47.500
+these different levels but I think that, I
+
+149
+00:06:47.500 --> 00:06:50.230
+find this to be a useful breakdown of
+
+150
+00:06:50.230 --> 00:06:52.590
+the different types of presentations that
+you can make.

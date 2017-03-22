@@ -1,0 +1,359 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:03.240
+I'm going to talk a little about,
+replication, reproducibility.
+
+2
+00:00:03.240 --> 00:00:05.290
+And I think in a lot of,
+
+3
+00:00:05.290 --> 00:00:07.620
+circumstances, people tend to use these
+words interchangeably.
+
+4
+00:00:07.620 --> 00:00:11.550
+But for the purpose of this talk,
+[UNKNOWN].
+
+5
+00:00:11.550 --> 00:00:13.270
+There's going to be a distinction.
+
+6
+00:00:13.270 --> 00:00:15.607
+So, when I think, when I think about
+replication, I think
+
+7
+00:00:15.607 --> 00:00:17.910
+we talk about like the usual thing that
+happens in science.
+
+8
+00:00:17.910 --> 00:00:20.050
+The purpose of replication is to address,
+in my
+
+9
+00:00:20.050 --> 00:00:22.370
+opinion, the kind of validity of a
+scientific claim, right?
+
+10
+00:00:22.370 --> 00:00:24.110
+So if you say that x is related to y.
+
+11
+00:00:25.138 --> 00:00:27.880
+The first question is well is this claim
+true?
+
+12
+00:00:27.880 --> 00:00:32.320
+So you have to replicate it in another
+study or a series of other studies.
+
+13
+00:00:32.320 --> 00:00:36.525
+With new investigators collecting new data
+using different
+
+14
+00:00:36.525 --> 00:00:41.758
+alloquital methods, laboratory instruments
+whatever it may be.
+
+15
+00:00:41.758 --> 00:00:43.980
+And you have a bunch of replications and
+no one can sign, no one
+
+16
+00:00:43.980 --> 00:00:47.140
+can find the same thing now you think
+okay, well that's probably not true.
+
+17
+00:00:47.140 --> 00:00:50.640
+But if everyone finds the same thing,
+roughly the same thing, in independent
+
+18
+00:00:50.640 --> 00:00:54.020
+studies, then you think okay, that's
+probably a reasonable claim.
+
+19
+00:00:54.020 --> 00:00:57.260
+So replication's kind of how we've always
+done things.
+
+20
+00:00:57.260 --> 00:00:58.508
+And it's still, I think, the
+
+21
+00:00:58.508 --> 00:01:01.050
+ultimate standard for strengthening
+scientific evidence.
+
+22
+00:01:02.430 --> 00:01:03.450
+So that's replication.
+
+23
+00:01:04.690 --> 00:01:08.690
+Reproducibility in case you haven't heard
+the term is y referred
+
+24
+00:01:08.690 --> 00:01:11.270
+to as kind of saying the validity of the
+data analysis right?
+
+25
+00:01:11.270 --> 00:01:13.530
+So here you have situations where data are
+
+26
+00:01:13.530 --> 00:01:15.930
+collected and you analyze with someone
+else and
+
+27
+00:01:15.930 --> 00:01:17.540
+they say something like x is related to y.
+
+28
+00:01:18.880 --> 00:01:23.060
+So here the idea is that you have two
+investigators but you
+
+29
+00:01:23.060 --> 00:01:27.240
+look at the same data and, and you used
+the same methods, perhaps.
+
+30
+00:01:27.240 --> 00:01:28.980
+See if, you know, what they claimed is
+
+31
+00:01:28.980 --> 00:01:31.100
+actually produced from the data that, and
+the analysis.
+
+32
+00:01:31.100 --> 00:01:34.800
+So the real question, I think the question
+here is not so much, Is the claim true?
+
+33
+00:01:34.800 --> 00:01:37.940
+But really, Can we trust this analysis?
+Okay?
+
+34
+00:01:37.940 --> 00:01:41.090
+So that's kind of, in, what I see, the,
+the key question
+
+35
+00:01:41.090 --> 00:01:42.950
+of reproducibility tries to address.
+
+36
+00:01:42.950 --> 00:01:44.650
+Can we take their approach, apply to their
+
+37
+00:01:44.650 --> 00:01:46.260
+data, and get the same thing that they've
+gotten?
+
+38
+00:01:48.310 --> 00:01:49.368
+And I think this is key.
+
+39
+00:01:49.368 --> 00:01:52.420
+A reproducibility is, is particularly hard
+in my area
+
+40
+00:01:52.420 --> 00:01:56.690
+of work in, in which replication is just
+not possible.
+
+41
+00:01:56.690 --> 00:01:59.606
+So this is where I'm starting.
+
+42
+00:01:59.606 --> 00:02:03.380
+And just so, I think some background
+everyone's familiar with this
+
+43
+00:02:03.380 --> 00:02:06.580
+is, there's been a lot of talk about
+reproducibility in recent years.
+
+44
+00:02:06.580 --> 00:02:10.860
+Some of the transars just have, a lot of
+stages that can't replicated they're huge.
+
+45
+00:02:10.860 --> 00:02:13.450
+I switched edimology and have these 25
+year covert studies that just can't
+
+46
+00:02:13.450 --> 00:02:16.476
+be replicated in a reasonable amount of
+time.
+
+47
+00:02:16.476 --> 00:02:20.582
+There's a lot of technology, which is
+affecting the rate of data collection.
+
+48
+00:02:20.582 --> 00:02:22.160
+The complexity is very high.
+
+49
+00:02:22.160 --> 00:02:24.590
+You have these, kind of, databases that
+people are
+
+50
+00:02:24.590 --> 00:02:26.460
+just merging together like crazy, I'm one
+of those people.
+
+51
+00:02:28.060 --> 00:02:31.612
+And I've seen a lot of these data used off
+label.
+
+52
+00:02:31.612 --> 00:02:34.918
+So for example you have administrative
+data sets that are being used
+
+53
+00:02:34.918 --> 00:02:38.350
+for health studies and things like that so
+this is very common.
+
+54
+00:02:38.350 --> 00:02:40.534
+And then because it's inexpensive
+computing
+
+55
+00:02:40.534 --> 00:02:42.158
+power is very sophisticated now so
+
+56
+00:02:42.158 --> 00:02:45.180
+we can do very kid of complex analysis on
+just small data sets.
+
+57
+00:02:46.250 --> 00:02:49.660
+And so, and then for every field x, there
+is a computational x.
+
+58
+00:02:49.660 --> 00:02:50.160
+So.
+
+59
+00:02:52.168 --> 00:02:55.470
+To sum up the results, so basic analysis
+can be very difficult to, to
+
+60
+00:02:55.470 --> 00:02:59.306
+describe now, in just kind of like your
+standard method section in a journal.
+
+61
+00:02:59.306 --> 00:03:03.010
+Oftentimes there's very heavy
+computational requirements that
+
+62
+00:03:03.010 --> 00:03:05.150
+are thrust on people with very little
+training.
+
+63
+00:03:06.320 --> 00:03:10.930
+And so just a little bit of the context
+that kind of, from where coming, I,
+
+64
+00:03:10.930 --> 00:03:15.490
+I think, you think of the range of kind of
+computational ability from low to high.
+
+65
+00:03:15.490 --> 00:03:17.640
+You know, most of the people in the room
+are over here.
+
+66
+00:03:17.640 --> 00:03:19.924
+All the people in the room are over here,
+maybe, you know, Jeff's over here.
+
+67
+00:03:19.924 --> 00:03:25.080
+[LAUGH] But there's a whole slew of people
+on this end of the spectrum.
+
+68
+00:03:25.080 --> 00:03:29.700
+Who are doing computational, who have to
+do computational work for, whether they
+
+69
+00:03:29.700 --> 00:03:34.040
+like it or not, and the reasons they've
+got all this data coming in.
+
+70
+00:03:34.040 --> 00:03:37.160
+So and so that can lead to problems.
+
+71
+00:03:37.160 --> 00:03:40.760
+You can have errors introduced into
+long-term analysis pipelines.
+
+72
+00:03:40.760 --> 00:03:43.000
+And you can't tell people what you've done
+in a reasonable
+
+73
+00:03:43.000 --> 00:03:44.260
+amount of space.
+
+74
+00:03:44.260 --> 00:03:46.200
+That complicates the transfer of
+knowledge.
+
+75
+00:03:46.200 --> 00:03:50.959
+So in many cases, there is a sense that
+complicated analyses can't be trusted.

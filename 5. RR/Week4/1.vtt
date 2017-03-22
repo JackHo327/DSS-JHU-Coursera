@@ -1,0 +1,1169 @@
+WEBVTT
+
+1
+00:00:03.770 --> 00:00:05.640
+So one idea that I'm kind of building
+
+2
+00:00:05.640 --> 00:00:07.990
+on is this idea of literate statistical
+proming, programming.
+
+3
+00:00:07.990 --> 00:00:10.470
+So this is, comes from the literate
+programming idea.
+
+4
+00:00:10.470 --> 00:00:12.350
+Which is that, you know, so here you think
+
+5
+00:00:12.350 --> 00:00:14.200
+of an article as a stream of text and
+code.
+
+6
+00:00:15.270 --> 00:00:17.080
+There's analysis code that has, you know,
+it
+
+7
+00:00:17.080 --> 00:00:19.670
+analyzes the data or does something with
+data.
+
+8
+00:00:19.670 --> 00:00:21.362
+And those are chunks, and then there's
+each
+
+9
+00:00:21.362 --> 00:00:23.270
+code hunk kind of does something with the
+data.
+
+10
+00:00:24.340 --> 00:00:27.300
+There can be presentation code, that kind
+of formats results and then
+
+11
+00:00:27.300 --> 00:00:28.380
+there's text kind of all around
+
+12
+00:00:28.380 --> 00:00:31.440
+that, which explains what's going on,
+presumably.
+
+13
+00:00:31.440 --> 00:00:34.620
+And these literate, statistical programs
+can be kind of weaved to produce
+
+14
+00:00:36.510 --> 00:00:40.550
+a a human readable document, and tangled
+to produce a machine readable document.
+
+15
+00:00:40.550 --> 00:00:43.167
+So this all comes from this, you know,
+idea of Don Knuth, all right.
+
+16
+00:00:43.167 --> 00:00:50.040
+So and so the literate so the literate
+programming concept requires two things.
+
+17
+00:00:50.040 --> 00:00:53.380
+One is a documentation language and a
+programming language.
+
+18
+00:00:53.380 --> 00:00:57.030
+And so there is one particular package in
+I should have mentioned that,
+
+19
+00:00:57.030 --> 00:01:01.850
+that I am talking most about the R
+statistical kind of analysis environment.
+
+20
+00:01:03.310 --> 00:01:06.726
+And so there's one particular package
+called Sweave, which uses
+
+21
+00:01:06.726 --> 00:01:10.503
+LaTeX as its documentation language and R
+as its programming language.
+
+22
+00:01:10.503 --> 00:01:13.109
+And it was developed by Friedrich Leisch.
+
+23
+00:01:13.109 --> 00:01:14.449
+And it has a nice website.
+
+24
+00:01:14.449 --> 00:01:16.540
+And there are other kind of combinations
+that you can use.
+
+25
+00:01:17.560 --> 00:01:20.108
+And so, so one thing that I was interested
+in doing is taking,
+
+26
+00:01:20.108 --> 00:01:22.950
+okay, is taking the kind of definition
+that we had of having analytic
+
+27
+00:01:22.950 --> 00:01:26.576
+data and computational resul, and analytic
+code, and say, okay, well, let's take
+
+28
+00:01:26.576 --> 00:01:28.928
+the process here, presumably the
+article's, you
+
+29
+00:01:28.928 --> 00:01:31.426
+know, available, because it's in a
+journal.
+
+30
+00:01:31.426 --> 00:01:35.470
+And then we, let's make this part
+available, too.
+
+31
+00:01:35.470 --> 00:01:37.920
+So here's that, well, we kind of store
+these things in some sort
+
+32
+00:01:37.920 --> 00:01:42.150
+of database of of, of sorts, and then make
+it available to the readers.
+
+33
+00:01:42.150 --> 00:01:43.840
+So the reader kind of wants to go this
+direction.
+
+34
+00:01:43.840 --> 00:01:45.580
+They want to take the article and dig in.
+
+35
+00:01:45.580 --> 00:01:47.190
+And articles and authors are kind of
+
+36
+00:01:47.190 --> 00:01:48.600
+taking their data and they're going that
+way.
+
+37
+00:01:48.600 --> 00:01:50.810
+They're producing articles.
+
+38
+00:01:50.810 --> 00:01:57.210
+So the idea is to take these kind of
+aspects of the of the
+
+39
+00:01:57.210 --> 00:02:01.086
+work and kind of store them in a database
+to make it available to readers.
+
+40
+00:02:01.086 --> 00:02:05.740
+So, in the kind of literate statistical
+program framework, you have, like,
+
+41
+00:02:05.740 --> 00:02:09.670
+your paper here, which has text and code
+and text and code.
+
+42
+00:02:09.670 --> 00:02:11.980
+You take the code chunks and you store
+their results.
+
+43
+00:02:11.980 --> 00:02:13.720
+So the code chunks kind of do something
+with the data.
+
+44
+00:02:13.720 --> 00:02:17.640
+You store the results and the code in some
+central, in some database.
+
+45
+00:02:17.640 --> 00:02:21.330
+Make that, you publish essentially the
+database part along with the paper.
+
+46
+00:02:22.360 --> 00:02:25.480
+And so, and then this is the paper here
+which, which is generated so that you
+
+47
+00:02:25.480 --> 00:02:27.310
+generate the figures and the tables and
+the,
+
+48
+00:02:27.310 --> 00:02:30.230
+and the, from the materials stored in the
+database.
+
+49
+00:02:31.400 --> 00:02:33.610
+So that's, so I, so that this, so we
+
+50
+00:02:33.610 --> 00:02:35.490
+came up, there's kind of two packages that
+we have.
+
+51
+00:02:35.490 --> 00:02:38.160
+One is, this called cacheSweave which is
+for, that I
+
+52
+00:02:38.160 --> 00:02:40.220
+won't talk about today, but it's, it
+interacts with Sweave.
+
+53
+00:02:40.220 --> 00:02:42.440
+And the other one is called cacher here,
+which is a stand alone package.
+
+54
+00:02:43.890 --> 00:02:45.580
+And the idea is that it, it's so, it
+
+55
+00:02:45.580 --> 00:02:48.500
+assumes that you have some code in an R
+file.
+
+56
+00:02:48.500 --> 00:02:52.840
+And and basically, it, it kind of reads
+your code, evaluates
+
+57
+00:02:52.840 --> 00:02:55.680
+it, and stores the results in, in a kind
+of key-value database.
+
+58
+00:02:55.680 --> 00:02:57.590
+So, so the R expression, so the code
+
+59
+00:02:57.590 --> 00:03:00.260
+expressions, are all given kind of SHA-1
+hash
+
+60
+00:03:00.260 --> 00:03:01.600
+values so that, so if there are any
+
+61
+00:03:01.600 --> 00:03:03.780
+changes that, you know, they can be
+tracked.
+
+62
+00:03:03.780 --> 00:03:05.310
+And code can be reevaluated if necessary.
+
+63
+00:03:05.310 --> 00:03:07.340
+And the idea is that you kind of put
+everything, the code and
+
+64
+00:03:07.340 --> 00:03:13.160
+data in a, in a package that you could
+just give to someone, right?
+
+65
+00:03:13.160 --> 00:03:14.918
+And we call this, I call this the cacher
+package.
+
+66
+00:03:14.918 --> 00:03:17.930
+So and the other people can kind of, can
+get the analysis or clone,
+
+67
+00:03:17.930 --> 00:03:22.590
+or clone the analysis and look at subsets
+of code or inspect specific data objects.
+
+68
+00:03:22.590 --> 00:03:24.110
+So the, and one assumption that I made is
+that
+
+69
+00:03:24.110 --> 00:03:27.270
+other people do not necessarily have the
+resources that you have.
+
+70
+00:03:27.270 --> 00:03:31.390
+And so they may not want to run the entire
+Markov chain Monte Carlo simulation that
+
+71
+00:03:31.390 --> 00:03:34.310
+you did to get the, you know, posterior
+
+72
+00:03:34.310 --> 00:03:36.170
+distribution, or the histogram you've got
+at the end.
+
+73
+00:03:36.170 --> 00:03:40.510
+So, I mean, they might just want to look
+at specific end products of that.
+
+74
+00:03:40.510 --> 00:03:41.920
+Or, and then maybe, when they're, when
+they see
+
+75
+00:03:41.920 --> 00:03:43.200
+the end products, they say, oh, well, you
+know?
+
+76
+00:03:43.200 --> 00:03:45.290
+Actually, maybe I do need to look at the
+whole MCMC.
+
+77
+00:03:45.290 --> 00:03:47.540
+So, but the idea is that, you know, you
+kind of peel the
+
+78
+00:03:47.540 --> 00:03:49.870
+onion a little bit rather than just go
+straight to the core.
+
+79
+00:03:49.870 --> 00:03:50.790
+Alright.
+
+80
+00:03:50.790 --> 00:03:54.645
+So and so the model is basically that you
+have some code source file.
+
+81
+00:03:54.645 --> 00:03:55.605
+There's code that goes in.
+
+82
+00:03:55.605 --> 00:03:56.870
+There's data that goes in.
+
+83
+00:03:56.870 --> 00:03:58.480
+And out comes results.
+
+84
+00:03:58.480 --> 00:03:58.980
+Alright.
+
+85
+00:04:00.620 --> 00:04:05.450
+So so as author, the idea of cacher is
+that it kind of parses the source file.
+
+86
+00:04:05.450 --> 00:04:09.082
+It creates directories and sub-directories
+for storing things.
+
+87
+00:04:09.082 --> 00:04:11.370
+And then it evaluates each expression.
+
+88
+00:04:11.370 --> 00:04:13.410
+And also, if you run it multiple times, if
+it,
+
+89
+00:04:13.410 --> 00:04:16.150
+if an expression hasn't changed it won't
+run it again.
+
+90
+00:04:16.150 --> 00:04:18.037
+So it just kind of, it just load the kind
+of,
+
+91
+00:04:18.037 --> 00:04:21.580
+it as it runs expressions, it caches the
+results in the database.
+
+92
+00:04:21.580 --> 00:04:25.388
+So, if you run it again and nothing's
+changed, it just kind of loads the results
+
+93
+00:04:25.388 --> 00:04:28.010
+back from the database, And then it writes
+
+94
+00:04:28.010 --> 00:04:30.010
+out a bunch of metadata for each
+expression.
+
+95
+00:04:30.010 --> 00:04:32.085
+And so, and the, and then, once it's, once
+
+96
+00:04:32.085 --> 00:04:33.830
+you've kind of evaluated your whole
+analysis, and, granted,
+
+97
+00:04:33.830 --> 00:04:36.320
+this might take a long time everything,
+all the
+
+98
+00:04:36.320 --> 00:04:38.580
+kind of intermediate results are stored in
+the database.
+
+99
+00:04:38.580 --> 00:04:41.980
+And and you can kind of wrap that up into
+a package.
+
+100
+00:04:41.980 --> 00:04:46.440
+So that's the idea here with this
+cachepackage function.
+
+101
+00:04:46.440 --> 00:04:48.760
+And this, it basically it just becomes a
+zip file,
+
+102
+00:04:48.760 --> 00:04:51.190
+a package, and it can be kind of
+distributed to others.
+
+103
+00:04:53.100 --> 00:04:55.770
+So that's kind of what happens as an
+author here.
+
+104
+00:04:55.770 --> 00:04:57.350
+And so a very simple analysis.
+
+105
+00:04:57.350 --> 00:04:59.420
+You know, you're loading some packages.
+
+106
+00:04:59.420 --> 00:05:00.650
+You're loading a dataset.
+
+107
+00:05:00.650 --> 00:05:03.050
+It fits some simple linear model.
+
+108
+00:05:03.050 --> 00:05:05.550
+And then you, if you want to summarize
+what the
+
+109
+00:05:05.550 --> 00:05:08.360
+fit was, look at the regression
+coefficients, things like that.
+
+110
+00:05:08.360 --> 00:05:09.660
+And then you make a plot here.
+
+111
+00:05:09.660 --> 00:05:12.210
+So here you're just plotting some
+diagnostics here.
+
+112
+00:05:12.210 --> 00:05:16.540
+So the idea is that any, any expression
+that kind of has, that
+
+113
+00:05:16.540 --> 00:05:19.932
+does something then the results of that
+something are stored in the database.
+
+114
+00:05:19.932 --> 00:05:21.644
+So if an expression doesn't do anything,
+like maybe just
+
+115
+00:05:21.644 --> 00:05:24.150
+prints something to the console then, then
+nothing is stored.
+
+116
+00:05:24.150 --> 00:05:25.320
+>> So when you say it does something, you
+
+117
+00:05:25.320 --> 00:05:28.730
+mean creates a variable or, or modifies a
+variable?
+
+118
+00:05:28.730 --> 00:05:29.000
+>> Right.
+
+119
+00:05:29.000 --> 00:05:29.628
+So, in R.
+
+120
+00:05:29.628 --> 00:05:33.500
+>> If something is created in the
+environment, then that is stored.
+
+121
+00:05:33.500 --> 00:05:33.725
+Yes.
+
+122
+00:05:33.725 --> 00:05:35.480
+>> So a figure, like you said, a figure
+does not count.
+
+123
+00:05:35.480 --> 00:05:36.260
+.
+
+124
+00:05:36.260 --> 00:05:37.720
+>> The figure, so, yeah, right.
+
+125
+00:05:37.720 --> 00:05:40.100
+So, we don't store the figure itself,
+right.
+
+126
+00:05:42.248 --> 00:05:44.258
+And then the idea is that the package
+
+127
+00:05:44.258 --> 00:05:47.670
+would have an identifier like the SHA-1
+here.
+
+128
+00:05:47.670 --> 00:05:49.450
+And and then, so the idea is that you
+
+129
+00:05:49.450 --> 00:05:50.740
+could say, if you were writing an article
+you
+
+130
+00:05:50.740 --> 00:05:52.150
+could say, well everything in this article
+can be
+
+131
+00:05:52.150 --> 00:05:54.470
+found in this package and here's the
+identifier string.
+
+132
+00:05:54.470 --> 00:05:57.030
+So it's ugly, but, you know, you can just
+use the four, you can
+
+133
+00:05:57.030 --> 00:06:00.074
+use the first four characters, and that's
+
+134
+00:06:00.074 --> 00:06:04.320
+usually enough to identify the package
+itself.
+
+135
+00:06:04.320 --> 00:06:06.870
+So on the reader's side then, if you're
+reading something like this
+
+136
+00:06:06.870 --> 00:06:10.090
+in a journal, you could say, okay, well
+I'll take this string.
+
+137
+00:06:10.090 --> 00:06:11.370
+And maybe I don't want to read the whole
+thing,
+
+138
+00:06:11.370 --> 00:06:13.560
+but I'll just get the first four
+characters out.
+
+139
+00:06:13.560 --> 00:06:15.510
+And you can clone the whole thing, right.
+
+140
+00:06:15.510 --> 00:06:19.078
+And so, and I'll get to the where it comes
+from later, but.
+
+141
+00:06:19.078 --> 00:06:21.016
+And the idea is that, you can see, so you
+
+142
+00:06:21.016 --> 00:06:24.496
+can clone, you can see what files were
+cached there.
+
+143
+00:06:24.496 --> 00:06:27.330
+And and then kind of go through the
+analysis.
+
+144
+00:06:27.330 --> 00:06:29.090
+So some local directories are created.
+
+145
+00:06:29.090 --> 00:06:31.030
+The source code files and the metadata are
+downloaded.
+
+146
+00:06:31.030 --> 00:06:34.180
+But the data themselves are not downloaded
+initially.
+
+147
+00:06:34.180 --> 00:06:34.350
+Right?
+
+148
+00:06:34.350 --> 00:06:35.540
+Because it could be a lot.
+
+149
+00:06:35.540 --> 00:06:35.700
+Right?
+
+150
+00:06:35.700 --> 00:06:37.669
+You don't, and, so that's not done by
+default.
+
+151
+00:06:39.040 --> 00:06:42.640
+and, but references to the various data
+objects that have been created are loaded.
+
+152
+00:06:42.640 --> 00:06:43.730
+So that if what, you know, is the
+
+153
+00:06:43.730 --> 00:06:45.880
+idea is that these are lazy-loaded into
+the environment.
+
+154
+00:06:45.880 --> 00:06:47.460
+Once you want to look at something, then
+
+155
+00:06:47.460 --> 00:06:51.060
+it gets downloaded into your into, onto
+your computer.
+
+156
+00:06:53.570 --> 00:06:55.040
+And so the idea is, if you look at the
+code
+
+157
+00:06:56.150 --> 00:06:58.830
+and so this is just some simple analysis
+that I've done.
+
+158
+00:06:58.830 --> 00:07:00.130
+You can make a graph of the code.
+
+159
+00:07:01.512 --> 00:07:05.340
+So this takes all the data objects in your
+kind of this simple analysis
+
+160
+00:07:05.340 --> 00:07:09.409
+that I've done, and it kind of map, graphs
+how they've kind of come together.
+
+161
+00:07:09.409 --> 00:07:12.973
+So like these three things, this cities
+variable, the classes
+
+162
+00:07:12.973 --> 00:07:16.065
+and this vars thing came together to
+create this data.
+
+163
+00:07:16.065 --> 00:07:20.175
+And then the data was combined with the
+quasipoisson function to create estimates.
+
+164
+00:07:20.175 --> 00:07:22.430
+And then, you know, so, and the estimates
+were
+
+165
+00:07:22.430 --> 00:07:25.400
+later created, used to create this effect
+and standard error.
+
+166
+00:07:25.400 --> 00:07:28.970
+So, I mean, that's the kind of rough graph
+of how the analysis worked.
+
+167
+00:07:30.118 --> 00:07:31.710
+And so the idea is that, okay, well,
+
+168
+00:07:31.710 --> 00:07:33.770
+someone might look at this, and, and well,
+and
+
+169
+00:07:33.770 --> 00:07:36.570
+of course, you have to do some reading to
+figure out what exactly is going on here.
+
+170
+00:07:36.570 --> 00:07:39.190
+But the idea is, if you were interested in
+this and knowledgeable a
+
+171
+00:07:39.190 --> 00:07:43.120
+little bit, you can say okay, well, I'm
+interested in this data object.
+
+172
+00:07:43.120 --> 00:07:46.930
+You know, what was, what went into the
+creation of that data object.
+
+173
+00:07:46.930 --> 00:07:49.130
+And so the this objectcode function.
+
+174
+00:07:49.130 --> 00:07:52.115
+You can grab the name of the object, and
+it will show
+
+175
+00:07:52.115 --> 00:07:56.080
+you the, the specific lines of code that
+were used to generate that.
+
+176
+00:07:56.080 --> 00:07:59.050
+So, you know, if you, if you have a file,
+there may be many lines
+
+177
+00:07:59.050 --> 00:08:00.778
+of code, but only some subset of which
+
+178
+00:08:00.778 --> 00:08:03.546
+were important to generating a specific
+object, right.
+
+179
+00:08:03.546 --> 00:08:05.300
+And so, and so these specific lines.
+
+180
+00:08:05.300 --> 00:08:07.430
+So, it turns out it's just 1 through 5.
+
+181
+00:08:07.430 --> 00:08:10.020
+But these specific lines of code were,
+
+182
+00:08:10.020 --> 00:08:12.400
+were what kind of created this data
+object.
+
+183
+00:08:12.400 --> 00:08:12.560
+Right?
+
+184
+00:08:12.560 --> 00:08:17.709
+So there may be different types of objects
+in the, in the analysis.
+
+185
+00:08:17.709 --> 00:08:19.844
+And you can kind of hone in on some of
+them,
+
+186
+00:08:19.844 --> 00:08:23.740
+and say, okay, what was the coded that
+generated this object.
+
+187
+00:08:23.740 --> 00:08:28.097
+You can also execute the code with the
+runcode function.
+
+188
+00:08:28.097 --> 00:08:32.331
+And what it does is it it, it, it runs the
+code, but it runs it in a
+
+189
+00:08:32.331 --> 00:08:34.959
+way that it just, that it just loads
+things
+
+190
+00:08:34.959 --> 00:08:39.010
+from the database without actually
+executing code by default.
+
+191
+00:08:39.010 --> 00:08:41.770
+So if you just kind of want to run it and
+see kind of some results at
+
+192
+00:08:41.770 --> 00:08:43.960
+the end as a first cut, then it's
+
+193
+00:08:43.960 --> 00:08:47.620
+not going to do everything from scratch by
+default.
+
+194
+00:08:47.620 --> 00:08:51.500
+And so, and so it's a lot faster on the
+first go.
+
+195
+00:08:51.500 --> 00:08:54.280
+But then, of course, things that don't,
+things that aren't still in the database.
+
+196
+00:08:54.280 --> 00:08:56.230
+So, if you make a plot, you know, it's
+still going to
+
+197
+00:08:56.230 --> 00:08:59.180
+have to generate the plot, because that's
+not stored in the database.
+
+198
+00:09:00.330 --> 00:09:02.520
+but, but by default it just loads things,
+
+199
+00:09:02.520 --> 00:09:05.470
+loads objects from the database to make
+things faster.
+
+200
+00:09:05.470 --> 00:09:07.630
+You can of course just force it to run
+everything from scratch.
+
+201
+00:09:08.670 --> 00:09:12.190
+And then it will just, you know, it will
+do all the calculations from scratch.
+
+202
+00:09:12.190 --> 00:09:13.380
+But there may be, for example, there may
+be
+
+203
+00:09:13.380 --> 00:09:15.450
+some expressions that you want to run from
+scratch and some
+
+204
+00:09:15.450 --> 00:09:17.180
+that you just want to load from the
+database, because they're
+
+205
+00:09:17.180 --> 00:09:19.452
+going to take, you know they're going to
+take a long time.
+
+206
+00:09:19.452 --> 00:09:20.972
+But in our, not important, maybe.
+
+207
+00:09:20.972 --> 00:09:24.490
+So, the checkcode function evaluates all
+the expressions from scratch.
+
+208
+00:09:24.490 --> 00:09:28.110
+So it doesn't load anything from the
+database, it runs it all straightaway.
+
+209
+00:09:28.110 --> 00:09:30.760
+And then the evaluations are checked
+against stored results.
+
+210
+00:09:30.760 --> 00:09:32.590
+So the idea is that if a function creates
+an
+
+211
+00:09:32.590 --> 00:09:36.803
+object, when the author created the
+package the kind of signature
+
+212
+00:09:36.803 --> 00:09:38.600
+for that object was stored so that if you
+create the
+
+213
+00:09:38.600 --> 00:09:41.580
+object again, it'll check the signatures
+to see if they match.
+
+214
+00:09:41.580 --> 00:09:43.620
+Of course you've got to set things like
+random
+
+215
+00:09:43.620 --> 00:09:45.770
+generator seeds for this kind of thing to
+work.
+
+216
+00:09:47.526 --> 00:09:50.490
+And of course, and then, there's, there's
+
+217
+00:09:50.490 --> 00:09:52.730
+another kind of side function that checks
+each
+
+218
+00:09:52.730 --> 00:09:54.500
+individual data object to see if, you
+
+219
+00:09:54.500 --> 00:09:56.610
+know, any corruptions it basically checks
+the signatures.
+
+220
+00:09:58.800 --> 00:10:01.470
+So you can load, so you can, you can look
+
+221
+00:10:01.470 --> 00:10:05.390
+at specific data objects and so, by, with
+this loadcache function.
+
+222
+00:10:05.390 --> 00:10:07.190
+So what the loadcache does is all, is
+
+223
+00:10:07.190 --> 00:10:09.450
+it just loads, loads pointers to specific
+data
+
+224
+00:10:09.450 --> 00:10:12.460
+objects that are kind of, that may be
+stored on a server or something like that.
+
+225
+00:10:12.460 --> 00:10:14.520
+And the idea is that once you want to,
+
+226
+00:10:14.520 --> 00:10:16.800
+once you print something out to the screen
+or you
+
+227
+00:10:16.800 --> 00:10:18.950
+want to make a plot, any time you access
+the
+
+228
+00:10:18.950 --> 00:10:20.990
+object, it will transfer it from wherever
+it's coming from.
+
+229
+00:10:20.990 --> 00:10:23.920
+So here the cities transferring from the
+cache database file,
+
+230
+00:10:23.920 --> 00:10:26.770
+and then, each object has a signature and
+that's the signature.
+
+231
+00:10:26.770 --> 00:10:28.050
+And then it prints, and then it shows you
+what it is.
+
+232
+00:10:28.050 --> 00:10:30.480
+So once it's loaded into your system, it's
+loaded for good.
+
+233
+00:10:30.480 --> 00:10:33.307
+You don't have to do it every single time,
+just the first time.
+
+234
+00:10:33.307 --> 00:10:36.090
+And these are just different things that
+you might want to look at.
+
+235
+00:10:39.710 --> 00:10:42.980
+That are transferred from the, from a
+server.
+
+236
+00:10:42.980 --> 00:10:45.536
+So so the summary of the, basic idea of
+
+237
+00:10:45.536 --> 00:10:48.305
+this package is that you can, authors can
+kind
+
+238
+00:10:48.305 --> 00:10:51.571
+of create, their, can kind of package
+their analysis
+
+239
+00:10:51.571 --> 00:10:54.430
+in some sense, and then just give it to
+people.
+
+240
+00:10:54.430 --> 00:10:57.400
+And then people can down, readers can
+download the analysis and
+
+241
+00:10:57.400 --> 00:11:00.780
+look at, you know, specific objects or
+maybe rerun the whole thing.
+
+242
+00:11:00.780 --> 00:11:03.690
+But there's some flexibility in terms of
+not having to kind of
+
+243
+00:11:03.690 --> 00:11:07.060
+recreate the entire environment if it's a
+very complicated type of thing.
+
+244
+00:11:08.090 --> 00:11:11.160
+So it's, I try, the goal, one of the goals
+is to be mindful of
+
+245
+00:11:11.160 --> 00:11:12.940
+other, of the reader's resources and to
+
+246
+00:11:12.940 --> 00:11:15.070
+only kind of efficiently load things that
+are needed.

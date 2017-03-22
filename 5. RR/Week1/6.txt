@@ -1,0 +1,208 @@
+This lecture will talk of, about the basic process by which data analysis will
+unfold. And of course, not every data analysis is
+the same, and not every data analysis will require
+the same components. I think this will serve as a useful
+template for kind of understanding, what are the pieces of a, of a data analysis
+and how they typically flow together. So, if one were to write down the steps in
+a data analysis, you might come up with
+something along these lines. A list just like this one. There may be things that, little things
+you might want to add or delete. But see, most data analysis have some
+subset of these steps. And so what we're going to talk about in
+this lecture, which is part one. Is defining the question that you're
+interested in. Defining the ideal data set. Determining what data you actually can
+access. Obtaining the data and cleaning the data. And then in part two of this lecture, we'll talk about the remaining
+topics here. I think the key challenge in, in pretty
+much any data analysis was well characterized by Dan Meyer who's a
+mathematics educator and he taught high school
+mathematics. In his Ted talk he said ask yourselves
+what problem have you solved ever, that was worth solving where you
+knew all the given information in advance. Where you didn't have a surplus of information and
+have to filter it out. Or you had insuf, insufficient information
+and had to go find some. And so I think that's a key element of
+data analysis that which is that you know, typically, you don't have all the facts or you have too much information, and you
+kind of have to go through it, and the process, a
+lot of the process of data analysis is sorting through kind of all this, all this
+stuff And so, the first part, the, the kind of
+important part of data analysis that you want to
+start with is, is define a question. And not every data analysis starts with
+the very specific or coherent question. But the, the more effort you can put into
+coming up with a reasonable question, the, the less effort you'll
+spend having to filter through a lot of, stuff. And the reason why is that defining a
+question is the kind of the most powerful. Dimension reduction tool you can ever employ. because if you're interested in, you know,
+in, in, a specific variable, like height or
+weight, then you can kind of remove, a lot of other variables that don't really pertain to
+that at all. But if you're interested in a different
+type of variable then you can remove another
+subset. And so the idea is if, if you can narrow down your question as
+specifically as possible. Then that will serve to reduce the kind of
+noise that you'll, that you'll have to deal with when you're going through a
+potentially very large data set. Now sometimes you just want to look at a
+data set and see kind of what's inside this
+data set. And then you'll have to explore all kinds
+of things in a large data set. But if you can narrow down your interest,
+your, your interest to a specific type of question, then that can be extremely useful for simplifying your
+problem. So I encourage you to to kind of think
+about what type of question you're interested in
+answering before, you go into delving into all the details of your data set. So, the science, generally speaking, will
+determine what type of question you're interested in
+asking. And that will lead you to the data. Which may lead you to applied statistics,
+which is you know, you use to analyze the data. And then if you get really you know, ambitious you might want to think of some
+theoretical statistics that will kind of generalize
+the the methods that you apply to different types
+of data. Now of course there are relatively few
+people who can even, who can do that, and so I,
+that would not be expected of everyone. So the part that's in the, the red bracket
+that's number one That's typically referred to as
+statistical methods development. The part that's in the purple bracket here
+number two, which is just kind of, the application of statistics to, just
+to raw data without any sense of science. is, is what I would refer to as the danger zone, and which we, which I kind of,
+derive here from. A kind of a Venn diagram of data science
+that's written by Drew Conway. The idea is if you just kind of randomly
+apply statistical methods to data sets to find
+an interesting answer. First of all, you will find something
+interesting almost certainly, but it may not be reproducible and it may not
+be really meaningful. And so I think the a truly, a proper data
+analysis has a scientific context, it hopefully has
+at least some general question that we're trying to. To try and to investigate which will
+narrow down the kind of dimensionality of the
+problem. And then we'll apply the appropriate statistical methods to the appropriate
+data. So, let's start with the very basic
+example of a question. So a general question might be you know, can I automatically detect emails that are
+spam? And those that are not. Of course, this is an important question
+if, if you use email. If you want to know what are the emails
+that you, that you should read, that are important, and what are the
+emails that are just spam? And so you might want to, and so if you
+want to turn that into a data analysis problem there are many
+ways that you could answer this question. For example, you could just hire someone to just go through your
+email and figure out what's spam or not. But that's not really that's probably not
+very sustainable. It's not particularly efficient. So, if you want to turn this into a data analysis question, you have to make
+the question a little bit more concrete and, and
+translate it by using terms that are specific to data
+analysis tools. And so a more concrete version of this
+question might be you know, can I use quantitative characteristics of the emails themselves
+to classify them as spam or ham. Okay so now we can start looking at emails
+and try to think well what are these quantitative characteristics that I want
+to develop so that I can kind of classify them as spam. So, once you've got a question here we
+want to know okay, how do I separate out my email. So that I know what's spam and what's not
+spam that way presumably you can kind of get rid of all the spam and just read
+the usual, the, the, the real email. So the first thing you might want to think
+about is what is the ideal data set for this
+problem. And so if I had, you know, all the
+resources in the world, what would I go out to look
+for? And so there are different types of data
+sets that you could potentially collect. And depending on the goal and the type of
+question you, you're asking. A descriptive data set. So if you're looking, interested in a
+descriptive problem, you might think of a whole
+population. So again, just kind of.
+So you don't need to sample anything. You might want to just get the entire census or population that you're looking
+for. So all the emails in the universe, for
+example. If you just want to explore your question. You might just take a random sample with a
+bunch of variables measured. If you want to make inference about a problem
+then you have to have you have yet to be very careful about the sampling mechanism and,
+and the definition of the population that you're
+sampling from because. Typically when you make an inferential
+statement, you take you're, you're, you're drawing from a sample to make a conclusion
+about a larger population. So there the sampling mechanism, it was
+very important. If you want to make a prediction, then
+you're going to need something like a training set and a test
+data set from this, from a population that you're
+interested in, so that you can build a model and a
+classifier. If you want to make a causal statement, so
+you want to say okay, if I modify this component, then
+something else happens. So this is basically, you're going to need experimental data, and one type of
+experimental data is from, from some, from something like a randomized trial or a randomized
+study. And then if you want to make mechanistic
+types of statements, you need data about all the
+different components of the system that you're
+trying to describe. [SOUND] So, for our problem here with spam one
+ideal day so perhaps would be you know, if you
+use Gmail you know that all the emails in the
+Gmail system are going to be stored on Google's
+data centers, right? So, why don't we just get. All the data in, in Google data centers,
+all the emails in Google data centers. Right, because that would be a whole
+population of emails, and then we can just kind of build our classifier based on all this data, and
+then we have, we, we wouldn't have to worry about sampling,
+because we'd have all the data. And then, and so that would be a, a kind
+of an ideal data set. So, of course, in the real world, you have
+to think about, well what are the data that you can
+actually access, right? So, maybe someone at Google can actually,
+can access all the emails that go through
+Gmail. But, but even in that extreme case, it may
+be difficult. And furthermore, most people are not
+going to be able to access that. So, sometimes you, you have to go for something that's not quite the ideal data
+set. And so you might be able to find free data
+on the web. You might need to buy some data from a
+provider And if you, and in these kinds of cases, you should be sure to
+respect the terms of use for the data. So any agreement or contract that you
+agree, that you've kind of agreed to about the data has to be adhered to. And if the data simply do not exist out
+there, you may need to generate the data yourself
+in some way. So, getting all the data from Google will probably not be possible, because most,
+I'm guessing their data centers have some very high security,
+and so we're going to have to go with
+something else. And so one possible solution is the is, is
+comes from the UCI machine on your repository, which is
+the spam based data set. And this is a collection of spam that was, that was pur, and this
+data set was created by people at Hewlett Packard who collected
+some, a couple thousand spam messages. Spam and regular messages, and classified
+them appropriately. So you can use this database to explore
+your problem of how to classify emails into
+spam or ham. So, when you obtain the data, the first
+goal is to, you know, try to obtain the raw
+data. For example, from the UCI machine on your
+repository. You have to be careful to reference the
+source, so wherever you get the data from, you should always reference the
+source and keep track of where it came from. If you're asking, if you want, if you need
+to get data from a person or an invest, investigator that you're not
+familiar with often a very polite email will go a long way. They may be willing to share that data
+with you. And if you, if you get data from an internet source,
+you should always make sure at the very minimum
+record the URL which is the website indicator of where
+you got the data and the time and date that you access
+that. So people have a reference, when that data
+was available. In the future, the website might go down
+or the URL may change or may not be available, but at least at that time you got that data you documented how you got
+it. So the data set that we're going to talk
+about in this example since we don't have access
+to Google's data centers, is the spam in a data set
+which you can get from the Kern Lab package in
+R. So it comes with the Kern Lab package and
+so if you install the Kern Lab package you can load
+the data set right away. So the first thing that you typically need
+to do with any data set is to clean it a little
+bit. So often-raw data you typically need to be processed in some way to get it
+into a form where you can model it or feed it into a modeling program If it's already pre-processed, it's important that
+you understand how it was. Pre-processed so try to get some
+documentation about what the pre-processing was and how it was
+done. You have to understand kind of where the
+data come from, so for example if it came from a survey, you need to know
+how the sampling was done. it, was it a convenient sample, or was, did the data come from an observational
+study, did it come from experiments of, the source of the
+data is very important. You may need to reformat the data in a
+certain way to get it to work in a certain type of
+analysis. If the data set is extremely large you may
+want to sub-sample the data set to make it more
+manageable. And so anything you do to clean the data,
+it is very important that you record these steps and write them down you know, in scripts or whatever is most
+convenient. Because someone you or someone else is
+going to have to reproduce these steps if they want to
+reproduce your findings. And if you don't document all these
+pre-processing steps, then no one will ever be able to do it again. So, once you've cleaned the data and
+you've gotten a basic look at it, it's important to
+determine of the data are good enough to solve your
+problems because in some cases they may not be good
+enough. You may not have enough data, you may not
+have enough variables or enough characteristics, the sampling of the data
+may be inappropriate for your question. So there may be all kinds of problems that
+occur and you, that you realize as you clean the
+data. And so, and if you determined the data are not good enough for your question,
+then you've got to quit, and, or, and try again, or change the data, or try a different
+question. it's, it's important to not to just push
+on, and with the data you have, just because that's all that
+you've got, because that can lead inappropriate inferences or conclusions. So here is our cleaned data set that we're
+going to use for this example. It's already been cleaned for us, in the
+Kern Lab package, and I'm just showing you the
+first five variables here. There are many other variables in the data
+set but you can see that there's 4601 observations
+of the five variables. I put the link here, you can see the help
+page in turn, it shows you where the data set came from
+and how it's processed.

@@ -1,0 +1,835 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.443
+[BLANK_AUDIO]
+
+2
+00:00:05.443 --> 00:00:08.771
+In this lecture I'm just going to present
+the short checklist
+
+3
+00:00:08.771 --> 00:00:11.971
+of things that I think you should think
+about when doing
+
+4
+00:00:11.971 --> 00:00:15.555
+any sort of data analysis project or any
+sort of investigation
+
+5
+00:00:15.555 --> 00:00:19.412
+involving a lot of data and, and kind of
+processing and analysis.
+
+6
+00:00:19.412 --> 00:00:23.162
+This by no means a comprehensive checklist
+and it doesn't come with necessarily any
+
+7
+00:00:23.162 --> 00:00:26.802
+guarantees that everything is going to go
+well for you, if you follow the checklist.
+
+8
+00:00:26.802 --> 00:00:30.462
+But I think over the through my
+experience, and through the
+
+9
+00:00:30.462 --> 00:00:33.024
+experience of you know people I worked
+with a lot of
+
+10
+00:00:33.024 --> 00:00:35.952
+the items that I'm going to talk about in
+this checklist I
+
+11
+00:00:35.952 --> 00:00:39.002
+think are important, and, and will at
+least be a basis
+
+12
+00:00:39.002 --> 00:00:42.267
+for you to kind of do your analysis in a
+reproducible manner.
+
+13
+00:00:42.267 --> 00:00:43.947
+All right, so, I'm just going to, just a
+couple
+
+14
+00:00:43.947 --> 00:00:45.926
+of do's and don'ts that I'm going to go
+through.
+
+15
+00:00:45.926 --> 00:00:47.837
+And then at the end I'll summarize, kind
+of,
+
+16
+00:00:47.837 --> 00:00:50.002
+the basic questions that you want to ask
+yourself.
+
+17
+00:00:50.002 --> 00:00:52.477
+Any time your doing any sort of data
+
+18
+00:00:52.477 --> 00:00:55.777
+analysis or project that's kind of beyond
+a trivial
+
+19
+00:00:55.777 --> 00:00:57.052
+kind of analysis.
+
+20
+00:00:57.052 --> 00:00:59.842
+[BLANK_AUDIO]
+
+21
+00:00:59.842 --> 00:01:02.582
+So, the first thing you want to start with
+is some good science.
+
+22
+00:01:02.582 --> 00:01:05.886
+So, and the idea here is you gotta be
+working on something that's
+
+23
+00:01:05.886 --> 00:01:09.920
+interesting to you, that you think is to
+come interesting to other people.
+
+24
+00:01:09.920 --> 00:01:11.300
+Because if you start with something that's
+but,
+
+25
+00:01:11.300 --> 00:01:12.550
+that you don't like or you don't think
+
+26
+00:01:12.550 --> 00:01:14.180
+is good, then you're just going to end up
+
+27
+00:01:14.180 --> 00:01:15.840
+probably with something that's not good on
+the out.
+
+28
+00:01:15.840 --> 00:01:19.120
+So, garbage in, garbage out is the, is
+the, is the basic idea here.
+
+29
+00:01:20.180 --> 00:01:21.170
+So start with some good science.
+
+30
+00:01:21.170 --> 00:01:25.210
+And we're, and make sure you have a, a
+question or
+
+31
+00:01:25.210 --> 00:01:28.168
+a goal that's relatively focused and
+coherent.
+
+32
+00:01:28.168 --> 00:01:30.456
+it, that's not always possible, depending
+on the
+
+33
+00:01:30.456 --> 00:01:32.610
+types of, of problems that you're working
+on.
+
+34
+00:01:32.610 --> 00:01:36.563
+But in general, the more coherent and
+focused question that you can,
+
+35
+00:01:36.563 --> 00:01:40.700
+fo, then you can work on the simpler that
+your problem will be.
+
+36
+00:01:40.700 --> 00:01:44.934
+And because, because a narrower question
+or a more focused type of question tends
+
+37
+00:01:44.934 --> 00:01:48.592
+to rule out a lot of possibilities that
+you won't have to worry about.
+
+38
+00:01:48.592 --> 00:01:50.462
+But if you have a very broad and very
+vague
+
+39
+00:01:50.462 --> 00:01:53.652
+type of question then you'll have lots of
+things to deal with and
+
+40
+00:01:53.652 --> 00:01:55.137
+lots of things to think about and
+
+41
+00:01:55.137 --> 00:01:57.690
+generally increase the complexity of your
+problem.
+
+42
+00:01:58.710 --> 00:02:01.030
+Of course you should always work with
+people who
+
+43
+00:02:01.030 --> 00:02:03.904
+are good collaborators, people who you'd
+like to work with.
+
+44
+00:02:03.904 --> 00:02:08.384
+People that, you think that have a good
+kind of, working relationship with, with,
+
+45
+00:02:08.384 --> 00:02:10.904
+because we don't have good working
+relationships,
+
+46
+00:02:10.904 --> 00:02:13.240
+then this can lead to other bad practices.
+
+47
+00:02:13.240 --> 00:02:15.740
+So good work collaborators generally
+reinforce
+
+48
+00:02:15.740 --> 00:02:17.230
+good work practices.
+
+49
+00:02:17.230 --> 00:02:20.160
+And of course make sure that something
+that is interesting to you.
+
+50
+00:02:20.160 --> 00:02:22.530
+Because if you are interested in the idea
+then hopefully
+
+51
+00:02:22.530 --> 00:02:24.700
+that will motivate you to kind of have
+some good habits.
+
+52
+00:02:24.700 --> 00:02:27.610
+So, in just, so the first thing you should
+always deal with is, you know,
+
+53
+00:02:27.610 --> 00:02:29.360
+start with something that's good, start
+with some
+
+54
+00:02:29.360 --> 00:02:32.010
+good science, start with some good
+interesting topics.
+
+55
+00:02:33.970 --> 00:02:36.970
+I think if there's one rule, if I were to
+boil everything down to
+
+56
+00:02:36.970 --> 00:02:41.570
+one rule when it comes to reproducibility,
+it would be don't do things by hand.
+
+57
+00:02:41.570 --> 00:02:42.990
+Alright, so doing things by hand is
+
+58
+00:02:42.990 --> 00:02:45.802
+usually where most investigations get
+tripped up.
+
+59
+00:02:45.802 --> 00:02:49.800
+and, and were things that were not
+reproducible come into play.
+
+60
+00:02:49.800 --> 00:02:51.740
+And so I just give a couple of examples
+
+61
+00:02:51.740 --> 00:02:53.940
+here of things that are often done by
+hand.
+
+62
+00:02:53.940 --> 00:02:56.220
+The first, the first one being, you know,
+editing a spreadsheet.
+
+63
+00:02:56.220 --> 00:02:57.960
+So if you use something like Microsoft
+Excel
+
+64
+00:02:57.960 --> 00:03:00.240
+or something, or a similar type of
+program.
+
+65
+00:03:00.240 --> 00:03:02.837
+It's all, it's, it's tempting to kind of
+load the data
+
+66
+00:03:02.837 --> 00:03:05.390
+in Excel, and then just clean up some of
+the messy data.
+
+67
+00:03:05.390 --> 00:03:06.810
+Like you might have some outliers
+
+68
+00:03:06.810 --> 00:03:10.990
+that you just want to remove, or if your
+doing some QA QC you know, on the
+
+69
+00:03:10.990 --> 00:03:14.450
+data and some values might be, you know,
+out of the range or something like that.
+
+70
+00:03:14.450 --> 00:03:16.530
+So you just fix them right there.
+
+71
+00:03:16.530 --> 00:03:19.480
+You might validate certain types of
+measurements like by using,
+
+72
+00:03:19.480 --> 00:03:22.418
+you know, a couple of experts or something
+like that.
+
+73
+00:03:22.418 --> 00:03:24.080
+These kinds of things are very easy to do.
+
+74
+00:03:24.080 --> 00:03:26.630
+And it's particularly in spreadsheet
+programs
+
+75
+00:03:26.630 --> 00:03:27.900
+and it's very tempting to do that.
+
+76
+00:03:27.900 --> 00:03:31.940
+But the problem with doing that kind of
+kind of in
+
+77
+00:03:31.940 --> 00:03:35.600
+the spreadsheet analysis is that it's not
+really reproducible at all.
+
+78
+00:03:35.600 --> 00:03:39.210
+Unless you write down exactly what you
+did, and how you
+
+79
+00:03:39.210 --> 00:03:41.820
+did it, and what were the criteria for
+doing certain things.
+
+80
+00:03:41.820 --> 00:03:44.250
+For example, if you're going to remove
+outliers, what's the
+
+81
+00:03:44.250 --> 00:03:48.300
+criteria for determining what an outlier
+is etc like that.
+
+82
+00:03:48.300 --> 00:03:51.350
+So unless you write down everything very
+precisely like
+
+83
+00:03:51.350 --> 00:03:54.440
+that editing a spreadsheet by hand is
+often not reproducible.
+
+84
+00:03:54.440 --> 00:03:57.440
+And so you should try to avoid it if you
+can.
+
+85
+00:03:57.440 --> 00:04:02.394
+Editing things like tables and figures of,
+this is maybe less of an issue.
+
+86
+00:04:02.394 --> 00:04:05.290
+But it still may be, leads us to something
+that's not reproducible.
+
+87
+00:04:05.290 --> 00:04:07.800
+For example, we change if you change the
+
+88
+00:04:07.800 --> 00:04:10.550
+rounding in a table, or something like
+that.
+
+89
+00:04:10.550 --> 00:04:14.674
+that can be, lead to, lead to something
+that is not reproducible.
+
+90
+00:04:14.674 --> 00:04:17.530
+Something as innocuous is maybe
+downloading data from
+
+91
+00:04:17.530 --> 00:04:19.450
+a website, which maybe you do you might
+
+92
+00:04:19.450 --> 00:04:20.610
+have to do a lot, if you're, you're
+
+93
+00:04:20.610 --> 00:04:22.570
+kind of assembling many different data
+set, data
+
+94
+00:04:22.570 --> 00:04:23.810
+sets.
+
+95
+00:04:23.810 --> 00:04:25.320
+You might think that well, this is very
+simple.
+
+96
+00:04:25.320 --> 00:04:29.338
+I'm just going to open my web browser,
+click on a link, and download a data set.
+
+97
+00:04:29.338 --> 00:04:31.428
+But that's again, that's something that
+you do by hand.
+
+98
+00:04:31.428 --> 00:04:34.728
+And if you were going to tell someone how,
+how to, someone else
+
+99
+00:04:34.728 --> 00:04:37.938
+how to do it there would be a lengthy set
+of instructions.
+
+100
+00:04:37.938 --> 00:04:40.503
+You, you'd have to tell them you know,
+what website
+
+101
+00:04:40.503 --> 00:04:42.676
+to go to, what link to click on and etc.
+
+102
+00:04:42.676 --> 00:04:45.460
+So that's something that you should be
+careful
+
+103
+00:04:45.460 --> 00:04:47.722
+about and you should, make sure you write
+down
+
+104
+00:04:47.722 --> 00:04:49.578
+everything that you did.
+
+105
+00:04:49.578 --> 00:04:51.890
+Because it, it can determine whether
+someone else can kind of
+
+106
+00:04:51.890 --> 00:04:55.430
+obtain the same data set to do the
+analysis that you did.
+
+107
+00:04:55.430 --> 00:04:58.350
+Even something simple like moving data
+around, moving files around on your
+
+108
+00:04:58.350 --> 00:05:02.200
+computer or maybe taking a large data file
+and splitting it in half.
+
+109
+00:05:02.200 --> 00:05:06.120
+If you do these by hand, there's no record
+of you ever doing it.
+
+110
+00:05:06.120 --> 00:05:10.070
+And, so someone wants to repeat what you
+did, they have no instructions
+
+111
+00:05:10.070 --> 00:05:12.230
+for how to do it or where to move things
+or what to do.
+
+112
+00:05:12.230 --> 00:05:12.760
+So, you should
+
+113
+00:05:12.760 --> 00:05:14.840
+think about this before you do them.
+
+114
+00:05:14.840 --> 00:05:19.860
+If you can, and, and ask yourself if it's,
+if it's really necessary to do.
+
+115
+00:05:19.860 --> 00:05:22.570
+And if it is then you should document it
+carefully.
+
+116
+00:05:22.570 --> 00:05:25.230
+it's, it's always very tempting especially
+in the beginning of
+
+117
+00:05:25.230 --> 00:05:27.796
+analysis to think, well we're just
+going to do this once.
+
+118
+00:05:27.796 --> 00:05:29.336
+So we don't really need to, kind of write
+
+119
+00:05:29.336 --> 00:05:31.300
+a computer program to do it or something
+like that.
+
+120
+00:05:31.300 --> 00:05:32.733
+Or write it down very carefully.
+
+121
+00:05:32.733 --> 00:05:35.633
+For example you might only download the
+data just once.
+
+122
+00:05:35.633 --> 00:05:38.847
+And so you don't need to kind of automate
+that procedure.
+
+123
+00:05:38.847 --> 00:05:41.925
+But just be careful with any, if you find
+yourself saying we're
+
+124
+00:05:41.925 --> 00:05:45.687
+going to do this just once, make sure you
+still, everything is documented and,
+
+125
+00:05:45.687 --> 00:05:48.651
+and set to the point where someone else
+who doesn't know you or
+
+126
+00:05:48.651 --> 00:05:50.646
+doesn't work with you could, could
+
+127
+00:05:50.646 --> 00:05:53.287
+potentially repeat what you're about to
+do.
+
+128
+00:05:53.287 --> 00:05:56.821
+And so the general rule is that, why, the
+reason you shouldn't do things
+
+129
+00:05:56.821 --> 00:06:01.300
+by hand is because anything that you do by
+hand has to be precisely documented.
+
+130
+00:06:01.300 --> 00:06:03.950
+And this is a task, from my experience,
+this is a task
+
+131
+00:06:03.950 --> 00:06:06.306
+that is much, much harder than it sounds.
+
+132
+00:06:06.306 --> 00:06:08.110
+Because things, little details that you
+may not
+
+133
+00:06:08.110 --> 00:06:10.002
+think are important are actually very
+important to
+
+134
+00:06:10.002 --> 00:06:11.586
+other people when they don't have the same
+
+135
+00:06:11.586 --> 00:06:13.479
+context and the same background that you
+have.
+
+136
+00:06:16.740 --> 00:06:19.010
+Next rule is is related to the first and
+
+137
+00:06:19.010 --> 00:06:22.810
+involves not using the point and click
+type software.
+
+138
+00:06:22.810 --> 00:06:24.391
+And so there's a lot of software that
+
+139
+00:06:24.391 --> 00:06:27.220
+has what are called graphical user
+interfaces, or GUIs.
+
+140
+00:06:27.220 --> 00:06:30.120
+And graphical user interfaces are very
+convenient,
+
+141
+00:06:30.120 --> 00:06:31.690
+they're very nice, they're very, often
+very
+
+142
+00:06:31.690 --> 00:06:36.040
+intuitive and easy for most people to use,
+they don't involve a lot of instruction.
+
+143
+00:06:36.040 --> 00:06:40.040
+And so it's nice to use a GUI and a lot of
+software has these types of interfaces.
+
+144
+00:06:41.570 --> 00:06:41.800
+But the
+
+145
+00:06:41.800 --> 00:06:44.220
+problem is that a lot of the actions that
+you take with
+
+146
+00:06:44.220 --> 00:06:48.202
+a GUI, like pointing and clicking are
+difficult for others to reproduce.
+
+147
+00:06:48.202 --> 00:06:51.950
+So unless you specifically write down,
+here, I clicked on this menu, and then I
+
+148
+00:06:51.950 --> 00:06:56.640
+clicked on this option it's difficult for
+someone else to know exactly what you did.
+
+149
+00:06:56.640 --> 00:07:00.980
+So that's the danger of using things,
+using graphical user interfaces
+
+150
+00:07:00.980 --> 00:07:04.220
+in any type, any type of data processing
+or statistical analysis.
+
+151
+00:07:05.230 --> 00:07:06.560
+Some programs, if they have a GUI,
+
+152
+00:07:06.560 --> 00:07:10.900
+will produce the, a log file or a script
+that includes the
+
+153
+00:07:10.900 --> 00:07:15.970
+kind of equivalent commands that to the
+pointing and clicking that you did.
+
+154
+00:07:15.970 --> 00:07:18.786
+And so these log files and scripts can be
+saved and can
+
+155
+00:07:18.786 --> 00:07:22.798
+be examined by another person in the
+future if, if they have to.
+
+156
+00:07:22.798 --> 00:07:26.298
+So in general any data analysis software
+or data processing
+
+157
+00:07:26.298 --> 00:07:30.060
+software that is highly interactive you
+should be careful of.
+
+158
+00:07:30.060 --> 00:07:31.750
+Because interactive software
+
+159
+00:07:31.750 --> 00:07:34.675
+tends to be very nice to use and you can
+kind of do a lot of
+
+160
+00:07:34.675 --> 00:07:37.145
+exploratory things with it, but this ease
+of
+
+161
+00:07:37.145 --> 00:07:39.702
+use can come at the price of
+reproducibility.
+
+162
+00:07:39.702 --> 00:07:43.986
+And so just be careful when you are using
+interactive software that doesn't
+
+163
+00:07:43.986 --> 00:07:47.420
+oh, that doesn't log what you do or keep
+track of the history.
+
+164
+00:07:48.720 --> 00:07:50.160
+now, of course, there may be other
+software
+
+165
+00:07:50.160 --> 00:07:52.860
+packages that you use that are not
+directly
+
+166
+00:07:52.860 --> 00:07:56.800
+related to the analysis of data or, or the
+kind of, or the kind of data
+
+167
+00:07:56.800 --> 00:07:59.510
+analysis pipeline.
+Which may have GUI's and that's fine.
+
+168
+00:07:59.510 --> 00:08:03.010
+For example, like your graph editor may
+have a graphical user interface and that,
+
+169
+00:08:03.010 --> 00:08:06.092
+something that you use to write the code
+or, or to write a report.
+
+170
+00:08:06.092 --> 00:08:08.980
+And that is usually, that is usually fine.
+
+171
+00:08:08.980 --> 00:08:11.920
+Because your analysis may not depend
+critically
+
+172
+00:08:11.920 --> 00:08:14.150
+on exactly which text editor you use.
+
+173
+00:08:14.150 --> 00:08:16.230
+However, if on that rare case it does,
+then you
+
+174
+00:08:16.230 --> 00:08:19.710
+need to be careful that everything is kind
+of appropriately documented.

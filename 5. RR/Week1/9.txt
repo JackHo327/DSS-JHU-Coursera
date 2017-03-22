@@ -1,0 +1,13 @@
+I just want to make one quick note about
+the version of R that you'll be using in this
+class. You might notice from some of the videos, that the videos are made using R version
+3.0.3. Which was the most current version at the
+time the video was made. However, as of now, the most current
+version of R is 3.1.1. And so I encourage you to install that
+version of R, which should be the default version that you find when
+you go to the R website. So don't try digging around for older
+version of R you won't need them. So I, in general I always encourage people
+to use the latest version of, of software because
+those will have the latest features. And they will have hopefully fixed bugs that may have been present in earlier
+versions. So, for this version of the course use for
+our version 3.1.1. Thanks a lot.

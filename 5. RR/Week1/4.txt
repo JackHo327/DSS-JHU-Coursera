@@ -1,0 +1,54 @@
+One basic idea, to kind of, as a tool, to
+make a lot of this stuff easier, is what's known
+as Literate (Statistical) Programing. And, this comes from the idea of literate
+programming, in computer programs. And so the idea is to think of the art-,
+an article, or a publication, or a report, as a stream
+of text and code. And, so the text is, kind of, readable by people and the code is readable by
+computers. And then the idea is that the analysis is described in a series of text and code
+chunks. And each kind of code chunk will do
+something. It'll load some data and compute results. And each text chunk will kind of relay
+something in a human readable language. And so there are going to be presentation code, that kind of formats tables and
+figures. There's article text that explains what's
+going on around all this code. And the idea is that this stream of text
+and code is a literate statistical program or a
+liter, literate statistical analysis. And these programs can be weaved to produce human readable documents like PDFs
+or HTML web pages, and they can tangled to produce machine-readable documents, so
+machine readable code. And so the basic idea behind literate
+programming; is that if you need a documentational language, that's human
+readable and you need a programming language that's machine
+readable. And so one of the original system's in R that was designed to do this was called
+Sweave. And Sweave uses a documentation program
+called LaTeX, and a programming language,
+obviously is R. And it was developed by Fritz Leisch who
+was a core member of R, and is still maintained by R Core and
+his website is listed here. Now there are one, there are many
+limitations to the original Sweave system. One of which is focused primarily on LaTeX
+which is not a language, a documentation language that
+many, many people are familiar with. And so it can be difficult to learn this
+type of markup language if you're not all ready
+in the field. It lacks a lot of features that kind of
+people want like caching, and multiple plots per page
+and mixing programming languages. And so and it's not as frequently updated
+or very actively developed. And so one of the alternative that has
+come up in recent times is, is something called
+knitr. And the knitr package for R is basically,
+kind of, takes a lot of these ideas of literate programming and
+kind of updates them and improves upon them. And there are a lot of kind of features
+that were added on to the Sweave original kind
+of concept. And so it's still, knitr still uses R as
+its programming language, but it allows you to mix a v, other
+programming languages in. And you can use a variety of documentation
+languages now. You can use LaTex, you can also use something called Markdown and you can use
+HTML. And so knitr was developed by Yihui Xie
+who was, who was, while he was a graduate student
+at Iowa State. And it's become a very popular package for
+doing literate statistical programs. So just to summarize very briefly. Reproducible research is a I, I think it's
+an important minimum standard for, computationally intensive, types of
+analysis. And where replication is very difficult
+or, if not impossible. We still need quite a bit of
+infrastructure and tools to kind of create and distribute reproducible
+documents, and beyond what is currently available. But that's kind of improving as the,
+everyday and there are lots of new tools kind of coming on
+the scene. So in the next lecture, I'll talk about
+some of these tools. In particular I'll talk about knitr. And just to show how you can produce
+reproducible documents.

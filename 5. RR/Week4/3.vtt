@@ -1,0 +1,3145 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.608
+[BLANK_AUDIO]
+
+2
+00:00:04.608 --> 00:00:08.638
+Hey everyone, this lecture features Keith
+Baggerly, who is a professor
+
+3
+00:00:08.638 --> 00:00:11.563
+in the Biostatistics and Bioinformatics
+Department
+
+4
+00:00:11.563 --> 00:00:13.549
+at the MD Anderson Cancer Center.
+
+5
+00:00:13.549 --> 00:00:17.941
+Here in this lecture, he's talking about a
+case that happened with some
+
+6
+00:00:17.941 --> 00:00:20.893
+researchers at Duke University regarding
+using
+
+7
+00:00:20.893 --> 00:00:25.370
+high dimensional genomic signatures in
+cancer outcomes.
+
+8
+00:00:25.370 --> 00:00:26.470
+So take a look at this lecture.
+
+9
+00:00:26.470 --> 00:00:29.738
+It's a really important story and I think
+there are
+
+10
+00:00:29.738 --> 00:00:32.170
+a lot of important lessons that you can
+
+11
+00:00:32.170 --> 00:00:35.412
+learn from the experience that you went
+through.
+
+12
+00:00:35.412 --> 00:00:35.978
+>> Okay.
+
+13
+00:00:35.978 --> 00:00:38.720
+So, thank you for sticking around for the
+very last session.
+
+14
+00:00:38.720 --> 00:00:39.680
+We're in the home stretch.
+
+15
+00:00:39.680 --> 00:00:42.880
+And I really appreciate you being here.
+So that's a very good thing.
+
+16
+00:00:42.880 --> 00:00:47.650
+And I want to talk a lot about a theme
+that we haven't focused on explicitly
+
+17
+00:00:47.650 --> 00:00:49.570
+in this conference so far, which is the
+
+18
+00:00:49.570 --> 00:00:54.710
+importance of reproducible research in
+high throughput biology.
+
+19
+00:00:54.710 --> 00:00:58.070
+As these, as we're generating better and
+better essays, and we're generating more
+
+20
+00:00:58.070 --> 00:01:00.140
+and more measurements, thousands of
+things,
+
+21
+00:01:00.140 --> 00:01:02.770
+it becomes increasingly important since
+the analysis
+
+22
+00:01:02.770 --> 00:01:06.590
+takes a larger and larger chunk of time
+That at some stage, not
+
+23
+00:01:06.590 --> 00:01:11.570
+only us, but others, should be able to
+precisely reproduce what we did.
+
+24
+00:01:11.570 --> 00:01:12.770
+In other words, if they start with the
+
+25
+00:01:12.770 --> 00:01:14.890
+same numbers, should they get the same
+results?
+
+26
+00:01:14.890 --> 00:01:16.490
+And we'd like that to be true.
+
+27
+00:01:16.490 --> 00:01:19.840
+Now, this is actually really important in
+high-throughput
+
+28
+00:01:19.840 --> 00:01:25.630
+biology for a somewhat different reason.
+Which is simply that.
+
+29
+00:01:25.630 --> 00:01:30.340
+And once I will get this advanced then we
+will tell you what it is.
+
+30
+00:01:30.340 --> 00:01:30.840
+Let's see.
+
+31
+00:01:33.220 --> 00:01:35.870
+Okay, well, I can gesture and I can tell
+you what it is.
+
+32
+00:01:36.940 --> 00:01:40.170
+Which is simply that our intuition about
+what makes
+
+33
+00:01:40.170 --> 00:01:45.020
+sense in high-throughput biology actually
+is pretty darn poor.
+
+34
+00:01:45.020 --> 00:01:48.060
+What I mean by that is that in many cases,
+I've worked
+
+35
+00:01:48.060 --> 00:01:51.620
+with clinicians where I've gone in and
+said, this gene has gone up.
+
+36
+00:01:51.620 --> 00:01:55.290
+And that means these people are most, more
+likely to develop advance cancer.
+
+37
+00:01:55.290 --> 00:01:58.328
+And the clinician turned to me and said
+no, what that means is that you've
+
+38
+00:01:58.328 --> 00:02:01.219
+got strumble contamination in your samples
+because I've worked with
+
+39
+00:02:01.219 --> 00:02:03.409
+that gene for 15 years and I know how it
+behaves.
+
+40
+00:02:03.409 --> 00:02:04.380
+And they're right.
+
+41
+00:02:04.380 --> 00:02:07.000
+They have intuition for single genes.
+
+42
+00:02:07.000 --> 00:02:09.790
+On the other hand, if I go to that same
+clinician and I give
+
+43
+00:02:09.790 --> 00:02:14.500
+them a, the following signature of 100
+genes and I say this goes up.
+
+44
+00:02:14.500 --> 00:02:17.530
+Well, they all stare at this list at 100
+genes and they'll say yeah,
+
+45
+00:02:17.530 --> 00:02:20.500
+I can see that because this will influence
+this and this will influence this.
+
+46
+00:02:20.500 --> 00:02:23.490
+And it's wonderful it's a Rorschach test
+for biologists to give
+
+47
+00:02:23.490 --> 00:02:25.250
+them a gene list of 100 things.
+
+48
+00:02:25.250 --> 00:02:28.730
+And unfortunately we've tried the null
+experiment of giving a random
+
+49
+00:02:28.730 --> 00:02:32.030
+list to some of our biologists and they
+still find patterns.
+
+50
+00:02:32.030 --> 00:02:35.030
+So this is somewhat of a warning.
+
+51
+00:02:35.030 --> 00:02:37.610
+Now, in light of this, we find it somewhat
+
+52
+00:02:37.610 --> 00:02:40.030
+dismaying that when we go to the
+literature and we
+
+53
+00:02:40.030 --> 00:02:41.830
+take a, take a typical paper, and we try
+to
+
+54
+00:02:41.830 --> 00:02:45.470
+figure out what was done, the
+documentation is often poor.
+
+55
+00:02:45.470 --> 00:02:48.770
+And if the documentation is poor, in some
+cases, if the finding
+
+56
+00:02:48.770 --> 00:02:51.020
+is important, we are forced to resort to
+what
+
+57
+00:02:51.020 --> 00:02:54.750
+we have come to refer to as Forensic
+Bioinformatics.
+
+58
+00:02:54.750 --> 00:02:58.420
+Which involves starting with the results
+and the
+
+59
+00:02:58.420 --> 00:03:00.750
+raw data and saying what must they have
+
+60
+00:03:00.750 --> 00:03:02.510
+done to get from one place to the
+
+61
+00:03:02.510 --> 00:03:04.675
+other, regardless of what the methods say
+they did.
+
+62
+00:03:04.675 --> 00:03:05.290
+Okay?
+
+63
+00:03:05.290 --> 00:03:08.090
+And I want to illustrate this, and how
+important
+
+64
+00:03:08.090 --> 00:03:11.460
+this might be, by considering a specific
+clinical example.
+
+65
+00:03:11.460 --> 00:03:14.410
+Specifically using signatures,
+
+66
+00:03:14.410 --> 00:03:18.880
+genomic signatures, to try to predict
+response to chemo-sensitivity.
+
+67
+00:03:18.880 --> 00:03:21.270
+And this is actually based on work that
+appeared
+
+68
+00:03:21.270 --> 00:03:23.510
+a few years ago now at the end of 2006.
+
+69
+00:03:23.510 --> 00:03:27.040
+This is a paper that showed up in Nature
+Medicine and what they said,
+
+70
+00:03:27.040 --> 00:03:30.800
+what they claim in this paper was that
+they figured out a really great thing.
+
+71
+00:03:30.800 --> 00:03:35.510
+Specifically, starting with cell lines,
+they figured out how to come
+
+72
+00:03:35.510 --> 00:03:39.480
+up with genomic signatures of sensitivity
+to a whole bunch of drugs.
+
+73
+00:03:39.480 --> 00:03:40.910
+So here's how this worked, they're
+
+74
+00:03:40.910 --> 00:03:42.730
+not just working with any panelist,
+[INAUDIBLE].
+
+75
+00:03:42.730 --> 00:03:45.740
+They're working with the NC160, and the
+NC160 as was
+
+76
+00:03:45.740 --> 00:03:48.380
+eluded to in the last talk, is a very
+special thing.
+
+77
+00:03:48.380 --> 00:03:50.590
+One reason it's very special is that it's
+a
+
+78
+00:03:50.590 --> 00:03:54.280
+standard panel maintained by the National
+Cancer Institute and what
+
+79
+00:03:54.280 --> 00:03:57.370
+that means, is that if you've got a new
+chemotherapeutic,
+
+80
+00:03:57.370 --> 00:04:00.100
+that agent will be sent to the National
+Cancer Institute.
+
+81
+00:04:00.100 --> 00:04:04.750
+And they will test it for efficacy against
+this panel of 60 cell lines.
+
+82
+00:04:04.750 --> 00:04:08.040
+And that takes, that information about
+which drugs
+
+83
+00:04:08.040 --> 00:04:11.340
+are most effective against which cells,
+that's public data.
+
+84
+00:04:11.340 --> 00:04:13.310
+You can go and you can download it and you
+
+85
+00:04:13.310 --> 00:04:17.830
+can download this information for every
+single chemotherapeutic now available.
+
+86
+00:04:17.830 --> 00:04:21.150
+So, if you configure it, how to leverage
+that information, that's potentially a way
+
+87
+00:04:21.150 --> 00:04:26.470
+to use or choose the best single drug
+that's out there for a given patient.
+
+88
+00:04:26.470 --> 00:04:29.750
+So what they said was they said, okay if
+using the NCI60, let's start with a drug
+
+89
+00:04:29.750 --> 00:04:31.430
+of interest like Docetaxel.
+
+90
+00:04:31.430 --> 00:04:34.870
+Let's pick the sudden most sensitive, and
+most resistant cell lines.
+
+91
+00:04:34.870 --> 00:04:36.560
+Okay, those are our extremes.
+
+92
+00:04:36.560 --> 00:04:40.080
+Let's take array profiles of those cell
+lines, okay, fine.
+
+93
+00:04:40.080 --> 00:04:43.010
+Let us contrast them and identify the
+genes that
+
+94
+00:04:43.010 --> 00:04:45.450
+are most different between group one and
+group two.
+
+95
+00:04:45.450 --> 00:04:47.550
+These genes will comprise elements of our
+
+96
+00:04:47.550 --> 00:04:50.840
+sensitivity signature and then they say
+let's fit
+
+97
+00:04:50.840 --> 00:04:55.000
+a model to come up with the sensitivity
+signature and for doing this they use meta
+
+98
+00:04:55.000 --> 00:04:56.422
+genes which sounds really cool.
+
+99
+00:04:56.422 --> 00:04:58.740
+But to mathematicians, we otherwise know
+it as
+
+100
+00:04:58.740 --> 00:05:01.450
+principal components and I'm going to use
+that terminology.
+
+101
+00:05:01.450 --> 00:05:04.525
+And they're going to say okay, using these
+meta
+
+102
+00:05:04.525 --> 00:05:07.525
+genes lets try to fit the cells lines and
+predict
+
+103
+00:05:07.525 --> 00:05:10.750
+on clinical samples and they tried this
+with a whole
+
+104
+00:05:10.750 --> 00:05:14.626
+bunch of public data sets using seven
+commonly used agents.
+
+105
+00:05:14.626 --> 00:05:16.849
+They reported great results and I know
+this was
+
+106
+00:05:16.849 --> 00:05:19.984
+really flashy because within two weeks of
+this paper appearing,
+
+107
+00:05:19.984 --> 00:05:22.663
+we had three different groups of MD
+Anderson coming to us
+
+108
+00:05:22.663 --> 00:05:25.795
+in Bioinformatics and saying we want to do
+this, help us do this.
+
+109
+00:05:25.795 --> 00:05:30.300
+And being helpful bioinformaticians we
+said sure, we'd love to do that.
+
+110
+00:05:30.300 --> 00:05:35.180
+And in particular, since all of the data
+involved is public, we should be able to
+
+111
+00:05:35.180 --> 00:05:36.140
+go out and figure out how to do
+
+112
+00:05:36.140 --> 00:05:37.730
+it ourselves, and generalize it to other
+trials.
+
+113
+00:05:37.730 --> 00:05:38.480
+So okay.
+
+114
+00:05:38.480 --> 00:05:39.970
+Let's, so let's, let's try that.
+
+115
+00:05:39.970 --> 00:05:42.910
+And we decided to try that starting with
+docetaxel.
+
+116
+00:05:42.910 --> 00:05:45.410
+So we're, starting with the most sensitive
+and most resistant
+
+117
+00:05:45.410 --> 00:05:46.230
+cell lines.
+
+118
+00:05:46.230 --> 00:05:49.620
+In this case, we're going to be using U95
+A arrays for the NCI60.
+
+119
+00:05:49.620 --> 00:05:52.480
+And these arrays were run in triplicates,
+we've got three for each.
+
+120
+00:05:52.480 --> 00:05:55.700
+And when we did this, and we tried to fit
+the training data,
+
+121
+00:05:55.700 --> 00:05:58.710
+here is a plot of the first two principle
+components of these things.
+
+122
+00:05:58.710 --> 00:06:00.910
+And what you can see, not too
+surprisingly,
+
+123
+00:06:00.910 --> 00:06:03.200
+is that you have some pretty clear
+separation
+
+124
+00:06:03.200 --> 00:06:04.980
+between all the resistant ones at the
+left,
+
+125
+00:06:04.980 --> 00:06:06.850
+and all the sensitive ones at the right.
+
+126
+00:06:06.850 --> 00:06:08.340
+This little triangle of three things,
+those
+
+127
+00:06:08.340 --> 00:06:09.980
+are three replicates of the same cell
+line.
+
+128
+00:06:09.980 --> 00:06:10.860
+So that's sort
+
+129
+00:06:10.860 --> 00:06:12.080
+of what we expect to see.
+
+130
+00:06:12.080 --> 00:06:15.220
+Now this separation should not surprise
+you.
+
+131
+00:06:15.220 --> 00:06:16.420
+This is the training set.
+
+132
+00:06:16.420 --> 00:06:20.300
+We have picked the genes specifically to
+achieve this separation.
+
+133
+00:06:20.300 --> 00:06:24.030
+What we now what to see is we now want to
+see clinical samples projected
+
+134
+00:06:24.030 --> 00:06:25.900
+into this same space and see the
+
+135
+00:06:25.900 --> 00:06:27.830
+separation so that we can use it
+ourselves.
+
+136
+00:06:27.830 --> 00:06:31.530
+So we took the predicted, the actual page
+
+137
+00:06:31.530 --> 00:06:34.160
+information, and we projected it into the
+space.
+
+138
+00:06:36.270 --> 00:06:41.030
+And we did not see the separation that we
+were really hoping and expecting to see.
+
+139
+00:06:41.030 --> 00:06:44.990
+So of course, this led to the natural
+question of, did we do something wrong?
+
+140
+00:06:44.990 --> 00:06:46.390
+And this is of course, well now we're
+
+141
+00:06:46.390 --> 00:06:49.530
+going to start to reconstruct exactly what
+was done.
+
+142
+00:06:49.530 --> 00:06:53.710
+And to do this we begin by saying, okay,
+well okay, what were
+
+143
+00:06:53.710 --> 00:06:58.500
+the signatures or the, the specific genes
+that they used for the individual drugs?
+
+144
+00:06:58.500 --> 00:07:02.020
+And this is actually somwhat easy because,
+in the supplementary material
+
+145
+00:07:02.020 --> 00:07:04.140
+to their paper, they included, here are
+the
+
+146
+00:07:04.140 --> 00:07:06.960
+lists for each drug of all the accumetric
+
+147
+00:07:06.960 --> 00:07:10.460
+proset IDs that are involved and all the
+genes that are involved and in, then in
+
+148
+00:07:10.460 --> 00:07:12.450
+the paper they also gave some exp,
+explanations
+
+149
+00:07:12.450 --> 00:07:14.330
+about Here are some genes that make sense
+
+150
+00:07:14.330 --> 00:07:17.290
+in the context of this drug, because it
+explains the biology and so on, like that.
+
+151
+00:07:17.290 --> 00:07:18.350
+So, okay.
+
+152
+00:07:18.350 --> 00:07:21.610
+So we decided to pick one of the drugs,
+and we started with 5-Fluorouracil.
+
+153
+00:07:21.610 --> 00:07:23.300
+And what we want to be able to do with
+this, is
+
+154
+00:07:23.300 --> 00:07:26.020
+we want to be able to construct a heatmap
+that looks like this.
+
+155
+00:07:26.020 --> 00:07:27.150
+This is a heatmap that actually
+
+156
+00:07:27.150 --> 00:07:28.120
+showed up in the paper.
+
+157
+00:07:28.120 --> 00:07:32.030
+This is of the 45 genes that they picked
+out for 5-Fluorouracil.
+
+158
+00:07:32.030 --> 00:07:34.690
+And one of the things that you can see is
+this plaid pattern
+
+159
+00:07:34.690 --> 00:07:37.960
+because every one of the 45 genes has a
+pattern that we like.
+
+160
+00:07:37.960 --> 00:07:42.250
+In other words, high in one group and low
+in the other, four low then high.
+
+161
+00:07:42.250 --> 00:07:43.110
+So, okay.
+
+162
+00:07:43.110 --> 00:07:46.990
+Extreme separation, that's what we expect.
+That's what we want in the cell lines.
+
+163
+00:07:46.990 --> 00:07:48.940
+So, well, how'd they pick these?
+
+164
+00:07:48.940 --> 00:07:52.210
+Well, they picked these using two sample
+t-tests, and I'm a PhD level
+
+165
+00:07:52.210 --> 00:07:56.080
+statistician so I figured out how to do
+two sample t-tests by this point.
+
+166
+00:07:56.080 --> 00:07:57.520
+So we tried it ourselves.
+
+167
+00:07:57.520 --> 00:07:59.700
+So here's our best 45 using t-tests.
+
+168
+00:07:59.700 --> 00:08:01.050
+So okay, great.
+
+169
+00:08:01.050 --> 00:08:02.140
+And then we said, all right, let's take
+
+170
+00:08:02.140 --> 00:08:04.530
+the list of affymetrix probeset IDs for
+there 45
+
+171
+00:08:04.530 --> 00:08:08.280
+and take a look at that heatmap, and we
+
+172
+00:08:08.280 --> 00:08:10.870
+didn't see, again, what we were expecting
+to see.
+
+173
+00:08:10.870 --> 00:08:14.650
+So we then decided to try something which
+we've learned to unfortunately do
+
+174
+00:08:14.650 --> 00:08:17.260
+every once in a while, which is to be just
+a bit paranoid about
+
+175
+00:08:17.260 --> 00:08:17.970
+the data.
+
+176
+00:08:17.970 --> 00:08:24.590
+And what we did then was we took our list
+and theirs, and we put them side by side.
+
+177
+00:08:24.590 --> 00:08:29.075
+So there's their list and there's ours.
+Does anybody notice a pattern here?
+
+178
+00:08:29.075 --> 00:08:31.490
+[LAUGH]
+
+179
+00:08:31.490 --> 00:08:35.460
+What we have here is an off by one
+indexing error.
+
+180
+00:08:35.460 --> 00:08:38.430
+This is true for all of the genes in this
+signature.
+
+181
+00:08:38.430 --> 00:08:42.270
+Now what does that say to you about
+whether or not certain
+
+182
+00:08:42.270 --> 00:08:46.630
+genes making sense in terms of the
+biology, really holds.
+
+183
+00:08:46.630 --> 00:08:51.170
+When they're referencing a set of genes
+that actually isn't involved.
+
+184
+00:08:51.170 --> 00:08:53.710
+So now of course this is just one drug.
+They looked at seven.
+
+185
+00:08:53.710 --> 00:08:55.250
+So there's six others, so what we decided
+to
+
+186
+00:08:55.250 --> 00:08:57.680
+do for these six others was we basically
+took
+
+187
+00:08:57.680 --> 00:09:01.110
+their reported affymetrix IDs, moved down
+one, and looked
+
+188
+00:09:01.110 --> 00:09:03.290
+at the p.values to see if they're really
+small.
+
+189
+00:09:03.290 --> 00:09:04.300
+So let's see.
+
+190
+00:09:04.300 --> 00:09:07.560
+Well!
+Topo Tico yep, they're all off by one!
+
+191
+00:09:07.560 --> 00:09:10.200
+And Topo side off by one.
+Adriamycin is mostly off by one.
+
+192
+00:09:10.200 --> 00:09:11.855
+There's a few we can't explain.
+
+193
+00:09:11.855 --> 00:09:14.990
+Paclitaxel mostly off by one.
+Docetaxel mostly off by one.
+
+194
+00:09:14.990 --> 00:09:17.730
+And Cytoxan we have no earthly idea what
+they did with this drug.
+
+195
+00:09:18.730 --> 00:09:20.250
+So OK, fine.
+
+196
+00:09:20.250 --> 00:09:22.480
+We've got this, and we know that's one
+problem.
+
+197
+00:09:22.480 --> 00:09:26.380
+Now, how is it that this problem could
+arise?
+
+198
+00:09:26.380 --> 00:09:28.110
+And to answer that one, we went in and
+
+199
+00:09:28.110 --> 00:09:30.330
+we looked at the software that they were
+using.
+
+200
+00:09:30.330 --> 00:09:32.570
+And as a side note, if you want to read
+documentation on how
+
+201
+00:09:32.570 --> 00:09:33.570
+this software works.
+
+202
+00:09:33.570 --> 00:09:37.870
+You should go to our website, because I
+wrote it, because we couldn't find any.
+
+203
+00:09:37.870 --> 00:09:39.760
+And one of the things that we noted was
+that
+
+204
+00:09:39.760 --> 00:09:43.200
+their software, in order to work, required
+two input files.
+
+205
+00:09:43.200 --> 00:09:47.950
+The first input file is the quantification
+matrix, genes by samples and this
+
+206
+00:09:47.950 --> 00:09:51.210
+matrix needs a header, where the header is
+either zero, one or two.
+
+207
+00:09:51.210 --> 00:09:54.450
+To indicate that this is a training sample
+sensitive, training
+
+208
+00:09:54.450 --> 00:09:57.690
+sample resistant or a test sample whose
+outcome we don't know,
+
+209
+00:09:57.690 --> 00:10:00.940
+that's the first input; the quantification
+matrix.
+
+210
+00:10:00.940 --> 00:10:04.740
+The second input is a list of gene IDs,
+gene
+
+211
+00:10:04.740 --> 00:10:08.120
+names in the same order as in the
+quantification matrix.
+
+212
+00:10:08.120 --> 00:10:10.820
+But, for their software to work correctly,
+this
+
+213
+00:10:10.820 --> 00:10:14.390
+second input must not have a header row.
+
+214
+00:10:14.390 --> 00:10:17.770
+So if you start with an excel file and you
+copy and you paste
+
+215
+00:10:17.770 --> 00:10:22.340
+and you've got a title at the top that
+says gene name, guess what happens?
+
+216
+00:10:22.340 --> 00:10:22.790
+You will get an
+
+217
+00:10:22.790 --> 00:10:24.190
+off by one indexing error.
+
+218
+00:10:24.190 --> 00:10:27.200
+And if you run this through your software
+we tried this with Docetaxel and
+
+219
+00:10:27.200 --> 00:10:30.650
+we perfectly matched the heatmaps and we
+also got some of these offset genes.
+
+220
+00:10:30.650 --> 00:10:31.760
+So we know that works.
+
+221
+00:10:31.760 --> 00:10:35.942
+But again that's one drug Docetaxel out of
+seven so what happens with the other six.
+
+222
+00:10:35.942 --> 00:10:37.061
+Well, let's take a look.
+
+223
+00:10:37.061 --> 00:10:39.590
+Okay [UNKNOWN] we can perfectly match the
+heatmaps.
+
+224
+00:10:39.590 --> 00:10:40.920
+We know what cell lines are involved.
+
+225
+00:10:40.920 --> 00:10:42.310
+We know what genes they should be
+producing.
+
+226
+00:10:42.310 --> 00:10:43.210
+Okay, fine.
+
+227
+00:10:43.210 --> 00:10:46.400
+Adriamycin perfect, Etoposide perfect,
+5-FU perfect,
+
+228
+00:10:46.400 --> 00:10:48.010
+Paclitaxel well, they mislabeled it as
+
+229
+00:10:48.010 --> 00:10:50.460
+cyclophosphamide in the paper but okay.
+
+230
+00:10:50.460 --> 00:10:54.310
+And cyclophosphamide we still have no
+earthly idea what they did this sheet.
+
+231
+00:10:54.310 --> 00:10:54.980
+So okay.
+
+232
+00:10:54.980 --> 00:10:57.580
+There's, There's, There's we can perfectly
+match the
+
+233
+00:10:57.580 --> 00:10:59.330
+heat maps for six of the seven drugs.
+
+234
+00:10:59.330 --> 00:11:00.900
+We understand what they did.
+
+235
+00:11:00.900 --> 00:11:05.270
+Now actually, before we go on, I should
+note that this should actually bother you.
+
+236
+00:11:05.270 --> 00:11:07.570
+And the reason it should bother you is
+that we've
+
+237
+00:11:07.570 --> 00:11:10.510
+perfectly matched the heatmaps for six of
+the seven drugs.
+
+238
+00:11:10.510 --> 00:11:13.170
+But we managed to perfectly match the gene
+lists for
+
+239
+00:11:13.170 --> 00:11:14.700
+only three.
+
+240
+00:11:14.700 --> 00:11:17.020
+For four of the drugs, there are included
+
+241
+00:11:17.020 --> 00:11:20.340
+other genes that we can't explain just
+yet.
+
+242
+00:11:20.340 --> 00:11:21.580
+They are outliers.
+
+243
+00:11:21.580 --> 00:11:24.380
+And we'll come back to those because
+before
+
+244
+00:11:24.380 --> 00:11:26.130
+we get there, we also noticed in using
+their
+
+245
+00:11:26.130 --> 00:11:27.940
+software that something that was more
+important to
+
+246
+00:11:27.940 --> 00:11:31.050
+us, which was that their software also
+gave predictions.
+
+247
+00:11:31.050 --> 00:11:33.080
+And this is the clinical thing that we're
+really interested in.
+
+248
+00:11:33.080 --> 00:11:35.820
+We want to know, is this patient going to
+be sensitive or not.
+
+249
+00:11:35.820 --> 00:11:38.540
+So, we wanted to see, can we get good
+predictions
+
+250
+00:11:38.540 --> 00:11:39.760
+out of the software.
+
+251
+00:11:39.760 --> 00:11:42.210
+And the way we're going to check this
+well, there's a
+
+252
+00:11:42.210 --> 00:11:44.720
+bit of a problem in that the paper doesn't
+say,
+
+253
+00:11:44.720 --> 00:11:46.710
+for the fit and data sets that they fit,
+this
+
+254
+00:11:46.710 --> 00:11:49.380
+patient turned out to be sensitive, this
+one resistant, no.
+
+255
+00:11:49.380 --> 00:11:52.870
+They just gave us an overall rate of
+accuracy, okay, so that
+
+256
+00:11:52.870 --> 00:11:55.950
+they got, if they got 24 patients, they
+got 22 of them right.
+
+257
+00:11:55.950 --> 00:11:56.890
+Okay, fine.
+
+258
+00:11:56.890 --> 00:12:00.520
+So we're going to say that we understand
+the classification algorithm or
+
+259
+00:12:00.520 --> 00:12:03.920
+this thing well enough to use it if we can
+get accuracies
+
+260
+00:12:03.920 --> 00:12:07.750
+at least as good as the ones that they
+report, okay?
+
+261
+00:12:07.750 --> 00:12:08.800
+That's our bar.
+
+262
+00:12:08.800 --> 00:12:10.930
+So that of course, brings about the next
+question, which
+
+263
+00:12:10.930 --> 00:12:14.640
+is, just how good are the accuracy rates
+that they obtain?
+
+264
+00:12:14.640 --> 00:12:17.240
+So we're going to look at this in the
+context of Docetaxel.
+
+265
+00:12:17.240 --> 00:12:19.680
+And this top plot is a figure from the
+paper and you can see the
+
+266
+00:12:19.680 --> 00:12:22.030
+scores for the sensitive patient's and
+they are
+
+267
+00:12:22.030 --> 00:12:24.270
+mostly low with blue squares and that's
+good.
+
+268
+00:12:24.270 --> 00:12:26.870
+Resistant ones are high and they've got
+red triangles and that's good.
+
+269
+00:12:26.870 --> 00:12:28.990
+And I have a question here.
+I have an analysis
+
+270
+00:12:28.990 --> 00:12:30.530
+question for the audience.
+
+271
+00:12:30.530 --> 00:12:33.430
+The analysis question is how many blue
+squares are
+
+272
+00:12:39.100 --> 00:12:39.500
+there?
+13.
+
+273
+00:12:39.500 --> 00:12:40.420
+That is correct.
+
+274
+00:12:40.420 --> 00:12:42.490
+We have up there in the top plot.
+
+275
+00:12:42.490 --> 00:12:45.830
+13 sensitive samples and 11 resistant
+ones.
+
+276
+00:12:45.830 --> 00:12:48.220
+Now there's a second panel on this page
+right here.
+
+277
+00:12:48.220 --> 00:12:50.270
+The thing is this panel doesn't come from
+this paper.
+
+278
+00:12:50.270 --> 00:12:52.570
+This panel comes from a paper by Chang et
+al.
+
+279
+00:12:52.570 --> 00:12:56.050
+They're the ones that actually introduced
+the test set being analyzed here.
+
+280
+00:12:56.050 --> 00:12:57.760
+And according to Chang et all they thought
+
+281
+00:12:57.760 --> 00:13:01.800
+that they had 11 sensitive and 13
+resistant.
+
+282
+00:13:01.800 --> 00:13:04.100
+So 13 and 11 or
+
+283
+00:13:04.100 --> 00:13:05.130
+11 and 13.
+
+284
+00:13:05.130 --> 00:13:08.830
+That may be a problem so we decided to
+take a look at a different drug.
+
+285
+00:13:08.830 --> 00:13:12.770
+Namely Adriamycin and for those of you who
+are real math whizzes here.
+
+286
+00:13:12.770 --> 00:13:13.880
+How many red triangles are there?
+
+287
+00:13:14.980 --> 00:13:15.470
+Okay?
+
+288
+00:13:15.470 --> 00:13:16.930
+For those who are not quite that
+ambitious,
+
+289
+00:13:16.930 --> 00:13:18.540
+are there more red triangles or blue
+squares?
+
+290
+00:13:19.940 --> 00:13:21.830
+Come on.
+This is not a trick question.
+
+291
+00:13:24.120 --> 00:13:25.780
+I hear red triangles are what.
+
+292
+00:13:25.780 --> 00:13:28.890
+So basically we've got a whole bunch of
+patients that are resistant to therapy.
+
+293
+00:13:28.890 --> 00:13:32.230
+The problem is, in this case, the
+underlying dataset that's applied
+
+294
+00:13:32.230 --> 00:13:34.790
+to this thing, this was from a paper on
+childhood leukemia.
+
+295
+00:13:34.790 --> 00:13:37.810
+The reason this is a problem is that
+childhood leukemia is a
+
+296
+00:13:37.810 --> 00:13:42.000
+disease for which we've actually got a
+pretty good cure rate, around 80%.
+
+297
+00:13:42.000 --> 00:13:43.940
+And what that means, is that if we've got
+a drug to
+
+298
+00:13:43.940 --> 00:13:47.180
+which most of the patients are resistant,
+which wouldn't be using it.
+
+299
+00:13:48.210 --> 00:13:49.200
+And indeed, if we go
+
+300
+00:13:49.200 --> 00:13:51.150
+back to the original paper that submitted
+it,
+
+301
+00:13:51.150 --> 00:13:54.480
+they thought that most of their patients
+were sensitive.
+
+302
+00:13:54.480 --> 00:13:55.670
+So what do we think is going on?
+
+303
+00:13:55.670 --> 00:14:00.210
+We think, that for zero and one, they
+swapped the interpretation in
+
+304
+00:14:00.210 --> 00:14:03.110
+feeding it into the data and they didn't
+realize what they were doing.
+
+305
+00:14:03.110 --> 00:14:04.780
+Now, what does this mean clinically?
+
+306
+00:14:04.780 --> 00:14:07.740
+It means that what, well, their going to
+use that signature, and they're going
+
+307
+00:14:07.740 --> 00:14:12.750
+to use Adriamycin just for the patients
+who will derive no benefit from it.
+
+308
+00:14:12.750 --> 00:14:14.870
+This is poor clinical practice.
+
+309
+00:14:14.870 --> 00:14:17.180
+So, we don't think this is a good idea.
+
+310
+00:14:17.180 --> 00:14:20.060
+So, given this there is the question of,
+okay, if they're mixing things up
+
+311
+00:14:20.060 --> 00:14:23.030
+this badly, how is it that they're getting
+good predictions in the first place?
+
+312
+00:14:23.030 --> 00:14:25.670
+And actually, this leads back to one of
+the things that we passed
+
+313
+00:14:25.670 --> 00:14:29.330
+on just a few minutes ago which is that
+there were some other genes.
+
+314
+00:14:29.330 --> 00:14:32.560
+And in particular, for docetaxel, there
+were 50 genes.
+
+315
+00:14:32.560 --> 00:14:34.760
+If we take our list of Docetaxel and we do
+
+316
+00:14:34.760 --> 00:14:38.080
+this off by one trick, we match 31 that
+leaves 19.
+
+317
+00:14:38.080 --> 00:14:40.150
+Of these 19,
+
+318
+00:14:40.150 --> 00:14:42.610
+there's the question of where can they
+come from?
+
+319
+00:14:42.610 --> 00:14:46.390
+Well, if you go back to the initial paper
+by Chang et al that supplied the test set.
+
+320
+00:14:46.390 --> 00:14:49.430
+They say if you want to separate R
+resistance from R
+
+321
+00:14:49.430 --> 00:14:52.600
+sensitives, here's a list of 92 genes
+that'll do the job.
+
+322
+00:14:52.600 --> 00:14:56.280
+So we said, okay, let's take a look at the
+19 we can't match and compare them
+
+323
+00:14:56.280 --> 00:15:00.760
+with the 92 they report and we find out
+that there is an overlap of 14 genes.
+
+324
+00:15:00.760 --> 00:15:05.480
+There you go, they are entries 7 through
+20 in this list, one contiguous block.
+
+325
+00:15:05.480 --> 00:15:08.330
+I think we have some statisticians in the
+audience, so quick question.
+
+326
+00:15:08.330 --> 00:15:10.940
+If I pick 14 items at random from a list
+with 92 in
+
+327
+00:15:10.940 --> 00:15:13.260
+it, how often do they all, all appear
+right next to each other?
+
+328
+00:15:14.640 --> 00:15:17.570
+The p value is small, you can get
+published with this one.
+
+329
+00:15:17.570 --> 00:15:19.640
+okay, now of course, this still leaves
+five.
+
+330
+00:15:19.640 --> 00:15:20.540
+What are the other five?
+
+331
+00:15:20.540 --> 00:15:24.980
+Well, they're ERCC1, ERCC4, ERBB2,
+BCL2L11, and TUBA3.
+
+332
+00:15:24.980 --> 00:15:28.100
+The thing that kind, that, the common
+theme of these five is
+
+333
+00:15:28.100 --> 00:15:30.730
+that these are the genes mentioned by name
+in the paper to explain
+
+334
+00:15:30.730 --> 00:15:32.630
+why the signature works.
+
+335
+00:15:32.630 --> 00:15:35.160
+So for the docetaxel signature we have the
+genes
+
+336
+00:15:35.160 --> 00:15:36.760
+that work to split the test set, the genes
+
+337
+00:15:36.760 --> 00:15:38.160
+that work to split the training set, and
+the
+
+338
+00:15:38.160 --> 00:15:39.990
+genes that are there to explain why it
+works.
+
+339
+00:15:39.990 --> 00:15:41.710
+And there is no overlap between these
+three.
+
+340
+00:15:43.310 --> 00:15:45.580
+We thought this was somewhat disturbing.
+
+341
+00:15:45.580 --> 00:15:47.910
+So we wrote a letter to Nature Medicine.
+
+342
+00:15:47.910 --> 00:15:50.220
+And one of the things about this being a
+talk on reproducible
+
+343
+00:15:50.220 --> 00:15:53.450
+research, is that you don't have to take
+my word for it.
+
+344
+00:15:53.450 --> 00:15:55.820
+Which means that you can go to Nature
+Medicine, you can read
+
+345
+00:15:55.820 --> 00:15:56.370
+the paper.
+
+346
+00:15:56.370 --> 00:15:59.160
+You can also read our reports, which
+contain all of our code.
+
+347
+00:15:59.160 --> 00:16:02.110
+You can run it through R, and you will get
+the same numbers we do.
+
+348
+00:16:02.110 --> 00:16:06.480
+As a side note for data compression our
+note to nature medicine is 700 words.
+
+349
+00:16:06.480 --> 00:16:09.790
+There's 140 pages of supplementary
+material for those 700 words there.
+
+350
+00:16:09.790 --> 00:16:11.420
+So there's a bit of a compression there.
+
+351
+00:16:11.420 --> 00:16:14.150
+So that one's fun.
+And so all the data's there.
+
+352
+00:16:14.150 --> 00:16:16.500
+And then of course we waited to see okay
+is there a response.
+
+353
+00:16:16.500 --> 00:16:18.620
+So they say oh well whoops we got it
+wrong.
+
+354
+00:16:18.620 --> 00:16:19.360
+We'll fix it next time.
+
+355
+00:16:19.360 --> 00:16:21.190
+Well no that wasn't quite the response.
+
+356
+00:16:21.190 --> 00:16:24.670
+The response was well, unfortunately the
+analysis of Baggerly
+
+357
+00:16:24.670 --> 00:16:28.710
+and Coombes is deeply flawed and amongst
+other errors.
+
+358
+00:16:28.710 --> 00:16:32.010
+Well, first off for adriamycin the labels,
+this is
+
+359
+00:16:32.010 --> 00:16:33.980
+the one where they have a lot of red
+triangles.
+
+360
+00:16:33.980 --> 00:16:35.320
+The labels are actually correct.
+
+361
+00:16:35.320 --> 00:16:38.370
+And we've posted details on our website to
+illustrate this.
+
+362
+00:16:38.370 --> 00:16:41.250
+And they must be wrong because we've
+gotten this approach to work
+
+363
+00:16:41.250 --> 00:16:43.770
+again and in their rebuttal they note that
+they've done it twice.
+
+364
+00:16:43.770 --> 00:16:45.840
+In new papers with editorials and things
+like that.
+
+365
+00:16:45.840 --> 00:16:46.270
+So we must have
+
+366
+00:16:46.270 --> 00:16:47.300
+screwed up.
+
+367
+00:16:47.300 --> 00:16:50.480
+And well given the timing I'm not going to
+be
+
+368
+00:16:50.480 --> 00:16:51.910
+able to go through all of these but I want
+
+369
+00:16:51.910 --> 00:16:53.470
+to look at some of the data for one or
+
+370
+00:16:53.470 --> 00:16:56.200
+two of these just to illustrate what might
+be going on.
+
+371
+00:16:56.200 --> 00:16:58.190
+So let's start with Adriamycin.
+
+372
+00:16:58.190 --> 00:17:01.610
+For Adriamycin they say they've got the
+labels correct on their website.
+
+373
+00:17:01.610 --> 00:17:04.030
+So we went to their webpage and we said
+what's there?
+
+374
+00:17:04.030 --> 00:17:05.860
+Well actually, when we went there we saw
+
+375
+00:17:05.860 --> 00:17:09.890
+that there's a table of quantification for
+144 samples.
+
+376
+00:17:09.890 --> 00:17:11.460
+22 for training
+
+377
+00:17:11.460 --> 00:17:13.120
+cell lines, and 122 for test.
+
+378
+00:17:13.120 --> 00:17:16.640
+These are the patient ones, for which
+they're making predictions.
+
+379
+00:17:16.640 --> 00:17:19.250
+And we said, well, maybe we can find
+something that separates the
+
+380
+00:17:19.250 --> 00:17:21.960
+responders from the non-responders, so we
+decide, let's try to cluster it.
+
+381
+00:17:21.960 --> 00:17:23.720
+And as a prelude to that, let's just
+
+382
+00:17:23.720 --> 00:17:26.830
+check the correlations between individual
+pairs of elements.
+
+383
+00:17:26.830 --> 00:17:29.450
+And what I'm going to show you now, is a
+plot of
+
+384
+00:17:29.450 --> 00:17:34.280
+all the really high correlations we see in
+this matrix of 144 samples.
+
+385
+00:17:34.280 --> 00:17:36.510
+Here's the sub-matrix corresponding to the
+
+386
+00:17:36.510 --> 00:17:39.560
+training data, the cell lines.
+And here's the test data.
+
+387
+00:17:39.560 --> 00:17:42.780
+Now the red line on the main diagonal we
+expected.
+
+388
+00:17:42.780 --> 00:17:46.830
+Samples are indeed highly correlated with
+themselves, that's good.
+
+389
+00:17:46.830 --> 00:17:51.390
+However, we didn't expect these red dots
+off the main diagonal.
+
+390
+00:17:51.390 --> 00:17:52.500
+What's going on?
+
+391
+00:17:52.500 --> 00:17:59.130
+Well, turns out they have 122 test
+samples, but the 122 are not all distinct.
+
+392
+00:17:59.130 --> 00:18:02.160
+There are some samples that they have
+reused two,
+
+393
+00:18:02.160 --> 00:18:03.970
+three, or even four times.
+
+394
+00:18:03.970 --> 00:18:07.130
+And there's a sample right about here
+which has been reused four
+
+395
+00:18:07.130 --> 00:18:10.540
+times which has been labeled as resistant
+three times out of four.
+
+396
+00:18:10.540 --> 00:18:12.660
+Now that's the same sample.
+
+397
+00:18:12.660 --> 00:18:17.560
+So we're pretty pretty convinced that the
+labels are not all correct even now.
+
+398
+00:18:17.560 --> 00:18:20.620
+So we set a further note to Nature
+Medicine about
+
+399
+00:18:20.620 --> 00:18:23.140
+this and Nature Medicine forwarded this on
+to the authors.
+
+400
+00:18:23.140 --> 00:18:24.460
+And then they got back to us and said well
+
+401
+00:18:24.460 --> 00:18:26.690
+they'll adjust it so we see no publish
+your note.
+
+402
+00:18:26.690 --> 00:18:28.330
+Okay, fine and,
+
+403
+00:18:28.330 --> 00:18:31.020
+indeed, what they said later in August of'
+08, was that
+
+404
+00:18:31.020 --> 00:18:34.730
+they had redone the analysis using only
+the 95 unique samples.
+
+405
+00:18:34.730 --> 00:18:36.700
+And they had, again, gotten great results.
+
+406
+00:18:36.700 --> 00:18:38.850
+Now, for those of you were listening to me
+carefully before, you
+
+407
+00:18:38.850 --> 00:18:42.180
+will recall that I said that there were
+actually 84 distinct samples.
+
+408
+00:18:42.180 --> 00:18:45.020
+So hearing that there were 95 was a bit of
+a surprise to us.
+
+409
+00:18:45.020 --> 00:18:47.250
+So, okay, but fine.
+And what'd they do now?
+
+410
+00:18:47.250 --> 00:18:49.700
+Well, when they corrected this in August
+08, they actually
+
+411
+00:18:49.700 --> 00:18:52.300
+took down the quantifications and they
+just put up a list.
+
+412
+00:18:52.300 --> 00:18:53.409
+Of the 95 geo
+
+413
+00:18:53.409 --> 00:18:54.680
+IDs of the areas involved.
+
+414
+00:18:54.680 --> 00:18:58.730
+So, lemme show you the first 20 of the 95
+they now list.
+
+415
+00:19:01.630 --> 00:19:05.393
+And I've highlighted a few of them,
+because that used twice,
+
+416
+00:19:05.393 --> 00:19:09.026
+that used twice, this one used twice and
+labeled both ways.
+
+417
+00:19:09.026 --> 00:19:11.875
+So actually, of the 95, which is, the is
+
+418
+00:19:11.875 --> 00:19:16.167
+the second correction, by the way, 15 are
+in duplicate.
+
+419
+00:19:16.167 --> 00:19:19.825
+Of those 15, 16, six are labeled both ways
+and furthermore since
+
+420
+00:19:19.825 --> 00:19:24.027
+they've actually note, now told us the Geo
+I.D.s of the individual arrays.
+
+421
+00:19:24.027 --> 00:19:26.667
+We can actually go back and figure out
+what the initial submitters
+
+422
+00:19:26.667 --> 00:19:29.520
+thought they were, in terms of resistant
+or sensitive.
+
+423
+00:19:29.520 --> 00:19:32.990
+So, the group, the dup group says that 61
+
+424
+00:19:32.990 --> 00:19:35.620
+are resistant, 13 are sensitive, and six
+we don't know.
+
+425
+00:19:35.620 --> 00:19:37.520
+The people submitting the data thought
+that 22 were
+
+426
+00:19:37.520 --> 00:19:40.940
+resistant, 48 were sensitive, and 10 they
+labeled as intermediate.
+
+427
+00:19:40.940 --> 00:19:42.640
+They didn't classify them.
+
+428
+00:19:42.640 --> 00:19:46.130
+So for Adriamycin, we're not convinced
+this works.
+
+429
+00:19:46.130 --> 00:19:48.410
+Well, all right, there's still other
+things that they put out there.
+
+430
+00:19:48.410 --> 00:19:49.750
+There's other papers with editorials.
+
+431
+00:19:49.750 --> 00:19:51.780
+So let me show you one of those.
+This is a paper
+
+432
+00:19:51.780 --> 00:19:54.720
+that showed up in the Journal of Clinical
+Oncology, by Hsu et al.
+
+433
+00:19:54.720 --> 00:19:56.510
+And in this paper, they extended the
+approach
+
+434
+00:19:56.510 --> 00:19:58.900
+to deal with two new drugs, Cisplatin and
+Pemetrexed.
+
+435
+00:19:58.900 --> 00:20:01.100
+These are important in treating lung
+cancer.
+
+436
+00:20:01.100 --> 00:20:03.150
+And one of the things that they thought
+was really neat was
+
+437
+00:20:03.150 --> 00:20:06.090
+that they said, okay we actually don't
+like the NCI60 for all drugs.
+
+438
+00:20:06.090 --> 00:20:07.640
+So we're going to shift to a different set
+of cell
+
+439
+00:20:07.640 --> 00:20:11.560
+lines and these cell lines were profiled
+on Affy U133 Arrays.
+
+440
+00:20:11.560 --> 00:20:12.900
+And one of the things that they did using
+
+441
+00:20:12.900 --> 00:20:14.750
+this, was they came up with a signature
+for Cisplatin.
+
+442
+00:20:14.750 --> 00:20:16.950
+For Cisplatin, they pointed out something
+important.
+
+443
+00:20:16.950 --> 00:20:19.460
+Specifically that the signature they found
+
+444
+00:20:19.460 --> 00:20:23.310
+contained ERCC1, ERCC4 and DNA repair
+genes.
+
+445
+00:20:23.310 --> 00:20:25.530
+That's important because there have been
+several papers in the New
+
+446
+00:20:25.530 --> 00:20:28.450
+England Journal saying these are related
+to how you treat lung cancer.
+
+447
+00:20:28.450 --> 00:20:30.570
+So, that's really cool.
+So what'd we do?
+
+448
+00:20:30.570 --> 00:20:33.530
+Well, we took the data and we said all
+right let's try to see if we
+
+449
+00:20:33.530 --> 00:20:36.290
+can match the heatmaps so we know the cell
+lines and the, and the genes involved.
+
+450
+00:20:36.290 --> 00:20:40.730
+And after with some work and that's
+another compression thing there.
+
+451
+00:20:40.730 --> 00:20:42.400
+We did manage to exactly
+
+452
+00:20:42.400 --> 00:20:43.820
+match the heatmaps.
+
+453
+00:20:43.820 --> 00:20:46.960
+And for Cisplatin, after we exactly
+matched the heatmap, we
+
+454
+00:20:46.960 --> 00:20:49.860
+took a look at the genes involved and we
+discovered that
+
+455
+00:20:49.860 --> 00:20:54.400
+we could match 41 of the 45 genes they
+report
+
+456
+00:20:54.400 --> 00:20:57.290
+after accounting for this off by one error
+that's still there.
+
+457
+00:20:57.290 --> 00:20:58.530
+There's four that we can't match at all.
+
+458
+00:20:59.580 --> 00:21:02.345
+Do I have any guesses from the audience as
+to the identities of those four?
+
+459
+00:21:02.345 --> 00:21:06.290
+[LAUGH] The four that we cannot match are
+
+460
+00:21:06.290 --> 00:21:11.720
+ERCC1, ERCC4, ERCC1 again, and FANCM, and
+of these four, the last two are special.
+
+461
+00:21:11.720 --> 00:21:17.230
+Because as it turns out, those two aren't
+on the U133A arrays, they're on the U133B.
+
+462
+00:21:17.230 --> 00:21:19.690
+So two of their best genes they haven't
+measured yet, but
+
+463
+00:21:19.690 --> 00:21:22.440
+hey, who needs to conduct experiments if
+you know the answer?
+
+464
+00:21:22.440 --> 00:21:23.540
+This is a wonderful finding.
+
+465
+00:21:23.540 --> 00:21:26.380
+Okay, great.
+so, we were disturbed by this.
+
+466
+00:21:26.380 --> 00:21:29.150
+As a side note, we submitted a correction
+for this one to JCO,
+
+467
+00:21:29.150 --> 00:21:32.510
+and they sent us a note back saying we're
+sorry, we can't publish this.
+
+468
+00:21:32.510 --> 00:21:34.580
+And we said okay fine.
+
+469
+00:21:34.580 --> 00:21:37.150
+And over the next few years what went on
+from there
+
+470
+00:21:37.150 --> 00:21:40.570
+is that there were other papers that kept
+on coming 07,08,09.
+
+471
+00:21:40.570 --> 00:21:45.390
+But middle of last year, we learned
+something new
+
+472
+00:21:45.390 --> 00:21:47.220
+that sort of disturbed us and what we
+learned middle
+
+473
+00:21:47.220 --> 00:21:50.170
+of last year was that they'd already
+started running clinical
+
+474
+00:21:50.170 --> 00:21:54.820
+trials using these rules to allocate
+patients to treatment arms.
+
+475
+00:21:54.820 --> 00:21:57.020
+They're doing this using pemetrexed versus
+cisplatin, pemetrexed
+
+476
+00:21:57.020 --> 00:21:59.880
+vinorelbine, docetaxel and doxorubicin.
+
+477
+00:21:59.880 --> 00:22:02.270
+And for several of these drugs, these are
+in cases
+
+478
+00:22:02.270 --> 00:22:03.750
+where the posted signatures, they've
+
+479
+00:22:03.750 --> 00:22:06.081
+gotten the sensitivin resistant labels
+reversed.
+
+480
+00:22:07.280 --> 00:22:10.810
+So we think this is a problem.
+So we wrote up a paper on this.
+
+481
+00:22:10.810 --> 00:22:13.770
+We first circulated it to a biological
+journal and got the comment
+
+482
+00:22:13.770 --> 00:22:16.845
+back that we're sorry, this story seems
+too negative, can you fix that?
+
+483
+00:22:16.845 --> 00:22:17.660
+[LAUGH].
+
+484
+00:22:17.660 --> 00:22:20.740
+At which point we said well, we probably
+can't.
+
+485
+00:22:20.740 --> 00:22:22.730
+So we sent it off to the Annals of Applied
+Statistics
+
+486
+00:22:22.730 --> 00:22:23.870
+on the first of September.
+
+487
+00:22:23.870 --> 00:22:26.640
+It was accepted and published online by
+the fourteenth.
+
+488
+00:22:26.640 --> 00:22:29.420
+At which point was covered by the press,
+Duke starts an
+
+489
+00:22:29.420 --> 00:22:31.380
+internal investigation and suspended the
+trials
+
+490
+00:22:31.380 --> 00:22:32.910
+pending the outcome of the investigation.
+
+491
+00:22:32.910 --> 00:22:35.430
+That was October of last year.
+So what happened next?
+
+492
+00:22:38.110 --> 00:22:42.930
+As of the end of January of this year,
+Duke decided to restart the trials.
+
+493
+00:22:42.930 --> 00:22:46.520
+And in particular, they said that their
+investigation, which was now concluded,
+
+494
+00:22:46.520 --> 00:22:48.540
+had strengthened their confidence in this
+
+495
+00:22:48.540 --> 00:22:51.220
+evolving approach to personalized cancer
+treatment.
+
+496
+00:22:51.220 --> 00:22:54.850
+Now, we were not really pleased by this.
+
+497
+00:22:54.850 --> 00:22:58.200
+And the main reason we were not really
+pleased is
+
+498
+00:22:58.200 --> 00:23:00.330
+that we asked them well, okay, we don't
+understand the data.
+
+499
+00:23:00.330 --> 00:23:03.300
+Can you show us the data and stuff you
+used to reach
+
+500
+00:23:03.300 --> 00:23:06.280
+this conclusion.
+And they said well, no.
+
+501
+00:23:06.280 --> 00:23:09.580
+While the reviewers that conducted these
+things approved of our sharing our
+
+502
+00:23:09.580 --> 00:23:13.440
+report with the National Cancer Institute,
+we consider it a confidential document.
+
+503
+00:23:13.440 --> 00:23:14.480
+So, no, you can't see it.
+
+504
+00:23:16.010 --> 00:23:20.860
+Which disturbed us, and, as a side note,
+there's just one more thing.
+
+505
+00:23:22.400 --> 00:23:27.450
+Which is, that this investigation took
+place between October and January.
+
+506
+00:23:27.450 --> 00:23:28.520
+Well as it happens in
+
+507
+00:23:28.520 --> 00:23:30.470
+November, something new happened.
+
+508
+00:23:30.470 --> 00:23:35.280
+In November they posted data, they posted
+new data for one paper for dealing
+
+509
+00:23:35.280 --> 00:23:36.920
+with cisplatin and pemetrexed; these are
+two
+
+510
+00:23:36.920 --> 00:23:38.870
+of the drugs they're using in clinical
+trials.
+
+511
+00:23:38.870 --> 00:23:42.240
+And in this data, they said here are the
+59 samples
+
+512
+00:23:42.240 --> 00:23:44.970
+that we're using as a validation set, to
+show that this works.
+
+513
+00:23:44.970 --> 00:23:47.440
+These 59 samples are a subset of this one
+
+514
+00:23:47.440 --> 00:23:50.340
+geo dataset and we're using it to make
+predictions.
+
+515
+00:23:50.340 --> 00:23:52.810
+So we said okay, cool.
+We see these 59 samples.
+
+516
+00:23:52.810 --> 00:23:54.000
+We've got the ovarian ones.
+
+517
+00:23:54.000 --> 00:23:55.340
+Lets go in and take a look at them.
+
+518
+00:23:55.340 --> 00:23:59.132
+So the very first thing we did with these
+59 samples we said lets go back to the
+
+519
+00:23:59.132 --> 00:24:03.190
+geo dataset and see if we can match them
+up and when we did here's what we found.
+
+520
+00:24:03.190 --> 00:24:08.560
+So what, if the names matched up for all
+the 59 samples
+
+521
+00:24:08.560 --> 00:24:11.610
+we should see 59 red squares lying on this
+blue diagonal line.
+
+522
+00:24:12.610 --> 00:24:14.820
+How many red squares do you see lying on
+that blue diagonal line?
+
+523
+00:24:16.710 --> 00:24:18.305
+This is not a heart pounding question.
+
+524
+00:24:18.305 --> 00:24:20.110
+[LAUGH].
+None.
+
+525
+00:24:20.110 --> 00:24:24.040
+43 of the samples they got the labels
+wrong.
+
+526
+00:24:24.040 --> 00:24:26.180
+For 16 they didn't get the labels wrong or
+at
+
+527
+00:24:26.180 --> 00:24:28.760
+least, the problem is for these 16, we
+can't tell.
+
+528
+00:24:28.760 --> 00:24:31.440
+The reason we can't tell is that for those
+16, they've scrambled the
+
+529
+00:24:31.440 --> 00:24:35.530
+gene labels so badly that we don't know
+what samples they correspond to.
+
+530
+00:24:35.530 --> 00:24:39.270
+What this means is that for their
+validation data set, every single sample
+
+531
+00:24:39.270 --> 00:24:43.590
+is incorrect for two drugs they've been
+using in clinical trials for two years.
+
+532
+00:24:45.110 --> 00:24:48.680
+We think this is disturbing.
+So what happened next?
+
+533
+00:24:48.680 --> 00:24:52.990
+We pointed this out at the end of January.
+No response.
+
+534
+00:24:52.990 --> 00:24:55.990
+So we then said, can we do anything else?
+
+535
+00:24:55.990 --> 00:24:58.230
+And it occurred to us that they said,
+well, we won't show
+
+536
+00:24:58.230 --> 00:25:02.400
+you the report But the reviewers approved
+us sending it the NCI.
+
+537
+00:25:03.480 --> 00:25:07.000
+Now the NCI in the US, is a federally
+funded institution
+
+538
+00:25:07.000 --> 00:25:10.120
+and what that means is that they are
+subject to Federal law,
+
+539
+00:25:10.120 --> 00:25:12.930
+specifically the Freedom of Information
+Act.
+
+540
+00:25:12.930 --> 00:25:18.540
+So, in April we filed a request with the
+NCI to get the report under the Freedom
+
+541
+00:25:18.540 --> 00:25:21.050
+of Information Act and the start of May
+
+542
+00:25:21.050 --> 00:25:24.170
+a redacted version of the report was
+indeed supplied.
+
+543
+00:25:24.170 --> 00:25:26.200
+And we looked at it and we found a few
+things
+
+544
+00:25:26.200 --> 00:25:29.930
+that were rather interesting in the report
+or weren't in the report.
+
+545
+00:25:29.930 --> 00:25:32.510
+The two main things that we found were
+that first off
+
+546
+00:25:32.510 --> 00:25:35.380
+the review committee that went through
+this stuff the people who evaluated
+
+547
+00:25:35.380 --> 00:25:38.310
+it said by the way we couldn't figure out
+from
+
+548
+00:25:38.310 --> 00:25:40.820
+the data that has been published how to do
+this.
+
+549
+00:25:40.820 --> 00:25:43.310
+The only way we got it was because there
+was extra information
+
+550
+00:25:43.310 --> 00:25:46.790
+supplied to us and we really recommend the
+investigators make that public.
+
+551
+00:25:46.790 --> 00:25:47.750
+So that's one thing.
+
+552
+00:25:47.750 --> 00:25:48.850
+The other thing that we found rather
+
+553
+00:25:48.850 --> 00:25:51.470
+disturbing was what wasn't there,
+specifically, this report
+
+554
+00:25:51.470 --> 00:25:53.890
+makes no mention of those problems with
+cisplatin
+
+555
+00:25:53.890 --> 00:25:55.930
+and pemetrexed that I just told you about.
+
+556
+00:25:55.930 --> 00:25:57.000
+It's not there.
+
+557
+00:25:57.000 --> 00:26:00.370
+So we pointed this out in May, and also in
+May, we asked the
+
+558
+00:26:00.370 --> 00:26:03.000
+National Cancer Institute, what do you
+think about what's going on?
+
+559
+00:26:03.000 --> 00:26:04.880
+And well, they said, let's look at the
+trials.
+
+560
+00:26:04.880 --> 00:26:06.880
+We actually don't fund those three clin,
+clinical trials.
+
+561
+00:26:06.880 --> 00:26:08.500
+We do fund another one that's a phase
+three.
+
+562
+00:26:08.500 --> 00:26:10.015
+And actually based on that they
+
+563
+00:26:10.015 --> 00:26:12.560
+re-investigated the rationale and they
+yanked that
+
+564
+00:26:12.560 --> 00:26:15.870
+signature form the phase three clinical
+trial in the middle of the trial.
+
+565
+00:26:15.870 --> 00:26:17.300
+That's mid-May.
+
+566
+00:26:17.300 --> 00:26:19.010
+We said okay, is there anything further
+that's going to
+
+567
+00:26:19.010 --> 00:26:21.410
+happen with these, with the three ongoing
+trials at Duke?
+
+568
+00:26:21.410 --> 00:26:22.920
+Nothing happened.
+
+569
+00:26:22.920 --> 00:26:25.566
+Nothing happened for two more months and
+then in mid-July
+
+570
+00:26:25.566 --> 00:26:27.160
+we found out something new.
+
+571
+00:26:27.160 --> 00:26:29.190
+That's a bit orthogonal from your normal
+statistics.
+
+572
+00:26:31.900 --> 00:26:34.270
+One of the PIs used to claim he was a
+Rhodes Scholar.
+
+573
+00:26:35.500 --> 00:26:38.300
+The Rhodes Trust, in Britain, says no, no
+he wasn't.
+
+574
+00:26:39.620 --> 00:26:43.490
+So indeed, it appears there was some CV
+fudging involved.
+
+575
+00:26:43.490 --> 00:26:46.780
+Now, what happened then was, I knew there
+were a few statisticians
+
+576
+00:26:46.780 --> 00:26:48.800
+who's been talking about saying, maybe we
+should write a letter or something.
+
+577
+00:26:48.800 --> 00:26:51.680
+So, I emailed a few of them, the day this
+came out and said,
+
+578
+00:26:51.680 --> 00:26:55.830
+you know, if you want to write a letter,
+now's about the best time.
+
+579
+00:26:55.830 --> 00:26:56.900
+So, the following
+
+580
+00:26:56.900 --> 00:27:00.810
+Monday, three days later, there is a
+letter from
+
+581
+00:27:00.810 --> 00:27:03.330
+31, 33 biostatisticians find a few that
+you like.
+
+582
+00:27:04.350 --> 00:27:07.540
+And the cancer letter comments that Duke's
+administrators have accomplished
+
+583
+00:27:07.540 --> 00:27:09.090
+something monumental, they triggered a
+
+584
+00:27:09.090 --> 00:27:11.244
+public expression of outrage from
+biostatisticians.
+
+585
+00:27:11.244 --> 00:27:12.880
+[LAUGH] Who, cool.
+
+586
+00:27:12.880 --> 00:27:14.310
+But the fun thing about this letter was
+
+587
+00:27:14.310 --> 00:27:15.770
+that it went to the newly appointed head
+of
+
+588
+00:27:15.770 --> 00:27:18.970
+the National Cancerous Institute, Harold
+Varmus and to
+
+589
+00:27:18.970 --> 00:27:21.370
+Duke and to the DoD, and to the press.
+
+590
+00:27:21.370 --> 00:27:21.810
+So,
+
+591
+00:27:21.810 --> 00:27:24.090
+this one got some coverage.
+So what happened then?
+
+592
+00:27:25.410 --> 00:27:26.370
+Duke suspended the trials.
+
+593
+00:27:27.430 --> 00:27:29.970
+This has since been covered, just a bit,
+in a few other
+
+594
+00:27:29.970 --> 00:27:33.240
+outlets like NPR, Science, Nature, and
+some other fly by night journals.
+
+595
+00:27:34.670 --> 00:27:36.600
+And a few other investigations are under
+way.
+
+596
+00:27:36.600 --> 00:27:38.690
+And there's actually a new Google group
+devoted
+
+597
+00:27:38.690 --> 00:27:41.240
+entirely to reproducible research and
+things like that.
+
+598
+00:27:41.240 --> 00:27:43.680
+But, as we've been looking at this, there
+is
+
+599
+00:27:43.680 --> 00:27:45.850
+a caveat that I think we should keep in
+mind.
+
+600
+00:27:45.850 --> 00:27:46.920
+And that caveat is that
+
+601
+00:27:46.920 --> 00:27:50.160
+unfortunately, some of these mistakes,
+like the off by one.
+
+602
+00:27:50.160 --> 00:27:51.690
+We've seen them before.
+
+603
+00:27:51.690 --> 00:27:52.660
+This is not the only time.
+
+604
+00:27:52.660 --> 00:27:56.470
+We've seen some of these examples going
+back to 2002, 2003, 2005.
+
+605
+00:27:56.470 --> 00:28:00.340
+These types of errors have been around for
+awhile.
+
+606
+00:28:00.340 --> 00:28:04.120
+This is an egregious combination But the
+problems are there.
+
+607
+00:28:04.120 --> 00:28:05.210
+So some observations.
+
+608
+00:28:07.202 --> 00:28:10.110
+The most common mistakes are simple ones.
+
+609
+00:28:10.110 --> 00:28:12.210
+For example, in statistics, the simplest
+one here
+
+610
+00:28:12.210 --> 00:28:15.960
+for genomics is complete confounding of
+the experimental design.
+
+611
+00:28:15.960 --> 00:28:18.680
+Others involve, mixing up sample labels,
+gene labels,
+
+612
+00:28:18.680 --> 00:28:21.140
+things that are easy to do in excel, okay.
+
+613
+00:28:21.140 --> 00:28:22.660
+Those are easy to mistake.
+
+614
+00:28:22.660 --> 00:28:26.780
+Now the fun thing about simple mistakes is
+that if you see them, they're easy to fix.
+
+615
+00:28:26.780 --> 00:28:30.570
+But if the documentation is poor, you
+won't see them.
+
+616
+00:28:30.570 --> 00:28:34.310
+So they will slip by, because our
+intuition is no good.
+
+617
+00:28:34.310 --> 00:28:37.240
+And what that means, is that if you go out
+to the literature,
+
+618
+00:28:37.240 --> 00:28:40.040
+we sort of suspect, yet the most simple
+mistakes
+
+619
+00:28:40.040 --> 00:28:41.680
+are more common than we would like to
+admit.
+
+620
+00:28:43.440 --> 00:28:45.650
+Now what would we like to have happen?
+
+621
+00:28:45.650 --> 00:28:49.260
+Well, for papers we've got a little thing
+of saying here's some things we
+
+622
+00:28:49.260 --> 00:28:52.100
+really would like to see in addition to
+data like the stuff at geo.
+
+623
+00:28:52.100 --> 00:28:53.710
+We'd really like some idea of if you're
+going to
+
+624
+00:28:53.710 --> 00:28:57.770
+supply us with a table of qualifications,
+please label the columns.
+
+625
+00:28:57.770 --> 00:29:01.750
+Tell us which samples are which and
+provide code.
+
+626
+00:29:01.750 --> 00:29:02.300
+So these are some
+
+627
+00:29:02.300 --> 00:29:02.770
+other things.
+
+628
+00:29:02.770 --> 00:29:05.870
+And these are recommendations for papers,
+but we think
+
+629
+00:29:05.870 --> 00:29:08.660
+they should be absolute requirements
+before you start clinical trials.
+
+630
+00:29:09.800 --> 00:29:13.940
+Now, do we as the phrase goes, walk the
+walk?
+
+631
+00:29:13.940 --> 00:29:15.240
+What do we do?
+
+632
+00:29:15.240 --> 00:29:22.310
+Well, partially in response to this, about
+in early 2007, Kevin Coombes and I
+
+633
+00:29:22.310 --> 00:29:26.540
+went into our Department of Bioinformatics
+at MD Anderson and we said, guess what?
+
+634
+00:29:26.540 --> 00:29:27.440
+Henceforth we
+
+635
+00:29:27.440 --> 00:29:31.150
+are announcing, by fiat, that all reports
+that we write are
+
+636
+00:29:31.150 --> 00:29:33.980
+now going to be written in Sweave
+combination of R and LaTeX.
+
+637
+00:29:33.980 --> 00:29:37.350
+The fun thing about Sweave is that you can
+take these reports, you can run
+
+638
+00:29:37.350 --> 00:29:43.160
+them through R, somebody else can run them
+through R and get the same numbers.
+
+639
+00:29:43.160 --> 00:29:44.890
+As a side note, most of our reports now
+
+640
+00:29:44.890 --> 00:29:47.890
+go, are written by stat analyst, faculty
+member teams.
+
+641
+00:29:47.890 --> 00:29:50.070
+The analyst writes the report, submits it
+to the faculty member.
+
+642
+00:29:50.070 --> 00:29:51.780
+The faculty member proofreads it.
+
+643
+00:29:51.780 --> 00:29:52.650
+Reruns the code
+
+644
+00:29:52.650 --> 00:29:54.860
+if necessary, and only after the second
+approval
+
+645
+00:29:54.860 --> 00:29:56.210
+does it go off to the biological PI.
+
+646
+00:29:57.260 --> 00:29:59.430
+This has actually helped our
+reproducibility, quite a bit.
+
+647
+00:29:59.430 --> 00:30:01.740
+So actually, if you ask us what we did in
+any report
+
+648
+00:30:01.740 --> 00:30:04.370
+going back for about three years now, we
+can tell you exactly.
+
+649
+00:30:04.370 --> 00:30:05.990
+We find that useful.
+
+650
+00:30:05.990 --> 00:30:09.760
+But the buzz phrase in all of this is
+reproducible research.
+
+651
+00:30:09.760 --> 00:30:12.230
+Now, so, I've given you some observations
+and
+
+652
+00:30:12.230 --> 00:30:13.740
+I've told you lessons that I really want
+you
+
+653
+00:30:13.740 --> 00:30:15.310
+to derive from it, so I have one
+
+654
+00:30:15.310 --> 00:30:17.940
+last slide and that is to acknowledge some
+folks.
+
+655
+00:30:17.940 --> 00:30:20.760
+So, Kevin Coombes is my primary co-author
+in all of these things.
+
+656
+00:30:20.760 --> 00:30:22.390
+Some other folks at MD Anderson, the
+
+657
+00:30:22.390 --> 00:30:24.830
+various groups that provided money at MD
+Anderson.
+
+658
+00:30:24.830 --> 00:30:26.970
+And, of course, if you want to read more,
+you can go to the
+
+659
+00:30:26.970 --> 00:30:29.720
+Annals of Applied Statistics and you can
+read the paper, you can look at
+
+660
+00:30:29.720 --> 00:30:32.350
+the code, even better, you can site the
+paper because that will make me
+
+661
+00:30:32.350 --> 00:30:36.178
+famous and my mom happy and she can buy
+more [UNKNOWN] ties for Christmas.
+
+662
+00:30:36.178 --> 00:30:39.730
+And I have one last acknowledgement which
+is to you, my kind audience for bearing
+
+663
+00:30:39.730 --> 00:30:46.530
+with me for the past half hour, and that's
+
+664
+00:30:46.530 --> 00:30:47.085
+what I got.
+Thank you.
+
+665
+00:30:47.085 --> 00:30:48.400
+[SOUND].
+>> Thank you very much.

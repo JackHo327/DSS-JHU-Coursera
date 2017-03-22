@@ -1,0 +1,1040 @@
+WEBVTT
+
+1
+00:00:00.380 --> 00:00:04.440
+So, the antidote to doing things by hand
+is that you should always, you
+
+2
+00:00:04.440 --> 00:00:07.340
+should try to teach a computer to do
+whatever it is about to do.
+
+3
+00:00:07.340 --> 00:00:09.820
+So, that's the so the idea is that you're
+going to, you want to
+
+4
+00:00:09.820 --> 00:00:13.710
+try to automate, in some sense everything
+that you do in your analysis.
+
+5
+00:00:14.720 --> 00:00:17.790
+So if you, if something and particularly
+if you're doing,
+
+6
+00:00:17.790 --> 00:00:20.220
+working with data, the parts of your kind
+of project
+
+7
+00:00:20.220 --> 00:00:22.650
+that work with the data, that process the
+data, you
+
+8
+00:00:22.650 --> 00:00:25.820
+should always try to teach a computer to
+do it.
+
+9
+00:00:25.820 --> 00:00:27.450
+for, there's two reasons why you should do
+this.
+
+10
+00:00:27.450 --> 00:00:32.250
+One is that if you can, if you can teach a
+computer to do it, then you have a
+
+11
+00:00:32.250 --> 00:00:37.540
+solid rules and solid, kind of concrete
+instructions for what to do.
+
+12
+00:00:37.540 --> 00:00:42.020
+And so there's no room for fuzziness to to
+kind of play into the
+
+13
+00:00:42.020 --> 00:00:44.520
+data analysis because the computer doesn't
+accept,
+
+14
+00:00:44.520 --> 00:00:46.480
+generally speaking, won't accept that kind
+of fuzziness.
+
+15
+00:00:46.480 --> 00:00:50.860
+They need exact programming instructions.
+And so, when you give instructions
+
+16
+00:00:50.860 --> 00:00:53.990
+to a computer, essentially what you're
+doing, is you're writing down
+
+17
+00:00:53.990 --> 00:00:57.140
+exactly what you mean to do and how it
+should be done.
+
+18
+00:00:57.140 --> 00:01:00.600
+And that is essentially the definition of
+reproducibility, right?
+
+19
+00:01:00.600 --> 00:01:03.510
+So, if you can teach a computer, it's
+almost guaranteed that what
+
+20
+00:01:03.510 --> 00:01:07.380
+you're going to do is re, is reproducible
+to a large extent.
+
+21
+00:01:07.380 --> 00:01:09.580
+And so even if you're going to do
+something just once
+
+22
+00:01:10.790 --> 00:01:13.050
+it's useful to try to teach a computer to
+do it.
+
+23
+00:01:13.050 --> 00:01:16.090
+And it may involve using a different,
+using a variety
+
+24
+00:01:16.090 --> 00:01:16.960
+of programming languages.
+
+25
+00:01:16.960 --> 00:01:19.540
+You might use R, you might use something
+else.
+
+26
+00:01:19.540 --> 00:01:20.890
+But if you can get your computer to
+
+27
+00:01:20.890 --> 00:01:24.600
+do something for you that's always better
+for reproducibility.
+
+28
+00:01:24.600 --> 00:01:28.720
+It may be less convenient for you because
+it takes longer to program a computer.
+
+29
+00:01:28.720 --> 00:01:30.830
+But it will, it will pay you back in the
+sense
+
+30
+00:01:30.830 --> 00:01:34.030
+that everything that you do in this way
+will be reproducible.
+
+31
+00:01:34.030 --> 00:01:36.880
+So, as a quick example something that's
+very common that you'll have to do
+
+32
+00:01:36.880 --> 00:01:41.160
+in, in most projects is to download some
+data and this data might be available
+
+33
+00:01:41.160 --> 00:01:41.870
+on the web.
+
+34
+00:01:41.870 --> 00:01:43.550
+So for one example you can might go to
+
+35
+00:01:43.550 --> 00:01:47.650
+the UCI machine learning repository go to
+that website.
+
+36
+00:01:47.650 --> 00:01:49.929
+And then you might go to simply like you
+know, there's the Bike
+
+37
+00:01:49.929 --> 00:01:52.750
+Sharing Dataset, so you click on the bike
+sharing data set web page.
+
+38
+00:01:52.750 --> 00:01:55.739
+You click on the data folder and then
+inside the data folder
+
+39
+00:01:55.739 --> 00:01:58.666
+is a link to the zip file which contains
+the data set.
+
+40
+00:01:58.666 --> 00:02:00.486
+You can choose the kind of save linked
+file
+
+41
+00:02:00.486 --> 00:02:02.410
+as in your web browser then you down,
+then,
+
+42
+00:02:02.410 --> 00:02:05.842
+then you have to name a file on your local
+computer and a folder and then save it,
+
+43
+00:02:05.842 --> 00:02:06.350
+right.
+
+44
+00:02:06.350 --> 00:02:09.100
+So these are all things that are very
+natural to do.
+
+45
+00:02:09.100 --> 00:02:11.240
+But you'll notice that the list of
+instructions that I had
+
+46
+00:02:11.240 --> 00:02:15.380
+to discuss was actually rather lengthy for
+this very simple operation.
+
+47
+00:02:15.380 --> 00:02:18.950
+So, an alternative is to just teach your
+computer to do all that.
+
+48
+00:02:18.950 --> 00:02:20.850
+And in fact, in R, it's quite
+straightforward.
+
+49
+00:02:20.850 --> 00:02:23.330
+You can use the download.file function.
+
+50
+00:02:23.330 --> 00:02:26.850
+And, and then just download the file
+directly onto your computer.
+
+51
+00:02:26.850 --> 00:02:30.800
+So, one of the nice things, actually,
+this, the the example has some advantages.
+
+52
+00:02:30.800 --> 00:02:31.920
+Because, first of all you'll notice that
+the
+
+53
+00:02:31.920 --> 00:02:35.370
+full URL to the dataset is specified,
+right?
+
+54
+00:02:35.370 --> 00:02:36.510
+So, there's no ambiguity there.
+
+55
+00:02:36.510 --> 00:02:38.490
+You don't have to click on the website,
+then
+
+56
+00:02:38.490 --> 00:02:40.190
+click on the folder, then click on the zip
+file.
+
+57
+00:02:40.190 --> 00:02:42.280
+You get the whole URL to the, to the
+dataset.
+
+58
+00:02:42.280 --> 00:02:43.000
+It's right there.
+
+59
+00:02:43.000 --> 00:02:47.110
+It's very specific And furthermore, the
+name of the
+
+60
+00:02:47.110 --> 00:02:49.660
+file that you save to your computer is
+also specified.
+
+61
+00:02:49.660 --> 00:02:52.800
+So, for example, if you download a file
+using a web browser,
+
+62
+00:02:52.800 --> 00:02:55.790
+you always have the option of renaming the
+file to be something else.
+
+63
+00:02:55.790 --> 00:02:58.210
+But if that's not documented then, then
+it's very difficult to
+
+64
+00:02:58.210 --> 00:03:01.490
+link the renamed file to the original
+dataset on the web.
+
+65
+00:03:01.490 --> 00:03:03.810
+But here I explicitly specify in the code
+
+66
+00:03:03.810 --> 00:03:08.397
+that the local dataset is going to be
+called Bike-Sharing-Dataset.zip.
+
+67
+00:03:08.397 --> 00:03:09.310
+And so.
+
+68
+00:03:09.310 --> 00:03:13.370
+Now I know what file to look for after
+this code has been executed.
+
+69
+00:03:13.370 --> 00:03:15.990
+I know exactly which directory I saved the
+data set to.
+
+70
+00:03:15.990 --> 00:03:18.495
+So I saved the data set to a directory
+called ProjectData.
+
+71
+00:03:18.495 --> 00:03:20.838
+And so now I don't have to wonder what
+directory the
+
+72
+00:03:20.838 --> 00:03:23.380
+dataset was saved to, well, you know, for
+example in
+
+73
+00:03:23.380 --> 00:03:27.020
+the, in, downloading it from the website
+through the web browser.
+
+74
+00:03:27.020 --> 00:03:28.945
+And this code can always be executed in R,
+
+75
+00:03:28.945 --> 00:03:31.100
+can, even if you only need to do this
+once.
+
+76
+00:03:31.100 --> 00:03:33.920
+Someone else could execute this same exact
+code, as
+
+77
+00:03:33.920 --> 00:03:36.220
+long as they're using R and they'll, as
+long
+
+78
+00:03:36.220 --> 00:03:38.750
+as the URL and the website hasn't change,
+they'll
+
+79
+00:03:38.750 --> 00:03:42.300
+download the same data site, the, the same
+dataset.
+
+80
+00:03:42.300 --> 00:03:43.700
+Now, of course there are many things that
+are out
+
+81
+00:03:43.700 --> 00:03:45.920
+of your control, so for, so for example,
+if you don't
+
+82
+00:03:45.920 --> 00:03:47.890
+run the website then you're.
+
+83
+00:03:47.890 --> 00:03:52.050
+You'll have to depend on the operators of
+the website not making lots of changes.
+
+84
+00:03:52.050 --> 00:03:55.520
+But to, to the extent that things are in
+your control, the more that you
+
+85
+00:03:55.520 --> 00:03:57.150
+can code things like this for example,
+
+86
+00:03:57.150 --> 00:04:01.370
+this simple download.file function the
+better you'll be.
+
+87
+00:04:04.500 --> 00:04:08.570
+Another general piece of advice is to use
+
+88
+00:04:08.570 --> 00:04:11.320
+some verse, some sort of version control
+software, right.
+
+89
+00:04:11.320 --> 00:04:13.150
+And there are many different types of
+software
+
+90
+00:04:13.150 --> 00:04:15.460
+in this course and in this series in
+general.
+
+91
+00:04:15.460 --> 00:04:17.740
+We, we tend to focus on Git which is
+
+92
+00:04:17.740 --> 00:04:21.940
+a very nice version control software and
+it's coupled with
+
+93
+00:04:21.940 --> 00:04:25.930
+nice websites like GitHub and BitBucket
+which can be used
+
+94
+00:04:25.930 --> 00:04:28.890
+to kind of publish code and other types of
+projects.
+
+95
+00:04:28.890 --> 00:04:29.760
+So, I think the main
+
+96
+00:04:29.760 --> 00:04:33.460
+feature to keep in mind when you use a
+version control system in a
+
+97
+00:04:33.460 --> 00:04:38.080
+data analysis project is that it helps to
+slow you down a little bit, okay.
+
+98
+00:04:38.080 --> 00:04:39.954
+So you might, that might sound like a bad
+
+99
+00:04:39.954 --> 00:04:42.820
+thing but slowing people down is often
+good, because we
+
+100
+00:04:42.820 --> 00:04:44.680
+often, when you have a project and you're
+very excited
+
+101
+00:04:44.680 --> 00:04:46.160
+about the data, and you want to get into
+it.
+
+102
+00:04:46.160 --> 00:04:48.190
+You just start doing things and you start
+working with
+
+103
+00:04:48.190 --> 00:04:51.900
+the data, and you're not really keeping
+track of what's happening.
+
+104
+00:04:51.900 --> 00:04:55.500
+And so diversion control software whatever
+it is that you use will
+
+105
+00:04:55.500 --> 00:04:57.390
+help to kind of make you stop, think
+
+106
+00:04:57.390 --> 00:04:59.700
+about what's been done, think about what
+changes have
+
+107
+00:04:59.700 --> 00:05:02.510
+been made, commit changes to a repository
+so that
+
+108
+00:05:02.510 --> 00:05:04.100
+you can have a record of what's been done.
+
+109
+00:05:04.100 --> 00:05:08.910
+And then kind of move along step by step
+and this is useful for a data analysis
+
+110
+00:05:08.910 --> 00:05:10.780
+because you have a log of kind of what
+
+111
+00:05:10.780 --> 00:05:14.320
+has happened and what and what direction
+you've gone.
+
+112
+00:05:14.320 --> 00:05:18.250
+If you want to go back, you can go back
+and there's a record of what you found.
+
+113
+00:05:18.250 --> 00:05:20.810
+So, if in, in the course of, for example,
+your exploratory
+
+114
+00:05:20.810 --> 00:05:23.800
+analysis or whatever it is you're doing.
+You find something interesting.
+
+115
+00:05:23.800 --> 00:05:26.080
+You have a history of kind of how you got
+there.
+
+116
+00:05:26.080 --> 00:05:28.040
+And so, version control systems can be
+very
+
+117
+00:05:28.040 --> 00:05:30.920
+useful for this type of for this purpose.
+
+118
+00:05:32.820 --> 00:05:35.830
+Of course software like Git can be used
+to,
+
+119
+00:05:35.830 --> 00:05:38.620
+you know track and tag snapshots of, of,
+the project.
+
+120
+00:05:38.620 --> 00:05:39.900
+You can revert to old versions.
+
+121
+00:05:39.900 --> 00:05:43.080
+All of this kind of stuff is pretty
+standard in version control systems.
+
+122
+00:05:43.080 --> 00:05:46.010
+And so it's useful if you can to as
+
+123
+00:05:46.010 --> 00:05:50.568
+you're progressing in a project to add
+project, to add changes in small chunks.
+
+124
+00:05:50.568 --> 00:05:54.310
+So don't just add like 100 files at once
+in a massive commit.
+
+125
+00:05:54.310 --> 00:05:56.438
+But, if you can break your analysis down
+into
+
+126
+00:05:56.438 --> 00:05:58.510
+logical pieces and add them piece at a
+time,
+
+127
+00:05:58.510 --> 00:06:00.638
+this will help you into in reading the
+history
+
+128
+00:06:00.638 --> 00:06:03.190
+and understanding kind of what was done in
+the past.
+
+129
+00:06:07.410 --> 00:06:10.190
+Keeping track of your software environment
+is very important
+
+130
+00:06:10.190 --> 00:06:14.170
+for reproducibility because a lot of
+complex projects will involve
+
+131
+00:06:14.170 --> 00:06:17.740
+chaining together many tools and merging
+different datasets and
+
+132
+00:06:17.740 --> 00:06:21.290
+some tools and datasets may only work with
+certain environments.
+
+133
+00:06:21.290 --> 00:06:23.870
+And so the software in the general
+computing environment can
+
+134
+00:06:23.870 --> 00:06:26.950
+be, can in fact me critical for
+reproducing an analysis.
+
+135
+00:06:26.950 --> 00:06:28.620
+So, there are a number of different
+features that you might
+
+136
+00:06:28.620 --> 00:06:33.020
+want to keep track of in your software
+environment and not all
+
+137
+00:06:33.020 --> 00:06:35.140
+of them are necessarily critical for every
+type of
+
+138
+00:06:35.140 --> 00:06:37.980
+project but just keep a couple things in
+mind.
+
+139
+00:06:37.980 --> 00:06:39.510
+Which are fairly common.
+
+140
+00:06:39.510 --> 00:06:43.340
+The first is your computer architecture
+and this is generally, it's
+
+141
+00:06:43.340 --> 00:06:46.930
+usually not too important it was probably
+more important in the past.
+
+142
+00:06:46.930 --> 00:06:49.670
+But but a general understanding of what
+kind of computer architecture you're
+
+143
+00:06:49.670 --> 00:06:53.040
+working on is useful if you need to
+communicate that to someone else.
+
+144
+00:06:53.040 --> 00:06:57.360
+So the CPU that you are using, is it an
+Intel chip, is an AMD chip, an ARM chip.
+
+145
+00:06:57.360 --> 00:06:58.220
+Who makes the CPU can
+
+146
+00:06:58.220 --> 00:06:59.390
+be useful.
+
+147
+00:06:59.390 --> 00:07:02.611
+Another aspect of that is whether it's
+32-bit or
+
+148
+00:07:02.611 --> 00:07:05.890
+64-bit that can have an impact on some
+software.
+
+149
+00:07:05.890 --> 00:07:08.540
+Are you using graphical processing units
+or GPUs.
+
+150
+00:07:08.540 --> 00:07:10.020
+Things like that are useful to keep, to
+
+151
+00:07:10.020 --> 00:07:12.120
+kind of have in your mind to keep track
+of.
+
+152
+00:07:12.120 --> 00:07:13.960
+The operating system can be very
+important.
+
+153
+00:07:13.960 --> 00:07:17.450
+So, are you using a Windows operating
+system, Mac OS, Linux, Unix?
+
+154
+00:07:17.450 --> 00:07:18.760
+Some other version of Linux?
+
+155
+00:07:19.980 --> 00:07:22.750
+This can be very important because some
+software only works on Windows.
+
+156
+00:07:22.750 --> 00:07:23.310
+Some only works
+
+157
+00:07:23.310 --> 00:07:24.960
+on the Mac, etcetera like that.
+
+158
+00:07:24.960 --> 00:07:27.680
+So, if someone wants to reproduce what
+you've done.
+
+159
+00:07:27.680 --> 00:07:30.280
+And you've used a piece of software that
+only runs on Windows.
+
+160
+00:07:30.280 --> 00:07:32.180
+Then they're going to have to find
+themself a
+
+161
+00:07:32.180 --> 00:07:34.690
+Window, a Windows machine or use a Windows
+emulator.
+
+162
+00:07:36.020 --> 00:07:38.150
+Your software tool chain is very important
+and typically
+
+163
+00:07:38.150 --> 00:07:40.910
+you'll be using lots of different pieces
+of software.
+
+164
+00:07:40.910 --> 00:07:42.520
+Some of it will be standard for example
+the
+
+165
+00:07:42.520 --> 00:07:44.710
+Web browser pretty much everyone will have
+a Web browser.
+
+166
+00:07:46.410 --> 00:07:48.950
+But things like compilers and interpreters
+
+167
+00:07:48.950 --> 00:07:52.736
+the shell that you're using, are you using
+the Bash shell or something like that.
+
+168
+00:07:52.736 --> 00:07:57.028
+Different programming languages that you
+use, C, Perl, Python, R or whatever it is.
+
+169
+00:07:57.028 --> 00:07:59.506
+If you're using different database
+back-ends, it's important to
+
+170
+00:07:59.506 --> 00:08:02.344
+know which ones you're using to any data
+analysis software.
+
+171
+00:08:02.344 --> 00:08:04.460
+All these things should be noted because
+people,
+
+172
+00:08:04.460 --> 00:08:06.760
+if someone wants to reproduce what you've
+done, they're
+
+173
+00:08:06.760 --> 00:08:08.876
+going to have to reproduce this entire
+environment, all
+
+174
+00:08:08.876 --> 00:08:11.670
+the compilers that you used, etcetera
+things like that.
+
+175
+00:08:11.670 --> 00:08:14.060
+And so, that's very important to keep in
+mind.
+
+176
+00:08:14.060 --> 00:08:15.950
+Any supporting software particularly
+things like
+
+177
+00:08:15.950 --> 00:08:18.790
+libraries software libraries or R
+packages, which
+
+178
+00:08:18.790 --> 00:08:24.212
+are, and other types of dependencies are
+going to be important to keep track of.
+
+179
+00:08:24.212 --> 00:08:26.173
+Any external dependencies so these are
+
+180
+00:08:26.173 --> 00:08:28.610
+things that are kind of outside your
+computer.
+
+181
+00:08:28.610 --> 00:08:30.260
+You know external websites.
+
+182
+00:08:30.260 --> 00:08:34.110
+Are you downloading data from, from
+central repositories.
+
+183
+00:08:34.110 --> 00:08:37.460
+Are there other remote databases that
+you'll be querying.
+
+184
+00:08:37.460 --> 00:08:39.170
+Do you get your software from other
+
+185
+00:08:39.170 --> 00:08:41.480
+software repositories.
+So things like that.
+
+186
+00:08:41.480 --> 00:08:43.940
+Maybe important for your analysis.
+
+187
+00:08:43.940 --> 00:08:47.630
+And for all of these things, it's usually
+important to keep track of the version
+
+188
+00:08:47.630 --> 00:08:51.060
+numbers because as other people develop
+the software
+
+189
+00:08:51.060 --> 00:08:54.610
+they're going to make changes that may
+break dependencies
+
+190
+00:08:54.610 --> 00:08:59.020
+And so, if your project was done with a
+certain version of an operating system
+
+191
+00:08:59.020 --> 00:09:01.810
+or software it may be that it's only
+
+192
+00:09:01.810 --> 00:09:04.200
+reproducible using that version and that
+future versions
+
+193
+00:09:04.200 --> 00:09:06.160
+are not or cannot be used.
+
+194
+00:09:06.160 --> 00:09:09.430
+So, knowing the exact version number for
+everything if
+
+195
+00:09:09.430 --> 00:09:11.990
+it's available, is important to keep a
+note of.
+
+196
+00:09:11.990 --> 00:09:18.360
+So one small example for example, is in R.
+If you use the sessionInfo function.
+
+197
+00:09:18.360 --> 00:09:20.370
+What this tends, what this will do is
+it'll tell
+
+198
+00:09:20.370 --> 00:09:23.440
+you kind of as much as it can about your
+environment.
+
+199
+00:09:23.440 --> 00:09:25.400
+You can see this is the output from my
+computer here.
+
+200
+00:09:25.400 --> 00:09:29.350
+I'm using R version 3.0.2 Patched and you
+can use
+
+201
+00:09:29.350 --> 00:09:31.820
+maybe the subversion or vision number
+which
+
+202
+00:09:31.820 --> 00:09:34.400
+is 64849 so it's actually quite precise.
+
+203
+00:09:34.400 --> 00:09:41.390
+I'm on a 64-bit Intel compatible computer
+x86 and I'm using an an Apple computer.
+
+204
+00:09:42.980 --> 00:09:45.100
+And I'm in the kind of the the US
+
+205
+00:09:45.100 --> 00:09:47.810
+English locale, so that's the kind of
+language environment.
+
+206
+00:09:48.940 --> 00:09:51.250
+these, I have the following R packages
+installed,
+
+207
+00:09:51.250 --> 00:09:54.350
+stats, graphics, grDevices these are all
+the base packages
+
+208
+00:09:54.350 --> 00:09:57.490
+that come with R.
+I've got other packages installed.
+
+209
+00:09:57.490 --> 00:09:58.880
+And then there are other packages that
+are,
+
+210
+00:09:58.880 --> 00:10:01.040
+I'm sorry, loaded, and there are other
+packages
+
+211
+00:10:01.040 --> 00:10:02.840
+that are not loaded but their name space
+
+212
+00:10:02.840 --> 00:10:06.800
+is available, so things like knitr,
+markdown yaml etcetera.
+
+213
+00:10:06.800 --> 00:10:08.920
+And so these are all kind of what my, my
+
+214
+00:10:08.920 --> 00:10:13.150
+R environment looks like as I was doing my
+analysis.
+
+215
+00:10:13.150 --> 00:10:15.470
+Of course, this is just a small piece of
+my entire software
+
+216
+00:10:15.470 --> 00:10:19.780
+environment but it's useful to have this
+kind of detailed information in general.

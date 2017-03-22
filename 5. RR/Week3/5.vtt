@@ -1,0 +1,679 @@
+WEBVTT
+
+1
+00:00:01.140 --> 00:00:04.020
+One kind of quick rule that I try, try to
+keep in
+
+2
+00:00:04.020 --> 00:00:07.710
+mind when I'm doing data analysis is, is
+the don't save any output.
+
+3
+00:00:07.710 --> 00:00:10.770
+Now this may seem a little strange,
+because
+
+4
+00:00:10.770 --> 00:00:13.560
+you need some output eventually, and yes,
+that's true.
+
+5
+00:00:13.560 --> 00:00:16.160
+You will need things like tables and
+figures and summaries so, if
+
+6
+00:00:16.160 --> 00:00:19.270
+you're going to write a report or a paper
+or something like that.
+
+7
+00:00:19.270 --> 00:00:21.570
+But it's good to not keep that until the
+very end when you're
+
+8
+00:00:21.570 --> 00:00:26.190
+actually doing that kind of, kind of end
+stage activity ,because output a,a
+
+9
+00:00:26.190 --> 00:00:30.050
+stray output file is just sitting in your
+project directory if you don't
+
+10
+00:00:30.050 --> 00:00:34.195
+know where it came from or how you
+produced it is not reproducible.
+
+11
+00:00:34.195 --> 00:00:38.860
+So,if it's not reproducible its almost not
+worth saving at all because you'll
+
+12
+00:00:38.860 --> 00:00:43.020
+always be wondering how you got those
+numbers or how you made that figure.
+
+13
+00:00:43.020 --> 00:00:47.610
+So rather than save a piece of output like
+a table or a figure it's
+
+14
+00:00:47.610 --> 00:00:51.480
+better to save the data and the code that
+generated that table or figure right,
+
+15
+00:00:51.480 --> 00:00:53.360
+so, that way you can always reproduce
+whatever it
+
+16
+00:00:53.360 --> 00:00:55.130
+is you, that type of output that you need.
+
+17
+00:00:55.130 --> 00:00:58.150
+Of course, in a very large project,
+there's going to
+
+18
+00:00:58.150 --> 00:01:00.755
+be a very long pipeline of analysis that
+you do.
+
+19
+00:01:00.755 --> 00:01:03.430
+So,maybe starting with raw data and then
+going to processed data and
+
+20
+00:01:03.430 --> 00:01:07.400
+then maybe processing the data even more
+and then doing some analysis.
+
+21
+00:01:07.400 --> 00:01:10.680
+And so there may be a lot of intermediate
+files that are generated in this process.
+
+22
+00:01:10.680 --> 00:01:11.360
+And that's fine.
+
+23
+00:01:11.360 --> 00:01:13.160
+It's usually fine to keep those around
+because
+
+24
+00:01:13.160 --> 00:01:15.720
+it, it will make the analysis much more
+efficient.
+
+25
+00:01:15.720 --> 00:01:16.590
+Then if you have to kind of
+
+26
+00:01:16.590 --> 00:01:19.190
+reproduce everything every single time.
+
+27
+00:01:19.190 --> 00:01:22.570
+But if you do keep intermediate files
+around you have to make sure
+
+28
+00:01:22.570 --> 00:01:24.050
+that, it's critical that you make sure
+
+29
+00:01:24.050 --> 00:01:27.380
+that every every intermediate file is
+documented.
+
+30
+00:01:27.380 --> 00:01:31.490
+Then you have code that generates that
+intermediate file and that
+
+31
+00:01:31.490 --> 00:01:34.950
+the data set that goes into it is, is
+clearly documented.
+
+32
+00:01:34.950 --> 00:01:38.370
+So So, it's it's usually better to not
+save any
+
+33
+00:01:38.370 --> 00:01:41.670
+output because if you can save the code in
+the data
+
+34
+00:01:43.000 --> 00:01:46.540
+instead but if you need to save things
+like intermediate files, then make
+
+35
+00:01:46.540 --> 00:01:49.505
+sure you have the code and the data to go
+along with them.
+
+36
+00:01:49.505 --> 00:01:54.600
+Uh,this one is a very specific issue, but
+it's very
+
+37
+00:01:54.600 --> 00:01:59.140
+important because um,it can lead to very
+non reproducible results.
+
+38
+00:01:59.140 --> 00:02:02.770
+So if you every generate random
+numbers,um, almost all random number
+
+39
+00:02:02.770 --> 00:02:08.690
+generators will generate pseudo random
+numbers based on a seed, something called
+
+40
+00:02:08.690 --> 00:02:08.990
+a seed.
+
+41
+00:02:08.990 --> 00:02:11.430
+The seed is usually a number or a set of
+numbers that
+
+42
+00:02:11.430 --> 00:02:13.010
+kind of initialize the random number
+
+43
+00:02:13.010 --> 00:02:15.100
+generator and the the random number
+generator
+
+44
+00:02:15.100 --> 00:02:18.450
+kind of goes in a sequence and generates
+random numbers based on
+
+45
+00:02:18.450 --> 00:02:23.080
+the seed so for example in R you can use
+the set.seed function.
+
+46
+00:02:23.080 --> 00:02:25.150
+And you just give it a single integer
+
+47
+00:02:25.150 --> 00:02:27.190
+which will you will kind of initialize the
+random
+
+48
+00:02:27.190 --> 00:02:30.670
+number generator and then generate a
+sequence of random
+
+49
+00:02:30.670 --> 00:02:33.770
+numbers, if you use, if you call set.seed
+and
+
+50
+00:02:33.770 --> 00:02:36.450
+then generate numbers that sequence of
+random
+
+51
+00:02:36.450 --> 00:02:38.960
+numbers will be always be exactly
+reproduceable
+
+52
+00:02:38.960 --> 00:02:42.055
+as long as you kind of set the seed again
+at a later time.
+
+53
+00:02:42.055 --> 00:02:44.860
+Ah,and so these are important for things
+like simulations.
+
+54
+00:02:44.860 --> 00:02:47.700
+For things like markup chain Monte Carlo
+analysis.
+
+55
+00:02:47.700 --> 00:02:54.200
+Anything that involves generating random
+numbers ah,will need ah,to set the seed.
+
+56
+00:02:54.200 --> 00:02:56.020
+And so, you should always remember to do
+this, because
+
+57
+00:02:56.020 --> 00:02:58.930
+otherwise you'll get, your numbers will
+just not be reproducible.
+
+58
+00:02:58.930 --> 00:03:00.990
+And if you do an analysis, if you
+
+59
+00:03:00.990 --> 00:03:03.670
+publish an analysis that's using random
+numbers that you
+
+60
+00:03:03.670 --> 00:03:06.350
+don't use the seed, it's basically
+impossible to go
+
+61
+00:03:06.350 --> 00:03:08.160
+back and try to figure out what it was.
+
+62
+00:03:08.160 --> 00:03:10.560
+So think about this anytime you use random
+numbers.
+
+63
+00:03:13.590 --> 00:03:15.500
+So finally I just want to mention that,
+that,
+
+64
+00:03:15.500 --> 00:03:18.180
+that the, the entire process of data
+analysis at,
+
+65
+00:03:18.180 --> 00:03:21.480
+and And kind of and, and kind of working
+
+66
+00:03:21.480 --> 00:03:24.940
+with data is, is usually a very long
+pipeline.
+
+67
+00:03:24.940 --> 00:03:27.780
+And starting with kind of very raw data,
+maybe you got it
+
+68
+00:03:27.780 --> 00:03:31.770
+off the web, or you got it from some
+investigation or experiment.
+
+69
+00:03:31.770 --> 00:03:34.580
+All the way to kind of cleaning it, to
+processing it,
+
+70
+00:03:34.580 --> 00:03:37.360
+to analyzing it, to kind of making the
+summaries and figures.
+
+71
+00:03:37.360 --> 00:03:38.940
+And then Generating
+
+72
+00:03:38.940 --> 00:03:41.430
+the data.
+I start generating the results.
+
+73
+00:03:41.430 --> 00:03:43.050
+It's a very long process and you should
+think
+
+74
+00:03:43.050 --> 00:03:45.910
+about that entire pipeline as you're
+working on it.
+
+75
+00:03:45.910 --> 00:03:50.420
+And to think about how, whether each piece
+of it is reproducible.
+
+76
+00:03:50.420 --> 00:03:53.210
+So as you go down on this pipeline, you
+know.
+
+77
+00:03:53.210 --> 00:03:56.540
+The, the thing about, the, how you get to
+the end is
+
+78
+00:03:56.540 --> 00:03:59.310
+just as important as, you know, the final
+product that you produce.
+
+79
+00:03:59.310 --> 00:04:01.420
+So the analysis of the report that you
+produce at the
+
+80
+00:04:01.420 --> 00:04:04.130
+end There's going to be a small subset of
+all the work
+
+81
+00:04:04.130 --> 00:04:06.810
+that you did to get there.
+
+82
+00:04:06.810 --> 00:04:09.900
+And, but the fact of the matter is that
+all of the work that you got, that
+
+83
+00:04:09.900 --> 00:04:15.080
+you did to get there is, is, is just as
+important to keep track of and document.
+
+84
+00:04:15.080 --> 00:04:17.280
+And as a general rule the more, the
+
+85
+00:04:17.280 --> 00:04:19.660
+more of the data analysis pipeline that
+you can,
+
+86
+00:04:19.660 --> 00:04:21.990
+that you can make reproducible the better
+it is
+
+87
+00:04:21.990 --> 00:04:23.580
+for you, the better it is for other
+people.
+
+88
+00:04:23.580 --> 00:04:25.630
+And the more credible your results will
+be.
+
+89
+00:04:25.630 --> 00:04:28.850
+So think about the entire pipeline It's
+all important.
+
+90
+00:04:28.850 --> 00:04:29.200
+It's not
+
+91
+00:04:29.200 --> 00:04:30.770
+just the final product that's important.
+
+92
+00:04:33.230 --> 00:04:37.880
+So taking all these rules and summarizing
+them I just, I put together a simple list
+
+93
+00:04:37.880 --> 00:04:40.560
+of, of, questions that you should ask
+yourself
+
+94
+00:04:40.560 --> 00:04:42.690
+as you're doing any sort of DNA analysis.
+
+95
+00:04:42.690 --> 00:04:44.460
+So of course, number one, are we doing
+some
+
+96
+00:04:44.460 --> 00:04:46.930
+good science, is this interesting, is this
+worth even doing?
+
+97
+00:04:47.930 --> 00:04:50.730
+Was any part of this analysis done by
+hand?
+
+98
+00:04:50.730 --> 00:04:54.150
+Now, this may be unavoidable.
+You may have to do some things by hand.
+
+99
+00:04:54.150 --> 00:04:56.640
+So the only real issue here is that if
+
+100
+00:04:56.640 --> 00:05:00.180
+you do something by hand, is it precisely
+documented?
+
+101
+00:05:00.180 --> 00:05:02.610
+and, and, and, and in particular, you need
+to make sure
+
+102
+00:05:02.610 --> 00:05:04.010
+that if it is documented that
+
+103
+00:05:04.010 --> 00:05:06.650
+the documentation actually matches the
+reality.
+
+104
+00:05:06.650 --> 00:05:09.600
+Because many times when you document
+something, you write it down.
+
+105
+00:05:09.600 --> 00:05:11.590
+But then later on, you actually change
+what it is that you
+
+106
+00:05:11.590 --> 00:05:14.930
+actually did, because you need to update
+something, maybe there was a mistake.
+
+107
+00:05:14.930 --> 00:05:17.380
+So if you do update or change something
+then you have
+
+108
+00:05:17.380 --> 00:05:19.620
+to change and update the corresponding
+documentation that goes with it.
+
+109
+00:05:19.620 --> 00:05:25.045
+So does the documentation match the
+reality of what you did?
+
+110
+00:05:25.045 --> 00:05:25.330
+Um,of course
+
+111
+00:05:25.330 --> 00:05:28.180
+you want to be able to teach a computer to
+do as much as possible, so have you
+
+112
+00:05:28.180 --> 00:05:31.080
+coded as much as possible and have you
+kind
+
+113
+00:05:31.080 --> 00:05:34.250
+of written down In a precise manner what
+you did.
+
+114
+00:05:34.250 --> 00:05:37.320
+Cause any time you teach a computer to do
+something, this is a good idea I think.
+
+115
+00:05:38.500 --> 00:05:40.080
+Are we using a version control system?
+
+116
+00:05:40.080 --> 00:05:43.610
+Are you using something like GID or sbm or
+something like that?
+
+117
+00:05:43.610 --> 00:05:47.000
+Have you documented the software
+enviroment so every,
+
+118
+00:05:47.000 --> 00:05:51.090
+tool, every library, your operating
+system, your architecture,
+
+119
+00:05:51.090 --> 00:05:52.210
+these all have to be noted.
+
+120
+00:05:53.630 --> 00:05:55.650
+Have you saved any output that can not
+
+121
+00:05:55.650 --> 00:05:58.190
+be reconstructed from the original data in
+code.
+
+122
+00:05:58.190 --> 00:06:00.460
+Right so and generally you want to avoid
+saving any output that
+
+123
+00:06:00.460 --> 00:06:04.180
+can't be, can't be kind of derived from
+some data in code.
+
+124
+00:06:04.180 --> 00:06:08.330
+So it's better to save the data in the
+code rather than the output.
+
+125
+00:06:08.330 --> 00:06:10.000
+And then a final question might be, you
+know,
+
+126
+00:06:10.000 --> 00:06:13.160
+how far back in the analysis pipeline can
+we go.
+
+127
+00:06:13.160 --> 00:06:15.880
+Before the results are no longer
+reproducible.
+
+128
+00:06:15.880 --> 00:06:16.400
+Now, if you're
+
+129
+00:06:16.400 --> 00:06:18.800
+all, if you're working on a piece of the
+pipeline it may not
+
+130
+00:06:18.800 --> 00:06:22.020
+be possible to go all the way back, for
+example, to the raw data.
+
+131
+00:06:22.020 --> 00:06:25.260
+You may only go back to some processed
+version of that data.
+
+132
+00:06:25.260 --> 00:06:25.840
+And that's fine.
+
+133
+00:06:25.840 --> 00:06:28.170
+But just think about, you know, the entire
+pipeline and
+
+134
+00:06:28.170 --> 00:06:31.240
+see how, and try to make it as
+reproducible as possible.
+
+135
+00:06:31.240 --> 00:06:36.650
+So these are my, kind of general tips for.
+Thinking about reproducibility in
+
+136
+00:06:36.650 --> 00:06:41.440
+a generic type of data analysis project.
+I think a lot of these will help you get,
+
+137
+00:06:41.440 --> 00:06:43.420
+kind of, organize a project and make
+
+138
+00:06:43.420 --> 00:06:45.570
+sure that you're thinking along the right
+things.
+
+139
+00:06:45.570 --> 00:06:48.820
+The key things are, you know, be careful
+when you do things by hand,
+
+140
+00:06:48.820 --> 00:06:51.270
+try to code as much as possible
+
+141
+00:06:51.270 --> 00:06:53.860
+and to document everything as precisely as
+possible.

@@ -1,0 +1,82 @@
+[BLANK_AUDIO] Markdown is a really useful language for creating documents without having to deal
+with a lot of the overhead and kind of complications of using standard markup
+languages. The idea behind Markdown is that it's a, you know, it's a simplified markup
+language. And it really, the, the goal is to, to
+allow you to focus on just writing your content and not have to worry about things like tags or other things like
+that. And so Markdown, you'll notice, is very
+simple. And we use it a lot here. All of the slides for the course are
+written in Markdown And a nice thing about Markdown is that it's very easy to integrate it with Rcode, and other
+programming languages. So, in this lecture I'm just going to talk
+about the very basics of Markdown. But of course it, beyond the basics
+actually there's not a whole lot. So that's what makes Markdown so, so nice. And then once I'll just talk a little bit
+about kind of the basic aspects and give, give you a few pointers on kind of where
+you can go to learn about more. So, so just to start off with, Markdown is a text to HTML conversion tool for web
+writers. Markdown allows you to write easy, using
+an easy to use, read, easy to write, plain text format and then
+convert to structurally valid XHTML. So the idea is that, so the, John Gruber,
+the creator of Markdown, wanted people to be able to focus on writing their
+content, and not other kind of aspects. And so, the basic syntax for Markdown is
+fairly simple. For, so, you can you can format text, for example
+with italics using the asterisks here and then the text
+will be italicized. You can do things like create bold face
+with the, with the double asterisk and the text will
+appear bold. You can create headings. There are different sizes, so if you're
+familiar with HTML you can think of this as H1, H2, H3. So the two hashes, this is a secondary
+heading. The three hashes is a tertiary heading. And then a single hash, which I didn't put
+here is a, is like a main heading, a primary
+heading. And so you can see that there are
+different sizes here. You can create very simple unordered lists
+by putting a little indicator there, like a hyphen or
+an asterisk. It doesn't really matter what the the
+character is that you use there as long as it's kind of
+consistent across the list. So you can create an unordered list like
+this by just just starting it right away, there's
+no other formatting element. You can create an ordered list here by
+just doing one, two, and three. And the, and, and the truth is actually, although it's a little, it's not
+immediately clear here the numbering doesn't have to actually be
+in order. As long as you use a number as the kind of
+character that, kind of, that indents the line it will cr-, the
+Markdown will create an ordered list. And so, if you decide that oh, you know,
+you want to stick something in between one and two, you don't have to
+renumber every element on the list. You can just stick another item there
+under the first item. And it could be another one, or it could
+be four, it could be any number, the numbers don't have to be
+in order, but when you process the document Markdown will automatically
+order the list in the right way. You can of course put links into a
+document, this is very important if you're creating
+web documents. And there are two ways to create links. The first way I've got here puts the text
+in square brackets, and then immediately following
+that puts the URL in parenthesis. So, here I can see Johns Hopkins Bloomberg
+School of Public Health. And and the URL is right next to it, and then Download R with the R website right
+next to that. And so and then it'll be formatted in an
+HTML document in the usual way. The text will be highlighted, and
+underlined. The other way to to create links in a
+Markdown document is to put the, again, the text in
+square brackets. And then, and right next to it in square
+brackets put a number which is going to be like an
+identifier for that link. And then later on, perhaps at the bottom
+of the document you can put the actual URL for for the length
+that you meant. So, number one here is for R bloggers and at the bottom of the document
+I might put a number one and then the R bloggers
+URL. And then the second link here is for
+Simply Statistics, so for number two I put the Simply
+Statistics URL. The basic idea with this type of linking
+is that it makes the text in your document a little bit
+cleaner and easier to read. Especially if you have very long URL's. And you, and you don't necessarily want to
+put all these really long URL's in the document so it makes it
+hard to read. This makes it a little bit easier to read,
+while your editing the document and puts all the
+links down at the bottom. Lastly new lines can be created in the
+text document by just putting a double space at the end of
+a line. So I just do first line, second line like this with just, with no space after the
+first line. All the lines will run together like that. But if I put two spaces after the first
+line then you'll get a kind of a new line put in
+between. So just the, that's going to be just an
+easy gotcha, that can be the people who newly come into
+Markdown will often discover. So that's just a really, really quick overview of Markdown. Here's some basic resources of the official Markdown documentation on, on
+Jon-, John Grubers website, is very easy to
+read, it's very, it's relatively short. You'll be able to learn it within minutes. You already know most of it just by
+readin-, by looking at this lecture. And then, Github has its own kind of Markdown flavor, with a few kind of
+enhancements. So if you're going to be using Github and
+documenting things in Github it might be useful to check out
+their Markdown guide.

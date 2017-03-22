@@ -1,0 +1,111 @@
+Hi, everyone. This lecture will be about reproducible
+research, and I want to just talk about some concepts and ideas
+that are, that are related to reproducible research and
+in, just in case you haven't heard about it or don't know
+what it is. So the basic idea is that in science,
+replication is the most important element of kind of verifying and validating
+findings that a scientist discover. So if you claim that x causes y, or that Vitamin C improves
+disease, or that this causes a problem. What happens is that, you know, other scientists that are independent of the
+original. Will, will try to investigate that same
+question and see if they come up with the same result. And if lots of different people come up
+with the same result and replicate the original
+finding, then we can tend to think that, well, the original was
+probably true and that this is a real relationship or
+real finding. So the ultimate standard in strengthening
+scientific evidence is replication. And we, and the goal is to have independent people to do independent
+things with different data, different methods, and
+different laboratories and see if you get the same result. Because if a finding is robust to all
+these different things then it is more likely to be true and the evidence
+is stronger in it's favor. Replication is particularly important in
+studies that have, kind of had big policy impacts or can influence
+regulatory types of decisions.
+So, what's wrong with replication? So there's really nothing wrong with it. This is what science has been doing for a
+long time through hundreds of years. And there's nothing wrong with it today. But the problem is that it's very, it's
+becoming more and more challenging to do
+replication or to replicate other studies and because and
+part of the reason is because studies are getting
+bigger and bigger. In order to do big studies you need a lot
+of money and so there's a lot of money involved and if you want to do ten
+versions of the same study, you need ten times as much money and there's not as
+much money around as there used to be. [COUGH] sometimes it's just, it's
+difficult to replicate a study because you know, if the original study took 20 years to do, it's difficult to wait around another 20 years for
+replication. So that can be a, a challenge. Some studies are just plain unique. So if you're looking at a unique situation
+in time or a unique population, you can't readily replicate that
+situation. So, there are a lot of good reasons why
+you can't replicate a study. And so the idea said, well, if you can't
+replicate it is the alternative just to do nothing, just
+let that study stand by itself? And so the idea behind a reproducible
+research is to create a kind of minimum standard or a middle ground
+where we won't be replicating the study, but maybe we can do something in between. So the basic problem is, you know, you
+have the gold standard, which is, which is replication and then you have the, kind of the, the worst standard which is
+nothing. And so, what can we do that's in between
+the gold standard and nothing, and that's
+where we're thinking is reproducibility. So, that's how we can kind of bridge the
+gap between replication and nothing. So, why do we need this kind of middle
+ground, which I haven't clearly defined yet, but the basic idea is that,
+you know, you make the data available for the original
+study, and you make the computational methods available so that
+other people can can, can look at your data and cam run the kind of analysis
+that you've run. And to kind of come, come to the same
+findings that you found. And so a lot of this, what reproducible
+research is about is a validation of the data
+analysis. Because you're not collecting independent
+data using independent methods, you can, it's a little bit more difficult to validate
+the, the question itself that you're asking, but if you can take
+someone's data and repli, and reproduce their findings, then you can in
+some sense validate the data analysis. And so this involves having the data and the code because, you know, most, more
+likely than not, the analysis will have been done on
+the computer using some sort of programming
+language like R. And so you can take their code and their
+data and reproduce the findings that they come up with, then you can at least have confidence that the analysis was done
+appropriately. And and that the correct methods were
+done, were used excuse me. So what is driving this need for a middle ground, this reproducibility middle ground
+between replication and doing nothing? Well, there's a lot of new technologies on the scene and in many different fields
+including, biology and chemistry and environmental science,
+all kinds of areas. These technology allow us to collect data
+at a much higher throughput. And so we get these very complex and very
+high dimensional data sets. Almost instantaneously compared to even
+just ten years ago. And so, the technology has allowed us to
+create huge data sets, at a, at essentially the touch
+of a button. furthermore, we have computing power that
+allows us to take on existing databases and merge them into,
+just, even bigger and bigger databases. So we can take data that were previously,
+maybe, inaccessible and create new data sets out
+of it. So these new data sets are huge now. and, in addition to allowing us to create
+new data sets computing power allows us to, to to do
+more sophisticated analysis. So the analysis themselves, the models
+that we fit and the algorithms that we run, are much much
+more complicated than they use to be. And so, having a basic understanding of
+these algorithms is difficult, even for a
+sophisticated person. So, understanding what someone did in an
+analysis of data will require looking at code, looking at the
+computer programs that people used. And so the, and so the bottom line with
+all these different trends is that for every field x, there is
+now computational x. There's computational biology,
+computational astronomy, computational whatever is you want, there is a computational version
+of it. So one example from research that I've
+conducted is in the area of air pollution and
+health. Now air pollution and health is a, is a
+big field and it, and it involves a kind of, is a confluence of features that make reproducibility very important
+in this area. The first that we're estimating very
+small, but very important public health effects
+in the presence of a much stronger signal. So you can think about air pollution as
+something that's, you know, perhaps harmful but even if it
+were harmful there are many other things that are
+going, that are going to be more harmful that you have to
+worry about. So pollution is going to be, not at the very top of the list that's going to harm
+you. The results of a lot of air pollution research inform kind of
+substantial policy decisions. Regulations will be based on scientific research in this
+area. And so these regulations can affect a lot
+of stakeholders and, and furthermore, can cost billions of
+dollars to implement. Finally, we use a lot of complex
+statistical methods to do a lot of these stedies and so, and these statistical methods are subjected to
+intense scrutiny. So combinations of an, of an inherently small signal large impacts, and complex
+statistical methods almost require that the research that we
+do be reproducible. And so one of the things that we've done
+and here at John's Hopkins is to create what's called the Internet-based Health and Air Pollution
+Surveillance System. We make a lot of our data available, we
+make a lot of our statistical methods in the form
+of R code available so that they can be examined,
+and the data, and many of the results that we produce can be
+reproduced by others.
