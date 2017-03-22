@@ -1,0 +1,439 @@
+WEBVTT
+
+1
+00:00:01.140 --> 00:00:03.210
+Hi.
+My name is Brian Caffo, and
+
+2
+00:00:03.210 --> 00:00:06.950
+this is the Expected Values lecture
+as part of the Statistical inference
+
+3
+00:00:06.950 --> 00:00:11.250
+course on Coursera, which is part
+of our data science specialization.
+
+4
+00:00:11.250 --> 00:00:13.800
+This class is co-taught with my
+co-instructors, Jeff Leek and
+
+5
+00:00:13.800 --> 00:00:17.300
+Roger Peng, relative to Johns Hopkins
+Bloomberg School of Public Health.
+
+6
+00:00:18.500 --> 00:00:21.330
+This class is about statistical inference.
+
+7
+00:00:21.330 --> 00:00:25.460
+The process of making conclusions about
+populations based on noisy data that we're
+
+8
+00:00:25.460 --> 00:00:28.560
+going to assume was drawn from it.
+
+9
+00:00:28.560 --> 00:00:31.710
+The way we're going to do this, is we're
+going to assume that populations and
+
+10
+00:00:31.710 --> 00:00:35.960
+the randomness govern, governing our
+sample is given by densities and
+
+11
+00:00:35.960 --> 00:00:36.484
+mass functions.
+
+12
+00:00:38.340 --> 00:00:40.050
+So we don't have to talk
+about the whole function.
+
+13
+00:00:40.050 --> 00:00:43.430
+We're going to talk about characteristics
+of these densities and mass functions,
+
+14
+00:00:43.430 --> 00:00:46.430
+that are characteristics then of the
+random variables that are drawn from them.
+
+15
+00:00:47.510 --> 00:00:49.680
+The most useful such
+characterization are so
+
+16
+00:00:49.680 --> 00:00:54.240
+called expected values, though we've also
+covered some other characterizations.
+
+17
+00:00:54.240 --> 00:00:55.659
+For example, sample quantiles.
+
+18
+00:00:57.440 --> 00:01:01.030
+Expected values, is the mean is
+the most useful expected value.
+
+19
+00:01:01.030 --> 00:01:02.920
+It's the center of a distribution.
+
+20
+00:01:02.920 --> 00:01:06.520
+So you might think of as the mean changes,
+the distribution just moves to the left or
+
+21
+00:01:06.520 --> 00:01:09.530
+the right as the mean of the distribution
+moves to the left or the right.
+
+22
+00:01:11.310 --> 00:01:14.390
+The variance is another
+characteristic of a distribution, and
+
+23
+00:01:14.390 --> 00:01:16.009
+it talks about how spread out it is.
+
+24
+00:01:18.090 --> 00:01:21.760
+And just like before in the way
+that the sample quintiles estimated
+
+25
+00:01:21.760 --> 00:01:23.760
+the population quantiles.
+
+26
+00:01:23.760 --> 00:01:27.790
+The sample expected values are going to
+estimate the population expected values.
+
+27
+00:01:27.790 --> 00:01:30.490
+So the sample mean will be
+an estimate of our population mean.
+
+28
+00:01:30.490 --> 00:01:33.770
+And our sample variance will be an
+estimation of our population variance, and
+
+29
+00:01:33.770 --> 00:01:35.970
+our sample standard deviation
+will be an estimate of
+
+30
+00:01:35.970 --> 00:01:38.010
+our population standard deviation.
+
+31
+00:01:38.010 --> 00:01:39.080
+The expected value,
+
+32
+00:01:39.080 --> 00:01:42.120
+or mean of a random variable,
+is the center of its distribution.
+
+33
+00:01:43.360 --> 00:01:47.020
+For a discrete random variable x with
+a probability mass function p of x,
+
+34
+00:01:47.020 --> 00:01:50.690
+it's simply the summation of
+the possible values that x can take,
+
+35
+00:01:50.690 --> 00:01:52.390
+times the probability that it takes them.
+
+36
+00:01:54.450 --> 00:01:59.560
+The expected value takes its idea from
+the idea of the physical center of mass,
+
+37
+00:01:59.560 --> 00:02:04.570
+if the probabilities were weights,
+were bars where their
+
+38
+00:02:04.570 --> 00:02:08.300
+weights were governed by the prob,
+the value of the probability, and
+
+39
+00:02:08.300 --> 00:02:11.550
+the x was the location along
+an axis that they were at-
+
+40
+00:02:11.550 --> 00:02:13.970
+The expected value would
+simply be the center of mass.
+
+41
+00:02:13.970 --> 00:02:15.950
+We'll go through some
+examples of that in a second.
+
+42
+00:02:17.380 --> 00:02:22.030
+This idea of center of mass is actually
+useful in defining the sample mean.
+
+43
+00:02:22.030 --> 00:02:25.350
+Remember, we're talking about in
+this lecture, the population mean,
+
+44
+00:02:25.350 --> 00:02:27.750
+which is estimated by the sample mean.
+
+45
+00:02:27.750 --> 00:02:31.170
+But it's interesting to note that
+the sample mean is the center of mass.
+
+46
+00:02:31.170 --> 00:02:34.790
+If we treat each data
+point as equally likely.
+
+47
+00:02:34.790 --> 00:02:36.890
+So, in other words,
+where the probability is one over N,
+
+48
+00:02:36.890 --> 00:02:40.160
+and each data point xi
+has that probability.
+
+49
+00:02:40.160 --> 00:02:45.390
+If we were to try, then find the center of
+mass for the data that is exactly X bar.
+
+50
+00:02:46.480 --> 00:02:50.540
+So we intuitively use this idea of center
+of mass even when we use a sample mean.
+
+51
+00:02:52.490 --> 00:02:56.430
+So, I have some code here to show an
+example of taking the sample mean of data,
+
+52
+00:02:56.430 --> 00:03:00.620
+and how it represents the center of
+mass just by drawing a histogram.
+
+53
+00:03:00.620 --> 00:03:02.480
+So here I have this data Galton.
+
+54
+00:03:02.480 --> 00:03:07.400
+And again the code can be find in the mark
+down file associated with the slides that
+
+55
+00:03:07.400 --> 00:03:08.399
+you can get from GitHub.
+
+56
+00:03:09.690 --> 00:03:12.230
+So here in this case,
+we have parent's heights and
+
+57
+00:03:12.230 --> 00:03:14.250
+children's heights in a paired data set.
+
+58
+00:03:14.250 --> 00:03:17.430
+And here, I have a histogram for
+the child's height and
+
+59
+00:03:17.430 --> 00:03:19.650
+here I have the histogram for
+the parent's height.
+
+60
+00:03:19.650 --> 00:03:22.980
+And I've overlayed
+a continuous density estimate.
+
+61
+00:03:22.980 --> 00:03:28.350
+So I'd like to go through an example
+where we actually show how moving
+
+62
+00:03:28.350 --> 00:03:32.510
+our finger around, will balance out that
+histogram and, fortunately, in our studio,
+
+63
+00:03:32.510 --> 00:03:36.590
+there's a, a neat little function called
+"manipulate" that will help us do this.
+
+64
+00:03:36.590 --> 00:03:42.760
+So, I'm going to load up "manipulate," and
+then,
+
+65
+00:03:42.760 --> 00:03:45.460
+the code I'm going to show you in here.
+
+66
+00:03:45.460 --> 00:03:48.170
+But I think if you go on to
+take the data products class,
+
+67
+00:03:48.170 --> 00:03:50.290
+which is part of the specialization here,
+
+68
+00:03:50.290 --> 00:03:53.210
+we'll actually go through the specifics
+of how you use the manipulate function.
+
+69
+00:03:53.210 --> 00:03:56.180
+But here I'm just going to do it,
+to show you it running.
+
+70
+00:03:57.920 --> 00:04:00.080
+And then we're going to look at the plot.
+
+71
+00:04:00.080 --> 00:04:05.200
+Okay, so here is the,
+the plot of the child's heights.
+
+72
+00:04:05.200 --> 00:04:09.500
+It's the histogram, and I've overlaid
+a continuous histogram on top of it.
+
+73
+00:04:09.500 --> 00:04:14.180
+And here, let's say this vertical black
+line is our current estimate of the mean.
+
+74
+00:04:14.180 --> 00:04:18.390
+So here, it's saying that the mean is 62,
+and it gives us the mean squared error.
+
+75
+00:04:18.390 --> 00:04:23.590
+That's sort of a measure of imbalance, how
+teetering or tottering this histogram is.
+
+76
+00:04:23.590 --> 00:04:26.790
+Now notice as I move the mean around,
+which I can do now with manipulate,
+
+77
+00:04:26.790 --> 00:04:29.620
+let's move it more towards
+the center of the distribution.
+
+78
+00:04:29.620 --> 00:04:31.740
+Notice the mean has gone up.
+
+79
+00:04:31.740 --> 00:04:32.860
+Let's move it right here.
+
+80
+00:04:32.860 --> 00:04:37.960
+Notice the mean went up to 67.5, but the
+means squared error dropped quite a bit.
+
+81
+00:04:37.960 --> 00:04:41.610
+It balances, it,
+it helped balance out the histogram.
+
+82
+00:04:41.610 --> 00:04:45.350
+That was, almost the point where it would,
+would balance it out perfectly.
+
+83
+00:04:45.350 --> 00:04:49.030
+And you can see as I get here,
+it goes down a little bit more.
+
+84
+00:04:49.030 --> 00:04:51.150
+But then at some point,
+it starts going back up again.
+
+85
+00:04:51.150 --> 00:04:53.110
+So if I move it all the way over here.
+
+86
+00:04:53.110 --> 00:04:54.470
+Right.
+This mean squared error,
+
+87
+00:04:54.470 --> 00:04:57.580
+this measure of imbalance,
+gets quite large.
+
+88
+00:04:57.580 --> 00:05:01.510
+So again, this is just illustrating the
+point that the empirical mean is going to
+
+89
+00:05:01.510 --> 00:05:03.370
+be the point that balances out.
+
+90
+00:05:03.370 --> 00:05:05.560
+The empirical distribution and
+
+91
+00:05:05.560 --> 00:05:08.810
+we're going to use this to talk
+about the population mean,
+
+92
+00:05:08.810 --> 00:05:13.020
+which is going to be the, the point that
+balances out the population distribution.

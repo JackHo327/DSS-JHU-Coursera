@@ -1,0 +1,600 @@
+WEBVTT
+
+1
+00:00:00.730 --> 00:00:04.260
+So, probability calculus is useful for
+understanding the rules that probability
+
+2
+00:00:04.260 --> 00:00:08.190
+must follow and forms the foundation for
+all thinking on probability.
+
+3
+00:00:09.310 --> 00:00:14.500
+However, we need something that's a bit
+easier to work with for numeric outcomes
+
+4
+00:00:14.500 --> 00:00:18.810
+of experiments, where here I'm using
+the word experiment in a broad sense.
+
+5
+00:00:18.810 --> 00:00:22.210
+So densities and mass functions for random
+variables are the best starting point for
+
+6
+00:00:22.210 --> 00:00:24.230
+this, and this is all we will need.
+
+7
+00:00:24.230 --> 00:00:28.040
+Probably the most famous example of
+a density is the so called bell curve.
+
+8
+00:00:28.040 --> 00:00:31.960
+So in this class you'll actually
+learn what it means to say that
+
+9
+00:00:31.960 --> 00:00:33.280
+the data follow a bell curve.
+
+10
+00:00:34.290 --> 00:00:36.810
+You'll actually learn what
+the bell curve represents.
+
+11
+00:00:36.810 --> 00:00:40.490
+Among other things, you'll know that when
+you talk about probabilities associated
+
+12
+00:00:40.490 --> 00:00:41.420
+with the bell curve or
+
+13
+00:00:41.420 --> 00:00:45.230
+the normal distribution, you're
+talking about population quantities.
+
+14
+00:00:45.230 --> 00:00:48.180
+You're not talking about statement
+about what occurs in the data.
+
+15
+00:00:48.180 --> 00:00:50.680
+How this is going to work and
+
+16
+00:00:50.680 --> 00:00:54.940
+where we're going with this is that we're
+going to collect data that's going to be
+
+17
+00:00:54.940 --> 00:00:59.100
+used to estimate properties
+of the population, okay.
+
+18
+00:00:59.100 --> 00:01:00.670
+And that's where we'd like to head.
+
+19
+00:01:00.670 --> 00:01:04.658
+But first before we start working with the
+data, we need to develop our intuition for
+
+20
+00:01:04.658 --> 00:01:06.468
+how the population quantities work.
+
+21
+00:01:09.533 --> 00:01:13.200
+A random variable is the numeric
+outcome of an experiment.
+
+22
+00:01:13.200 --> 00:01:17.770
+So the random variables that we will study
+come in two kinds, discrete or continuous.
+
+23
+00:01:17.770 --> 00:01:22.380
+Discrete are ones that you can count,
+like number of web hits, or the number,
+
+24
+00:01:22.380 --> 00:01:24.900
+the different outcomes
+that a die can take.
+
+25
+00:01:24.900 --> 00:01:28.360
+Or even things that aren't even numeric,
+like hair color.
+
+26
+00:01:28.360 --> 00:01:32.840
+And we can assign the numeric value,
+one for blonde, two for brown, three for
+
+27
+00:01:32.840 --> 00:01:33.720
+black, and so on.
+
+28
+00:01:35.110 --> 00:01:39.270
+Continuous random variables can
+take any value in a continuum.
+
+29
+00:01:39.270 --> 00:01:41.870
+The way we work with discrete
+random variables is,
+
+30
+00:01:41.870 --> 00:01:45.450
+we're going to assign a probability
+to every value that they can take.
+
+31
+00:01:45.450 --> 00:01:48.290
+The way that we're going to work with
+continuous random variables is we're
+
+32
+00:01:48.290 --> 00:01:51.410
+going to assign probabilities
+to ranges that they can take.
+
+33
+00:01:53.790 --> 00:01:56.610
+Let's just go over some simple examples
+of things that can be thought of
+
+34
+00:01:56.610 --> 00:01:57.709
+as random variables.
+
+35
+00:01:58.940 --> 00:02:02.740
+So the biggest ones for building up
+our intuition in this class will be
+
+36
+00:02:02.740 --> 00:02:07.000
+the flip of a coin, and we'll either
+say heads or tails, or 0 or 1.
+
+37
+00:02:07.000 --> 00:02:12.000
+This is discrete random variable,
+because it could only take two levels.
+
+38
+00:02:12.000 --> 00:02:16.910
+The outcome of the roll of a die is
+another discrete random variable,
+
+39
+00:02:16.910 --> 00:02:19.930
+because it could only take
+one of six possible values.
+
+40
+00:02:19.930 --> 00:02:23.130
+These are kind of silly random
+variables because they're,
+
+41
+00:02:23.130 --> 00:02:26.380
+the probability mechanics is so
+conceptually simple.
+
+42
+00:02:26.380 --> 00:02:29.200
+Some more complex random
+variables are given below.
+
+43
+00:02:29.200 --> 00:02:33.160
+For example, the amount of web,
+the website traffic on a given day,
+
+44
+00:02:33.160 --> 00:02:36.010
+the number of web hits,
+would be a count random variable.
+
+45
+00:02:36.010 --> 00:02:38.350
+We'll likely treat that as discrete.
+
+46
+00:02:38.350 --> 00:02:41.000
+However we don't really
+have an upper bound on it.
+
+47
+00:02:41.000 --> 00:02:43.750
+So it's an interesting kind
+of discrete random variable.
+
+48
+00:02:43.750 --> 00:02:46.200
+We'll use the Poisson distribution
+likely to model that.
+
+49
+00:02:47.760 --> 00:02:51.330
+The BMI of a subject four years
+after a baseline measurement is,
+
+50
+00:02:51.330 --> 00:02:54.580
+a somewhat random example I came up with.
+
+51
+00:02:54.580 --> 00:02:58.210
+And in this case we would likely
+model BMI body mass index as
+
+52
+00:02:58.210 --> 00:02:59.549
+a continuous random variable.
+
+53
+00:03:00.790 --> 00:03:04.490
+The hypertension status of a subject
+randomly drawn from a population could be
+
+54
+00:03:04.490 --> 00:03:05.840
+another random variable.
+
+55
+00:03:05.840 --> 00:03:09.630
+Here we might give a person a one
+if they have hypertension or
+
+56
+00:03:09.630 --> 00:03:12.250
+were diagnosed with hypertension,
+and a zero otherwise.
+
+57
+00:03:12.250 --> 00:03:15.490
+So, this random variable would
+likely be modeled as discrete, or
+
+58
+00:03:15.490 --> 00:03:16.785
+would be modeled as discrete.
+
+59
+00:03:18.100 --> 00:03:19.780
+The number of people who click on an ad.
+
+60
+00:03:19.780 --> 00:03:25.460
+Again, this is another discrete random
+variable, but a, but an unbounded one.
+
+61
+00:03:25.460 --> 00:03:30.090
+But still, we would still assign
+a problem, probability, for zero clicks,
+
+62
+00:03:30.090 --> 00:03:31.910
+one clicks, two clicks,
+three clicks and so on.
+
+63
+00:03:33.800 --> 00:03:36.740
+So intelligence quotients
+are often modeled as continuous.
+
+64
+00:03:38.710 --> 00:03:40.740
+When we talked about
+discrete random variables,
+
+65
+00:03:40.740 --> 00:03:43.310
+we said that the way we're
+going to work with probability for
+
+66
+00:03:43.310 --> 00:03:47.610
+them is to assign a probability to
+every value that they can take.
+
+67
+00:03:47.610 --> 00:03:49.120
+So why don't we just call that a function?
+
+68
+00:03:49.120 --> 00:03:51.250
+We'll call it the probability
+mass function.
+
+69
+00:03:51.250 --> 00:03:54.830
+And this is simply the function that takes
+any value that a discrete random variable
+
+70
+00:03:54.830 --> 00:03:59.040
+can take, and assigns the probability
+that it takes that specific value.
+
+71
+00:03:59.040 --> 00:04:03.356
+So a PMF for a die roll would
+assign one sixth for the value one,
+
+72
+00:04:03.356 --> 00:04:08.604
+one-sixth for the value two,
+one-sixth for the value three, and so on.
+
+73
+00:04:08.604 --> 00:04:13.096
+But you can come up with rules that a PMF
+must satisfy in order to then satisfy
+
+74
+00:04:13.096 --> 00:04:18.640
+the basic rules of probability that we
+outlined at the beginning of the class.
+
+75
+00:04:18.640 --> 00:04:21.500
+First, it must always be larger than
+zero because we, larger than or
+
+76
+00:04:21.500 --> 00:04:25.060
+equal to zero, because we've already
+seen that a probability has to
+
+77
+00:04:25.060 --> 00:04:28.160
+be a number between zero and
+one, inclusive.
+
+78
+00:04:28.160 --> 00:04:31.860
+But then also the sum of the possible
+values that the random variable can
+
+79
+00:04:31.860 --> 00:04:36.470
+take has to add up to one, just like
+if I add up the probability a die takes
+
+80
+00:04:36.470 --> 00:04:39.160
+the value one, plus the probability
+that it takes the value two,
+
+81
+00:04:39.160 --> 00:04:43.688
+plus the probability it takes the value
+three, plus the value it takes four, five,
+
+82
+00:04:43.688 --> 00:04:46.200
+six, that has to add up to one, otherwise.
+
+83
+00:04:46.200 --> 00:04:48.450
+The probability of something happening,
+right,
+
+84
+00:04:48.450 --> 00:04:51.270
+that the die takes one of the possible
+values, would not add up to one,
+
+85
+00:04:51.270 --> 00:04:54.750
+which would violate one of our
+basic tenets of probability.
+
+86
+00:04:54.750 --> 00:04:59.160
+So all a PMF does, has to satisfy,
+is these two rules.
+
+87
+00:04:59.160 --> 00:05:01.240
+We won't worry too much about these rules.
+
+88
+00:05:01.240 --> 00:05:04.650
+Instead, we will work with
+probability mass functions that
+
+89
+00:05:04.650 --> 00:05:08.100
+are particularly useful, like
+the binomial one, the canonical one for
+
+90
+00:05:08.100 --> 00:05:12.270
+flipping a coin, and the Poisson one,
+the canonical one for modelling counts.
+
+91
+00:05:14.910 --> 00:05:19.130
+Let's go over perhaps the most famous
+example of a probability mass function,
+
+92
+00:05:19.130 --> 00:05:22.169
+the result of a coin flip,
+the so-called Bernoulli distribution.
+
+93
+00:05:23.210 --> 00:05:25.850
+So let's let capital X be
+the result a coin flip,
+
+94
+00:05:25.850 --> 00:05:29.240
+where X equals 0 represents talks and
+X equal 1 represents heads.
+
+95
+00:05:30.580 --> 00:05:34.390
+Here we're using the notation where an
+upper case letter represents a potentially
+
+96
+00:05:34.390 --> 00:05:36.490
+unrealized value of the random variable.
+
+97
+00:05:36.490 --> 00:05:40.120
+So it makes sense to talk about
+the probability that x equals 0 and
+
+98
+00:05:40.120 --> 00:05:42.960
+the probability that capital X equals 1.
+
+99
+00:05:42.960 --> 00:05:45.730
+Where as a lower case x is just
+a placeholder that we're going to
+
+100
+00:05:45.730 --> 00:05:47.530
+plug a specific number into.
+
+101
+00:05:47.530 --> 00:05:51.600
+So in the PMF down here,
+we have p x equals one half to the x,
+
+102
+00:05:51.600 --> 00:05:53.670
+one half to the one minus x.
+
+103
+00:05:53.670 --> 00:05:57.030
+So if we plug in x equal
+to 0 we get one half, and
+
+104
+00:05:57.030 --> 00:05:59.110
+if we plug in x equal
+to 1 we get one half.
+
+105
+00:05:59.110 --> 00:06:02.430
+And this merely says is that
+the probability that the random
+
+106
+00:06:02.430 --> 00:06:04.780
+variable takes the value 0 is one half and
+
+107
+00:06:04.780 --> 00:06:09.690
+the probability that the random variable
+takes the value 1 is also one-half.
+
+108
+00:06:09.690 --> 00:06:10.870
+This is for a fair coin.
+
+109
+00:06:10.870 --> 00:06:12.790
+But what if we add an unfair coin?
+
+110
+00:06:12.790 --> 00:06:16.460
+Let's let theta be the probability
+of a head and 1 minus theta be
+
+111
+00:06:16.460 --> 00:06:19.600
+the probability of a tail,
+where theta's some number between 0 and 1.
+
+112
+00:06:19.600 --> 00:06:23.810
+Then we could write our probability
+math function like this.
+
+113
+00:06:23.810 --> 00:06:28.090
+P of x is theta to the x,
+1 minus theta to the 1 minus x.
+
+114
+00:06:28.090 --> 00:06:33.240
+Now, notice if I plug in a lower case x
+of 1 we get theta, and if I plog in a,
+
+115
+00:06:33.240 --> 00:06:36.740
+plug in a lower case x of
+0 I get 1 minus theta.
+
+116
+00:06:36.740 --> 00:06:41.780
+Thus for this population distribution
+the probability a random variable takes
+
+117
+00:06:41.780 --> 00:06:44.090
+the random 0 is 1 minus theta.
+
+118
+00:06:44.090 --> 00:06:47.220
+And the probability that it
+takes the value of 1 is theta.
+
+119
+00:06:47.220 --> 00:06:51.370
+This is incredibly useful, for example,
+for modeling the prevalence of something.
+
+120
+00:06:51.370 --> 00:06:53.940
+For example, if we wanted to model
+the prevalence of hypertension,
+
+121
+00:06:53.940 --> 00:06:57.560
+we might assume that the population or
+the sample that we're getting
+
+122
+00:06:57.560 --> 00:07:02.750
+is not unlike flips of biased coin
+with the success probability theta.
+
+123
+00:07:03.750 --> 00:07:06.430
+And just to connect it to what
+we'll be doing in the future.
+
+124
+00:07:06.430 --> 00:07:08.880
+The issue is that we don't know theta.
+
+125
+00:07:08.880 --> 00:07:12.410
+So, we're going to use our data to
+estimate this population proportion.

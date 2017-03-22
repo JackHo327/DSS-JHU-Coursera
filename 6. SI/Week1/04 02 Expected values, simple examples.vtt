@@ -1,0 +1,176 @@
+WEBVTT
+
+1
+00:00:00.330 --> 00:00:05.630
+Now, lets talk about an example of
+obtaining a population expected value.
+
+2
+00:00:07.010 --> 00:00:08.540
+So suppose a coin is flipped and
+
+3
+00:00:08.540 --> 00:00:11.740
+X is declared 0 or
+1 corresponding to a head or a tail.
+
+4
+00:00:11.740 --> 00:00:14.100
+What is the expected value of X?
+
+5
+00:00:14.100 --> 00:00:16.780
+So again, the expected value is
+the property of the population.
+
+6
+00:00:17.830 --> 00:00:22.240
+If we plug into our formula expected
+value of X, is the probability 0.5 times
+
+7
+00:00:22.240 --> 00:00:27.580
+the value 0 plus the probability 0.5 times
+value 1, so all the values that the coin
+
+8
+00:00:27.580 --> 00:00:31.780
+can take 0, 1 times the probability
+that it can take them, added up.
+
+9
+00:00:31.780 --> 00:00:32.950
+This winds up to be 0.5.
+
+10
+00:00:32.950 --> 00:00:38.430
+So notice the expected value is
+a value that the coin can't even take.
+
+11
+00:00:39.490 --> 00:00:42.010
+However, if we were to think
+about this geometrically,
+
+12
+00:00:42.010 --> 00:00:43.690
+the answer is quite obvious.
+
+13
+00:00:43.690 --> 00:00:48.000
+If we have two bars, they are equal
+height, one at 0 and one at 1.
+
+14
+00:00:48.000 --> 00:00:50.980
+And we wanted to balance them out.
+
+15
+00:00:50.980 --> 00:00:54.310
+It's clear where exactly we'd
+put our finger if we wanted to.
+
+16
+00:00:54.310 --> 00:00:56.721
+It would be right here at 0.5.
+
+17
+00:00:59.762 --> 00:01:03.776
+Suppose that a random variable X is such
+that P, the probability that it takes
+
+18
+00:01:03.776 --> 00:01:08.200
+the value 1 as p, and the probability
+it takes the value 0 is 1 minus p.
+
+19
+00:01:08.200 --> 00:01:09.190
+This is a biased coin,
+
+20
+00:01:09.190 --> 00:01:11.810
+where the probability of
+the head is not necessarily 0.5.
+
+21
+00:01:11.810 --> 00:01:13.540
+The probability of the head is now p.
+
+22
+00:01:13.540 --> 00:01:16.590
+What is it's expected value?
+
+23
+00:01:16.590 --> 00:01:18.385
+We'll plug in directly and
+
+24
+00:01:18.385 --> 00:01:22.950
+then formula 0 times 1 minus p plus
+1 times p which works out to be p.
+
+25
+00:01:22.950 --> 00:01:26.660
+So the expected value of a coin flip,
+
+26
+00:01:27.900 --> 00:01:32.780
+even a potentially biased coin
+is exactly the true long run
+
+27
+00:01:32.780 --> 00:01:36.650
+proportions of heads you would obtain
+in infinitely many flips of the coin.
+
+28
+00:01:37.940 --> 00:01:38.520
+What about a die?
+
+29
+00:01:38.520 --> 00:01:40.640
+Suppose that a die is rolled, and
+
+30
+00:01:40.640 --> 00:01:44.084
+X is the number that is face up,
+what is the expected value of X?
+
+31
+00:01:46.000 --> 00:01:49.196
+So, here we take the values 1,
+2, 3, 4, 5, 6 and
+
+32
+00:01:49.196 --> 00:01:53.762
+multiply them the, times the probability
+that the random variable takes them.
+
+33
+00:01:53.762 --> 00:01:55.930
+One-sixth, one-sixth, and so on.
+
+34
+00:01:55.930 --> 00:01:56.430
+You get 3.5.
+
+35
+00:01:56.430 --> 00:01:59.700
+Again, a number that the die
+can't actually obtain.
+
+36
+00:01:59.700 --> 00:02:04.070
+So again,
+the geometric argument makes this obvious.
+
+37
+00:02:04.070 --> 00:02:08.670
+We have six bars, all of height one-sixth,
+and if we had to balance them out,
+
+38
+00:02:08.670 --> 00:02:12.909
+it's clear that we would
+balance them out at 3.5.

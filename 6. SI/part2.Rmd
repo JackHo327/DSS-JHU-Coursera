@@ -1,0 +1,119 @@
+---
+title: 'Statistical Inference Part 2: Basic Inferential Data Analysis'
+author: "JackHo"
+date: "29 October 2016"
+output:
+  word_document:
+    toc: yes
+  html_document:
+    highlight: tango
+    theme: readable
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Before Cooking
+
+*To keep the article is shorter than 3 pages, some codes have been shaded by setting `echo=FALSE' in the chunk option.*
+
+```{r Loadinglibs, warning= FALSE, message= FALSE}
+# Loading necessary packages
+require(ggplot2)
+require(dplyr)
+```
+
+## Overview
+Analyze the ToothGrowth data in the R datasets package by applying Exporatory Data Analysis (EDA) and basic statistical tests on data. Try to find out the tooth growth effects about different supplement types at each daily dose level.
+
+## Part 2: Basic Inferential Data Analysis Instructions
+The dataset `ToothGrowth` describes the Effect of Vitamin C on Tooth Growth in Guinea Pigs. For its variables, here are the description below:   
+
+- len: the numeric Tooth length   
+- supp: the factor Supplement type (VC or OJ)   
+- dose: the numeric Dose in milligrams/day   
+
+### 2.1 Basic EDA and Summary of the Toothgrowth
+```{r ToothGrowth_EDA, fig.align = "center", message = FALSE, warning = FALSE}
+data(ToothGrowth)
+dataTooth <- ToothGrowth
+summary(dataTooth)
+```
+
+From the summary above, obviously, there are two groups of data in the dataset, the `OJ` group and the `VC` group. Each group has the `len` and `dose` variables, and these variables describes the effects of the OJ and VC on the tooth growth in Guinea Pigs.
+
+```{r ToothGrowth_EDA01, fig.align = "center", fig.height=5, fig.width=6}
+ggplot(data = dataTooth, aes(y=len, x= dose,fill = supp))+ geom_boxplot()+facet_wrap(~supp+dose)+theme_bw() + labs(title="The length of the tooth growth in Guinea Pigs",subtitle = "faceted in supplement types and the numeric dose")
+```
+
+From the above boxplot, seperating the data into six groups will show that at the 0.5 dose level, the range of the length will be wider in OJ group than that in VC group, and so do the means and other quantile numbers. For at the 1 dose level and 2 dose level can be applied the similiar analysis pattern. 
+
+*The codes of plotting the scatterplot below have been shaded.*
+```{r ToothGrowth_EDA02, fig.align = "center" , echo= FALSE, fig.height=5, fig.width=6}
+ggplot(data = dataTooth, aes(y=len, x= dose,col = supp, size = dose))+ geom_point()+facet_wrap(~supp)+theme_bw()+labs(title = "The length of the tooth growth in Guinea Pigs", subtitle = "faceted in supplement types and sized in does")
+```
+
+From the scatterplot above, inside the OJ group, the larger dose applied, the larger length of the tooth growth will be, so do inside the VC group. Bewteen the OJ and VC groups, the data in the sub-groups (0.5 dose, 1 dose and 2 dose) has been analyzed in the boxplot above.
+
+### 2.2 Basic Hypothesis/ Confidence Intervals testing
+
+Based on the EDA, the data can be seperated into 3 groups:
+
+Dose      |OJ    |VC
+----------|------|------
+Dose(0.5) |OJ-0.5|VC-0.5
+Dose(1.0) |OJ-1.0|VC-1.0
+Dose(2.0) |OJ-2.0|VC-2.0
+
+```{r Statistics01, message = FALSE, warning = FALSE,  echo = FALSE}
+dataToothbak <- dataTooth %>% mutate(supp = as.character(dataTooth$supp))
+OJ05 <- dataToothbak %>% filter(supp == "OJ" & dose == .5)
+VC05 <- dataToothbak %>% filter(supp == "VC" & dose == .5)
+OJ10 <- dataToothbak %>% filter(supp == "OJ" & dose == 1)
+VC10 <- dataToothbak %>% filter(supp == "VC" & dose == 1)
+OJ20 <- dataToothbak %>% filter(supp == "OJ" & dose == 2)
+VC20 <- dataToothbak %>% filter(supp == "VC" & dose == 2)
+```
+
+Assume the mean in OJ05 and VC05 are equal to each other, and OJ05 and VC05 are indenpendent groups, so use unpaired t- test. For OJ10- VC10 and OJ20- VC20, apply the same methods.    
+
+- Ho in OJ05- VC05 is 0 ==> Ho_05 = 0;   
+- Ho in OJ10- VC10 is 0 ==> Ho_10 = 0;   
+- Ho in OJ20- VC20 is 0 ==> Ho_20 = 0;   
+
+```{r Statistics02, message = FALSE, warning = FALSE}
+Logic_05 <- t.test(OJ05$len,VC05$len,paired = F,conf.level = .05)$p.value < .05
+conf.int_05 <-t.test(OJ05$len,VC05$len,paired = F,conf.level = .05)$conf.int
+print(sprintf("The logic value of 'p.value of < 0.05' is: %d (1 for TRUE, 0 for FALSE) ,and the confidence interval is from %f to %f",Logic_05,conf.int_05[1], conf.int_05[2] ))
+```
+*The codes of OJ10- VC10 and OJ20- VC20 have been shaded.*
+```{r message = FALSE, warning = FALSE, echo = FALSE }
+Logic_10 <- t.test(OJ10$len,VC10$len,paired = F,conf.level = .05)$p.value < .05
+conf.int_10 <-t.test(OJ10$len,VC10$len,paired = F,conf.level = .05)$conf.int
+print(sprintf("The logic value of 'p.value of < 0.05' is: %d (1 for TRUE, 0 for FALSE) ,and the confidence interval is from %f to %f",Logic_10,conf.int_10[1], conf.int_10[2] ))
+Logic_20 <- t.test(OJ20$len,VC20$len,paired = F,conf.level = .05)$p.value < .05
+conf.int_20 <-t.test(OJ20$len,VC20$len,paired = F,conf.level = .05)$conf.int
+print(sprintf("The logic value of 'p.value of < 0.05' is: %d (1 for TRUE, 0 for FALSE) ,and the confidence interval is from %f to %f",Logic_20,conf.int_20[1], conf.int_20[2] ))
+```
+
+### 2.3 Summary  
+From the retuslts of t-tests, we could concluded that:   
+
+- In Group OJ05- VC05 and OJ10- VC10, the population of OJ brings better effects to tooth growth than VC does.
+      - In Group OJ05- VC05: Ho is rejected, because the p-value is smaller than 0.05, which means the means of population OJ and VC at .5 dose level are `different` with each other.
+      - In Group OJ10- VC10: Ho is rejected, because the p-value is smaller than 0.05, which means the means of population OJ and VC at 1.0 dose level are `different` with each other.   
+- In Group OJ20- VC20, the population of OJ and VC have the similiar (not very different when alpha = 0.05) means.
+      - In Group OJ20- VC20: Ho is accepted, because the p-value is smaller than 0.05, which means the means of population OJ and VC at 2.0 dose level are `not different` with each other.   
+
+
+
+
+
+
+
+
+
+
+

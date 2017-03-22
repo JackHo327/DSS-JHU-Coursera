@@ -1,0 +1,631 @@
+WEBVTT
+
+1
+00:00:00.920 --> 00:00:02.390
+For a continuous random variable,
+
+2
+00:00:02.390 --> 00:00:07.080
+you want to think about perhaps cutting
+the density out in, say, a piece of wood,
+
+3
+00:00:07.080 --> 00:00:10.070
+and then trying to figure out where you
+would balance out that piece of wood,
+
+4
+00:00:10.070 --> 00:00:12.540
+if you were to have to put
+your finger on the bottom.
+
+5
+00:00:12.540 --> 00:00:16.030
+This is exactly the continue,
+the center of mass of a continuous body.
+
+6
+00:00:16.030 --> 00:00:20.195
+You might think about it in our
+probability mass function as the bars get
+
+7
+00:00:20.195 --> 00:00:22.870
+extra and smaller, smaller and smaller.
+
+8
+00:00:22.870 --> 00:00:24.160
+We'll go over an example next.
+
+9
+00:00:25.690 --> 00:00:27.800
+So consider a density that's
+one between zero and one.
+
+10
+00:00:27.800 --> 00:00:29.920
+And I have this question here.
+
+11
+00:00:29.920 --> 00:00:30.900
+Is it a valid density?
+
+12
+00:00:30.900 --> 00:00:31.710
+The answer is yes.
+
+13
+00:00:31.710 --> 00:00:34.300
+This is a well-known density
+called the Uniform density.
+
+14
+00:00:34.300 --> 00:00:37.110
+And then what is its expected value?
+
+15
+00:00:37.110 --> 00:00:40.040
+Well, its expected value is going to be.
+
+16
+00:00:40.040 --> 00:00:42.530
+If I were to say,
+cut this density out of a piece of wood,
+
+17
+00:00:42.530 --> 00:00:45.060
+where would I put my
+finger to balance it out?
+
+18
+00:00:45.060 --> 00:00:47.850
+And of course that an,
+the answer would be 0.5 right here.
+
+19
+00:00:47.850 --> 00:00:51.640
+Which is of course exactly the expected
+value of the uniform density.
+
+20
+00:00:53.700 --> 00:00:56.570
+I'd like to head more towards
+the real topics of inference.
+
+21
+00:00:57.660 --> 00:01:02.130
+So let's cover some facts
+about expected values.
+
+22
+00:01:02.130 --> 00:01:05.640
+So, first recall that expected values
+are properties of the distribution.
+
+23
+00:01:05.640 --> 00:01:07.540
+They're the center of
+mass of a distribution.
+
+24
+00:01:09.070 --> 00:01:13.630
+And also notice that the average of random
+variables it, is itself a random variable.
+
+25
+00:01:13.630 --> 00:01:18.340
+If I roll six dice and take their average,
+that is itself a random variable.
+
+26
+00:01:18.340 --> 00:01:22.370
+I could repeatedly sample from it by
+repeatedly rolling the six dice and
+
+27
+00:01:22.370 --> 00:01:24.550
+repeatedly taking the average.
+
+28
+00:01:24.550 --> 00:01:25.970
+Because it's a random variable,
+
+29
+00:01:25.970 --> 00:01:30.520
+it also has a distribution and
+that distribution has an expected value.
+
+30
+00:01:30.520 --> 00:01:34.160
+The center of this distribution,
+the center of mass of
+
+31
+00:01:34.160 --> 00:01:37.760
+this distribution is the same as
+that of the original distribution.
+
+32
+00:01:37.760 --> 00:01:39.680
+And I'm going to go through
+some simulation examples,
+
+33
+00:01:39.680 --> 00:01:42.899
+because this is a very important
+topic to the subject of inference.
+
+34
+00:01:43.950 --> 00:01:46.820
+But the conclusion of this is
+that the expected value of
+
+35
+00:01:46.820 --> 00:01:52.280
+the sample mean is exactly the population
+mean that it's trying to estimate.
+
+36
+00:01:52.280 --> 00:01:54.850
+So in other words,
+the distribution of the sample mean,
+
+37
+00:01:54.850 --> 00:01:59.020
+the population distribution of
+the sample mean is centered in
+
+38
+00:01:59.020 --> 00:02:02.780
+the same place as the original
+population that the data is drawn from.
+
+39
+00:02:04.500 --> 00:02:05.890
+When this happens an estimate,
+
+40
+00:02:05.890 --> 00:02:10.280
+when an estimator has this property we
+say that the estimator is unbiased.
+
+41
+00:02:10.280 --> 00:02:14.070
+But, let's try some simulation examples
+to see if we can get a handle on this.
+
+42
+00:02:14.070 --> 00:02:15.580
+So let's consider an example.
+
+43
+00:02:18.520 --> 00:02:22.610
+The blue density I have here
+is the result of thousands of
+
+44
+00:02:22.610 --> 00:02:25.140
+simulations from a standard normal.
+
+45
+00:02:25.140 --> 00:02:29.510
+Because there's so many simulations, this
+is a very good approximation to the truth,
+
+46
+00:02:29.510 --> 00:02:33.090
+and what this is simply telling me is
+that if I collect lots and lots and
+
+47
+00:02:33.090 --> 00:02:37.320
+lots of data from a population, in this
+case the standard normal distribution.
+
+48
+00:02:37.320 --> 00:02:39.820
+If I collect lots of data from it,
+
+49
+00:02:39.820 --> 00:02:42.559
+I can well approximate
+the distribution that it comes from.
+
+50
+00:02:44.390 --> 00:02:47.620
+Now, and of course,
+the center of mass of this distribution,
+
+51
+00:02:47.620 --> 00:02:50.530
+the place that would balance it out,
+is zero.
+
+52
+00:02:50.530 --> 00:02:52.510
+And that's exactly what it
+kind of looks like, and
+
+53
+00:02:52.510 --> 00:02:55.880
+if I were to simulate infinitely
+many data, it would be exactly zero.
+
+54
+00:02:57.600 --> 00:03:03.160
+Now, let's imagine that, instead of
+taking a bunch of single normals,.
+
+55
+00:03:03.160 --> 00:03:06.750
+I were to simulate ten standard normals,
+take their average, and
+
+56
+00:03:06.750 --> 00:03:09.310
+to repeat that process over and
+over again.
+
+57
+00:03:09.310 --> 00:03:10.830
+And I were to plot the histogram or
+
+58
+00:03:10.830 --> 00:03:15.200
+the density estimate for that set of
+simulations of averages of ten normals.
+
+59
+00:03:15.200 --> 00:03:17.820
+Now that would be a very different dist.
+
+60
+00:03:17.820 --> 00:03:19.380
+That would be a different distribution,
+
+61
+00:03:20.490 --> 00:03:23.620
+because it's no longer
+the distribution of standard normals.
+
+62
+00:03:23.620 --> 00:03:27.820
+It's the distribution of
+averages of ten standard normals.
+
+63
+00:03:27.820 --> 00:03:30.440
+And that's the salmon
+colored distribution.
+
+64
+00:03:30.440 --> 00:03:32.610
+We see it has some interesting properties.
+
+65
+00:03:32.610 --> 00:03:36.350
+One is that it's become much
+more concentrated about zero,
+
+66
+00:03:36.350 --> 00:03:38.400
+we'll talk about that later.
+
+67
+00:03:38.400 --> 00:03:43.500
+Right now, all we want to say is that it
+happens to be exactly centered at the .0.
+
+68
+00:03:43.500 --> 00:03:47.110
+And this is all the point from
+the previous slide was trying to make.
+
+69
+00:03:47.110 --> 00:03:51.580
+That the distribution of averages
+from a population will be centered at
+
+70
+00:03:51.580 --> 00:03:56.380
+the same place as the distribution
+from the original population itself.
+
+71
+00:03:56.380 --> 00:04:02.080
+So the distribution of averages of ten
+standard normals will be centered at zero.
+
+72
+00:04:02.080 --> 00:04:03.510
+We don't have to do any calculations or
+
+73
+00:04:03.510 --> 00:04:07.530
+simulations, though they're useful for
+understanding conceptually.
+
+74
+00:04:07.530 --> 00:04:09.050
+Let's go through some more examples.
+
+75
+00:04:12.820 --> 00:04:15.690
+Imagine if I were to roll
+a die several thousand times,
+
+76
+00:04:15.690 --> 00:04:19.910
+in fact in r that's what I did right here,
+in the first panel.
+
+77
+00:04:19.910 --> 00:04:21.700
+If I were to plot
+a histogram of the results,
+
+78
+00:04:21.700 --> 00:04:26.630
+about one sixth of the rolls would occur
+for each of the numbers one through six,
+
+79
+00:04:26.630 --> 00:04:29.500
+and if I were to roll it more and more and
+more, these bars would balance out.
+
+80
+00:04:31.970 --> 00:04:35.030
+This center of mass for
+this distribution, well it's 3.5.
+
+81
+00:04:35.030 --> 00:04:40.240
+Well, not exactly, because I haven't
+simulated infinitely many die rolls,
+
+82
+00:04:40.240 --> 00:04:44.000
+but if I did, it would balance out at 3.5.
+
+83
+00:04:44.000 --> 00:04:49.880
+Now imagine if I were to take the die,
+roll it twice,
+
+84
+00:04:49.880 --> 00:04:53.400
+take the average of the numbers, and
+then do that over and over again.
+
+85
+00:04:53.400 --> 00:04:56.540
+Then I wouldn't have
+a distribution of die rolls,
+
+86
+00:04:56.540 --> 00:05:00.550
+I would have a distribution
+of averages of two die rolls.
+
+87
+00:05:00.550 --> 00:05:02.830
+And that's what we see
+here in the second panel.
+
+88
+00:05:02.830 --> 00:05:05.790
+Notice it looks more Gaussian,
+more on that later.
+
+89
+00:05:05.790 --> 00:05:07.910
+Notice that it's more concentrated.
+
+90
+00:05:07.910 --> 00:05:09.270
+More on that later.
+
+91
+00:05:09.270 --> 00:05:13.320
+But also notice most importantly,
+it's centered at the same location.
+
+92
+00:05:13.320 --> 00:05:18.070
+The population mean of averages of
+two die rolls is exactly the same as
+
+93
+00:05:18.070 --> 00:05:20.930
+the population mean of die rolls.
+
+94
+00:05:20.930 --> 00:05:24.120
+Now I go on to do three and then four.
+
+95
+00:05:24.120 --> 00:05:24.939
+One more example.
+
+96
+00:05:25.940 --> 00:05:30.098
+If I were to flip a coin a lot of times,
+I would get zero about 50% of the time,
+
+97
+00:05:30.098 --> 00:05:33.689
+tails about 50% of the time, and
+heads about 50% of the time or
+
+98
+00:05:33.689 --> 00:05:37.848
+one, and we know that these bars would
+bounce at about .5.s/b o .5 now if I
+
+99
+00:05:37.848 --> 00:05:42.190
+only flip it a couple of times, my sample
+proportion may be kind of far from .5.
+
+100
+00:05:42.190 --> 00:05:44.930
+But if I flip it enough,
+
+101
+00:05:44.930 --> 00:05:48.080
+I know that the simulation
+variability will be meaningless.
+
+102
+00:05:48.080 --> 00:05:50.320
+And that'll give nearly exactly .5.
+
+103
+00:05:50.320 --> 00:05:54.020
+Now what if instead I were
+to flip the coin ten times,
+
+104
+00:05:54.020 --> 00:05:59.160
+take the average, and then repeat
+that process over and over again.
+
+105
+00:05:59.160 --> 00:06:01.250
+Then what my simulation would give me,
+
+106
+00:06:01.250 --> 00:06:04.269
+is an idea about the distribution
+of averages of ten coin flips.
+
+107
+00:06:05.380 --> 00:06:08.520
+And here I do that for the distribution
+of averages of ten coin flips,
+
+108
+00:06:08.520 --> 00:06:11.240
+averages of 20 coin flips and
+averages of 30 coin flips.
+
+109
+00:06:11.240 --> 00:06:16.760
+And what we'll see in each case
+is as the average is comprised
+
+110
+00:06:16.760 --> 00:06:22.070
+of more coin flips, it's distribution
+gets more concentrated about the mean.
+
+111
+00:06:22.070 --> 00:06:27.030
+However, it's distribution is always
+centered at the same place, 0.5.
+
+112
+00:06:27.030 --> 00:06:31.620
+Let's go over what we know so
+far from this class.
+
+113
+00:06:31.620 --> 00:06:33.980
+Expected values are properties
+of distributions.
+
+114
+00:06:35.350 --> 00:06:38.810
+The population mean is the center
+of mass of that population, and
+
+115
+00:06:38.810 --> 00:06:41.320
+as it moves around,
+the distribution would move around.
+
+116
+00:06:41.320 --> 00:06:45.250
+The sample mean is the center
+of mass of the observed data.
+
+117
+00:06:45.250 --> 00:06:50.290
+The sample mean is an estimate
+of the population mean.
+
+118
+00:06:51.380 --> 00:06:53.330
+And the sample mean is unbiased.
+
+119
+00:06:53.330 --> 00:06:58.670
+And what this means is the popular made,
+the population mean of the distribution of
+
+120
+00:06:58.670 --> 00:07:02.880
+sample means is exactly the population
+mean that it's trying to estimate.
+
+121
+00:07:04.850 --> 00:07:10.820
+And it's good that we know this,
+because we can actually estimate
+
+122
+00:07:10.820 --> 00:07:15.520
+the population distribution quite
+well if we collect a lot of data.
+
+123
+00:07:15.520 --> 00:07:17.070
+But we only get one sample mean.
+
+124
+00:07:17.070 --> 00:07:19.650
+So we, we don't get information
+about distributions of
+
+125
+00:07:19.650 --> 00:07:21.760
+sample means from the data itself.
+
+126
+00:07:21.760 --> 00:07:23.700
+We only get one sample mean.
+
+127
+00:07:23.700 --> 00:07:27.610
+So the fact that we know these properties
+about sample means is quite useful.
+
+128
+00:07:27.610 --> 00:07:30.410
+And then the final bullet point is
+
+129
+00:07:30.410 --> 00:07:32.450
+that the more data that
+goes into the sample mean,
+
+130
+00:07:32.450 --> 00:07:35.870
+the more concentrated its density mass
+function is around the population mean.
+
+131
+00:07:35.870 --> 00:07:39.160
+And we also saw that the more
+Gaussian-ish it was, it was looking.
+
+132
+00:07:39.160 --> 00:07:42.300
+Even in these odd cases like
+flipping a coin and rolling a die.
+
+133
+00:07:42.300 --> 00:07:45.100
+And so we'll talk more about
+those in the subsequent lectures.

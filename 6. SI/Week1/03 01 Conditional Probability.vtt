@@ -1,0 +1,274 @@
+WEBVTT
+
+1
+00:00:00.980 --> 00:00:04.350
+Hi, and welcome to the conditional
+probability lecture as part of
+
+2
+00:00:04.350 --> 00:00:07.920
+the statistical inference class in
+the Coursera data design specialization.
+
+3
+00:00:09.790 --> 00:00:14.830
+So conditioning is wonderfully
+illustrated by this XKCD comic here.
+
+4
+00:00:14.830 --> 00:00:18.180
+In this case two people are standing
+out in a field right near a tree in
+
+5
+00:00:18.180 --> 00:00:21.960
+the middle of a lightning storm, and
+one of them says we should go inside.
+
+6
+00:00:21.960 --> 00:00:24.630
+The other one says, well, the chance of
+
+7
+00:00:24.630 --> 00:00:28.790
+getting hit by lightning is only about
+one in seven million so we're fine.
+
+8
+00:00:28.790 --> 00:00:31.890
+And the tagline is that
+the death rate among people who
+
+9
+00:00:31.890 --> 00:00:34.310
+know the statistic is one in six.
+
+10
+00:00:34.310 --> 00:00:37.900
+And what the comic is highlighting is
+that this person hasn't conditioned on
+
+11
+00:00:37.900 --> 00:00:39.440
+what they know, right.
+
+12
+00:00:39.440 --> 00:00:43.320
+In this case if you were to
+condition on the death rate for
+
+13
+00:00:43.320 --> 00:00:48.110
+lightning strikes among people who
+are standing in fields in lightning
+
+14
+00:00:48.110 --> 00:00:51.780
+storms near a tree would be much
+higher than one in seven million.
+
+15
+00:00:54.140 --> 00:00:58.470
+Let's go through another example,
+so a simple, conceptual example.
+
+16
+00:00:58.470 --> 00:01:01.230
+So the probability of getting a one
+when rolling a standard die is
+
+17
+00:01:01.230 --> 00:01:02.400
+assumed to be one-sixth.
+
+18
+00:01:02.400 --> 00:01:05.740
+Suppose that you were given
+the extra information that
+
+19
+00:01:05.740 --> 00:01:09.150
+the die roll was an odd number,
+hence a one, three, or five.
+
+20
+00:01:09.150 --> 00:01:12.340
+So, someone rolled the die in
+a way that you couldn't see, and
+
+21
+00:01:12.340 --> 00:01:16.130
+they told you that a one,
+three, or a five occurred.
+
+22
+00:01:16.130 --> 00:01:18.220
+Conditional on this new information,
+
+23
+00:01:18.220 --> 00:01:23.480
+you would not say the probability
+of a one is one-sixth anymore.
+
+24
+00:01:23.480 --> 00:01:27.720
+You would now say it's one-third,
+equally likely between the one, the three,
+
+25
+00:01:27.720 --> 00:01:28.710
+or the five.
+
+26
+00:01:28.710 --> 00:01:31.960
+And that's what conditional
+probabilities are giving you.
+
+27
+00:01:31.960 --> 00:01:33.370
+And of course, they have a definition.
+
+28
+00:01:34.890 --> 00:01:36.687
+So let's let B be the event,
+
+29
+00:01:36.687 --> 00:01:40.750
+be an event, such that the probability
+of B is greater than zero.
+
+30
+00:01:40.750 --> 00:01:43.860
+And this is important
+because there's no sense in
+
+31
+00:01:43.860 --> 00:01:46.109
+conditioning on an event
+that can't happen.
+
+32
+00:01:47.160 --> 00:01:50.120
+Then the conditional probability
+of an event A given that B has
+
+33
+00:01:50.120 --> 00:01:52.350
+occurred is written like this.
+
+34
+00:01:52.350 --> 00:01:56.390
+The probability of A,
+little horizontal line, B.
+
+35
+00:01:56.390 --> 00:02:01.080
+So this read probability of A given
+the event that B has occurred is equal to
+
+36
+00:02:01.080 --> 00:02:04.309
+the probability of the intersection
+divided by the probability of B.
+
+37
+00:02:05.830 --> 00:02:09.190
+And we haven't talked about independence
+yet, but in the event that A and
+
+38
+00:02:09.190 --> 00:02:13.730
+B are unrelated or so called statistically
+independent, which we'll define later,
+
+39
+00:02:13.730 --> 00:02:18.030
+than the probability of A given B,
+works out to just be the probability of A.
+
+40
+00:02:18.030 --> 00:02:21.679
+So the new information that B
+has occurred have given you no
+
+41
+00:02:21.679 --> 00:02:25.790
+information about the probability
+of law governing the event A.
+
+42
+00:02:27.720 --> 00:02:31.380
+So let's just check that conditional
+probability gives us the answer that
+
+43
+00:02:31.380 --> 00:02:36.340
+we know to be true in the die rolling,
+case.
+
+44
+00:02:36.340 --> 00:02:39.930
+So in our case B was the event one,
+three, five.
+
+45
+00:02:39.930 --> 00:02:41.330
+A was the event one.
+
+46
+00:02:41.330 --> 00:02:46.380
+We want the probability of the event A,
+conditional on the event one, three, or
+
+47
+00:02:46.380 --> 00:02:47.880
+five having occurred.
+
+48
+00:02:47.880 --> 00:02:51.200
+So, in other words,
+we can say probability of getting a one,
+
+49
+00:02:51.200 --> 00:02:54.500
+given that we know that
+the roll is an odd number.
+
+50
+00:02:54.500 --> 00:02:55.840
+That's the probability of A given B,
+
+51
+00:02:55.840 --> 00:02:59.990
+which is the probability of A intersect
+B over the probability of B.
+
+52
+00:02:59.990 --> 00:03:02.920
+In this case,
+A happens to lie entirely within B, so
+
+53
+00:03:02.920 --> 00:03:05.950
+the probability of A intersect
+B is just the probability of A.
+
+54
+00:03:08.690 --> 00:03:11.460
+So that works out to be one-sixth,
+and then the probability of B
+
+55
+00:03:11.460 --> 00:03:14.646
+in the denominator works out
+to be three-sixths, right.
+
+56
+00:03:14.646 --> 00:03:18.670
+One-sixth for each of the three
+mutually exclusive possibilities,
+
+57
+00:03:18.670 --> 00:03:22.180
+which works out to be one-third, which
+is what we knew had to be the answer.

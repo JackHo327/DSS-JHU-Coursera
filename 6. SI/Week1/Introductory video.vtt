@@ -1,0 +1,569 @@
+WEBVTT
+
+1
+00:00:00.600 --> 00:00:02.620
+Hi, my name is Brian Caffo and
+
+2
+00:00:02.620 --> 00:00:05.650
+welcome to this Statistical Inference
+Coursera Data Science class.
+
+3
+00:00:05.650 --> 00:00:07.670
+In this class,
+
+4
+00:00:07.670 --> 00:00:11.030
+we are gonna learn about the process
+of formal statistical inference.
+
+5
+00:00:12.740 --> 00:00:16.620
+So I define statistical
+inference as the process of
+
+6
+00:00:16.620 --> 00:00:21.340
+generating conclusions about
+a population from a noisy sample.
+
+7
+00:00:22.760 --> 00:00:26.690
+Without statistical influence,
+we're simply living within our data.
+
+8
+00:00:26.690 --> 00:00:30.000
+With statistical inference,
+we're trying to generate new knowledge.
+
+9
+00:00:30.000 --> 00:00:34.640
+We're trying to extend beyond our
+data to a population to give answers.
+
+10
+00:00:34.640 --> 00:00:36.228
+With statistical inference,
+
+11
+00:00:36.228 --> 00:00:39.470
+our estimators have actual
+things that they're estimating.
+
+12
+00:00:41.060 --> 00:00:45.959
+And in fact, I would say statistical
+inference is the only formal system of
+
+13
+00:00:45.959 --> 00:00:47.610
+inference that we have.
+
+14
+00:00:47.610 --> 00:00:50.730
+Let me give you some examples.
+
+15
+00:00:50.730 --> 00:00:52.519
+Hopefully you'll understand
+what I'm talking about.
+
+16
+00:00:54.040 --> 00:00:57.880
+Consider trying to predict who's going
+to win an election on election day,
+
+17
+00:00:57.880 --> 00:01:00.040
+given a sample of likely voters today.
+
+18
+00:01:01.330 --> 00:01:05.240
+Well, there our sample is a noisy dataset.
+
+19
+00:01:05.240 --> 00:01:08.190
+Some people might not actually
+vote on election day.
+
+20
+00:01:08.190 --> 00:01:10.785
+Some people might change their mind
+as to what they're going to say now.
+
+21
+00:01:10.785 --> 00:01:13.440
+Or some people be deliberately misleading.
+
+22
+00:01:13.440 --> 00:01:17.470
+So we'd like to try to draw
+together all that uncertainty and
+
+23
+00:01:17.470 --> 00:01:21.270
+use that to predict who's
+gonna win on election day.
+
+24
+00:01:21.270 --> 00:01:25.530
+When a weather man tells you the
+probability that it rains tomorrow is 70%,
+
+25
+00:01:25.530 --> 00:01:30.520
+they're trying to use the historical data
+that is particularly the most recent data,
+
+26
+00:01:30.520 --> 00:01:34.860
+to predict tomorrow's weather and
+actually attach a probability to it.
+
+27
+00:01:34.860 --> 00:01:39.060
+That probability refers to a population.
+
+28
+00:01:42.202 --> 00:01:46.720
+An example that's very close to
+the research I do is trying to predict
+
+29
+00:01:46.720 --> 00:01:50.890
+what areas of the brain activate
+when we put them in an fMRI scanner.
+
+30
+00:01:50.890 --> 00:01:55.260
+In that case, people are doing a task
+while they're in the scanner, for example,
+
+31
+00:01:55.260 --> 00:01:57.540
+tapping their finger or
+something like that.
+
+32
+00:01:57.540 --> 00:02:00.510
+And we like'd to compare when they're
+tapping their finger, to when they're not.
+
+33
+00:02:00.510 --> 00:02:04.760
+And try to figure out what areas of the
+brain are associated with finger tapping.
+
+34
+00:02:04.760 --> 00:02:06.990
+That's just one example there.
+
+35
+00:02:06.990 --> 00:02:11.200
+Again, these are all very different
+aspects of statistical inference.
+
+36
+00:02:11.200 --> 00:02:14.530
+They're very different in the ways
+in which we're thinking about and
+
+37
+00:02:14.530 --> 00:02:16.380
+modeling the randomness.
+
+38
+00:02:16.380 --> 00:02:20.490
+And so I think you'll probably get
+the sense that statistical inference is
+
+39
+00:02:20.490 --> 00:02:22.520
+a kind of challenging
+subject because of that.
+
+40
+00:02:22.520 --> 00:02:27.550
+One thing I want to mention briefly and
+hopefully get out of the way as early as
+
+41
+00:02:27.550 --> 00:02:32.190
+possible is the idea that there's many
+different modes of statistical inference.
+
+42
+00:02:32.190 --> 00:02:35.190
+And, in fact,
+there's a recent New York Times article
+
+43
+00:02:35.190 --> 00:02:38.670
+that described the difference between
+so-called Bayesians and frequentists,
+
+44
+00:02:38.670 --> 00:02:41.830
+two different kinds of
+inferential paradigms.
+
+45
+00:02:43.580 --> 00:02:47.600
+And I think when you first come into this
+discipline, you might even be surprised
+
+46
+00:02:47.600 --> 00:02:50.830
+that there can even be more than
+one way to think about statistics.
+
+47
+00:02:50.830 --> 00:02:54.040
+But, in fact, even amongst so
+called Bayesians and
+
+48
+00:02:54.040 --> 00:02:55.360
+even amongst so-called frequentists,
+
+49
+00:02:55.360 --> 00:02:58.452
+there's all different variations and
+shades of grays, and there's many
+
+50
+00:02:58.452 --> 00:03:02.040
+a Bayesians that I would say just really
+behaved like frequentists and so on.
+
+51
+00:03:04.180 --> 00:03:08.675
+So, what we're gonna do in this class to
+make it as straightforward as possible is
+
+52
+00:03:08.675 --> 00:03:14.575
+to pick a very particular paradigm,
+this frequentist paradigm,
+
+53
+00:03:14.575 --> 00:03:18.780
+that's the one that's most commonly taught
+in introductory statistics classics.
+
+54
+00:03:18.780 --> 00:03:22.240
+The reason I elected to do
+this is because it's the most
+
+55
+00:03:22.240 --> 00:03:26.140
+likely one that you'll
+encounter in practice.
+
+56
+00:03:26.140 --> 00:03:30.720
+And also, I think once you've develop some
+of these fundamentals, you'll be able to
+
+57
+00:03:30.720 --> 00:03:34.910
+extend this knowledge to lots of different
+areas and you'll be able to build on it.
+
+58
+00:03:34.910 --> 00:03:37.050
+So we wanna build a good foundation.
+
+59
+00:03:37.050 --> 00:03:39.970
+We're going to do it with sort
+of frequency style thinking.
+
+60
+00:03:39.970 --> 00:03:41.850
+What I mean by frequency
+style thinking is,
+
+61
+00:03:41.850 --> 00:03:45.260
+we're gonna think of probability
+like how we think of gambling.
+
+62
+00:03:45.260 --> 00:03:49.590
+So I'm gonna think the probability that
+a coin winds up as heads is gonna be,
+
+63
+00:03:49.590 --> 00:03:53.310
+if I were to flip it maybe infinitely many
+times, and there's all this randomness
+
+64
+00:03:53.310 --> 00:03:56.520
+that I'm thinking about in the coin flip,
+and the proportion of heads would really
+
+65
+00:03:56.520 --> 00:03:59.800
+define a sort of intrinsic
+probability of the head to the coin.
+
+66
+00:03:59.800 --> 00:04:02.337
+That's a frequentist style of thinking.
+
+67
+00:04:02.337 --> 00:04:06.670
+It's sort of the idea that we can repeat
+an experiment over and over and over again
+
+68
+00:04:06.670 --> 00:04:11.462
+and the percentage of times that something
+happens defines that population parameter.
+
+69
+00:04:13.517 --> 00:04:17.032
+There is more than one way to
+think about probability, and
+
+70
+00:04:17.032 --> 00:04:19.700
+more than one way to
+think about inference.
+
+71
+00:04:19.700 --> 00:04:24.070
+But we're gonna focus on specifically
+frequency styling inference like that.
+
+72
+00:04:24.070 --> 00:04:26.930
+Like the coin flipping and
+all the gambling experiments that we're
+
+73
+00:04:26.930 --> 00:04:30.760
+very familiar with and we're gonna
+leave all that other stuff to the side.
+
+74
+00:04:30.760 --> 00:04:35.640
+In the notes, I give you some examples of
+all different sorts of topics that you
+
+75
+00:04:35.640 --> 00:04:39.960
+can try to build on after you've mastered
+some of the tools from this class.
+
+76
+00:04:39.960 --> 00:04:41.790
+Let me give you just a quick example.
+
+77
+00:04:41.790 --> 00:04:45.130
+There's a thriving community now
+that's trying to figure out how can
+
+78
+00:04:45.130 --> 00:04:48.390
+we really infer causation,
+not just association, but
+
+79
+00:04:48.390 --> 00:04:52.900
+real causation using noisy statistical
+data, and that's a very deep problem.
+
+80
+00:04:54.070 --> 00:04:58.740
+And what they'd like to do is enumerate
+the assumptions and a set of tools and
+
+81
+00:04:58.740 --> 00:05:02.800
+statistical study designs
+that will lead us to
+
+82
+00:05:02.800 --> 00:05:06.020
+develop causality rather than association.
+
+83
+00:05:06.020 --> 00:05:09.650
+That requires us to do things like
+define what we mean by something causing
+
+84
+00:05:09.650 --> 00:05:10.440
+something else.
+
+85
+00:05:10.440 --> 00:05:12.720
+It's a very deep field and at any rate,
+
+86
+00:05:12.720 --> 00:05:16.560
+that's one example of the couple I give
+in the notes where you can build on this.
+
+87
+00:05:16.560 --> 00:05:21.160
+For example, survey sampling,
+epidemiological studies and so on.
+
+88
+00:05:21.160 --> 00:05:25.230
+But again, what I'd like to do in a very
+short class like this is really focus on
+
+89
+00:05:25.230 --> 00:05:31.110
+building our foundation in basic frequency
+style probability models and testing.
+
+90
+00:05:32.330 --> 00:05:34.240
+So I'd like to welcome you to the class.
+
+91
+00:05:34.240 --> 00:05:36.540
+The way that you want to
+think about this class is,
+
+92
+00:05:36.540 --> 00:05:40.090
+if you're sort of keeping pace with it,
+it's a four-week class.
+
+93
+00:05:40.090 --> 00:05:42.510
+But if you're struggling
+with some of the concepts,
+
+94
+00:05:42.510 --> 00:05:47.150
+don't feel badly about having to
+extend this class out, take it twice.
+
+95
+00:05:48.350 --> 00:05:53.200
+This is deep stuff and it's unusual
+I think, and it's not the math and
+
+96
+00:05:53.200 --> 00:05:56.910
+it's not the,
+I know many mathematicians who
+
+97
+00:05:56.910 --> 00:05:59.660
+really struggle when they first start
+thinking about statistical inference cuz
+
+98
+00:05:59.660 --> 00:06:02.360
+it's just a different way of
+thinking about the world.
+
+99
+00:06:02.360 --> 00:06:04.550
+So think of this as a four-week class.
+
+100
+00:06:04.550 --> 00:06:07.890
+And if you're getting it, if you're not,
+take a little bit more time.
+
+101
+00:06:07.890 --> 00:06:09.840
+There's four quizzes.
+
+102
+00:06:09.840 --> 00:06:11.410
+There's one project.
+
+103
+00:06:11.410 --> 00:06:16.850
+The project, I really think drives home
+some of the central ideas of inference.
+
+104
+00:06:16.850 --> 00:06:20.990
+So I hope that you would spend a fair
+amount of time thinking about the project
+
+105
+00:06:20.990 --> 00:06:24.180
+because it really drives home what we
+mean by sampling distributions and
+
+106
+00:06:24.180 --> 00:06:28.350
+what is meant by frequency
+style statistical inference.
+
+107
+00:06:28.350 --> 00:06:29.960
+The quizzes will be auto-graded.
+
+108
+00:06:29.960 --> 00:06:32.400
+They're, ideally,
+due at the end of each week but
+
+109
+00:06:32.400 --> 00:06:35.420
+you can attempt all the quizzes
+from the start of the class.
+
+110
+00:06:35.420 --> 00:06:39.110
+I've put out some homework problems and
+I've linked those homework problems to
+
+111
+00:06:39.110 --> 00:06:42.730
+the specific quiz questions so you can
+practice before you even try the quiz.
+
+112
+00:06:44.450 --> 00:06:45.670
+So welcome to the class.
+
+113
+00:06:45.670 --> 00:06:49.250
+I'm really enthusiastic
+about teaching you.
+
+114
+00:06:49.250 --> 00:06:50.930
+I really like inference.
+
+115
+00:06:50.930 --> 00:06:52.530
+It's my favorite subject.
+
+116
+00:06:52.530 --> 00:06:56.580
+I've been studying statistical
+inference for probably 15 years now.
+
+117
+00:06:56.580 --> 00:06:59.490
+And every time I think about it,
+I learn something new.
+
+118
+00:06:59.490 --> 00:07:02.840
+And so I hope you can really
+dive into this deep and
+
+119
+00:07:02.840 --> 00:07:04.560
+incredibly important subject with me.

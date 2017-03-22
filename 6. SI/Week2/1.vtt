@@ -1,0 +1,358 @@
+WEBVTT
+
+1
+00:00:00.960 --> 00:00:02.640
+Hi, my name is Brian Caffo, and
+
+2
+00:00:02.640 --> 00:00:06.830
+this is a lecture on Variability as part
+of the Statistical Inference Coursera
+
+3
+00:00:06.830 --> 00:00:10.150
+class, which is part of
+the Data Science specialization from
+
+4
+00:00:10.150 --> 00:00:13.610
+the Johns Hopkins Bloomberg School of
+Public Health Department of Biostatistics.
+
+5
+00:00:15.190 --> 00:00:18.140
+So in the last lecture,
+we talked about the population mean
+
+6
+00:00:18.140 --> 00:00:21.220
+which talks about where
+the distribution is centered at.
+
+7
+00:00:21.220 --> 00:00:24.440
+So if you were to think about a bell
+curve, that probability density function
+
+8
+00:00:24.440 --> 00:00:27.290
+will move to the left or
+the right as the mean changes.
+
+9
+00:00:28.530 --> 00:00:32.400
+Another useful property is how fat or
+how thin, or how spread out or
+
+10
+00:00:32.400 --> 00:00:36.879
+how concentrated the density is around
+the mean and that's the variance.
+
+11
+00:00:38.510 --> 00:00:43.192
+So if X is a random variable that has mean
+mu, the variance is exactly the expected
+
+12
+00:00:43.192 --> 00:00:49.240
+square of distance the random variable is
+from the mean and I give the formula here.
+
+13
+00:00:49.240 --> 00:00:52.800
+There's a nice shortcut one that
+is the expected value of X squared
+
+14
+00:00:52.800 --> 00:00:55.329
+minus the expected value
+of X quantity squared.
+
+15
+00:00:57.130 --> 00:01:00.100
+So densities with higher variance
+are more spread out than densities with
+
+16
+00:01:00.100 --> 00:01:04.720
+lower variances and the square root of the
+variance is called the Standard Deviation.
+
+17
+00:01:04.720 --> 00:01:08.680
+So the variance is expressed in the unit
+squared, whereas the standard deviation is
+
+18
+00:01:08.680 --> 00:01:11.570
+expressed in the same units as X,
+which is quite useful.
+
+19
+00:01:14.140 --> 00:01:18.810
+In this class, we won't spend a lot
+of time calculating expected values,
+
+20
+00:01:18.810 --> 00:01:19.610
+either means or
+
+21
+00:01:19.610 --> 00:01:24.900
+variances of populations by hand, but
+I want to go through one such calculation.
+
+22
+00:01:24.900 --> 00:01:26.777
+Recall from the last lecture,
+
+23
+00:01:26.777 --> 00:01:31.145
+the expected value of X is 3.5 when
+X is the result of the toss of a die.
+
+24
+00:01:31.145 --> 00:01:35.010
+The expected value of X squared, I really
+haven't given you a formula how to
+
+25
+00:01:35.010 --> 00:01:39.160
+do that, but really think of it as
+the expected value of the random variable
+
+26
+00:01:39.160 --> 00:01:42.440
+that you get by rolling a die,
+then squaring the result.
+
+27
+00:01:42.440 --> 00:01:44.450
+And you can do that by simply
+taking the number, for
+
+28
+00:01:44.450 --> 00:01:47.700
+example 1 squared, 2 squared,
+3 squared, 4 squared, 5 squared and
+
+29
+00:01:47.700 --> 00:01:51.550
+multiplying by their associated
+probabilities and you get 15.17.
+
+30
+00:01:51.550 --> 00:01:56.140
+So if I were to subtract
+15.17 minus 3.5 squared,
+
+31
+00:01:56.140 --> 00:01:59.750
+I get 2.92 which is the variance of this,
+of a die roll.
+
+32
+00:02:02.910 --> 00:02:05.780
+Since that was so much fun,
+let's do another example.
+
+33
+00:02:05.780 --> 00:02:08.370
+So imagine the toss of a coin with
+the probability of heads of p.
+
+34
+00:02:08.370 --> 00:02:13.250
+We already covered that the expected
+value of a coin toss is p
+
+35
+00:02:13.250 --> 00:02:17.480
+from the last lecture and then let's think
+about the expected value of X squared.
+
+36
+00:02:17.480 --> 00:02:20.206
+When this case, 0 squared is 0 and
+1 squared is 1, so
+
+37
+00:02:20.206 --> 00:02:24.050
+the expected value of X squared is exactly
+the expected value of X, which is p.
+
+38
+00:02:24.050 --> 00:02:28.250
+Now if we were to plug into our formula,
+we then get p minus p squared,
+
+39
+00:02:28.250 --> 00:02:31.260
+which works out to be p times 1 minus p.
+
+40
+00:02:31.260 --> 00:02:35.890
+So in other words, the variance,
+the population variance associated with
+
+41
+00:02:35.890 --> 00:02:38.190
+the distribution given
+by the flip of a coin,
+
+42
+00:02:38.190 --> 00:02:41.120
+a biased coin is exactly
+p times 1 minus p.
+
+43
+00:02:41.120 --> 00:02:43.240
+This is a very famous formula and
+
+44
+00:02:43.240 --> 00:02:45.160
+I'd recommend that you
+just commit it to memory.
+
+45
+00:02:48.520 --> 00:02:51.130
+Here, I'm giving you some
+examples of densities,
+
+46
+00:02:51.130 --> 00:02:54.010
+population densities as
+the variance changes.
+
+47
+00:02:55.680 --> 00:03:00.500
+The salmon colored density is
+a standard normal which has variance 1.
+
+48
+00:03:00.500 --> 00:03:05.690
+As I go up, you see the variance
+increases, it squashes the density down,
+
+49
+00:03:05.690 --> 00:03:08.390
+and it pushes more of
+the mass out into the tails.
+
+50
+00:03:08.390 --> 00:03:12.610
+So there's more likely that a person say,
+is beyond 5, if for
+
+51
+00:03:12.610 --> 00:03:15.890
+example they are from the normal
+distribution with a variance of 4,
+
+52
+00:03:15.890 --> 00:03:19.305
+than if they were from a normal
+distribution with a variance of 3.
+
+53
+00:03:22.310 --> 00:03:28.010
+So just like the population mean and
+the sample mean were directly analogous,
+
+54
+00:03:28.010 --> 00:03:32.160
+the population variance and the sample
+variance are dir, directly analogous.
+
+55
+00:03:32.160 --> 00:03:36.550
+So for example, the population mean was
+the center of mass of the population.
+
+56
+00:03:36.550 --> 00:03:40.459
+The sample mean was the center
+of mass of the observed data.
+
+57
+00:03:41.620 --> 00:03:44.970
+The population variance
+is the expected square of
+
+58
+00:03:44.970 --> 00:03:49.000
+distance of a random variable from
+the population around the population mean.
+
+59
+00:03:49.000 --> 00:03:54.450
+The sample variance is the average
+square of distance of the da,
+
+60
+00:03:54.450 --> 00:03:58.090
+observed observations
+minus the sample mean.
+
+61
+00:03:59.620 --> 00:04:03.570
+So we do divide by n minus 1 here
+in the denominator rather than n,
+
+62
+00:04:03.570 --> 00:04:05.520
+and I'll talk about why in a minute.
+
+63
+00:04:07.490 --> 00:04:10.010
+But I also want to talk about
+a conceptually, for me,
+
+64
+00:04:10.010 --> 00:04:14.990
+kind of difficult point, which is to talk
+about the variance of the sample variance.
+
+65
+00:04:14.990 --> 00:04:20.220
+So let me remind you that the sample
+variance is exactly a function of data.
+
+66
+00:04:20.220 --> 00:04:24.810
+So it is also a random variable, thus
+it also has a population distribution.
+
+67
+00:04:25.840 --> 00:04:29.830
+That distribution has a expected value and
+that expected value is
+
+68
+00:04:29.830 --> 00:04:32.980
+the population variance that the sample
+variance is trying to estimate.
+
+69
+00:04:34.540 --> 00:04:35.910
+And as you collect more and
+
+70
+00:04:35.910 --> 00:04:40.120
+more data, the distribution of the sample
+variance is going to get more concentrate,
+
+71
+00:04:40.120 --> 00:04:43.030
+concentrated around the population
+variance it's trying to estimate.
+
+72
+00:04:43.030 --> 00:04:46.370
+And then I also simply want to
+remind you that the square root of
+
+73
+00:04:46.370 --> 00:04:47.719
+the sample variance is the sample

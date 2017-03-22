@@ -1,0 +1,236 @@
+WEBVTT
+
+1
+00:00:00.680 --> 00:00:04.992
+Let's cover briefly
+the subject of independence.
+
+2
+00:00:04.992 --> 00:00:09.464
+We alluded to this earlier,
+in that we said that A is independent of B
+
+3
+00:00:09.464 --> 00:00:13.541
+if the probability of A given B
+is equal to the probability A for
+
+4
+00:00:13.541 --> 00:00:16.381
+an event B that has positive probability.
+
+5
+00:00:16.381 --> 00:00:20.408
+Another definition of independence is
+that the prob, A and B are independent if
+
+6
+00:00:20.408 --> 00:00:25.620
+the probability of A intersect B works out
+to be the product of their probabilities.
+
+7
+00:00:25.620 --> 00:00:28.130
+This then begins a very important lesson.
+
+8
+00:00:28.130 --> 00:00:30.980
+You can't just multiply
+probabilities willy-nilly.
+
+9
+00:00:30.980 --> 00:00:33.550
+You have to multiply independent prob,
+
+10
+00:00:33.550 --> 00:00:37.336
+probabilities associated with
+the independence events.
+
+11
+00:00:37.336 --> 00:00:39.900
+Let's go thru a numerical example.
+
+12
+00:00:39.900 --> 00:00:42.060
+What is the probability of
+getting two consecutive heads?
+
+13
+00:00:43.210 --> 00:00:46.704
+Well, let's define A as the probability
+of getting a head on flip one and
+
+14
+00:00:46.704 --> 00:00:49.127
+B as the probability of
+getting a head on flip two.
+
+15
+00:00:49.127 --> 00:00:50.900
+Both probabilities are 0.5.
+
+16
+00:00:50.900 --> 00:00:52.850
+In this case, we're assuming a fair coin.
+
+17
+00:00:54.010 --> 00:00:59.870
+A intersect B is the event of
+getting heads on flips one and two.
+
+18
+00:00:59.870 --> 00:01:02.560
+In this case, because the events
+are independent the probability of
+
+19
+00:01:02.560 --> 00:01:05.170
+A intersect B is the product
+of the probabilities.
+
+20
+00:01:05.170 --> 00:01:07.490
+And so we would say that it's 0.25.
+
+21
+00:01:07.490 --> 00:01:10.490
+People do this calculation
+rather naturally.
+
+22
+00:01:10.490 --> 00:01:13.810
+The problem is when people multiply
+probabilities when they shouldn't.
+
+23
+00:01:16.480 --> 00:01:20.250
+A particularly stark instance
+of incorrectly multiplying
+
+24
+00:01:20.250 --> 00:01:24.870
+probabilities occurred in volume 309
+of science, which was reporting on
+
+25
+00:01:24.870 --> 00:01:30.720
+a physician who was on trial for giving
+expert testimony in a criminal trial.
+
+26
+00:01:30.720 --> 00:01:34.910
+The criminal trial involved
+a mother who had two
+
+27
+00:01:34.910 --> 00:01:37.600
+children die from sudden
+infant death syndrome.
+
+28
+00:01:38.920 --> 00:01:44.190
+The expert testimony took the prevalence
+of seven, in sudden infant death syndrome
+
+29
+00:01:44.190 --> 00:01:50.270
+as one out of 8,500, and then multiplied
+them together to find the probability
+
+30
+00:01:50.270 --> 00:01:54.570
+of two children having sudden infant
+death syndrome with the same mother.
+
+31
+00:01:54.570 --> 00:01:55.720
+Based on this evidence, and
+
+32
+00:01:55.720 --> 00:01:58.519
+I presume other evidence, the mother
+on trial was convicted of murder.
+
+33
+00:02:01.340 --> 00:02:04.530
+Relevant to this class,
+the principle mistake was to is,
+
+34
+00:02:04.530 --> 00:02:08.150
+to multiply probabilities for events
+that were not necessarily independent.
+
+35
+00:02:09.550 --> 00:02:13.452
+And it makes sense that in this case
+to assume that the events would be
+
+36
+00:02:13.452 --> 00:02:17.079
+dependent because any biological
+process that has a genetic or
+
+37
+00:02:17.079 --> 00:02:21.677
+familial environmental component is
+likely to be dependent within families.
+
+38
+00:02:21.677 --> 00:02:26.140
+In this class, the main way we're going to
+use independence is that we're going to
+
+39
+00:02:26.140 --> 00:02:29.650
+assume that a collection of random
+variables are independent and
+
+40
+00:02:29.650 --> 00:02:31.690
+from the same distribution.
+
+41
+00:02:31.690 --> 00:02:35.160
+Recall such random variables independent
+and identically distributed.
+
+42
+00:02:35.160 --> 00:02:39.530
+So you might think of several coin flips
+as IID because they're independent.
+
+43
+00:02:39.530 --> 00:02:41.960
+One coin flip is independent to,
+from the next one.
+
+44
+00:02:41.960 --> 00:02:46.074
+And they all rise from the same
+distribution, 0.5 for heads and
+
+45
+00:02:46.074 --> 00:02:47.259
+0.5 for tails.
+
+46
+00:02:47.259 --> 00:02:51.440
+IID sampling is our default model for
+a random sample.
+
+47
+00:02:51.440 --> 00:02:56.653
+So whether we have an actual random sample
+or not, we often use random sampling or
+
+48
+00:02:56.653 --> 00:03:00.659
+I, the model of IID as a conceptual
+model to analyze our data.
+
+49
+00:03:00.659 --> 00:03:03.240
+It'll be our principal mode
+of analysis for this class.
