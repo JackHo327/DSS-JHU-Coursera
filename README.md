@@ -1,2 +1,2 @@
-# DSS-JHU-Coursera
-DataScienceSpecilization-JHU-Coursera
+# datasciencecoursera
+4 DS of JH from Coursera.
