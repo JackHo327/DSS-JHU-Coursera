@@ -5,4 +5,7 @@
 .RData
 *.mp4
 *.srt
+*.csv
+*.xlsx
+*.xls
 *.db
