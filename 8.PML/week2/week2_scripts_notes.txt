@@ -1,0 +1,97 @@
+# "caret" package
+# Some preprocessing (cleaning)
+# - preProcess()
+# Data splitting
+# - createDataPartition
+# - createResample
+# - createTimeSlices
+# Train/testing functions
+# - train
+# - predict
+# Model comparison
+# - confusionMatrix
+## Example: Data splitting
+library(caret)
+library(kernlab)
+data(spam)
+inTrain <- createDataPartition(y = spam$type, p = 0.75, list = F)
+training <- spam[inTrain,]
+testing <- spam[-inTrain,]
+dim(training)
+# fit a model
+set.seed(123)
+modelFit <- train(type ~ ., data = training, method = "glm")
+predictions <- predict(modelFit, newdata = testing)
+# evaluate the results
+confusionMatrix(predictions, testing$type)
+## Example: K-Fold
+set.seed(123)
+folds <- createFolds(y = spam$type, k = 10, list = TRUE, returnTrain = TRUE)
+sapply(folds, length)
+#Fold01 Fold02 Fold03 Fold04 Fold05 Fold06 Fold07 Fold08 Fold09 Fold10
+# 4141   4142   4140   4141   4142   4140   4141   4141   4141  4140
+# return only test sets
+folds_test <- createFolds(y = spam$type, k = 10, list = TRUE, returnTrain = FALSE)
+sapply(folds_test, length)
+#Fold01 Fold02 Fold03 Fold04 Fold05 Fold06 Fold07 Fold08 Fold09 Fold10
+#  460   460    460    460    459    461    461    460    460    460
+folds[[1]][1:10]
+#[1] 1 2 3 4 5 6 7 8 9 10
+folds_test[[1]][1:10]
+#[1] 1 47 73 89 93 101 103 129 130 136
+## Example: Resampling
+set.seed(123)
+folds_resample <- createResample(y = spam$type, times = 10, list = TRUE)
+sapply(folds_resample, length)
+#Resample01 Resample02 Resample03 Resample04 Resample05 Resample06 Resample07 Resample08
+#4601         4601        4601       4601       4601       4601       4601      4601
+#Resample09 Resample10
+#4601          4601
+folds_resample[[1]][1:10]
+#[1] 1 3 3 4 6 6 6 12 17 17
+## Example: Time Slices
+set.seed(123)
+tme <- 1:1000
+folds_time <- createTimeSlices(y = tme, initialWindow = 20, horizon = 10)
+folds_time$train[[1]]
+#[1] 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+folds_time$test[[1]]
+#[1] 21 22 23 24 25 26 27 28 29 30
+
+# Training options
+## Example: SPAM
+library(caret)
+library(kernlab)
+data(spam)
+inTrain <- createDataPartition(y = spam$type, p = 0.75, list = F)
+training <- spam[inTrain,]
+testing <- spam[-inTrain,]
+dim(training)
+# fit a model
+set.seed(123)
+modelFit <- train(type ~ ., data = training, method = "glm")
+# train(x, y, method = "rf", preProcess = NULL, ...,
+  #weights = NULL, metric = ifelse(is.factor(y), "Accuracy", "RMSE"),
+  #maximize = ifelse(metric %in% c("RMSE", "logLoss"), FALSE, TRUE),
+  #trControl = trainControl(), tuneGrid = NULL,
+#tuneLength = ifelse(trControl$method == "none", 1, 3))
+# 'weights' is useful when meet with unbalancing data which has a lot more examples of one type than another.
+# 'metric' = ifelse(is.factor(y), "Accuracy", "RMSE")
+# 'trControl' = trainControl()
+# trainControl(method = "boot", number = ifelse(grepl("cv", method), 
+    #10, 25), repeats = ifelse(grepl("cv", method), 1, number),
+    #p = 0.75, search = "grid", initialWindow = NULL, horizon = 1,
+    #fixedWindow = TRUE, skip = 0, verboseIter = FALSE, returnData = TRUE,
+    #returnResamp = "final", savePredictions = FALSE, classProbs = FALSE,
+    #summaryFunction = defaultSummary, selectionFunction = "best",
+    #preProcOptions = list(thresh = 0.95, ICAcomp = 3, k = 5,
+    #freqCut = 95 / 5, uniqueCut = 10, cutoff = 0.9), sampling = NULL,
+    #index = NULL, indexOut = NULL, indexFinal = NULL, timingSamps = 0,
+    #predictionBounds = rep(FALSE, 2), seeds = NA, adaptive = list(min = 5,
+    #alpha = 0.05, method = "gls", complete = TRUE), trim = FALSE,
+    #allowParallel = TRUE) 
+# 'method' can be "boot" (bootstrapping), "boot632" (bootstrapping with adjustment), "cv" (cross validation), "repeatedcv" (repeated cross validation) and "LOOCV" = leave one out cross validation
+
+# Plotting predictions
+# Example: Wages
+if (!require(ISLR)) install.packages("ISLR",repos = "https://cloud.r-project.org/")
