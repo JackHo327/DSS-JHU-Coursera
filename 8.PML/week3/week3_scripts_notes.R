@@ -202,3 +202,62 @@ table(predA, predB)
 # Thus, Naive Bayes is quite similar to linear discriminant analysis
 equalPred <- (predA == predB)
 qplot(Petal.Width, Sepal.Width, colour=equalPred, data=testing)
+
+# quiz
+## Q1
+require(devtools)
+# install_version("AppliedPredictiveModeling", version = "1.1-6", repos = "http://cran.us.r-project.org")
+# install_version("caret", version = "6.0-47", repos = "http://cran.us.r-project.org")
+# install_version("ElemStatLearn", version = "2012.04-0", repos = "http://cran.us.r-project.org")
+# install_version("pgmm", version = "1.1", repos = "http://cran.us.r-project.org")
+# install_version("rpart", version = "4.1-8", repos = "http://cran.us.r-project.org")
+library(AppliedPredictiveModeling)
+data(segmentationOriginal)
+library(caret)
+library(rpart)
+set.seed(125)
+inTrain <- createDataPartition(segmentationOriginal$Case,p=0.6,list = F)
+training <- segmentationOriginal[inTrain,]
+testing <- segmentationOriginal[-inTrain,]
+modelFit <- train(Class~.,data = training, method="rpart")
+
+## Q2
+# The bias is larger and the variance is smaller. Under leave one out cross validation K is equal to the sample size.
+
+## Q3
+library(pgmm)
+data(olive)
+olive = olive[,-1]
+# olive$Area <- as.factor(olive$Area)
+set.seed(123)
+inTrain <- createDataPartition(olive$Area,p=0.6,list = F)
+training <- olive[inTrain,]
+testing <- olive[-inTrain,]
+newdata = as.data.frame(t(colMeans(olive)))
+modelFit <- train(Area~.,data=training,method="rpart")
+predict(modelFit,newdata = newdata)
+
+## Q4
+library(ElemStatLearn)
+data(SAheart)
+set.seed(8484)
+train = sample(1:dim(SAheart)[1],size=dim(SAheart)[1]/2,replace=F)
+trainSA = SAheart[train,]
+testSA = SAheart[-train,]
+set.seed(13234)
+missClass = function(values,prediction){sum(((prediction > 0.5)*1) != values)/length(values)}
+modelFit <- train(chd~age+alcohol+obesity+tobacco+typea+ldl, data=trainSA, method="glm",family="binomial")
+missClass(trainSA$chd,predict(modelFit,newdata=trainSA))
+missClass(testSA$chd,predict(modelFit,newdata=testSA))
+
+## Q5
+library(ElemStatLearn)
+data(vowel.train)
+data(vowel.test)
+vowel.train$y <- as.factor(vowel.train$y)
+vowel.test$y <- as.factor(vowel.test$y)
+set.seed(33833)
+modelFit <- train(y~.,data=vowel.train,method="rf")
+caret::varImp(modelFit)
+
+
