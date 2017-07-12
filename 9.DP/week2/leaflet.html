@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="JackHo" />
+
+<meta name="date" content="2017-07-11" />
+
+<title>leaftlet</title>
+
+<script src="leaflet_files/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="leaflet_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="leaflet_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="leaflet_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="leaflet_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="leaflet_files/navigation-1.1/tabsets.js"></script>
+<link href="leaflet_files/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="leaflet_files/highlightjs-1.1/highlight.js"></script>
+<script src="leaflet_files/htmlwidgets-0.8/htmlwidgets.js"></script>
+<link href="leaflet_files/leaflet-0.7.7/leaflet.css" rel="stylesheet" />
+<script src="leaflet_files/leaflet-0.7.7/leaflet.js"></script>
+<link href="leaflet_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<link href="leaflet_files/leaflet-label-0.2.2/leaflet.label.css" rel="stylesheet" />
+<script src="leaflet_files/leaflet-label-0.2.2/leaflet.label.js"></script>
+<script src="leaflet_files/Proj4Leaflet-0.7.2/proj4-compressed.js"></script>
+<script src="leaflet_files/Proj4Leaflet-0.7.2/proj4leaflet.js"></script>
+<script src="leaflet_files/leaflet-binding-1.1.0/leaflet.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">leaftlet</h1>
+<h4 class="author"><em>JackHo</em></h4>
+<h4 class="date"><em>July 11, 2017</em></h4>
+
+</div>
+
+
+<pre class="r"><code>library(leaflet)
+library(dplyr)
+my_map &lt;- leaflet() %&gt;% addTiles() %&gt;% addMarkers(lat = 31.2228559, lng = 121.4729522, popup = &quot;where I am&quot;)
+my_map</code></pre>
+<div id="htmlwidget-fb60f3f67c2c3024cfdf" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fb60f3f67c2c3024cfdf">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[31.2228559,121.4729522,null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"where I am",null,null,null,null,null,null]}],"limits":{"lat":[31.2228559,31.2228559],"lng":[121.4729522,121.4729522]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>set.seed(123)
+df &lt;- data.frame(lat=runif(20,min=39.2,max=39.3), lng=runif(20,min=-76.6, max=-76.5))
+df %&gt;% leaflet() %&gt;% addTiles() %&gt;% addMarkers()</code></pre>
+<div id="htmlwidget-d65d23dd1ccc1ff89175" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d65d23dd1ccc1ff89175">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[39.2287577520125,39.2788305135444,39.2408976921812,39.2883017404005,39.2940467284294,39.204555649939,39.2528105488047,39.2892419044394,39.2551435014466,39.2456614735303,39.295683334535,39.2453334156191,39.2677570635453,39.2572633401956,39.2102924682666,39.2899824970402,39.2246087734355,39.2042059533531,39.2327920719283,39.2954503649147],[-76.5110460683936,-76.5307196593843,-76.5359493186232,-76.5005730223376,-76.5344294200884,-76.5291469531832,-76.5455933975289,-76.5405857979553,-76.5710840262705,-76.5852886352688,-76.5036975767463,-76.5097700954881,-76.5309294721577,-76.5204532582313,-76.5975386315491,-76.5522204028908,-76.5241540462477,-76.5783592064166,-76.5681818992365,-76.5768374214647],null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,null,null]}],"limits":{"lat":[39.2042059533531,39.295683334535],"lng":[-76.5975386315491,-76.5005730223376]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>myIcon &lt;- makeIcon(iconUrl = &quot;https://jackho327.github.io/NOWHERE/images/avatar.jpg&quot;, iconWidth = 31*215/230, iconHeight = 31, iconAnchorX = 31*215/230/2, iconAnchorY = 31/2)
+df &lt;- data.frame(lat=runif(20,min=31.00,max=31.99), lng=runif(20,min=121.40, max=121.49), link = rep(&quot;&lt;a href=&#39;https://jackho327.github.io/NOWHERE/&#39;&gt; my personal blog &lt;/a&gt;&quot;, times=20))
+df %&gt;% leaflet() %&gt;% addTiles() %&gt;% addMarkers(lat=~lat, lng= ~lng,icon = myIcon, popup = ~link)</code></pre>
+<div id="htmlwidget-ca7c908232f0e6d0113a" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ca7c908232f0e6d0113a">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[31.1413720221585,31.4104008724564,31.4095870830328,31.3651569964155,31.1509203002648,31.1374180028145,31.2307037584577,31.4613028257503,31.2633129139617,31.8492494381894,31.0453728550067,31.4377780734631,31.7909355971869,31.1206802673754,31.5553385039209,31.2044660757203,31.1262563337409,31.7457747856597,31.8860949055618,31.3707181481272],[121.459860367517,121.408535659483,121.434557267402,121.424694528012,121.473317603499,121.440366470725,121.472905791774,121.473115055857,121.4714908089,121.439584851884,121.467902764278,121.45662990184,121.463916416122,121.400056229599,121.442778491669,121.419810699665,121.434183488395,121.455149390295,121.431661811832,121.410002188191],{"iconUrl":{"data":"https://jackho327.github.io/NOWHERE/images/avatar.jpg","index":0},"iconWidth":28.9782608695652,"iconHeight":31,"iconAnchorX":14.4891304347826,"iconAnchorY":15.5},null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>","<a href='https://jackho327.github.io/NOWHERE/'> my personal blog <\/a>"],null,null,null,null,null,null]}],"limits":{"lat":[31.0453728550067,31.8860949055618],"lng":[121.400056229599,121.473317603499]}},"evals":[],"jsHooks":[]}</script>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

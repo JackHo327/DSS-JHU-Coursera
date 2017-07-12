@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="JackHo" />
+
+<meta name="date" content="2017-07-10" />
+
+<title>GoogleVis</title>
+
+<script src="GoogleVis_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="GoogleVis_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="GoogleVis_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="GoogleVis_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="GoogleVis_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="GoogleVis_files/navigation-1.1/tabsets.js"></script>
+<link href="GoogleVis_files/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="GoogleVis_files/highlightjs-1.1/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">GoogleVis</h1>
+<h4 class="author"><em>JackHo</em></h4>
+<h4 class="date"><em>July 10, 2017</em></h4>
+
+</div>
+
+
+<pre class="r"><code># motion chart
+library(googleVis)</code></pre>
+<pre><code>## Creating a generic function for &#39;toJSON&#39; from package &#39;jsonlite&#39; in package &#39;googleVis&#39;</code></pre>
+<pre><code>## 
+## Welcome to googleVis version 0.6.3
+## 
+## Please read Google&#39;s Terms of Use
+## before you start using the package:
+## https://developers.google.com/terms/
+## 
+## Note, the plot method of googleVis will by default use
+## the standard browser to display its output.
+## 
+## See the googleVis package vignettes for more details,
+## or visit http://github.com/mages/googleVis.
+## 
+## To suppress this message use:
+## suppressPackageStartupMessages(library(googleVis))</code></pre>
+<pre class="r"><code>M &lt;- gvisMotionChart(Fruits, &quot;Fruit&quot;, &quot;Year&quot;, options=list(width=600,height=400))
+# plot(M)
+print(M,&quot;chart&quot;)</code></pre>
+<!-- MotionChart generated in R 3.3.3 by googleVis 0.6.3 package -->
+<!-- Mon Jul 10 23:38:46 2017 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataMotionChartID79444ee89e5 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Apples",
+2008,
+"West",
+98,
+78,
+20,
+"2008-12-31"
+],
+[
+"Apples",
+2009,
+"West",
+111,
+79,
+32,
+"2009-12-31"
+],
+[
+"Apples",
+2010,
+"West",
+89,
+76,
+13,
+"2010-12-31"
+],
+[
+"Oranges",
+2008,
+"East",
+96,
+81,
+15,
+"2008-12-31"
+],
+[
+"Bananas",
+2008,
+"East",
+85,
+76,
+9,
+"2008-12-31"
+],
+[
+"Oranges",
+2009,
+"East",
+93,
+80,
+13,
+"2009-12-31"
+],
+[
+"Bananas",
+2009,
+"East",
+94,
+78,
+16,
+"2009-12-31"
+],
+[
+"Oranges",
+2010,
+"East",
+98,
+91,
+7,
+"2010-12-31"
+],
+[
+"Bananas",
+2010,
+"East",
+81,
+71,
+10,
+"2010-12-31"
+] 
+];
+data.addColumn('string','Fruit');
+data.addColumn('number','Year');
+data.addColumn('string','Location');
+data.addColumn('number','Sales');
+data.addColumn('number','Expenses');
+data.addColumn('number','Profit');
+data.addColumn('string','Date');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartMotionChartID79444ee89e5() {
+var data = gvisDataMotionChartID79444ee89e5();
+var options = {};
+options["width"] = 600;
+options["height"] = 400;
+options["state"] = "";
+
+    var chart = new google.visualization.MotionChart(
+    document.getElementById('MotionChartID79444ee89e5')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "motionchart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartMotionChartID79444ee89e5);
+})();
+function displayChartMotionChartID79444ee89e5() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID79444ee89e5"></script>
+<!-- divChart -->
+<div id="MotionChartID79444ee89e5" style="width: 600; height: 400;">
+
+</div>
+<pre class="r"><code># Geographical chart
+G &lt;- gvisGeoChart(Exports, locationvar = &quot;Country&quot;, colorvar = &quot;Profit&quot;,options=list(width =600, height=400))
+# plot(G)
+print(G, &quot;chart&quot;)</code></pre>
+<!-- GeoChart generated in R 3.3.3 by googleVis 0.6.3 package -->
+<!-- Mon Jul 10 23:38:46 2017 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataGeoChartID794469f73c4f () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Germany",
+3
+],
+[
+"Brazil",
+4
+],
+[
+"United States",
+5
+],
+[
+"France",
+4
+],
+[
+"Hungary",
+3
+],
+[
+"India",
+2
+],
+[
+"Iceland",
+1
+],
+[
+"Norway",
+4
+],
+[
+"Spain",
+5
+],
+[
+"Turkey",
+1
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','Profit');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartGeoChartID794469f73c4f() {
+var data = gvisDataGeoChartID794469f73c4f();
+var options = {};
+options["width"] = 600;
+options["height"] = 400;
+
+    var chart = new google.visualization.GeoChart(
+    document.getElementById('GeoChartID794469f73c4f')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "geochart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartGeoChartID794469f73c4f);
+})();
+function displayChartGeoChartID794469f73c4f() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID794469f73c4f"></script>
+<!-- divChart -->
+<div id="GeoChartID794469f73c4f" style="width: 600; height: 400;">
+
+</div>
+<pre class="r"><code>## see options
+# df &lt;- data.frame(label=c(&quot;US&quot;, &quot;GB&quot;, &quot;BR&quot;), val1=c(1,3,4), val2=c(23,12,32))
+# Line &lt;- gvisLineChart(df, xvar=&quot;label&quot;, yvar=c(&quot;val1&quot;,&quot;val2&quot;),
+#         options=list(title=&quot;Hello World&quot;, legend=&quot;bottom&quot;,
+#                 titleTextStyle=&quot;{color:&#39;red&#39;, fontSize:18}&quot;,                         
+#                 vAxis=&quot;{gridlines:{color:&#39;red&#39;, count:3}}&quot;,
+#                 hAxis=&quot;{title:&#39;My Label&#39;, titleTextStyle:{color:&#39;blue&#39;}}&quot;,
+#                 series=&quot;[{color:&#39;green&#39;, targetAxisIndex: 0}, 
+#                          {color: &#39;blue&#39;,targetAxisIndex:1}]&quot;,
+#                 vAxes=&quot;[{title:&#39;Value 1 (%)&#39;, format:&#39;##,######%&#39;}, 
+#                                   {title:&#39;Value 2 (\U00A3)&#39;}]&quot;,                          
+#                 curveType=&quot;function&quot;, width=500, height=300                         
+#                 ))
+
+# merge googleVis charts
+T1 &lt;- gvisTable(Exports, options=list(width = 200, height= 270))
+GT &lt;- gvisMerge(G, T1, horizontal = FALSE)
+GTM &lt;- gvisMerge(GT, M, horizontal = TRUE, tableOptions=&quot;bgcolor=\&quot;#CCCCCC\&quot; cellspacing=10&quot;)
+# plot(GTM)
+print(GTM,&quot;chart&quot;)</code></pre>
+<!-- GeoChart generated in R 3.3.3 by googleVis 0.6.3 package -->
+<!-- Mon Jul 10 23:38:46 2017 -->
+<!-- jsHeader -->
+<script type="text/javascript">
+ 
+// jsData 
+function gvisDataGeoChartID794469f73c4f () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Germany",
+3
+],
+[
+"Brazil",
+4
+],
+[
+"United States",
+5
+],
+[
+"France",
+4
+],
+[
+"Hungary",
+3
+],
+[
+"India",
+2
+],
+[
+"Iceland",
+1
+],
+[
+"Norway",
+4
+],
+[
+"Spain",
+5
+],
+[
+"Turkey",
+1
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','Profit');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataTableID7944305c3dd7 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Germany",
+3,
+true
+],
+[
+"Brazil",
+4,
+false
+],
+[
+"United States",
+5,
+true
+],
+[
+"France",
+4,
+true
+],
+[
+"Hungary",
+3,
+false
+],
+[
+"India",
+2,
+true
+],
+[
+"Iceland",
+1,
+false
+],
+[
+"Norway",
+4,
+true
+],
+[
+"Spain",
+5,
+true
+],
+[
+"Turkey",
+1,
+false
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','Profit');
+data.addColumn('boolean','Online');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+function gvisDataMotionChartID79444ee89e5 () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+"Apples",
+2008,
+"West",
+98,
+78,
+20,
+"2008-12-31"
+],
+[
+"Apples",
+2009,
+"West",
+111,
+79,
+32,
+"2009-12-31"
+],
+[
+"Apples",
+2010,
+"West",
+89,
+76,
+13,
+"2010-12-31"
+],
+[
+"Oranges",
+2008,
+"East",
+96,
+81,
+15,
+"2008-12-31"
+],
+[
+"Bananas",
+2008,
+"East",
+85,
+76,
+9,
+"2008-12-31"
+],
+[
+"Oranges",
+2009,
+"East",
+93,
+80,
+13,
+"2009-12-31"
+],
+[
+"Bananas",
+2009,
+"East",
+94,
+78,
+16,
+"2009-12-31"
+],
+[
+"Oranges",
+2010,
+"East",
+98,
+91,
+7,
+"2010-12-31"
+],
+[
+"Bananas",
+2010,
+"East",
+81,
+71,
+10,
+"2010-12-31"
+] 
+];
+data.addColumn('string','Fruit');
+data.addColumn('number','Year');
+data.addColumn('string','Location');
+data.addColumn('number','Sales');
+data.addColumn('number','Expenses');
+data.addColumn('number','Profit');
+data.addColumn('string','Date');
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartGeoChartID794469f73c4f() {
+var data = gvisDataGeoChartID794469f73c4f();
+var options = {};
+options["width"] = 600;
+options["height"] = 400;
+
+    var chart = new google.visualization.GeoChart(
+    document.getElementById('GeoChartID794469f73c4f')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartTableID7944305c3dd7() {
+var data = gvisDataTableID7944305c3dd7();
+var options = {};
+options["allowHtml"] = true;
+options["width"] = 200;
+options["height"] = 270;
+
+    var chart = new google.visualization.Table(
+    document.getElementById('TableID7944305c3dd7')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+
+
+// jsDrawChart
+function drawChartMotionChartID79444ee89e5() {
+var data = gvisDataMotionChartID79444ee89e5();
+var options = {};
+options["width"] = 600;
+options["height"] = 400;
+options["state"] = "";
+
+    var chart = new google.visualization.MotionChart(
+    document.getElementById('MotionChartID79444ee89e5')
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "geochart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartGeoChartID794469f73c4f);
+})();
+function displayChartGeoChartID794469f73c4f() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "table";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartTableID7944305c3dd7);
+})();
+function displayChartTableID7944305c3dd7() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+
+
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "motionchart";
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartMotionChartID79444ee89e5);
+})();
+function displayChartMotionChartID79444ee89e5() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load("visualization", "1", { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+</script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartGeoChartID794469f73c4f"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID7944305c3dd7"></script>
+<!-- jsChart -->
+<script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID79444ee89e5"></script>
+<table bgcolor="#CCCCCC" cellspacing="10">
+<tr>
+<td>
+<table border="0">
+<tr>
+<td>
+<!-- divChart -->
+<div id="GeoChartID794469f73c4f" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<!-- divChart -->
+<div id="TableID7944305c3dd7" style="width: 200; height: 270;">
+
+</div>
+</td>
+</tr>
+</table>
+</td>
+<td>
+<!-- divChart -->
+<div id="MotionChartID79444ee89e5" style="width: 600; height: 400;">
+
+</div>
+</td>
+</tr>
+</table>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

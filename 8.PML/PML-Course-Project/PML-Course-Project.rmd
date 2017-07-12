@@ -236,7 +236,7 @@ predDF <- data.frame(predRpart, predRf, predGbm)
 confusionMatrix(predict(combStack, predDF), testing$classe)$overall[1]
 ```
 
-Apply the random forest model on the testing set, it will give a `r confusionMatrix(predict(combStack, predDF), testing$classe)$overall[1]` accuracy.
+Apply the stacked model on the testing set, it will give a `r confusionMatrix(predict(combStack, predDF), testing$classe)$overall[1]` accuracy.
 
 ### Predict on 20 Test Cases
 Now I will apply the model on those new 20 test cases and see what will their activities be predicted.

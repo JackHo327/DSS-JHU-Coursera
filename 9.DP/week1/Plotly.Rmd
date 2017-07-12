@@ -1,0 +1,41 @@
+---
+title: "Plotly"
+author: "JackHo"
+date: "July 10, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r plotly, results='asis',warning=FALSE, message=FALSE,cache=TRUE}
+suppressPackageStartupMessages(library(plotly))
+
+plot_ly(data = mtcars, x= ~wt, y = ~mpg, mode="markers")
+
+plot_ly(data = mtcars, x= ~wt, y = ~mpg) %>% add_markers(color = ~as.factor(cyl))
+
+plot_ly(data = mtcars, x= ~wt, y = ~mpg) %>% add_markers(color = ~disp)
+
+plot_ly(data = mtcars, x= ~wt, y = ~mpg) %>% add_markers(color = ~as.factor(cyl), size = ~hp)
+
+
+set.seed(123)
+temp <- rnorm(100, mean=30, sd= 5)
+pressure <- rnorm(100, mean=30, sd= 5)
+dtime <- 1:100
+plot_ly(x = temp, y = pressure, z= dtime) %>% add_markers()
+
+
+library(plotly)
+library(tidyr)
+library(dplyr)
+
+data("EuStockMarkets")
+stocks <- as.data.frame(EuStockMarkets) %>% gather(index, price) %>% mutate(time=rep(time(EuStockMarkets),times=4))
+
+plot_ly(data=stocks, x = ~time, y = ~price, color= ~ index) %>% add_lines()
+
+# plotly_POST(your_object)
+```

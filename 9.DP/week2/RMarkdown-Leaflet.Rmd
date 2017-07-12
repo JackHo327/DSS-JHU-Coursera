@@ -1,0 +1,144 @@
+---
+title: "RMarkdown-Leaflet"
+author: "JackHo"
+date: "July 11, 2017"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Synopsis
+In this blog, I will try to integrate RMarkdown and Leaflet together to create a web page. I will use these two packages to demonstrate the data in data set that is called "Social Health Atlases of Australia: Local Government Areas". You could directly download the data set via this **[link](http://www.phidu.torrens.edu.au/current/data/sha-aust/lga/phidu_data_lga_aust.xls)**.
+
+## Get Data
+
+First, let's load R packages that I needed.
+
+```{r load_packages_dt, message=FALSE, warning=FALSE}
+library(ggmap)
+library(leaflet)
+library(dplyr)
+library(gdata)
+library(RCurl)
+library(stringr)
+library(data.table)
+library(htmlwidgets)
+```
+
+Then, read data into R. It can be simply done in two ways:
+
+- directly read the online data set (please make sure that the machine has set up the perl environment, try `perl -v` in the command line to verify it)
+- download the data first, then read it into R
+
+```{r message=FALSE, warning=FALSE, cache=TRUE}
+# please make sure that perl has already been installed on the machine
+# social_data_online <- read.xls(xls = "http://www.phidu.torrens.edu.au/current/data/sha-aust/lga/phidu_data_lga_aust.xls",sheet = "Early_childhood_development",verbose = F,skip=4, stringsAsFactors = FALSE,na.strings = c("NA","#DIV/0!","#","..")) %>% select(1:5)
+
+# or you could download it on your local machine
+social_data <- read.xls(xls = "./phidu_data_lga_aust.xls",sheet = "Early_childhood_development",verbose = F,skip=4, stringsAsFactors = FALSE,na.strings = c("NA","#DIV/0!","#","..")) %>% select(1:5)
+
+```
+
+```{r message=FALSE, echo=FALSE, warning=FALSE, cache=TRUE}
+# clean the data
+names(social_data) <- str_replace_all(string = names(social_data),pattern = "\\.", replacement = "_")
+# names(social_data) <- str_replace_all(string = names(social_data),pattern = "X", replacement = "\\%")
+names(social_data) <- str_replace_all(string = names(social_data),pattern = "__", replacement = "_")
+names(social_data) <- str_replace_all(string = names(social_data),pattern = "_$", replacement = "")
+social_data$Name <- str_replace(string = social_data$Name, pattern = " \\(.*", replacement = "")
+social_data$Address <- NA
+social_data$State <- NA
+social_data$Col <- NA
+social_data <- social_data[-c(578:617),]
+social_data$Children_developmentally_vulnerable_on_one_or_more_domains <- as.numeric(social_data$Children_developmentally_vulnerable_on_one_or_more_domains)
+social_data$Children_assessed_in_AEDC_first_year_of_school <- as.numeric(social_data$Children_assessed_in_AEDC_first_year_of_school)
+social_data$X_Children_developmentally_vulnerable_on_one_or_more_domains <- as.numeric(social_data$X_Children_developmentally_vulnerable_on_one_or_more_domains)
+
+for(index in 1:nrow(social_data)){
+      if(str_detect(string = social_data$Code[index], pattern = "^1")){
+            social_data$Address[index] <- paste(social_data$Name[index], "New South Wales, Australia", sep = ", ")
+            social_data$State[index] <- "New South Wales"
+            social_data$Col[index] <- "red"
+      }else if(str_detect(string = social_data$Code[index], pattern = "^2")){
+           social_data$Address[index] <- paste(social_data$Name[index], "Victoria, Australia", sep = ", ")
+            social_data$State[index] <- "Victoria"
+            social_data$Col[index] <- "orange"
+      }else if(str_detect(string = social_data$Code[index], pattern = "^3")){
+           social_data$Address[index] <- paste(social_data$Name[index], "Queensland, Australia", sep = ", ")
+            social_data$State[index] <- "Queensland"
+            social_data$Col[index] <- "yellow"
+      }else if(str_detect(string = social_data$Code[index], pattern = "^4")){
+           social_data$Address[index] <- paste(social_data$Name[index], "South Australia, Australia", sep = ", ")
+                       social_data$State[index] <- "South Australia"
+            social_data$Col[index] <- "green"
+      }else if(str_detect(string = social_data$Code[index], pattern = "^5")){
+           social_data$Address[index] <- paste(social_data$Name[index], "Western Australia, Australia", sep = ", ")
+                       social_data$State[index] <- "Western Australia"
+            social_data$Col[index] <- "blue"
+      }else if(str_detect(string = social_data$Code[index], pattern = "^6")){
+           social_data$Address[index] <- paste(social_data$Name[index], "Tasmania, Australia", sep = ", ")
+           social_data$State[index] <- "Tasmania"
+            social_data$Col[index] <- "purple"
+      }else if(str_detect(string = social_data$Code[index], pattern = "^7")){
+           social_data$Address[index] <- paste(social_data$Name[index], "Northern Territory, Australia", sep = ", ")
+                       social_data$State[index] <- "Northern Territory"
+            social_data$Col[index] <- "salmon"
+      }
+}
+
+```
+
+- Get the lat and lng of every place
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, cache=TRUE}
+social_data <- na.omit(social_data)
+placeCodes <- geocode(location = social_data$Address)
+social_data <- data.frame(social_data,lat=placeCodes$lat,lng=placeCodes$lon)
+social_data <- social_data %>% filter(Children_developmentally_vulnerable_on_one_or_more_domains>0)
+# saveRDS(object = social_data,file = "./social_data.rds")
+# social_data <- readRDS(file = "./social_data.rds")
+# saveRDS(object = placeCodes,file = "./placeCodes.rds")
+# placeCodes <- readRDS(file = "./placeCodes.rds")
+```
+
+## Createleaflet maps
+
+The map below demonstrates the distribution of the data collection points/places. By zooming in the map, you could easily see that there are several highly intensive points where contains more than 7 points. Coincidently, most of these places are close to the sea, such as the greater melbourne area, the greater Sydney and the greater Adelaide area. By clicking the small dots on the map, you will find out that **top 10** cites with the highest number of children who are developmentally vulnerable on one or more domains lie in **Victoria**, **New South Wales**, **Northern Territory** and **Queensland**. In **Greater Shepparton**, there are most children have such issues.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, cache=TRUE}
+social_data %>% leaflet() %>% addTiles() %>% addCircleMarkers(lng=~lng, lat=~lat,clusterOptions=markerClusterOptions(),popup = ~paste("There are ",as.character(Children_developmentally_vulnerable_on_one_or_more_domains)," kids developmentally vulnerable on one or more domains in ", Name,"." ,sep=""))
+```
+
+Manipulate the data calculating the sum and mean value of total and percentage of kids who are developmentally vulnerable on one or more domains in the states of Australia.
+
+```{r message=FALSE, warning=FALSE, cache=TRUE}
+# data manipulation
+stateStatus <- list(tapply(X = social_data$Children_developmentally_vulnerable_on_one_or_more_domains, INDEX = social_data$State, function(x) sum(x),simplify = F)) %>% rbindlist() %>% t() %>% data.frame() %>% rename(Children_developmentally_vulnerable_on_one_or_more_domains='.')
+stateStatus$Name <- row.names(stateStatus)
+stateStatus$Prop <- tapply(X = social_data$X_Children_developmentally_vulnerable_on_one_or_more_domains, INDEX = social_data$State, function(x) mean(x),simplify = T)
+stateStatus <- stateStatus %>% mutate(Col=as.factor(unique(social_data$Col))) %>% select(2,1,4,3)
+geoState <- geocode(location = paste(stateStatus$Name,", Australia",sep=""))
+stateStatus$lat <- geoState$lat
+stateStatus$lng <- geoState$lon
+# saveRDS(object = geoState,file = "./geoState.rds")
+# geoState <- readRDS(file = "./geoState.rds")
+```
+
+From the map below, it is obviously that the state has the highest number of children who are developmentally vulnerable on one or more domains is **New South Wales**. However, the state has the highest percentage of children who are developmentally vulnerable on one or more domains is **Northern Territory**.
+```{r}
+stateStatus %>% leaflet() %>% addTiles() %>% addCircleMarkers(lng=~lng, lat=~lat,popup = ~paste("There are ",as.character(Children_developmentally_vulnerable_on_one_or_more_domains)," (", round(Prop,4), "%)"," kids are developmentally vulnerable on one or more domains in ", Name,"." ,sep=""),radius = ~sqrt(Children_developmentally_vulnerable_on_one_or_more_domains)/3,weight = ~Prop/3,color = ~Col) %>% addLegend(labels = ~Name, colors = ~Col)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+mp1 <- social_data %>% leaflet() %>% addTiles() %>% addCircleMarkers(lng=~lng, lat=~lat,clusterOptions=markerClusterOptions(),popup = ~paste("There are ",as.character(Children_developmentally_vulnerable_on_one_or_more_domains)," kids developmentally vulnerable on one or more domains in ", Name,"." ,sep=""))
+
+mp2 <- stateStatus %>% leaflet() %>% addTiles() %>% addCircleMarkers(lng=~lng, lat=~lat,popup = ~paste("There are ",as.character(Children_developmentally_vulnerable_on_one_or_more_domains)," (", round(Prop,4), "%)"," kids are developmentally vulnerable on one or more domains in ", Name,"." ,sep=""),radius = ~sqrt(Children_developmentally_vulnerable_on_one_or_more_domains)/3,weight = ~Prop/3,color = ~Col) %>% addLegend(labels = ~Name, colors = ~Col)
+
+
+saveWidget(widget = mp1, file = "mp1.html", selfcontained = FALSE)
+saveWidget(widget = mp2, file = "mp2.html", selfcontained = FALSE)
+```
